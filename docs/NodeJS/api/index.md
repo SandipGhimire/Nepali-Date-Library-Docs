@@ -6,31 +6,31 @@ This section provides complete documentation for all classes, functions, and con
 
 ### Classes
 
-| Class                                                | Description                              |
-| ---------------------------------------------------- | ---------------------------------------- |
-| [NepaliDate](/docs/NepaliDate/api/nepali-date-class) | Main class for working with Nepali dates |
+| Class                                            | Description                              |
+| ------------------------------------------------ | ---------------------------------------- |
+| [NepaliDate](/docs/NodeJS/api/nepali-date-class) | Main class for working with Nepali dates |
 
 ### Functions
 
-| Function                                                   | Description                                |
-| ---------------------------------------------------------- | ------------------------------------------ |
-| [ADtoBS](/docs/NepaliDate/api/conversion-functions#adtobs) | Convert AD (Gregorian) date to BS (Nepali) |
-| [BStoAD](/docs/NepaliDate/api/conversion-functions#bstoad) | Convert BS (Nepali) date to AD (Gregorian) |
+| Function                                               | Description                                |
+| ------------------------------------------------------ | ------------------------------------------ |
+| [ADtoBS](/docs/NodeJS/api/conversion-functions#adtobs) | Convert AD (Gregorian) date to BS (Nepali) |
+| [BStoAD](/docs/NodeJS/api/conversion-functions#bstoad) | Convert BS (Nepali) date to AD (Gregorian) |
 
 ### Constants
 
-| Constant                                                      | Description                        |
-| ------------------------------------------------------------- | ---------------------------------- |
-| [MONTH_EN](/docs/NepaliDate/api/constants#month-names)        | English month names                |
-| [MONTH_NP](/docs/NepaliDate/api/constants#month-names)        | Nepali month names                 |
-| [MONTH_SHORT_EN](/docs/NepaliDate/api/constants#month-names)  | Short English month names          |
-| [MONTH_SHORT_NP](/docs/NepaliDate/api/constants#month-names)  | Short Nepali month names           |
-| [WEEK_EN](/docs/NepaliDate/api/constants#weekday-names)       | English weekday names              |
-| [WEEK_NP](/docs/NepaliDate/api/constants#weekday-names)       | Nepali weekday names               |
-| [WEEK_SHORT_EN](/docs/NepaliDate/api/constants#weekday-names) | Short English weekday names        |
-| [WEEK_SHORT_NP](/docs/NepaliDate/api/constants#weekday-names) | Short Nepali weekday names         |
-| [NUMBER_NP](/docs/NepaliDate/api/constants#nepali-numbers)    | Nepali digits (०-९)                |
-| [NEPALI_DATE_MAP](/docs/NepaliDate/api/constants#date-map)    | Complete date map for BS 2000-2100 |
+| Constant                                                  | Description                        |
+| --------------------------------------------------------- | ---------------------------------- |
+| [MONTH_EN](/docs/NodeJS/api/constants#month-names)        | English month names                |
+| [MONTH_NP](/docs/NodeJS/api/constants#month-names)        | Nepali month names                 |
+| [MONTH_SHORT_EN](/docs/NodeJS/api/constants#month-names)  | Short English month names          |
+| [MONTH_SHORT_NP](/docs/NodeJS/api/constants#month-names)  | Short Nepali month names           |
+| [WEEK_EN](/docs/NodeJS/api/constants#weekday-names)       | English weekday names              |
+| [WEEK_NP](/docs/NodeJS/api/constants#weekday-names)       | Nepali weekday names               |
+| [WEEK_SHORT_EN](/docs/NodeJS/api/constants#weekday-names) | Short English weekday names        |
+| [WEEK_SHORT_NP](/docs/NodeJS/api/constants#weekday-names) | Short Nepali weekday names         |
+| [NUMBER_NP](/docs/NodeJS/api/constants#nepali-numbers)    | Nepali digits (०-९)                |
+| [NEPALI_DATE_MAP](/docs/NodeJS/api/constants#date-map)    | Complete date map for BS 2000-2100 |
 
 ## Quick Import
 

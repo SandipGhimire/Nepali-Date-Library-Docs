@@ -6,12 +6,12 @@ This section covers common patterns and real-world use cases for the Nepali Date
 
 The library is designed to handle various date-related tasks in Nepali applications:
 
-| Use Case                   | Description                             | Link                                                                    |
-| -------------------------- | --------------------------------------- | ----------------------------------------------------------------------- |
-| **Date Conversion**        | Converting between AD and BS dates      | [→ Date Conversion](/docs/NepaliDate/use-cases/date-conversion)         |
-| **Calendar Generation**    | Building datepickers and calendars      | [→ Calendar Generation](/docs/NepaliDate/use-cases/calendar-generation) |
-| **Fiscal Year Operations** | Working with Nepal's fiscal year        | [→ Fiscal Year](/docs/NepaliDate/use-cases/fiscal-year)                 |
-| **Date Ranges**            | Working with week/month/year boundaries | [→ Date Ranges](/docs/NepaliDate/use-cases/date-ranges)                 |
+| Use Case                   | Description                             | Link                                                                |
+| -------------------------- | --------------------------------------- | ------------------------------------------------------------------- |
+| **Date Conversion**        | Converting between AD and BS dates      | [→ Date Conversion](/docs/NodeJS/use-cases/date-conversion)         |
+| **Calendar Generation**    | Building datepickers and calendars      | [→ Calendar Generation](/docs/NodeJS/use-cases/calendar-generation) |
+| **Fiscal Year Operations** | Working with Nepal's fiscal year        | [→ Fiscal Year](/docs/NodeJS/use-cases/fiscal-year)                 |
+| **Date Ranges**            | Working with week/month/year boundaries | [→ Date Ranges](/docs/NodeJS/use-cases/date-ranges)                 |
 
 ## Common Scenarios
 
