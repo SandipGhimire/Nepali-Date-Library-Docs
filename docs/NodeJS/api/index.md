@@ -30,7 +30,7 @@ This section provides complete documentation for all classes, functions, and con
 | [WEEK_SHORT_EN](/docs/NodeJS/api/constants#weekday-names) | Short English weekday names        |
 | [WEEK_SHORT_NP](/docs/NodeJS/api/constants#weekday-names) | Short Nepali weekday names         |
 | [NUMBER_NP](/docs/NodeJS/api/constants#nepali-numbers)    | Nepali digits (०-९)                |
-| [NEPALI_DATE_MAP](/docs/NodeJS/api/constants#date-map)    | Complete date map for BS 1943-2100 |
+| [NEPALI_DATE_MAP](/docs/NodeJS/api/constants#date-map)    | Complete date map for BS 1976-2100 |
 
 ## Quick Import
 

@@ -60,7 +60,7 @@ static daysInMonth(year: number, month: number): number
 
 **Parameters:**
 
-- `year` - Nepali year (1943-2100)
+- `year` - Nepali year (1976-2100)
 - `month` - Nepali month (0-11)
 
 **Returns:** Number of days in the given Nepali month
@@ -86,7 +86,7 @@ static isValid(year: number, month: number, day: number): boolean
 
 **Parameters:**
 
-- `year` - Nepali year (1943-2100)
+- `year` - Nepali year (1976-2100)
 - `month` - Nepali month (0-11)
 - `day` - Day of month (1-32)
 

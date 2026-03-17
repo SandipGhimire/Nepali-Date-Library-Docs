@@ -31,7 +31,7 @@ The library supports Nepali dates within the following range:
 
 | Calendar           | Start          | End                     |
 | ------------------ | -------------- | ----------------------- |
-| **Bikram Sambat**  | 1943 Baisakh 1 | 2100 Chaitra (Last day) |
+| **Bikram Sambat**  | 1976 Baisakh 1 | 2100 Chaitra (Last day) |
 | **Gregorian (AD)** | April 13, 1886 | ~April 2044             |
 
 This covers over **150 years** of dates with accurate month lengths for each year.
@@ -61,7 +61,7 @@ ad = BStoAD("2082-10-01") # '2026-01-14'
 
 ## Why Use This Library?
 
-1. **Accuracy**: Uses a comprehensive date map covering BS 1943-2100 with correct month lengths.
+1. **Accuracy**: Uses a comprehensive date map covering BS 1976-2100 with correct month lengths.
 2. **Full Featured**: Not just conversion - includes manipulation, comparison, formatting, and more.
 3. **Localization**: Native support for Nepali language and numerals.
 4. **Fiscal Year**: Built-in support for Nepal's fiscal year (starts Shrawan 1st).
