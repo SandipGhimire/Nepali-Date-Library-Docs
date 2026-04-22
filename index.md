@@ -39,6 +39,7 @@ features:
   gap: 20px;
   margin-top: 40px;
   justify-content: center;
+  background-color: transparent !important;
 }
 
 .lang-box {
