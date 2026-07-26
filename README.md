@@ -8,8 +8,9 @@ This documentation covers:
 
 - 📅 **Nepali Date Library (NodeJS)**: The core TypeScript/JavaScript library for BS/AD conversion and manipulation. [(GitHub)](https://github.com/SandipGhimire/Nepali-Date-Library-NodeJS)
 - 🐍 **Nepali Date Library (Python)**: The core Python library for BS/AD conversion and manipulation. [(GitHub)](https://github.com/SandipGhimire/nepali-date-library-python)
+- 🐘 **Nepali Date Library (PHP)**: The core PHP library for BS/AD conversion and manipulation. [(GitHub)](https://github.com/SandipGhimire/Nepali-Date-Library-PHP)
 - 🎨 **UI Components**: Documentation for upcoming Vue and React Nepali Date Pickers.
-- 📚 **Guides & API**: Comprehensive guides, examples, and full API references for both languages.
+- 📚 **Guides & API**: Comprehensive guides, examples, and full API references for all three languages.
 
 This site is statically generated using [VitePress](https://vitepress.dev/).
 

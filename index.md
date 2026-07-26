@@ -12,10 +12,13 @@ hero:
     - theme: alt
       text: Python Docs
       link: /docs/Python/getting-started
+    - theme: alt
+      text: PHP Docs
+      link: /docs/PHP/getting-started
 features:
   - icon: 🔄
     title: Multi-Language Support
-    details: Identical core logic available for both NodeJS (TypeScript) and Python projects.
+    details: Identical core logic available for NodeJS (TypeScript), Python, and PHP projects.
   - icon: 📅
     title: Accuracy First
     details: Supports BS 1976 to 2100 with accurate month lengths and leap years.
@@ -61,12 +64,12 @@ features:
 
 ## Quick Comparison
 
-| Feature          | NodeJS Package                | Python Package                          | PHP Package (Coming Soon) |
-| ---------------- | ----------------------------- | --------------------------------------- | ------------------------- |
-| **Package Name** | `nepali-date-library`         | `nepali-date-library`                   | `nepali-date-library`     |
-| **Language**     | TypeScript / JavaScript       | Python 3.x                              | PHP 8.x                   |
-| **Import**       | `import { NepaliDate } ...`   | `from nepali_date_library ...`          | `use NepaliDate\ ...`     |
-| **Main Use**     | Web Apps, React, Vue, Backend | Data Processing, Scripts, Django, Flask | Laravel, Symfony, APIs    |
+| Feature          | NodeJS Package                | Python Package                          | PHP Package                         |
+| ---------------- | ----------------------------- | --------------------------------------- | ------------------------------------ |
+| **Package Name** | `nepali-date-library`         | `nepali-date-library`                   | `sghimire/nepali-date-library`       |
+| **Language**     | TypeScript / JavaScript       | Python 3.x                              | PHP 7.1 - 8.5                        |
+| **Import**       | `import { NepaliDate } ...`   | `from nepali_date_library ...`          | `use NepaliDateLibrary\NepaliDate;`  |
+| **Main Use**     | Web Apps, React, Vue, Backend | Data Processing, Scripts, Django, Flask | Laravel, Symfony, APIs               |
 
 ---
 
@@ -90,9 +93,12 @@ date = NepaliDate()
 print(date.format("YYYY-MM-DD")) # 2082-10-01
 ```
 
-```php [PHP (Coming Soon)]
-// composer require sandip-ghimire/nepali-date-library
-// Stay tuned for the PHP version!
+```php [PHP]
+// composer require sghimire/nepali-date-library
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate();
+echo $date->format("YYYY-MM-DD"); // 2082-10-01
 ```
 
 :::
@@ -111,7 +117,8 @@ print(date.format("YYYY-MM-DD")) # 2082-10-01
     <a href="/docs/Python/">View Python Docs →</a>
   </div>
   <div class="lang-box">
-    <h3>🐘 PHP (Coming Soon)</h3>
-    <p>Support for PHP projects and Laravel integration is on the way.</p>
+    <h3>🐘 PHP</h3>
+    <p>Detailed documentation for PHP library usage, including Laravel and Symfony integration.</p>
+    <a href="/docs/PHP/">View PHP Docs →</a>
   </div>
 </div>
