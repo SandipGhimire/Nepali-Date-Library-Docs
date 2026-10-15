@@ -1,0 +1,9 @@
+{
+  "title": "Documentation",
+  "pages": [
+    "index"
+  ],
+  "root": true,
+  "description": "Nepali Date Library documentation and guides",
+  "icon": "BookOpen"
+}

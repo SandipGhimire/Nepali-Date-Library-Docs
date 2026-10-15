@@ -1,0 +1,27 @@
+name: Documentation issue
+description: Report an error, broken link, inaccurate code snippet, or typo in documentation.
+title: "[Doc Issue]: "
+labels: ["documentation"]
+body:
+  - type: input
+    id: url
+    attributes:
+      label: Page URL
+      description: URL of the documentation page on wefter.dev where the issue appears.
+      placeholder: "e.g. https://wefter.dev/docs/javascript-apis"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Issue description
+      description: What is incorrect, unclear, or broken?
+      placeholder: Describe the typo, broken link, or inaccurate snippet.
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Suggested correction
+      description: What should the documentation say instead?
+      placeholder: Provide the corrected text or code snippet.

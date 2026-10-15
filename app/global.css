@@ -1,0 +1,197 @@
+@import "tailwindcss";
+@import "fumadocs-ui/css/black.css";
+@import "fumadocs-ui/css/preset.css";
+
+:root {
+  --fd-layout-width: min(3000px, 100vw);
+}
+
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+
+  --primary: #E1804B;
+  --primary-hover: #C96937;
+  --primary-active: #AD5429;
+  --primary-foreground: #FFFFFF;
+  --primary-subtle: #F6E5DA;
+
+  --background: #F7F7F5;
+  --foreground: #262522;
+
+  --card: #FFFFFF;
+  --card-foreground: #262522;
+
+  --surface: #F0EFEC;
+  --surface-hover: #E9E7E2;
+
+  --border: #E5E2DC;
+  --input: #E5E2DC;
+  --ring: #E1804B;
+
+  --muted: #F0EFEC;
+  --muted-foreground: #77746E;
+
+  --success: #27845A;
+  --warning: #B7791F;
+  --destructive: #C43D3D;
+
+  /* Fumadocs UI Mapping */
+  --color-fd-background: #F7F7F5;
+  --color-fd-foreground: #262522;
+
+  --color-fd-muted: #F0EFEC;
+  --color-fd-muted-foreground: #77746E;
+
+  --color-fd-popover: #FFFFFF;
+  --color-fd-popover-foreground: #262522;
+
+  --color-fd-card: #FFFFFF;
+  --color-fd-card-foreground: #262522;
+
+  --color-fd-border: #E5E2DC;
+
+  --color-fd-primary: #E1804B;
+  --color-fd-primary-foreground: #FFFFFF;
+
+  --color-fd-secondary: #F0EFEC;
+  --color-fd-secondary-foreground: #262522;
+
+  --color-fd-accent: #F6E5DA;
+  --color-fd-accent-foreground: #AD5429;
+
+  --color-fd-ring: #E1804B;
+}
+
+.dark,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --primary: #E1804B;
+  --primary-hover: #F09665;
+  --primary-active: #C96937;
+  --primary-foreground: #171715;
+  --primary-subtle: #3A2920;
+
+  --background: #171715;
+  --foreground: #F3F1ED;
+
+  --card: #20201D;
+  --card-foreground: #F3F1ED;
+
+  --surface: #252420;
+  --surface-hover: #302E29;
+
+  --border: #383630;
+  --input: #383630;
+  --ring: #E1804B;
+
+  --muted: #252420;
+  --muted-foreground: #A6A39C;
+
+  --success: #55B987;
+  --warning: #E8B65B;
+  --destructive: #F07171;
+
+  /* Fumadocs UI Mapping */
+  --color-fd-background: #171715;
+  --color-fd-foreground: #F3F1ED;
+
+  --color-fd-muted: #252420;
+  --color-fd-muted-foreground: #A6A39C;
+
+  --color-fd-popover: #20201D;
+  --color-fd-popover-foreground: #F3F1ED;
+
+  --color-fd-card: #20201D;
+  --color-fd-card-foreground: #F3F1ED;
+
+  --color-fd-border: #383630;
+
+  --color-fd-primary: #E1804B;
+  --color-fd-primary-foreground: #171715;
+
+  --color-fd-secondary: #252420;
+  --color-fd-secondary-foreground: #F3F1ED;
+
+  --color-fd-accent: #3A2920;
+  --color-fd-accent-foreground: #F09665;
+
+  --color-fd-ring: #E1804B;
+}
+
+@theme {
+  --color-fd-background: #F7F7F5;
+  --color-fd-foreground: #262522;
+  --color-fd-muted: #F0EFEC;
+  --color-fd-muted-foreground: #77746E;
+  --color-fd-popover: #FFFFFF;
+  --color-fd-popover-foreground: #262522;
+  --color-fd-card: #FFFFFF;
+  --color-fd-card-foreground: #262522;
+  --color-fd-border: #E5E2DC;
+  --color-fd-primary: #E1804B;
+  --color-fd-primary-foreground: #FFFFFF;
+  --color-fd-secondary: #F0EFEC;
+  --color-fd-secondary-foreground: #262522;
+  --color-fd-accent: #F6E5DA;
+  --color-fd-accent-foreground: #AD5429;
+  --color-fd-ring: #E1804B;
+}
+
+.text-brand-gradient {
+  background: linear-gradient(135deg, #E1804B 0%, #C96937 50%, #AD5429 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.dark .text-brand-gradient,
+[data-theme="dark"] .text-brand-gradient {
+  background: linear-gradient(135deg, #F09665 0%, #E1804B 50%, #C96937 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+::selection {
+  background: #F6E5DA;
+  color: #AD5429;
+}
+
+.dark ::selection,
+[data-theme="dark"] ::selection {
+  background: #3A2920;
+  color: #F09665;
+}
+
+pre,
+code {
+  --color-fd-muted: #F0EFEC;
+}
+
+.dark pre,
+.dark code,
+[data-theme="dark"] pre,
+[data-theme="dark"] code {
+  --color-fd-muted: #20201D;
+}
+
+body {
+  background-color: #F7F7F5;
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(225, 128, 75, 0.04), transparent 45%),
+    radial-gradient(circle at 88% 92%, rgba(201, 105, 55, 0.03), transparent 45%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.dark body,
+[data-theme="dark"] body {
+  background-color: #171715;
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(225, 128, 75, 0.07), transparent 45%),
+    radial-gradient(circle at 88% 92%, rgba(240, 150, 101, 0.05), transparent 45%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}

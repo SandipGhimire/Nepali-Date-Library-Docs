@@ -1,0 +1,21 @@
+name: Content request
+description: Request a new guide, tutorial, or expanded documentation topic.
+title: "[Doc Request]: "
+labels: ["documentation"]
+body:
+  - type: textarea
+    id: topic
+    attributes:
+      label: Requested topic
+      description: What topic or concept needs documentation?
+      placeholder: Describe the subject matter or use case.
+    validations:
+      required: true
+  - type: textarea
+    id: audience
+    attributes:
+      label: Target audience and motivation
+      description: Who would benefit from this guide and why is it needed?
+      placeholder: Explain the use case.
+    validations:
+      required: true
