@@ -275,14 +275,14 @@ export default function HomePage() {
               </Link>
 
               <Link
-                href="/docs"
+                href="/docs/origination"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-fd-border bg-fd-card/80 px-5 py-3 text-sm font-semibold text-fd-foreground backdrop-blur-sm transition-all hover:bg-fd-accent hover:border-fd-border/80"
               >
                 <Code2 className="h-4 w-4 text-fd-muted-foreground" />
                 <span>Read Documentation</span>
               </Link>
 
-              <GithubStarButton repo="SandipGhimire/Nepali-Date-Library-Docs" className="px-5 py-3 text-sm" />
+              <GithubStarButton className="px-5 py-3 text-sm" />
             </div>
 
             {/* Terminal Command Bar */}

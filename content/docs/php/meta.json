@@ -1,0 +1,8 @@
+{
+  "title": "PHP",
+  "root": true,
+  "icon": "packagist",
+  "pages": [
+    "index"
+  ]
+}

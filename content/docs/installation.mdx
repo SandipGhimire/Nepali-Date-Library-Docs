@@ -1,0 +1,116 @@
+---
+title: Installation
+description: Install Nepali Date Library in your project using your preferred package manager across Node.js, Python, or PHP.
+icon: Download
+---
+
+Install the **Nepali Date Library** across your stack. Select your package manager below for quick copy-paste commands.
+
+---
+
+## Node.js / TypeScript
+
+Install `nepali-date-library` via pnpm, npm, yarn, or bun:
+
+<Tabs items={["pnpm", "npm", "yarn", "bun"]}>
+  <Tab value="pnpm">
+```bash
+pnpm add nepali-date-library
+```
+  </Tab>
+  <Tab value="npm">
+```bash
+npm install nepali-date-library
+```
+  </Tab>
+  <Tab value="yarn">
+```bash
+yarn add nepali-date-library
+```
+  </Tab>
+  <Tab value="bun">
+```bash
+bun add nepali-date-library
+```
+  </Tab>
+</Tabs>
+
+### Verify Installation
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const today = new NepaliDate();
+console.log(today.format("YYYY-MM-DD"));
+```
+
+---
+
+## Python
+
+Install `nepali-date-library` via pip, uv, or poetry:
+
+<Tabs items={["pip", "uv", "poetry"]}>
+  <Tab value="pip">
+```bash
+pip install nepali-date-library
+```
+  </Tab>
+  <Tab value="uv">
+```bash
+uv add nepali-date-library
+```
+  </Tab>
+  <Tab value="poetry">
+```bash
+poetry add nepali-date-library
+```
+  </Tab>
+</Tabs>
+
+### Verify Installation
+
+```python
+from nepali_date import NepaliDate
+
+today = NepaliDate.today()
+print(today.format("%Y-%m-%d"))
+```
+
+---
+
+## PHP
+
+Install `sghimire/nepali-date-library` via Composer:
+
+<Tabs items={["composer"]}>
+  <Tab value="composer">
+```bash
+composer require sghimire/nepali-date-library
+```
+  </Tab>
+</Tabs>
+
+### Verify Installation
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+use NepaliDate\NepaliDate;
+
+$today = new NepaliDate();
+echo $today->format('Y-m-d');
+```
+
+---
+
+## Ecosystem Registries
+
+| Environment | Package Name | Registry |
+| :--- | :--- | :--- |
+| **Node.js / TypeScript** | `nepali-date-library` | [npmjs.com/package/nepali-date-library](https://www.npmjs.com/package/nepali-date-library) |
+| **Python** | `nepali-date-library` | [pypi.org/project/nepali-date-library](https://pypi.org/project/nepali-date-library/) |
+| **PHP** | `sghimire/nepali-date-library` | [packagist.org/packages/sghimire/nepali-date-library](https://packagist.org/packages/sghimire/nepali-date-library) |
+

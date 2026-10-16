@@ -6,6 +6,20 @@ const withMDX = createMDX();
 const config = {
   reactStrictMode: true,
   transpilePackages: ["nepali-date-library"],
+  async redirects() {
+    return [
+      {
+        source: "/docs",
+        destination: "/docs/origination",
+        permanent: false,
+      },
+      {
+        source: "/docs/overview",
+        destination: "/docs/origination",
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default withMDX(config);

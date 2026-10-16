@@ -1,0 +1,8 @@
+{
+  "title": "Node.js",
+  "root": true,
+  "icon": "npm",
+  "pages": [
+    "index"
+  ]
+}

@@ -1,0 +1,119 @@
+---
+title: Overview
+description: Comprehensive guide, quick start, and feature reference for the Nepali Date Library in Node.js and TypeScript.
+icon: npm
+---
+
+The **Nepali Date Library** for Node.js provides a high-performance, zero-dependency toolkit for Bikram Sambat (BS) date manipulation, bidirectional Gregorian (AD) conversion, arithmetic, and formatting.
+
+<PackageMeta
+  distributor="npm"
+  packageName="nepali-date-library"
+  packageUrl="https://www.npmjs.com/package/nepali-date-library"
+  repoName="SandipGhimire/Nepali-Date-Library-NodeJS"
+  repoUrl="https://github.com/SandipGhimire/Nepali-Date-Library-NodeJS"
+  badges={[
+    {
+      alt: "Monthly Downloads",
+      src: "https://img.shields.io/npm/dm/nepali-date-library?style=flat&logo=npm&logoColor=white&label=Downloads%2FMonth&color=E1804B",
+      href: "https://www.npmjs.com/package/nepali-date-library"
+    },
+    {
+      alt: "Total Downloads",
+      src: "https://img.shields.io/npm/dt/nepali-date-library?style=flat&logo=npm&logoColor=white&label=Total%20Downloads&color=E1804B",
+      href: "https://www.npmjs.com/package/nepali-date-library"
+    },
+    {
+      alt: "npm Version",
+      src: "https://img.shields.io/npm/v/nepali-date-library?style=flat&logo=npm&logoColor=white&label=npm&color=E1804B",
+      href: "https://www.npmjs.com/package/nepali-date-library"
+    },
+    {
+      alt: "GitHub Stars",
+      src: "https://img.shields.io/github/stars/SandipGhimire/Nepali-Date-Library-NodeJS?style=flat&logo=github&logoColor=white&label=Stars&color=24292e",
+      href: "https://github.com/SandipGhimire/Nepali-Date-Library-NodeJS"
+    },
+    {
+      alt: "License",
+      src: "https://img.shields.io/badge/License-MIT-333333?style=flat",
+      href: "https://github.com/SandipGhimire/Nepali-Date-Library-NodeJS/blob/master/LICENSE"
+    }
+  ]}
+/>
+
+---
+
+## Installation
+
+Install via your preferred package manager:
+
+<Tabs items={["pnpm", "npm", "yarn", "bun"]}>
+  <Tab value="pnpm">
+```bash
+pnpm add nepali-date-library
+```
+  </Tab>
+  <Tab value="npm">
+```bash
+npm install nepali-date-library
+```
+  </Tab>
+  <Tab value="yarn">
+```bash
+yarn add nepali-date-library
+```
+  </Tab>
+  <Tab value="bun">
+```bash
+bun add nepali-date-library
+```
+  </Tab>
+</Tabs>
+
+---
+
+## Quick Start
+
+```typescript
+import { NepaliDate, ADtoBS, BStoAD } from "nepali-date-library";
+
+// 1. Current Nepali date
+const today = new NepaliDate();
+console.log(today.format("YYYY-MM-DD")); // e.g. "2081-06-29"
+
+// 2. Parse a BS date
+const event = new NepaliDate("2081-07-15");
+console.log(event.format("DDDD, MMMM D, YYYY")); // "Friday, Kartik 15, 2081"
+
+// 3. Convert to JavaScript Date (Gregorian AD)
+const adDate = event.toJsDate();
+console.log(adDate.toISOString()); // "2024-10-31T18:15:00.000Z"
+
+// 4. Standalone conversion helpers
+const bs = ADtoBS("2024-11-15"); // "2081-07-30"
+const ad = BStoAD("2081-07-30"); // "2024-11-15"
+```
+
+---
+
+## Core Capabilities
+
+- **Strict TypeScript Types**: Fully typed with comprehensive IntelliSense and autocomplete.
+- **Zero Runtime Dependencies**: Ultra-lightweight footprint suitable for Node.js, React, Next.js, and edge workers.
+- **Bidirectional Conversion**: Accurate conversion between Gregorian (AD) and Bikram Sambat (BS) from 1976 to 2100 BS.
+- **Date Arithmetic**: Add and subtract days, months, and years with accurate month-day boundary clamping.
+- **Fiscal Year Engine**: Built-in calculation for Nepali fiscal years (Shrawan to Ashadh) and financial quarters.
+- **Devanagari Localization**: Native formatting with Nepali numerals (`२०८१`), month names (`कार्तिक`), and weekdays (`शुक्रबार`).
+
+---
+
+## Package Details
+
+| Specification | Resource & Link |
+| :--- | :--- |
+| **Package Name** | `nepali-date-library` |
+| **npm Registry** | [npmjs.com/package/nepali-date-library](https://www.npmjs.com/package/nepali-date-library) |
+| **GitHub Repository** | [SandipGhimire/Nepali-Date-Library-NodeJS](https://github.com/SandipGhimire/Nepali-Date-Library-NodeJS) |
+| **Download Metrics** | [View Stats on npmjs.com](https://www.npmjs.com/package/nepali-date-library) |
+| **Runtime Support** | Node.js 18+, Bun 1.0+, Deno, Modern Browsers |
+| **License** | MIT |

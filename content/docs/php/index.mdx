@@ -1,0 +1,114 @@
+---
+title: Overview
+description: Comprehensive guide, quick start, and feature reference for the Nepali Date Library in PHP.
+icon: packagist
+---
+
+The **Nepali Date Library** for PHP is an object-oriented Composer library providing Bikram Sambat (BS) date conversion, arithmetic, calendar formatting, and fiscal year calculations for PHP 8.0+.
+
+<PackageMeta
+  distributor="Packagist"
+  packageName="sghimire/nepali-date-library"
+  packageUrl="https://packagist.org/packages/sghimire/nepali-date-library"
+  repoName="SandipGhimire/Nepali-Date-Library-PHP"
+  repoUrl="https://github.com/SandipGhimire/Nepali-Date-Library-PHP"
+  badges={[
+    {
+      alt: "Monthly Downloads",
+      src: "https://img.shields.io/packagist/dm/sghimire/nepali-date-library?style=flat&logo=packagist&logoColor=white&label=Downloads%2FMonth&color=777BB4",
+      href: "https://packagist.org/packages/sghimire/nepali-date-library"
+    },
+    {
+      alt: "Total Downloads",
+      src: "https://img.shields.io/packagist/dt/sghimire/nepali-date-library?style=flat&logo=packagist&logoColor=white&label=Total%20Downloads&color=777BB4",
+      href: "https://packagist.org/packages/sghimire/nepali-date-library"
+    },
+    {
+      alt: "Packagist Version",
+      src: "https://img.shields.io/packagist/v/sghimire/nepali-date-library?style=flat&logo=packagist&logoColor=white&label=Packagist&color=777BB4",
+      href: "https://packagist.org/packages/sghimire/nepali-date-library"
+    },
+    {
+      alt: "PHP Support",
+      src: "https://img.shields.io/packagist/php-v/sghimire/nepali-date-library?style=flat&logo=php&logoColor=white&label=PHP&color=777BB4",
+      href: "https://packagist.org/packages/sghimire/nepali-date-library"
+    },
+    {
+      alt: "GitHub Stars",
+      src: "https://img.shields.io/github/stars/SandipGhimire/Nepali-Date-Library-PHP?style=flat&logo=github&logoColor=white&label=Stars&color=24292e",
+      href: "https://github.com/SandipGhimire/Nepali-Date-Library-PHP"
+    },
+    {
+      alt: "License",
+      src: "https://img.shields.io/badge/License-MIT-333333?style=flat",
+      href: "https://github.com/SandipGhimire/Nepali-Date-Library-PHP/blob/master/LICENSE"
+    }
+  ]}
+/>
+
+---
+
+## Installation
+
+Install using Composer:
+
+<Tabs items={["composer"]}>
+  <Tab value="composer">
+```bash
+composer require sghimire/nepali-date-library
+```
+  </Tab>
+</Tabs>
+
+---
+
+## Quick Start
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+use NepaliDate\NepaliDate;
+
+// 1. Current Nepali date
+$nepaliDate = new NepaliDate();
+echo $nepaliDate->format('Y-m-d'); // e.g. 2081-06-29
+
+// 2. Parse specific BS date
+$event = new NepaliDate('2081-07-15');
+echo $event->format('l, F j, Y'); // "Friday, Kartik 15, 2081"
+
+// 3. Convert to Gregorian (AD)
+$adDate = $event->toAD(); // "2024-10-31"
+
+// 4. Standalone conversion helpers
+use function NepaliDate\ad_to_bs;
+use function NepaliDate\bs_to_ad;
+
+$bs = ad_to_bs('2024-11-15'); // "2081-07-30"
+$ad = bs_to_ad('2081-07-30'); // "2024-11-15"
+```
+
+---
+
+## Core Capabilities
+
+- **Modern PHP Standards**: Strict typing, PSR compliance, and full support for PHP 8.0 to 8.4+.
+- **Bidirectional Conversion**: Accurate, validated conversions between AD and BS spanning 1976 to 2100 BS.
+- **Date Arithmetic**: Fluent methods (`addDays`, `subDays`, `addMonths`, `subMonths`) with month-end boundary clamping.
+- **Fiscal Calendar Engine**: Automatic resolution of Nepali fiscal years (e.g. `2081/82`) and quarters.
+- **Localization**: Supports formatting in English and Nepali Devanagari script.
+
+---
+
+## Package Details
+
+| Specification | Resource & Link |
+| :--- | :--- |
+| **Package Name** | `sghimire/nepali-date-library` |
+| **Packagist Registry** | [packagist.org/packages/sghimire/nepali-date-library](https://packagist.org/packages/sghimire/nepali-date-library) |
+| **GitHub Repository** | [SandipGhimire/Nepali-Date-Library-PHP](https://github.com/SandipGhimire/Nepali-Date-Library-PHP) |
+| **Download Metrics** | [View Stats on Packagist](https://packagist.org/packages/sghimire/nepali-date-library) |
+| **PHP Support** | PHP 8.0, 8.1, 8.2, 8.3, 8.4+ |
+| **License** | MIT |

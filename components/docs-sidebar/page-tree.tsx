@@ -4,6 +4,7 @@ import type * as PageTree from "fumadocs-core/page-tree";
 import type * as Base from "./base";
 import { usePathname } from "fumadocs-core/framework";
 import { isActive } from "../../lib/urls";
+import { FileCode2 } from "lucide-react";
 
 export interface SidebarPageTreeComponents {
   Item: FC<{ item: PageTree.Item }>;
@@ -82,7 +83,12 @@ export function createPageTreeRenderer({
 
     if (Item) return <Item item={node} />;
     return (
-      <SidebarItem href={node.url} external={node.external} active={isActive(node.url, pathname)} icon={node.icon}>
+      <SidebarItem
+        href={node.url}
+        external={node.external}
+        active={isActive(node.url, pathname)}
+        icon={node.icon ?? <FileCode2 className="size-4 shrink-0" />}
+      >
         {node.name}
       </SidebarItem>
     );
@@ -96,11 +102,49 @@ export function createPageTreeRenderer({
     const { root } = useTreeContext();
     const pathname = usePathname();
 
+    const displayNodes = useMemo(() => {
+      // Check if root is already scoped to a library folder (no child folders):
+      const hasLibraryFolders = root.children.some((n) => n.type === "folder");
+
+      if (!hasLibraryFolders) {
+        return root.children;
+      }
+
+      // If at top-level root (e.g. /docs/origination or /docs/installation), scope to loaded library (default "nodejs"):
+      let activeLibraryKey = "nodejs";
+      if (pathname.startsWith("/docs/php")) {
+        activeLibraryKey = "php";
+      } else if (pathname.startsWith("/docs/python")) {
+        activeLibraryKey = "python";
+      }
+
+      const matchedFolder = root.children.find((node) => {
+        if (node.type !== "folder") return false;
+        const normalizedName = String(node.name || "")
+          .toLowerCase()
+          .replace(/[\s_-]/g, "");
+        const nameMatch = normalizedName === activeLibraryKey.toLowerCase().replace(/[\s_-]/g, "");
+        const urlMatch = node.children.some(
+          (c) => c.type === "page" && c.url.includes(`/docs/${activeLibraryKey}`),
+        );
+        return nameMatch || urlMatch;
+      });
+
+      if (matchedFolder && matchedFolder.type === "folder") {
+        if (matchedFolder.children.length === 0 && matchedFolder.index) {
+          return [matchedFolder.index];
+        }
+        return matchedFolder.children;
+      }
+
+      return [];
+    }, [root.children, pathname]);
+
     return (
       <RendererContext
         value={useMemo(() => ({ Folder, Item, Separator, pathname }), [Folder, Item, Separator, pathname])}
       >
-        <Fragment key={root.$id}>{renderList(root.children)}</Fragment>
+        <Fragment key={root.$id}>{renderList(displayNodes)}</Fragment>
       </RendererContext>
     );
   };

@@ -434,7 +434,6 @@ echo $date->toAD();
                   : "bg-white/10 text-zinc-300 hover:bg-white/15"
               }`}
             >
-              <span>🐍</span>
               <span>Python</span>
             </button>
 

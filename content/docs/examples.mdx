@@ -1,0 +1,178 @@
+---
+title: Examples & Practical Recipes
+description: Real-world patterns and cross-language code recipes for working with Nepali dates.
+icon: Code2
+---
+
+Practical, copy-pasteable patterns for common tasks when working with Bikram Sambat dates across **Node.js / TypeScript**, **PHP**, and **Python**.
+
+---
+
+## 1. Storing User-Entered BS Date in Database
+
+A recommended architecture pattern is to accept Bikram Sambat dates from user forms, convert them to standard Gregorian (AD) ISO dates for SQL/NoSQL storage, and convert back to BS when rendering.
+
+### Node.js / TypeScript
+```typescript
+import { NepaliDate, BStoAD, ADtoBS } from "nepali-date-library";
+
+// 1. User submits BS date: "2081-06-29"
+const userBSInput = "2081-06-29";
+
+// 2. Convert to AD for database insertion
+const adDateString = BStoAD(userBSInput); // "2024-10-15"
+// db.users.insert({ birth_date: new Date(adDateString) })
+
+// 3. When reading from database, convert back to BS
+const dbAdDate = "2024-10-15";
+const displayBSDate = ADtoBS(dbAdDate); // "2081-06-29"
+```
+
+### PHP
+```php
+use NepaliDateLibrary\NepaliDate;
+use function NepaliDateLibrary\BStoAD;
+use function NepaliDateLibrary\ADtoBS;
+
+$userBSInput = '2081-06-29';
+
+// Convert to AD for database (MySQL DATE column)
+$adDate = BStoAD($userBSInput); // '2024-10-15'
+
+// Convert back to BS for presentation
+$displayBS = ADtoBS($adDate); // '2081-06-29'
+```
+
+### Python
+```python
+from nepali_date_library import BStoAD, ADtoBS
+
+user_bs = "2081-06-29"
+
+# Convert to Gregorian for Django / SQLAlchemy model
+ad_str = BStoAD(user_bs) # "2024-10-15"
+
+# Convert back to BS
+display_bs = ADtoBS(ad_str) # "2081-06-29"
+```
+
+---
+
+## 2. Calculating Age from a Bikram Sambat Date of Birth
+
+Calculate precise age breakdown (Years, Months, Days) from a BS date of birth:
+
+### Node.js / TypeScript
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+function calculateAge(dobBS: string) {
+  const birth = new NepaliDate(dobBS);
+  const today = new NepaliDate(); // Today in BS
+
+  let years = today.getYear() - birth.getYear();
+  let months = today.getMonth() - birth.getMonth();
+  let days = today.getDate() - birth.getDate();
+
+  if (days < 0) {
+    months -= 1;
+    days += 30; // approximate month adjustment
+  }
+  if (months < 0) {
+    years -= 1;
+    months += 12;
+  }
+
+  return { years, months, days };
+}
+
+console.log(calculateAge("2064-03-23"));
+// { years: 17, months: 3, days: 6 }
+```
+
+---
+
+## 3. Nepali Fiscal Year & Quarterly Reporting
+
+The Nepali fiscal year runs from **1 Shrawan (Month 4)** to **Ashadh end (Month 3)**.
+
+### PHP (Laravel / Accounting)
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate('2081-06-29');
+
+// Get Fiscal Year string
+echo $date->getFiscalYear(); // "2081/82"
+
+// Get Quarter (1 to 4)
+echo $date->getQuarter(); // 1 (Shrawan - Ashoj)
+
+// Get Start and End dates of Q2 (Kartik to Poush)
+$q2 = NepaliDate::getQuarter(2, 2081);
+echo "Q2 Start: " . $q2['start']->format('YYYY-MM-DD'); // 2081-07-01
+echo "Q2 End: " . $q2['end']->format('YYYY-MM-DD');     // 2081-09-29
+```
+
+### Node.js / TypeScript
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-06-29");
+console.log(`Fiscal Year: ${date.getFiscalYear()}`); // "2081/82"
+console.log(`Fiscal Quarter: Q${date.getQuarter()}`); // "Q1"
+```
+
+---
+
+## 4. Date Arithmetic & Expiry Tracking
+
+Add or subtract days, months, and years with built-in month-length clamping:
+
+### Python
+```python
+from nepali_date_library import NepaliDate
+
+subscription = NepaliDate("2081-01-31")
+
+# Add 1 month (safely clamps to Jestha end without month overflow)
+subscription.add_months(1)
+print("Next renewal:", subscription.format("YYYY-MM-DD"))
+
+# Add 15 days
+subscription.add_days(15)
+print("Grace period:", subscription.format("YYYY-MM-DD"))
+```
+
+### Node.js / TypeScript
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const contract = new NepaliDate("2081-01-15");
+
+// 90-day review period
+contract.addDays(90);
+console.log(contract.format("DDDD, MMMM D, YYYY"));
+```
+
+---
+
+## 5. Devanagari Localization & Formatting
+
+Render authentic Nepali dates with native script and Devanagari numerals:
+
+### Node.js / TypeScript
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-07-15");
+
+// English formatting
+console.log(date.format("YYYY MMMM DD, DDDD"));
+// "2081 Kartik 15, Friday"
+
+// Devanagari Nepali script formatting
+console.log(date.format("yyyy mmmm dd, dddd"));
+// "२०८१ कार्तिक १५, शुक्रबार"
+```
+

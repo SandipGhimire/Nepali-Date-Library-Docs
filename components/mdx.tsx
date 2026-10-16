@@ -1,5 +1,8 @@
 import defaultMdxComponents from "fumadocs-ui/mdx";
 import { Step, Steps } from "fumadocs-ui/components/steps";
+import { Tab, Tabs } from "fumadocs-ui/components/tabs";
+import { PackageMeta } from "@/components/docs/package-meta";
+import { Timeline, TimelineItem } from "@/components/docs/timeline";
 import type { MDXComponents } from "mdx/types";
 
 export function getMDXComponents(components?: MDXComponents) {
@@ -7,6 +10,11 @@ export function getMDXComponents(components?: MDXComponents) {
     ...defaultMdxComponents,
     Step,
     Steps,
+    Tab,
+    Tabs,
+    PackageMeta,
+    Timeline,
+    TimelineItem,
     ...components,
   } satisfies MDXComponents;
 }

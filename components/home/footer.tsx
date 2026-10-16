@@ -92,11 +92,11 @@ export function Footer({ className }: { className?: string }) {
             <span>&copy; {new Date().getFullYear()} Nepali Date Library Ecosystem. Open Source under MIT License.</span>
           </div>
           <div className="flex items-center gap-5 font-medium">
-            <Link href="/docs" className="hover:text-fd-foreground transition-colors">
+            <Link href="/docs/origination" className="hover:text-fd-foreground transition-colors">
               Documentation
             </Link>
             <a
-              href="https://github.com/SandipGhimire/Nepali-Date-Library-Docs"
+              href="https://github.com/SandipGhimire/Nepali-Date-Library"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-1 hover:text-fd-foreground transition-colors"
