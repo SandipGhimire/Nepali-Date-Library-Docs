@@ -1,0 +1,145 @@
+---
+title: date.format()
+description: API reference for the date.format() method and format pattern tokens.
+icon: FileText
+---
+
+Formats a `NepaliDate` instance into a customized string using token patterns for English and Nepali numerals, months, and weekdays.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+format(formatStr: string): string;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `formatStr` | `string` | Yes | Formatting template string containing pattern tokens. |
+
+---
+
+## Return Value
+
+* **Type**: `string`
+* The formatted date string with all tokens substituted.
+
+---
+
+## Token Reference
+
+Uppercase characters produce English representations, while lowercase characters produce Devanagari (Nepali) representations.
+
+### Year Tokens
+
+| Token | Output | Description | Example (2081 BS) |
+| :--- | :--- | :--- | :--- |
+| `YYYY` | English 4-digit year | Full Gregorian-style digit year | `"2081"` |
+| `YYY` | English 3-digit year | Last 3 digits | `"081"` |
+| `YY` | English 2-digit year | Last 2 digits | `"81"` |
+| `yyyy` | Nepali 4-digit year | Devanagari numerals | `"२०८१"` |
+| `yyy` | Nepali 3-digit year | Last 3 digits in Devanagari | `"०८१"` |
+| `yy` | Nepali 2-digit year | Last 2 digits in Devanagari | `"८१"` |
+
+### Month Tokens
+
+| Token | Output | Description | Example (Baisakh) |
+| :--- | :--- | :--- | :--- |
+| `M` | English 1-digit | Month number (`1-12`) | `"1"` |
+| `MM` | English 2-digit | Zero-padded month number (`01-12`) | `"01"` |
+| `MMM` | English 3-letter | Abbreviated month name | `"Bai"` |
+| `MMMM` | English Full | Complete romanized month name | `"Baisakh"` |
+| `m` | Nepali 1-digit | Devanagari month number (`१-१२`) | `"१"` |
+| `mm` | Nepali 2-digit | Zero-padded Devanagari month number | `"०१"` |
+| `mmm` | Nepali Short | Abbreviated Devanagari month name | `"बै"` |
+| `mmmm` | Nepali Full | Complete Devanagari month name | `"बैशाख"` |
+
+### Day and Weekday Tokens
+
+| Token | Output | Description | Example (Day 5, Sunday) |
+| :--- | :--- | :--- | :--- |
+| `D` | English 1-digit | Day of the month (`1-32`) | `"5"` |
+| `DD` | English 2-digit | Zero-padded day of the month (`01-32`) | `"05"` |
+| `DDD` | English Short | Abbreviated weekday name | `"Sun"` |
+| `DDDD` | English Full | Complete weekday name | `"Sunday"` |
+| `d` | Nepali 1-digit | Devanagari day of the month (`१-३२`) | `"५"` |
+| `dd` | Nepali 2-digit | Zero-padded Devanagari day of the month | `"०५"` |
+| `ddd` | Nepali Short | Abbreviated Devanagari weekday | `"आइत"` |
+| `dddd` | Nepali Full | Complete Devanagari weekday | `"आइतबार"` |
+
+---
+
+## Escaping Literal Characters
+
+To include literal characters that conflict with format tokens (such as `M`, `D`, `Y`, `m`, `d`, `y`), wrap the text inside double quotes (`"`):
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-01-25");
+
+const formatted = date.format('"Date:" YYYY-MM-DD');
+console.log(formatted); // 'Date: 2081-01-25'
+```
+
+---
+
+## Examples
+
+### Standard ISO-Style Formatting
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-01-05");
+
+console.log(date.format("YYYY-MM-DD")); // "2081-01-05"
+console.log(date.format("YYYY/MM/DD")); // "2081/01/05"
+```
+
+### Full English Date with Weekday
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-01-25");
+
+console.log(date.format("DDDD, MMMM DD, YYYY"));
+// "Thursday, Baisakh 25, 2081"
+```
+
+### Native Nepali Devanagari Formatting
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-01-25");
+
+console.log(date.format("dddd, mmmm dd, yyyy"));
+// "बिहिबार, बैशाख २५, २०८१"
+
+console.log(date.format("yyyy-mm-dd"));
+// "२०८१-०१-२५"
+```
+
+---
+
+## Related
+
+* [`date.toString()`](/docs/nodejs/methods/to-string): Default `YYYY/MM/DD` string representation.
+* [`MONTH_EN`](/docs/nodejs/constants/month-en): Array of English month names.
+* [`MONTH_NP`](/docs/nodejs/constants/month-np): Array of Nepali month names.
+

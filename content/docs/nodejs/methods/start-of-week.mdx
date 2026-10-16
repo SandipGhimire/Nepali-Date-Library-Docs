@@ -1,0 +1,87 @@
+---
+title: date.startOfWeek()
+description: API reference for the date.startOfWeek() method.
+icon: CalendarRange
+---
+
+Returns a new `NepaliDate` instance representing the first day of the week containing the current date, normalized to midnight (`00:00:00.000`).
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+startOfWeek(startOfWeek?: number): NepaliDate;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Default | Description |
+| :--- | :--- | :---: | :---: | :--- |
+| `startOfWeek` | `number` | No | `0` | Day of week index (`0-6`), where `0` is Sunday and `1` is Monday. |
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* Returns a new `NepaliDate` instance set to the start of the week at midnight. The original instance is not modified.
+
+---
+
+## Exceptions
+
+Throws an `Error` if `startOfWeek` is not an integer between `0` and `6`:
+
+```typescript
+"startOfWeek must be an integer between 0 and 6"
+```
+
+---
+
+## Examples
+
+### Default Week Start (Sunday)
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// Suppose date falls on a Wednesday (day 3)
+const date = new NepaliDate("2081-02-16");
+
+const weekStart = date.startOfWeek();
+console.log(weekStart.getDay()); // 0 (Sunday)
+console.log(weekStart.getHours()); // 0
+console.log(weekStart.format("YYYY-MM-DD"));
+```
+
+### Custom Week Start (Monday)
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-02-16");
+
+// Week starts on Monday (1)
+const mondayStart = date.startOfWeek(1);
+console.log(mondayStart.getDay()); // 1 (Monday)
+```
+
+---
+
+## Related
+
+* [`date.endOfWeek()`](/docs/nodejs/methods/end-of-week): Return the end of the week.
+* [`date.startOfDay()`](/docs/nodejs/methods/start-of-day): Return the start of the day.
+* [`date.getDay()`](/docs/nodejs/methods/get-day): Get current day of week index (`0-6`).
+

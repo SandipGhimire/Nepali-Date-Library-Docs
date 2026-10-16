@@ -1,0 +1,66 @@
+---
+title: date.isLeapYear()
+description: API reference for the date.isLeapYear() method.
+icon: Calendar
+---
+
+Checks whether the current Bikram Sambat year has 366 or more days based on astronomical calendar mapping.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+isLeapYear(): boolean;
+```
+
+---
+
+## Parameters
+
+This method does not take any parameters.
+
+---
+
+## Return Value
+
+* **Type**: `boolean`
+* Returns `true` if the total days in the current Bikram Sambat year is greater than or equal to 366; otherwise returns `false`.
+
+---
+
+## Background
+
+Unlike the Gregorian calendar which inserts a leap day every 4 years on February 29, the Bikram Sambat calendar is a sidereal solar calendar where each month's duration is determined by the exact astrological entry (Sankranti) of the Sun into each zodiac constellation. Consequently, the total number of days in a Bikram Sambat year fluctuates between 365 and 366 days based on astronomical observation data.
+
+---
+
+## Examples
+
+### Checking if a Year is a Leap Year
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date2081 = new NepaliDate("2081-01-01");
+console.log(date2081.isLeapYear());
+
+const date2080 = new NepaliDate("2080-01-01");
+console.log(date2080.isLeapYear());
+```
+
+---
+
+## Related
+
+* [`date.daysInMonth()`](/docs/nodejs/methods/days-in-month): Query days in a specific month.
+* [`date.getYear()`](/docs/nodejs/methods/get-year): Retrieve current year.
+

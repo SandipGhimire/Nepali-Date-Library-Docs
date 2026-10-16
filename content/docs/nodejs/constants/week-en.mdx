@@ -1,0 +1,67 @@
+---
+title: WEEK_EN
+description: API reference for the WEEK_EN English weekday name constant array.
+icon: CalendarDays
+---
+
+An array containing the standard full English names of the 7 days of the week, indexed `0` (Sunday) through `6` (Saturday).
+
+---
+
+## Import
+
+```typescript
+import { WEEK_EN } from "nepali-date-library";
+```
+
+---
+
+## Value
+
+```typescript
+export const WEEK_EN = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+```
+
+---
+
+## Index Mapping
+
+| Index | Day Name |
+| :---: | :--- |
+| `0` | `"Sunday"` |
+| `1` | `"Monday"` |
+| `2` | `"Tuesday"` |
+| `3` | `"Wednesday"` |
+| `4` | `"Thursday"` |
+| `5` | `"Friday"` |
+| `6` | `"Saturday"` |
+
+---
+
+## Examples
+
+### Getting Current Weekday Name
+
+```typescript
+import { WEEK_EN, NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-01-25");
+console.log(WEEK_EN[date.getDay()]); // "Thursday"
+```
+
+---
+
+## Related
+
+* [`WEEK_SHORT_EN`](/docs/nodejs/constants/week-short-en): Abbreviated English weekday names.
+* [`WEEK_NP`](/docs/nodejs/constants/week-np): Devanagari Nepali weekday names.
+* [`NepaliDate.getDayName()`](/docs/nodejs/static/get-day-name): Static helper with locale options.
+

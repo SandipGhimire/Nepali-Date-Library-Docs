@@ -1,0 +1,69 @@
+---
+title: date.setMonth()
+description: API reference for the date.setMonth() method.
+icon: Edit3
+---
+
+Sets the Bikram Sambat month on the current `NepaliDate` instance and recalculates the internal timestamp.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+setMonth(month: number): void;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `month` | `number` | Yes | **0-indexed** month integer (`0` for Baisakh to `11` for Chaitra). |
+
+---
+
+## Return Value
+
+* **Type**: `void`
+* Mutates the current `NepaliDate` instance in place.
+
+---
+
+## Exceptions
+
+| Error Message | Trigger Condition |
+| :--- | :--- |
+| `Invalid nepali month must be between 1 - 12` | Thrown if `month` is outside `0` to `11`. |
+
+---
+
+## Example
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// 2081 Baisakh 15 (month index 0)
+const date = new NepaliDate("2081-01-15");
+
+// Shift to Shrawan (month index 3)
+date.setMonth(3);
+console.log(date.format("YYYY-MM-DD")); // "2081-04-15"
+```
+
+---
+
+## Related
+
+* [`date.getMonth()`](/docs/nodejs/methods/get-month): Retrieve the current month index.
+* [`date.setDate()`](/docs/nodejs/methods/set-date): Mutate the day component.
+

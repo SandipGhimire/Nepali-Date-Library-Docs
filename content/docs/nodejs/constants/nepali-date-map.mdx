@@ -1,0 +1,85 @@
+---
+title: NEPALI_DATE_MAP
+description: API reference for the NEPALI_DATE_MAP astronomical calendar lookup constant.
+icon: Database
+---
+
+An array of metadata objects defining the exact astronomical day counts, monthly distributions, and cumulative day offsets for every Bikram Sambat calendar year from `1976` BS to `2100` BS.
+
+---
+
+## Import
+
+```typescript
+import { NEPALI_DATE_MAP } from "nepali-date-library";
+```
+
+---
+
+## Type Definition
+
+```typescript
+export const NEPALI_DATE_MAP: {
+  year: number;
+  days: number[];
+  totalDays: number;
+  daysTillNow: number;
+}[];
+```
+
+---
+
+## Object Schema
+
+Each entry in the array represents one Bikram Sambat year and adheres to the following structure:
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `year` | `number` | The Bikram Sambat year (e.g. `2081`). |
+| `days` | `number[]` | An array of 12 integers representing the day count of each month from Baisakh (`index 0`) to Chaitra (`index 11`). |
+| `totalDays` | `number` | Total number of days in that Bikram Sambat year (typically `365` or `366`). |
+| `daysTillNow` | `number` | Cumulative count of days elapsed from calendar epoch up to the end of this year. |
+
+---
+
+## Range and Epoch
+
+* **Start Year**: `1976` BS (Gregorian equivalent: April 13, 1919)
+* **End Year**: `2100` BS
+* **Total Entries**: 125 historical and future astronomical calendar tables.
+
+---
+
+## Examples
+
+### Accessing Year Metadata
+
+```typescript
+import { NEPALI_DATE_MAP } from "nepali-date-library";
+
+// Find data for year 2081 BS
+const year2081 = NEPALI_DATE_MAP.find((item) => item.year === 2081);
+
+console.log(year2081?.year);       // 2081
+console.log(year2081?.days);       // [31, 32, 31, 32, 31, 30, 30, 30, 29, 29, 30, 30]
+console.log(year2081?.totalDays);  // 365
+```
+
+### Inspecting Specific Month Length
+
+```typescript
+import { NEPALI_DATE_MAP } from "nepali-date-library";
+
+// 2081 Baisakh (index 0) has 31 days
+const baisakhDays = NEPALI_DATE_MAP[2081 - 1976].days[0];
+console.log(`2081 Baisakh has ${baisakhDays} days.`);
+```
+
+---
+
+## Related
+
+* [`NepaliDate.minimum()`](/docs/nodejs/static/minimum): Lower calendar limit.
+* [`NepaliDate.maximum()`](/docs/nodejs/static/maximum): Upper calendar limit.
+* [`date.daysInMonth()`](/docs/nodejs/methods/days-in-month): Query days in a month.
+

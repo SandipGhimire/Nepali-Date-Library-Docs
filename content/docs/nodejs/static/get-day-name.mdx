@@ -1,0 +1,95 @@
+---
+title: NepaliDate.getDayName()
+description: API reference for the static NepaliDate.getDayName() method.
+icon: Calendar
+---
+
+Returns the localized name of a weekday index (`0-6`, where `0` is Sunday) in English or Devanagari (Nepali), supporting full and abbreviated formats.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+static getDayName(day: number, short?: boolean, nepali?: boolean): string;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Default | Description |
+| :--- | :--- | :---: | :---: | :--- |
+| `day` | `number` | Yes | - | Day of week index (`0-6`, where `0` is Sunday and `6` is Saturday). |
+| `short` | `boolean` | No | `false` | When `true`, returns the abbreviated 3-letter or short weekday name. |
+| `nepali` | `boolean` | No | `false` | When `true`, returns the weekday name in Devanagari script. |
+
+---
+
+## Return Value
+
+* **Type**: `string`
+* Localized day of week name string.
+
+---
+
+## Exceptions
+
+Throws an `Error` if `day` is less than `0` or greater than `6`:
+
+```typescript
+"Invalid day index, must be between 0-6"
+```
+
+---
+
+## Output Reference Matrix
+
+| Day Index | Default (`short: false, nepali: false`) | Short English (`short: true, nepali: false`) | Nepali Full (`short: false, nepali: true`) | Nepali Short (`short: true, nepali: true`) |
+| :---: | :--- | :--- | :--- | :--- |
+| `0` | `"Sunday"` | `"Sun"` | `"आइतबार"` | `"आइत"` |
+| `1` | `"Monday"` | `"Mon"` | `"सोमबार"` | `"सोम"` |
+| `2` | `"Tuesday"` | `"Tue"` | `"मंगलबार"` | `"मंगल"` |
+| `3` | `"Wednesday"` | `"Wed"` | `"बुधबार"` | `"बुध"` |
+| `4` | `"Thursday"` | `"Thu"` | `"बिहिबार"` | `"बिहि"` |
+| `5` | `"Friday"` | `"Fri"` | `"शुक्रबार"` | `"शुक्र"` |
+| `6` | `"Saturday"` | `"Sat"` | `"शनिबार"` | `"शनि"` |
+
+---
+
+## Examples
+
+### Generating Weekday Labels for UI
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// Default English
+console.log(NepaliDate.getDayName(0)); // "Sunday"
+
+// English Short
+console.log(NepaliDate.getDayName(0, true)); // "Sun"
+
+// Nepali Devanagari Full
+console.log(NepaliDate.getDayName(0, false, true)); // "आइतबार"
+
+// Nepali Devanagari Short
+console.log(NepaliDate.getDayName(0, true, true)); // "आइत"
+```
+
+---
+
+## Related
+
+* [`NepaliDate.getMonthName()`](/docs/nodejs/static/get-month-name): Localized month names.
+* [`WEEK_EN`](/docs/nodejs/constants/week-en): English week array constant.
+* [`WEEK_NP`](/docs/nodejs/constants/week-np): Nepali week array constant.
+

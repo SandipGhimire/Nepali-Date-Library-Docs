@@ -1,0 +1,77 @@
+---
+title: MONTH_NP
+description: API reference for the MONTH_NP Devanagari month name constant array.
+icon: Calendar
+---
+
+An array containing the standard Devanagari (Nepali) names of all 12 Bikram Sambat months, zero-indexed from Baisakh (`0`) to Chaitra (`11`).
+
+---
+
+## Import
+
+```typescript
+import { MONTH_NP } from "nepali-date-library";
+```
+
+---
+
+## Value
+
+```typescript
+export const MONTH_NP = [
+  "बैशाख",
+  "जेठ",
+  "असार",
+  "श्रावण",
+  "भाद्र",
+  "आश्विन",
+  "कार्तिक",
+  "मंसिर",
+  "पौष",
+  "माघ",
+  "फाल्गुण",
+  "चैत्र",
+];
+```
+
+---
+
+## Index Mapping
+
+| Index | Devanagari Name | Romanized |
+| :---: | :--- | :--- |
+| `0` | `"बैशाख"` | Baisakh |
+| `1` | `"जेठ"` | Jestha |
+| `2` | `"असार"` | Asar |
+| `3` | `"श्रावण"` | Shrawan |
+| `4` | `"भाद्र"` | Bhadra |
+| `5` | `"आश्विन"` | Aswin |
+| `6` | `"कार्तिक"` | Kartik |
+| `7` | `"मंसिर"` | Mangsir |
+| `8` | `"पौष"` | Poush |
+| `9` | `"माघ"` | Magh |
+| `10` | `"फाल्गुण"` | Falgun |
+| `11` | `"चैत्र"` | Chaitra |
+
+---
+
+## Examples
+
+### Accessing Month Names by Index
+
+```typescript
+import { MONTH_NP, NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-04-01");
+console.log(MONTH_NP[date.getMonth()]); // "श्रावण"
+```
+
+---
+
+## Related
+
+* [`MONTH_SHORT_NP`](/docs/nodejs/constants/month-short-np): Abbreviated Devanagari month names.
+* [`MONTH_EN`](/docs/nodejs/constants/month-en): English romanized month names.
+* [`NepaliDate.getMonthName()`](/docs/nodejs/static/get-month-name): Static helper with formatting options.
+

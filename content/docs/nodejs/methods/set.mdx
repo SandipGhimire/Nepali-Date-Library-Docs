@@ -1,0 +1,75 @@
+---
+title: date.set()
+description: API reference for the date.set() method.
+icon: Edit3
+---
+
+Sets the Bikram Sambat year, month, and day components simultaneously and recalculates the internal Gregorian timestamp.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+set(year: number, month: number, date: number): void;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `year` | `number` | Yes | 4-digit Bikram Sambat year (`1976` to `2100`). |
+| `month` | `number` | Yes | **0-indexed** month integer (`0` for Baisakh to `11` for Chaitra). |
+| `date` | `number` | Yes | Day of the month (`1` to `32`). |
+
+---
+
+## Return Value
+
+* **Type**: `void`
+* Mutates the current `NepaliDate` instance in place.
+
+---
+
+## Exceptions
+
+| Error Message | Trigger Condition |
+| :--- | :--- |
+| `Nepal year out of range` | Thrown if `year` is earlier than 1976 BS or later than 2100 BS. |
+| `Invalid nepali month must be between 1 - 12` | Thrown if `month` is outside `0` to `11`. |
+| `Invalid nepali date must be between 1 - <max> in <year> <month>` | Thrown if `date` exceeds the days count for the target month and year. |
+
+---
+
+## Example
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate();
+
+// Mutate to 2081 Kartik 15 (month index 6)
+date.set(2081, 6, 15);
+
+console.log(date.format("YYYY-MM-DD")); // "2081-07-15"
+console.log(date.getEnglishDate().toISOString()); // "2024-10-31T00:00:00.000Z"
+```
+
+---
+
+## Related
+
+* [`date.setYear()`](/docs/nodejs/methods/set-year): Mutate only the year component.
+* [`date.setMonth()`](/docs/nodejs/methods/set-month): Mutate only the month component.
+* [`date.setDate()`](/docs/nodejs/methods/set-date): Mutate only the day component.
+

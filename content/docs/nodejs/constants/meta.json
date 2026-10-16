@@ -1,0 +1,18 @@
+{
+  "title": "Constants",
+  "icon": "Database",
+  "pages": [
+    "nepali-date-map",
+    "number-np",
+    "---Months---",
+    "month-en",
+    "month-np",
+    "month-short-en",
+    "month-short-np",
+    "---Weeks---",
+    "week-en",
+    "week-np",
+    "week-short-en",
+    "week-short-np"
+  ]
+}

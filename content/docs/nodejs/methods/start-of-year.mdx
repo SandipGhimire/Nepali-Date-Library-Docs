@@ -1,0 +1,75 @@
+---
+title: date.startOfYear()
+description: API reference for the date.startOfYear() method.
+icon: Sparkles
+---
+
+Returns a new `NepaliDate` instance representing the first day of the Bikram Sambat year (1st Baisakh / `YYYY-01-01`).
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+startOfYear(): NepaliDate;
+```
+
+---
+
+## Parameters
+
+This method does not take any parameters.
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* Returns a new `NepaliDate` set to 1st Baisakh of the current year. The original instance is not modified.
+
+---
+
+## Examples
+
+### Navigating to Bikram Sambat New Year
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// Any date within 2081 BS
+const date = new NepaliDate("2081-08-15");
+
+const newYear = date.startOfYear();
+console.log(newYear.format("YYYY-MM-DD")); // "2081-01-01"
+console.log(newYear.getMonth()); // 0 (Baisakh)
+console.log(newYear.getDate()); // 1
+```
+
+### Year-to-Date Calculations
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const today = new NepaliDate("2081-06-15");
+const yearStart = today.startOfYear();
+
+const daysElapsed = today.diff(yearStart, "day");
+console.log(daysElapsed); // Number of days since start of the year
+```
+
+---
+
+## Related
+
+* [`date.endOfYear()`](/docs/nodejs/methods/end-of-year): Return the final day of the Bikram Sambat year.
+* [`date.startOfMonth()`](/docs/nodejs/methods/start-of-month): Return the first day of the current month.
+* [`date.getYear()`](/docs/nodejs/methods/get-year): Retrieve current Bikram Sambat year number.
+

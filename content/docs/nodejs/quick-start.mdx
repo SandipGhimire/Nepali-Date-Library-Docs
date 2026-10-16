@@ -1,0 +1,132 @@
+---
+title: Quick Start
+description: Essential patterns and end-to-end workflows for nepali-date-library in Node.js and TypeScript.
+icon: Zap
+---
+
+This guide covers common real-world workflows when working with Bikram Sambat dates in Node.js applications.
+
+---
+
+## 1. Creating and Inspecting Dates
+
+Initialize dates representing the current moment, specific Bikram Sambat coordinates, or existing Gregorian dates:
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// Current date and time in Nepal
+const now = new NepaliDate();
+
+// Specific Bikram Sambat date (Year, 0-indexed Month, Day)
+// Month 6 represents Kartik (0 = Baisakh, 6 = Kartik)
+const constitutionDay = new NepaliDate(2072, 5, 3);
+
+// Parse from standard string formats (YYYY-MM-DD, YYYY/MM/DD, YYYY.MM.DD)
+const festivalDate = new NepaliDate("2081-07-15");
+
+console.log(festivalDate.getYear()); // 2081
+console.log(festivalDate.getMonth()); // 6 (0-indexed)
+console.log(festivalDate.getDate()); // 15
+console.log(festivalDate.getDay()); // 5 (0 = Sunday, 5 = Friday)
+```
+
+---
+
+## 2. Converting Between AD and BS
+
+For database persistence and external API integration, convert between Gregorian (AD) and Bikram Sambat (BS):
+
+### Using Standalone Converter Functions
+
+```typescript
+import { ADtoBS, BStoAD } from "nepali-date-library";
+
+// Convert Gregorian date string to Bikram Sambat
+const bsDate = ADtoBS("2024-10-31");
+console.log(bsDate); // "2081-07-15"
+
+// Convert Bikram Sambat date string to Gregorian
+const adDate = BStoAD("2081-07-15");
+console.log(adDate); // "2024-10-31"
+```
+
+### Using the `NepaliDate` Class
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// From native JS Date to BS
+const jsDate = new Date("2024-10-31T00:00:00.000Z");
+const nepaliDate = new NepaliDate(jsDate);
+console.log(nepaliDate.format("YYYY-MM-DD")); // "2081-07-15"
+
+// From BS instance to native JS Date
+const nativeDate = nepaliDate.getEnglishDate();
+console.log(nativeDate.toISOString()); // "2024-10-31T00:00:00.000Z"
+```
+
+---
+
+## 3. Formatting Dates
+
+Format dates with customizable masks and localized Devanagari script:
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate(2081, 6, 15);
+
+// Standard English formatting
+console.log(date.format("YYYY-MM-DD")); // "2081-07-15"
+console.log(date.format("DD MMMM YYYY")); // "15 Kartik 2081"
+console.log(date.format("dddd, MMMM DD, YYYY")); // "Friday, Kartik 15, 2081"
+
+// Devanagari script and numeral formatting
+console.log(date.format("yyyy-mm-dd")); // "२०८१-०७-१५"
+console.log(date.format("dd mmmm yyyy")); // "१५ कार्तिक २०८१"
+```
+
+---
+
+## 4. Date Arithmetic
+
+Manipulate dates while safely respecting variable month lengths:
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-01-20");
+
+// Adding and subtracting days
+date.addDays(15);
+console.log(date.format("YYYY-MM-DD")); // "2081-02-04"
+
+// Adding months
+date.addMonths(2);
+console.log(date.format("YYYY-MM-DD")); // "2081-04-04"
+
+// Month boundaries
+const endOfMonth = date.clone().endOfMonth();
+console.log(endOfMonth.format("YYYY-MM-DD")); // "2081-04-32"
+```
+
+---
+
+## 5. Nepalese Fiscal Year Handling
+
+Automate Nepal's Shrawan-to-Ashadh fiscal calendar calculations:
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// Current active fiscal year integer
+const currentFY = NepaliDate.getCurrentFiscalYear();
+console.log(currentFY); // 2081
+
+// Get all 4 fiscal quarters for the current cycle
+const quarters = NepaliDate.getFiscalYearQuarters(currentFY);
+console.log(quarters.Q1.start.format("YYYY-MM-DD")); // "2081-04-01"
+console.log(quarters.Q1.end.format("YYYY-MM-DD")); // "2081-06-30"
+```
+

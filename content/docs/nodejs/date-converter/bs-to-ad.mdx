@@ -1,0 +1,108 @@
+---
+title: BStoAD()
+description: API reference and usage examples for the standalone BStoAD date conversion function.
+icon: ArrowLeft
+---
+
+Converts a Bikram Sambat (BS / Nepali) date string to its equivalent Anno Domini (AD / Gregorian) date string.
+
+---
+
+## Import
+
+```typescript
+import { BStoAD } from "nepali-date-library";
+```
+
+```javascript
+const { BStoAD } = require("nepali-date-library");
+```
+
+---
+
+## Signature
+
+```typescript
+function BStoAD(bsDate: string): string;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `bsDate` | `string` | Yes | Bikram Sambat date string formatted strictly as `YYYY-MM-DD`. |
+
+---
+
+## Return Value
+
+* **Type**: `string`
+* **Format**: `YYYY-MM-DD` representing the corresponding Gregorian date in UTC.
+
+---
+
+## Exceptions
+
+| Error Message | Trigger Condition |
+| :--- | :--- |
+| `Invalid date format. Expected format: YYYY-MM-DD` | Thrown if `bsDate` fails the format regex `^\d{4}-\d{2}-\d{2}$`. |
+| `Nepal year out of range` | Thrown if year is earlier than `1976` BS or later than `2100` BS. |
+| `Invalid nepali month must be between 1 - 12` | Thrown if month component is not within `1` to `12`. |
+| `Invalid nepali date must be between 1 - <max> in <year> <month>` | Thrown if the day exceeds the verified days for that specific month and year. |
+| `DateConversionError: Failed to convert BS to AD` | Wrapped error for conversion failures. |
+
+---
+
+## Examples
+
+### Basic Conversion
+
+```typescript
+import { BStoAD } from "nepali-date-library";
+
+const adDate = BStoAD("2081-07-15");
+console.log(adDate); // "2024-10-31"
+```
+
+### Converting Month with 32 Days
+
+Bikram Sambat summer months can contain 32 days. `BStoAD` validates the exact ephemeris for that year:
+
+```typescript
+import { BStoAD } from "nepali-date-library";
+
+// Jestha 32, 2081
+const adDate = BStoAD("2081-02-32");
+console.log(adDate); // "2024-06-14"
+```
+
+### Database Persistence Pattern
+
+Convert user-entered Bikram Sambat dates to standard ISO-8601 strings prior to storing in SQL or NoSQL databases:
+
+```typescript
+import { BStoAD } from "nepali-date-library";
+
+interface UserRegistrationInput {
+  fullName: string;
+  birthDateBS: string; // e.g. "2055-04-12"
+}
+
+function prepareUserForStorage(input: UserRegistrationInput) {
+  return {
+    fullName: input.fullName,
+    birthDateBS: input.birthDateBS,
+    birthDateAD: BStoAD(input.birthDateBS), // "1998-07-27"
+  };
+}
+```
+
+---
+
+## Related
+
+* [`ADtoBS()`](/docs/nodejs/date-converter/ad-to-bs): Reciprocal conversion from AD to BS.
+* [`date.getEnglishDate()`](/docs/nodejs/methods/get-english-date): Method on `NepaliDate` instance returning a JavaScript `Date`.
+

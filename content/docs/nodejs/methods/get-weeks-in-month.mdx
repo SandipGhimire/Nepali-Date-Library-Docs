@@ -1,0 +1,69 @@
+---
+title: date.getWeeksInMonth()
+description: API reference for the date.getWeeksInMonth() method.
+icon: LayoutGrid
+---
+
+Calculates the total number of calendar week rows required to display the current Nepali month on a standard 7-day Sunday-to-Saturday calendar grid.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+getWeeksInMonth(): number;
+```
+
+---
+
+## Parameters
+
+This method does not take any parameters.
+
+---
+
+## Return Value
+
+* **Type**: `number`
+* The number of calendar week rows needed (typically `5` or `6`).
+
+---
+
+## Formula
+
+The calculation evaluates the weekday offset of the 1st of the month added to the month's total days, divided by 7:
+
+```typescript
+Math.ceil((firstDayOfWeek + totalDays) / 7)
+```
+
+---
+
+## Examples
+
+### Sizing UI Calendar Views
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-01-15");
+const rowCount = date.getWeeksInMonth();
+
+console.log(`Calendar requires ${rowCount} week rows.`);
+```
+
+---
+
+## Related
+
+* [`NepaliDate.getCalendarDays()`](/docs/nodejs/static/get-calendar-days): Generate calendar matrix with leading and trailing days.
+* [`date.daysInMonth()`](/docs/nodejs/methods/days-in-month): Total number of days in the month.
+

@@ -1,0 +1,68 @@
+---
+title: WEEK_SHORT_EN
+description: API reference for the WEEK_SHORT_EN abbreviated English weekday name constant array.
+icon: CalendarDays
+---
+
+An array containing the 3-letter abbreviated English names of the 7 days of the week, indexed `0` (Sunday) through `6` (Saturday).
+
+---
+
+## Import
+
+```typescript
+import { WEEK_SHORT_EN } from "nepali-date-library";
+```
+
+---
+
+## Value
+
+```typescript
+export const WEEK_SHORT_EN = [
+  "Sun",
+  "Mon",
+  "Tue",
+  "Wed",
+  "Thu",
+  "Fri",
+  "Sat",
+];
+```
+
+---
+
+## Index Mapping
+
+| Index | Abbreviation | Full Name |
+| :---: | :--- | :--- |
+| `0` | `"Sun"` | Sunday |
+| `1` | `"Mon"` | Monday |
+| `2` | `"Tue"` | Tuesday |
+| `3` | `"Wed"` | Wednesday |
+| `4` | `"Thu"` | Thursday |
+| `5` | `"Fri"` | Friday |
+| `6` | `"Sat"` | Saturday |
+
+---
+
+## Examples
+
+### Building Calendar Column Headers
+
+```typescript
+import { WEEK_SHORT_EN } from "nepali-date-library";
+
+// Generate week header row for UI calendar
+console.log(WEEK_SHORT_EN.join(" | "));
+// "Sun | Mon | Tue | Wed | Thu | Fri | Sat"
+```
+
+---
+
+## Related
+
+* [`WEEK_EN`](/docs/nodejs/constants/week-en): Full English weekday names.
+* [`WEEK_SHORT_NP`](/docs/nodejs/constants/week-short-np): Abbreviated Nepali weekday names.
+* [`date.format()`](/docs/nodejs/methods/format): Formatting with the `DDD` token.
+

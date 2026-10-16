@@ -1,0 +1,78 @@
+---
+title: date.endOfMonth()
+description: API reference for the date.endOfMonth() method.
+icon: Calendar
+---
+
+Returns a new `NepaliDate` instance representing the final day of the current Nepali month, normalized to the end of the day (`23:59:59.999`).
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+endOfMonth(): NepaliDate;
+```
+
+---
+
+## Parameters
+
+This method does not take any parameters.
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* Returns a new `NepaliDate` set to the last calendar day of the month at `23:59:59.999`. The original instance is not modified.
+
+---
+
+## Examples
+
+### Determining Last Day of the Month
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// 2081 Baisakh (which has 31 days)
+const date = new NepaliDate(2081, 0, 10);
+
+const lastDay = date.endOfMonth();
+console.log(lastDay.getDate()); // 31
+console.log(lastDay.format("YYYY-MM-DD")); // "2081-01-31"
+console.log(lastDay.getHours()); // 23
+console.log(lastDay.getMinutes()); // 59
+```
+
+### Variable Month Ends Across Years
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// 2080 Chaitra has 30 days
+const chaitra2080 = new NepaliDate(2080, 11, 1).endOfMonth();
+console.log(chaitra2080.getDate()); // 30
+
+// 2081 Chaitra has 30 days
+const chaitra2081 = new NepaliDate(2081, 11, 1).endOfMonth();
+console.log(chaitra2081.getDate()); // 30
+```
+
+---
+
+## Related
+
+* [`date.startOfMonth()`](/docs/nodejs/methods/start-of-month): Return the first day of the current month.
+* [`date.daysInMonth()`](/docs/nodejs/methods/days-in-month): Query total days in the month.
+* [`date.endOfYear()`](/docs/nodejs/methods/end-of-year): Return the last day of the year.
+

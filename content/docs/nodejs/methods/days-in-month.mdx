@@ -1,0 +1,87 @@
+---
+title: date.daysInMonth()
+description: API reference for the date.daysInMonth() method.
+icon: CalendarDays
+---
+
+Returns the total number of days in the current Nepali month, or in a specified Bikram Sambat year and month index.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+daysInMonth(year?: number, month?: number): number;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Default | Description |
+| :--- | :--- | :---: | :---: | :--- |
+| `year` | `number` | No | `this.year` | Bikram Sambat year (e.g. `2081`). |
+| `month` | `number` | No | `this.month` | Zero-indexed month (`0-11`, where `0` is Baisakh and `11` is Chaitra). |
+
+---
+
+## Return Value
+
+* **Type**: `number`
+* The number of days in the specified month (typically between 29 and 32 days).
+
+---
+
+## Exceptions
+
+Throws an `Error` if `month` is explicitly provided and is less than 0 or greater than 11:
+
+```typescript
+"Invalid month index, must be between 0-11"
+```
+
+---
+
+## Examples
+
+### Querying the Current Instance Month
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// 2081 Baisakh
+const date = new NepaliDate(2081, 0, 15);
+console.log(date.daysInMonth()); // 31
+```
+
+### Querying an Arbitrary Year and Month
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate();
+
+// Querying Jestha 2081 (month index 1)
+const jesthaDays = date.daysInMonth(2081, 1);
+console.log(jesthaDays); // 32
+
+// Querying Chaitra 2080 (month index 11)
+const chaitraDays = date.daysInMonth(2080, 11);
+console.log(chaitraDays); // 30
+```
+
+---
+
+## Related
+
+* [`date.getWeeksInMonth()`](/docs/nodejs/methods/get-weeks-in-month): Compute number of calendar week rows.
+* [`NepaliDate.getCalendarDays()`](/docs/nodejs/static/get-calendar-days): Generate month grid with padding.
+

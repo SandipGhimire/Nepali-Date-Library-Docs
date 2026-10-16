@@ -1,0 +1,104 @@
+---
+title: date.isSame()
+description: API reference for the date.isSame() method.
+icon: CheckCheck
+---
+
+Determines whether two `NepaliDate` instances share the same value for a specified unit of measurement (`year`, `month`, or `day`).
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+isSame(date: NepaliDate, unit: "year" | "month" | "day"): boolean;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `date` | `NepaliDate` | Yes | Target `NepaliDate` instance to compare against. |
+| `unit` | `"year" \| "month" \| "day"` | Yes | Unit of granularity for comparison. |
+
+---
+
+## Return Value
+
+* **Type**: `boolean`
+* Returns `true` if both dates are identical within the specified unit boundary; otherwise returns `false`.
+
+---
+
+## Comparison Rules
+
+* **`"year"`**: Evaluates `this.year === date.year`.
+* **`"month"`**: Evaluates `this.year === date.year && this.month === date.month`.
+* **`"day"`**: Evaluates `this.isEqual(date)` (matching year, month, and day).
+
+---
+
+## Exceptions
+
+Throws an `Error` if an invalid unit string is supplied:
+
+```typescript
+"Invalid unit for comparison"
+```
+
+---
+
+## Examples
+
+### Comparing Same Month
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date1 = new NepaliDate("2081-03-05");
+const date2 = new NepaliDate("2081-03-25");
+const date3 = new NepaliDate("2080-03-05");
+
+console.log(date1.isSame(date2, "month")); // true (both Ashadh 2081)
+console.log(date1.isSame(date3, "month")); // false (different years)
+```
+
+### Comparing Same Year
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date1 = new NepaliDate("2081-01-01");
+const date2 = new NepaliDate("2081-12-30");
+
+console.log(date1.isSame(date2, "year")); // true
+```
+
+### Comparing Same Day
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date1 = new NepaliDate("2081-01-15");
+const date2 = new NepaliDate("2081-01-15");
+
+console.log(date1.isSame(date2, "day")); // true
+```
+
+---
+
+## Related
+
+* [`date.isEqual()`](/docs/nodejs/methods/is-equal): Strict calendar day equality.
+* [`date.diff()`](/docs/nodejs/methods/diff): Measure quantitative difference between dates.
+

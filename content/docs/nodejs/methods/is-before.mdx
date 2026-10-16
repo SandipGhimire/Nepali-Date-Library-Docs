@@ -1,0 +1,84 @@
+---
+title: date.isBefore()
+description: API reference for the date.isBefore() method.
+icon: ArrowLeft
+---
+
+Determines whether the current `NepaliDate` instance occurs chronologically before another specified `NepaliDate`.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+isBefore(date: NepaliDate): boolean;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `date` | `NepaliDate` | Yes | Target `NepaliDate` instance to compare against. |
+
+---
+
+## Return Value
+
+* **Type**: `boolean`
+* Returns `true` if the current date and time precedes the provided `date` in absolute time; otherwise returns `false`.
+
+---
+
+## Precision
+
+Comparison is evaluated down to the exact millisecond using the underlying Unix timestamp:
+
+```typescript
+this.timestamp.getTime() < date.timestamp.getTime()
+```
+
+---
+
+## Examples
+
+### Chronological Comparison
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date1 = new NepaliDate("2081-01-15");
+const date2 = new NepaliDate("2081-01-20");
+
+console.log(date1.isBefore(date2)); // true
+console.log(date2.isBefore(date1)); // false
+```
+
+### Time-Level Comparison
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const morning = new NepaliDate("2081-01-15").startOfDay();
+const evening = new NepaliDate("2081-01-15").endOfDay();
+
+console.log(morning.isBefore(evening)); // true
+```
+
+---
+
+## Related
+
+* [`date.isAfter()`](/docs/nodejs/methods/is-after): Check if a date succeeds another.
+* [`date.isEqual()`](/docs/nodejs/methods/is-equal): Check if calendar dates are identical.
+* [`date.isSame()`](/docs/nodejs/methods/is-same): Check equality by specific unit (year, month, day).
+

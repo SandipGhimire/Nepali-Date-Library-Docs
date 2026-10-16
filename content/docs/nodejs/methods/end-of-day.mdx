@@ -1,0 +1,74 @@
+---
+title: date.endOfDay()
+description: API reference for the date.endOfDay() method.
+icon: Sunset
+---
+
+Returns a new `NepaliDate` instance representing the final millisecond of the day (`23:59:59.999`) aligned with Nepal Standard Time (UTC+05:45).
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+endOfDay(): NepaliDate;
+```
+
+---
+
+## Parameters
+
+This method does not take any parameters.
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* Returns a new cloned `NepaliDate` instance set to `23:59:59.999` on the same calendar day. The original instance is not modified.
+
+---
+
+## Examples
+
+### Generating End-of-Day Timestamp
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-05-15");
+const end = date.endOfDay();
+
+console.log(end.getHours()); // 23
+console.log(end.getMinutes()); // 59
+console.log(end.getSeconds()); // 59
+console.log(end.getMilliseconds()); // 999
+```
+
+### Inclusive Day Range Filtering
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// Set upper bound for date filters
+const reportDate = new NepaliDate("2081-01-31").endOfDay();
+
+console.log(reportDate.getTime()); // Unix timestamp in milliseconds
+```
+
+---
+
+## Related
+
+* [`date.startOfDay()`](/docs/nodejs/methods/start-of-day): Return start of the day (`00:00:00.000`).
+* [`date.endOfMonth()`](/docs/nodejs/methods/end-of-month): Return final millisecond of the month.
+* [`date.endOfYear()`](/docs/nodejs/methods/end-of-year): Return final millisecond of the year.
+

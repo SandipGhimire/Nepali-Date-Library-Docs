@@ -1,0 +1,60 @@
+---
+title: Instance Properties
+description: Reference for public properties available on every NepaliDate instance.
+icon: Braces
+---
+
+Every `NepaliDate` instance exposes four public properties representing its Bikram Sambat coordinates and underlying Gregorian timestamp.
+
+---
+
+## Property Reference
+
+| Property | Type | Description | Range |
+| :--- | :--- | :--- | :--- |
+| `year` | `number` | The Bikram Sambat year. | `1976` – `2100` |
+| `month` | `number` | The **0-indexed** Bikram Sambat month. | `0` (Baisakh) – `11` (Chaitra) |
+| `day` | `number` | The day of the month. | `1` – `32` |
+| `timestamp` | `Date` | The corresponding native JavaScript `Date` object in UTC. | Equivalent Gregorian timestamp |
+
+---
+
+## Examples
+
+### Reading Properties Directly
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-07-15");
+
+console.log(date.year);      // 2081
+console.log(date.month);     // 6 (0-indexed: 6 corresponds to Kartik)
+console.log(date.day);       // 15
+console.log(date.timestamp); // 2024-10-31T00:00:00.000Z
+```
+
+### Direct Property vs. Method Access
+
+While properties are public for inspection, it is recommended to use dedicated methods for formatting and mutation:
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-07-15");
+
+// Using methods for formatted values
+console.log(date.getDate()); // 15
+console.log(date.getMonth() + 1); // 7 (1-indexed display)
+
+// Using methods to mutate coordinates safely
+date.setDate(16); // Safely validates days in month and recalculates timestamp
+```
+
+---
+
+## Related
+
+* [`new NepaliDate()`](/docs/nodejs/class/constructor): Instantiating a `NepaliDate` object.
+* [`date.getEnglishDate()`](/docs/nodejs/methods/get-english-date): Retrieve the native JavaScript `Date`.
+

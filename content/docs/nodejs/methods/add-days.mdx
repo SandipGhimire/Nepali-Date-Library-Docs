@@ -1,0 +1,85 @@
+---
+title: date.addDays()
+description: API reference for the date.addDays() method.
+icon: Plus
+---
+
+Adds or subtracts a specified number of days to the current `NepaliDate` instance, automatically traversing variable month lengths and year boundaries.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+addDays(days: number): NepaliDate;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `days` | `number` | Yes | Integer number of days to add (positive) or subtract (negative). |
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* Returns a new `NepaliDate` instance with the specified days added or subtracted. The original instance is not modified.
+
+---
+
+## Examples
+
+### Adding Days Across Month Boundaries
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// 2081 Baisakh 25 (Baisakh 2081 has 31 days)
+const date = new NepaliDate("2081-01-25");
+
+const next = date.addDays(10);
+console.log(next.format("YYYY-MM-DD")); // "2081-02-04" (4 Jestha)
+```
+
+### Subtracting Days Across Year Boundaries
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// 2081 Baisakh 02
+const date = new NepaliDate("2081-01-02");
+
+const prev = date.addDays(-5);
+console.log(prev.format("YYYY-MM-DD")); // "2080-12-28" (28 Chaitra 2080)
+```
+
+### Method Chaining
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-01-01")
+  .addDays(15)
+  .addDays(5);
+
+console.log(date.format("YYYY-MM-DD")); // "2081-01-21"
+```
+
+---
+
+## Related
+
+* [`date.addMonths()`](/docs/nodejs/methods/add-months): Add or subtract whole months.
+* [`date.diff()`](/docs/nodejs/methods/diff): Calculate the difference between two dates in days.

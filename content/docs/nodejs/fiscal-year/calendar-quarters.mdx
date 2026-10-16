@@ -1,0 +1,87 @@
+---
+title: Calendar Quarters
+description: API reference for NepaliDate.getQuarter() and NepaliDate.getQuarters() calendar quarter methods.
+icon: CalendarDays
+---
+
+In addition to official fiscal quarters (which start in Shrawan), `NepaliDate` provides static methods to calculate **standard calendar quarters**, which align directly with the Bikram Sambat calendar year starting on **1 Baisakh**.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+```javascript
+const { NepaliDate } = require("nepali-date-library");
+```
+
+---
+
+## Signatures
+
+```typescript
+static getQuarter(
+  quarter: number,
+  year?: number
+): { start: NepaliDate; end: NepaliDate };
+
+static getQuarters(
+  year?: number
+): {
+  Q1: { start: NepaliDate; end: NepaliDate };
+  Q2: { start: NepaliDate; end: NepaliDate };
+  Q3: { start: NepaliDate; end: NepaliDate };
+  Q4: { start: NepaliDate; end: NepaliDate };
+};
+```
+
+---
+
+## Calendar Quarter Alignment
+
+| Quarter | Months (Bikram Sambat) | Span |
+| :--- | :--- | :--- |
+| **Q1** | Baisakh, Jestha, Ashadh | 1 Baisakh – Last day of Ashadh |
+| **Q2** | Shrawan, Bhadra, Ashwin | 1 Shrawan – Last day of Ashwin |
+| **Q3** | Kartik, Mangsir, Poush | 1 Kartik – Last day of Poush |
+| **Q4** | Magh, Falgun, Chaitra | 1 Magh – Last day of Chaitra |
+
+---
+
+## Examples
+
+### Getting a Single Calendar Quarter
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// Q1 of calendar year 2081 (Baisakh to Ashadh)
+const q1 = NepaliDate.getQuarter(1, 2081);
+console.log(q1.start.format("YYYY-MM-DD")); // "2081-01-01"
+console.log(q1.end.format("YYYY-MM-DD"));   // "2081-03-31"
+```
+
+### Getting All Four Calendar Quarters
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// Default year is current year
+const quarters = NepaliDate.getQuarters(2081);
+
+console.log("Q1:", quarters.Q1.start.format("YYYY-MM-DD"), "to", quarters.Q1.end.format("YYYY-MM-DD"));
+console.log("Q2:", quarters.Q2.start.format("YYYY-MM-DD"), "to", quarters.Q2.end.format("YYYY-MM-DD"));
+console.log("Q3:", quarters.Q3.start.format("YYYY-MM-DD"), "to", quarters.Q3.end.format("YYYY-MM-DD"));
+console.log("Q4:", quarters.Q4.start.format("YYYY-MM-DD"), "to", quarters.Q4.end.format("YYYY-MM-DD"));
+```
+
+---
+
+## Related
+
+* [`NepaliDate.getFiscalYearQuarter()`](/docs/nodejs/fiscal-year/get-fiscal-year-quarter): For official tax and accounting trimesters starting in Shrawan.
+* [`NepaliDate.getFiscalYearQuarters()`](/docs/nodejs/fiscal-year/get-fiscal-year-quarters): All four fiscal quarters.
+

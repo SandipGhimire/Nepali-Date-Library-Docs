@@ -1,0 +1,76 @@
+---
+title: date.endOfYear()
+description: API reference for the date.endOfYear() method.
+icon: CalendarCheck
+---
+
+Returns a new `NepaliDate` instance representing the final day of the Bikram Sambat year (the last day of Chaitra, month index `11`), normalized to the end of the day (`23:59:59.999`).
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+endOfYear(): NepaliDate;
+```
+
+---
+
+## Parameters
+
+This method does not take any parameters.
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* Returns a new `NepaliDate` set to the last day of Chaitra for the given year at `23:59:59.999`. The original instance is not modified.
+
+---
+
+## Examples
+
+### Getting the Final Day of the Calendar Year
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-03-15");
+
+const yearEnd = date.endOfYear();
+console.log(yearEnd.format("YYYY-MM-DD")); // "2081-12-30"
+console.log(yearEnd.getMonth()); // 11 (Chaitra)
+console.log(yearEnd.getHours()); // 23
+console.log(yearEnd.getMinutes()); // 59
+console.log(yearEnd.getSeconds()); // 59
+```
+
+### Full Calendar Year Span
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const year = 2081;
+const start = new NepaliDate(year, 0, 1).startOfDay();
+const end = new NepaliDate(year, 0, 1).endOfYear();
+
+console.log(`Year ${year} spans from ${start.format("YYYY-MM-DD")} to ${end.format("YYYY-MM-DD")}`);
+```
+
+---
+
+## Related
+
+* [`date.startOfYear()`](/docs/nodejs/methods/start-of-year): Return the first day of the Bikram Sambat year.
+* [`date.endOfMonth()`](/docs/nodejs/methods/end-of-month): Return the final day of the current month.
+* [`date.isLeapYear()`](/docs/nodejs/methods/is-leap-year): Check if the year has 366 days.
+

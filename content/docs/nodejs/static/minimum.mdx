@@ -1,0 +1,61 @@
+---
+title: NepaliDate.minimum()
+description: API reference for the static NepaliDate.minimum() method.
+icon: ArrowDownToLine
+---
+
+Returns the earliest Gregorian date supported by the `NepaliDate` engine (corresponding to Bikram Sambat 1976 Baisakh 01).
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+static minimum(): Date;
+```
+
+---
+
+## Parameters
+
+This method does not take any parameters.
+
+---
+
+## Return Value
+
+* **Type**: `Date`
+* Returns a standard JavaScript `Date` instance representing the minimum boundary (`1919-04-13T00:00:00.000Z`).
+
+---
+
+## Examples
+
+### Checking Lower Calendar Limit
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const minDate = NepaliDate.minimum();
+console.log(minDate.toISOString()); // "1919-04-13T00:00:00.000Z"
+
+// Converting minimum back to NepaliDate
+const nepaliMin = new NepaliDate(minDate);
+console.log(nepaliMin.format("YYYY-MM-DD")); // "1976-01-01"
+```
+
+---
+
+## Related
+
+* [`NepaliDate.maximum()`](/docs/nodejs/static/maximum): Latest date supported.
+* [`NEPALI_DATE_MAP`](/docs/nodejs/constants/nepali-date-map): Calendar map dataset.
+

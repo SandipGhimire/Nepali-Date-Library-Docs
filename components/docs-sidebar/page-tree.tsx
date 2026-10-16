@@ -103,14 +103,6 @@ export function createPageTreeRenderer({
     const pathname = usePathname();
 
     const displayNodes = useMemo(() => {
-      // Check if root is already scoped to a library folder (no child folders):
-      const hasLibraryFolders = root.children.some((n) => n.type === "folder");
-
-      if (!hasLibraryFolders) {
-        return root.children;
-      }
-
-      // If at top-level root (e.g. /docs/origination or /docs/installation), scope to loaded library (default "nodejs"):
       let activeLibraryKey = "nodejs";
       if (pathname.startsWith("/docs/php")) {
         activeLibraryKey = "php";
@@ -118,16 +110,32 @@ export function createPageTreeRenderer({
         activeLibraryKey = "python";
       }
 
+      const targetNormalized = activeLibraryKey.toLowerCase().replace(/[\s_.-]/g, "");
+      const rootNormalized = String(root.name || "").toLowerCase().replace(/[\s_.-]/g, "");
+
+      // 1. If root itself is already the active library folder (e.g. root.name is "Node.js" / "PHP" / "Python"):
+      if (rootNormalized === targetNormalized) {
+        if (root.children.length === 0 && (root as { index?: PageTree.Item }).index) {
+          return [(root as { index?: PageTree.Item }).index!];
+        }
+        return root.children;
+      }
+
+      // 2. Look for the top-level library folder among root's direct children:
       const matchedFolder = root.children.find((node) => {
         if (node.type !== "folder") return false;
         const normalizedName = String(node.name || "")
           .toLowerCase()
-          .replace(/[\s_-]/g, "");
-        const nameMatch = normalizedName === activeLibraryKey.toLowerCase().replace(/[\s_-]/g, "");
-        const urlMatch = node.children.some(
-          (c) => c.type === "page" && c.url.includes(`/docs/${activeLibraryKey}`),
-        );
-        return nameMatch || urlMatch;
+          .replace(/[\s_.-]/g, "");
+        if (normalizedName === targetNormalized) return true;
+        if (
+          node.index &&
+          (node.index.url === `/docs/${activeLibraryKey}` ||
+            node.index.url.endsWith(`/${activeLibraryKey}`))
+        ) {
+          return true;
+        }
+        return false;
       });
 
       if (matchedFolder && matchedFolder.type === "folder") {
@@ -137,8 +145,22 @@ export function createPageTreeRenderer({
         return matchedFolder.children;
       }
 
+      // 3. Fallback: if root does not have library folders as children, it is already scoped
+      const hasAnyLibraryFolder = root.children.some((n) => {
+        if (n.type !== "folder") return false;
+        const nName = String(n.name || "").toLowerCase().replace(/[\s_.-]/g, "");
+        return nName === "nodejs" || nName === "php" || nName === "python";
+      });
+
+      if (!hasAnyLibraryFolder) {
+        if (root.children.length === 0 && (root as { index?: PageTree.Item }).index) {
+          return [(root as { index?: PageTree.Item }).index!];
+        }
+        return root.children;
+      }
+
       return [];
-    }, [root.children, pathname]);
+    }, [root, pathname]);
 
     return (
       <RendererContext

@@ -1,0 +1,99 @@
+---
+title: NepaliDate.getCurrentFiscalYear()
+description: API reference for the static NepaliDate.getCurrentFiscalYear() method.
+icon: Hash
+---
+
+Returns the starting Bikram Sambat year of the active fiscal year based on the current system date.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+```javascript
+const { NepaliDate } = require("nepali-date-library");
+```
+
+---
+
+## Signature
+
+```typescript
+static getCurrentFiscalYear(): number;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `number`
+* **Description**: The 4-digit Bikram Sambat year representing the beginning of the active fiscal cycle.
+
+---
+
+## Behavioral Logic
+
+The method determines the current date and evaluates the month:
+* If current month is **Baisakh, Jestha, or Ashadh** (months 0, 1, or 2), the fiscal cycle began in the previous calendar year. Returns `currentYear - 1`.
+* If current month is **Shrawan through Chaitra** (months 3 through 11), the fiscal cycle began in the current calendar year. Returns `currentYear`.
+
+---
+
+## Examples
+
+### Getting Current Fiscal Year Integer
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// If today is 2081 Kartik 15:
+const fy = NepaliDate.getCurrentFiscalYear();
+console.log(fy); // 2081
+```
+
+### Generating Formatted Fiscal Strings
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+function getFormattedFiscalYear(): string {
+  const fy = NepaliDate.getCurrentFiscalYear();
+  const nextShort = String(fy + 1).slice(-2);
+  return `${fy}/${nextShort}`; // e.g. "2081/82"
+}
+
+console.log(getFormattedFiscalYear()); // "2081/82"
+```
+
+### Invoice Number Prefixing
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+function generateInvoiceNumber(sequence: number): string {
+  const fy = NepaliDate.getCurrentFiscalYear();
+  const fyTag = `${String(fy).slice(-2)}${String(fy + 1).slice(-2)}`; // "8182"
+  const paddedSeq = String(sequence).padStart(5, "0");
+  return `INV-${fyTag}-${paddedSeq}`;
+}
+
+console.log(generateInvoiceNumber(42)); // "INV-8182-00042"
+```
+
+---
+
+## Related
+
+* [`NepaliDate.getFiscalYearQuarters()`](/docs/nodejs/fiscal-year/get-fiscal-year-quarters): Retrieve all quarter boundaries for this fiscal year.
+* [`date.getCurrentFiscalYearQuarter()`](/docs/nodejs/fiscal-year/get-current-fiscal-year-quarter): Get the quarter number for a specific date.
+

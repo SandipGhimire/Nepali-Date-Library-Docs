@@ -1,0 +1,63 @@
+---
+title: date.clone()
+description: API reference for the date.clone() method.
+icon: Copy
+---
+
+Creates a deep copy of the current `NepaliDate` instance with the same timestamp, year, month, and day.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+clone(): NepaliDate;
+```
+
+---
+
+## Parameters
+
+This method does not take any parameters.
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* Returns a new independent `NepaliDate` instance initialized with the exact state of the current instance.
+
+---
+
+## Examples
+
+### Creating an Independent Duplicate
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const original = new NepaliDate("2081-01-15");
+const duplicate = original.clone();
+
+// Mutating duplicate does not impact original
+duplicate.setDate(20);
+
+console.log(original.format("YYYY-MM-DD"));  // "2081-01-15"
+console.log(duplicate.format("YYYY-MM-DD")); // "2081-01-20"
+```
+
+---
+
+## Related
+
+* [`new NepaliDate()`](/docs/nodejs/class/constructor): Class constructor supporting copy-construction from another instance.
+* [`date.format()`](/docs/nodejs/methods/format): Format instance to string.
+

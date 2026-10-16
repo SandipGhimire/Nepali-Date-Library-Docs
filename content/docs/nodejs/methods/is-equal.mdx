@@ -1,0 +1,85 @@
+---
+title: date.isEqual()
+description: API reference for the date.isEqual() method.
+icon: Equal
+---
+
+Determines whether the current `NepaliDate` instance shares the exact same calendar date (`year`, `month`, and `day`) as another `NepaliDate`, ignoring time components.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+isEqual(date: NepaliDate): boolean;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `date` | `NepaliDate` | Yes | Target `NepaliDate` instance to compare against. |
+
+---
+
+## Return Value
+
+* **Type**: `boolean`
+* Returns `true` if `year`, `month`, and `day` are identical; otherwise returns `false`.
+
+---
+
+## Behavior Note
+
+Unlike `isBefore()` and `isAfter()`, which compare millisecond-level timestamps, `isEqual()` evaluates calendar dates only:
+
+```typescript
+this.year === date.year && this.month === date.month && this.day === date.day
+```
+
+Two instances created at different times of the same day will return `true`.
+
+---
+
+## Examples
+
+### Comparing Calendar Dates
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date1 = new NepaliDate("2081-01-15");
+const date2 = new NepaliDate(2081, 0, 15);
+
+console.log(date1.isEqual(date2)); // true
+```
+
+### Time Component Independence
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const morning = new NepaliDate("2081-01-15").startOfDay();
+const evening = new NepaliDate("2081-01-15").endOfDay();
+
+console.log(morning.isEqual(evening)); // true
+```
+
+---
+
+## Related
+
+* [`date.isSame()`](/docs/nodejs/methods/is-same): Compare dates by specific calendar unit (`year`, `month`, or `day`).
+* [`date.isBefore()`](/docs/nodejs/methods/is-before): Millisecond-level chronological check.
+* [`date.isAfter()`](/docs/nodejs/methods/is-after): Millisecond-level chronological check.
+

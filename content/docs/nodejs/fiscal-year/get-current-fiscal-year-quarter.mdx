@@ -1,0 +1,89 @@
+---
+title: date.getCurrentFiscalYearQuarter()
+description: API reference for the date.getCurrentFiscalYearQuarter() instance method.
+icon: PieChart
+---
+
+Returns the fiscal year quarter index (`1`, `2`, `3`, or `4`) for the date represented by the current `NepaliDate` instance.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+```javascript
+const { NepaliDate } = require("nepali-date-library");
+```
+
+---
+
+## Signature
+
+```typescript
+getCurrentFiscalYearQuarter(): number;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `number`
+* **Values**: `1 | 2 | 3 | 4`
+
+| Month (Bikram Sambat) | Month Index | Returned Quarter |
+| :--- | :---: | :---: |
+| Shrawan, Bhadra, Ashwin | `3`, `4`, `5` | `1` (Q1) |
+| Kartik, Mangsir, Poush | `6`, `7`, `8` | `2` (Q2) |
+| Magh, Falgun, Chaitra | `9`, `10`, `11` | `3` (Q3) |
+| Baisakh, Jestha, Ashadh | `0`, `1`, `2` | `4` (Q4) |
+
+---
+
+## Examples
+
+### Determining Quarter of a Given Date
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const dashainDate = new NepaliDate("2081-07-15"); // Kartik
+console.log(dashainDate.getCurrentFiscalYearQuarter()); // 2 (Q2)
+
+const endOfYearDate = new NepaliDate("2081-03-25"); // Ashadh
+console.log(endOfYearDate.getCurrentFiscalYearQuarter()); // 4 (Q4)
+```
+
+### Financial Audit Filter
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+interface JournalEntry {
+  description: string;
+  date: NepaliDate;
+  amount: number;
+}
+
+function filterByFiscalQuarter(entries: JournalEntry[], targetQuarter: number) {
+  return entries.filter(
+    (entry) => entry.date.getCurrentFiscalYearQuarter() === targetQuarter
+  );
+}
+```
+
+---
+
+## Related
+
+* [`date.getCurrentFiscalYearQuarterDates()`](/docs/nodejs/fiscal-year/get-current-fiscal-year-quarter-dates): Retrieve the exact start and end dates for the active quarter.
+* [`NepaliDate.getFiscalYearQuarter()`](/docs/nodejs/fiscal-year/get-fiscal-year-quarter): Static helper for any arbitrary quarter and year.
+

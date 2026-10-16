@@ -1,0 +1,70 @@
+---
+title: date.getTime()
+description: API reference for the date.getTime() method.
+icon: Binary
+---
+
+Returns the numeric Unix epoch timestamp (milliseconds elapsed since January 1, 1970 00:00:00 UTC) for the current `NepaliDate` instance.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+getTime(): number;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `number`
+* **Description**: Integer representing milliseconds since January 1, 1970 UTC.
+
+---
+
+## Examples
+
+### Getting Unix Epoch Timestamp
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-07-15");
+console.log(date.getTime()); // 1730332800000
+```
+
+### Direct Mathematical Timestamp Comparison
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date1 = new NepaliDate("2081-01-01");
+const date2 = new NepaliDate("2081-02-01");
+
+const diffMs = date2.getTime() - date1.getTime();
+const diffDays = diffMs / (1000 * 60 * 60 * 24);
+console.log(diffDays); // 31
+```
+
+---
+
+## Related
+
+* [`date.getEnglishDate()`](/docs/nodejs/methods/get-english-date): Retrieve the native JavaScript `Date` object.
+* [`new NepaliDate(timestamp)`](/docs/nodejs/class/constructor): Recreate a `NepaliDate` from an epoch timestamp.
+

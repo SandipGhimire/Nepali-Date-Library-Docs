@@ -1,0 +1,90 @@
+---
+title: NepaliDate.getFiscalYearQuarter()
+description: API reference for the static NepaliDate.getFiscalYearQuarter() method.
+icon: Calendar
+---
+
+Calculates the exact `start` and `end` boundary `NepaliDate` instances for any specified fiscal year quarter and fiscal year.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+```javascript
+const { NepaliDate } = require("nepali-date-library");
+```
+
+---
+
+## Signature
+
+```typescript
+static getFiscalYearQuarter(
+  quarter: number,
+  fiscalYear?: number
+): { start: NepaliDate; end: NepaliDate };
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Default | Description |
+| :--- | :--- | :---: | :--- | :--- |
+| `quarter` | `number` | Yes | - | Fiscal quarter index (`1`, `2`, `3`, or `4`). |
+| `fiscalYear` | `number` | No | Current FY | Base Bikram Sambat year of the fiscal cycle. |
+
+---
+
+## Return Value
+
+* **Type**: `{ start: NepaliDate; end: NepaliDate }`
+* **Properties**:
+  * `start`: `NepaliDate` initialized to day 1 of the quarter's opening month.
+  * `end`: `NepaliDate` initialized to the final day of the quarter's closing month at `23:59:59.999`.
+
+---
+
+## Exceptions
+
+| Error Message | Trigger Condition |
+| :--- | :--- |
+| `Quarter must be an integer between 1 and 4` | Thrown if `quarter` is not an integer or is outside `1` to `4`. |
+
+---
+
+## Examples
+
+### Querying Specific Quarter for Current Fiscal Year
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// Get Q1 of the current fiscal year
+const q1 = NepaliDate.getFiscalYearQuarter(1);
+console.log(q1.start.format("YYYY-MM-DD")); // "2081-04-01" (1 Shrawan)
+console.log(q1.end.format("YYYY-MM-DD"));   // "2081-06-30" (End of Ashwin)
+```
+
+### Querying Cross-Year Quarter (Q4)
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// Q4 of FY 2080/81 takes place in calendar year 2081
+const q4 = NepaliDate.getFiscalYearQuarter(4, 2080);
+console.log(q4.start.format("YYYY-MM-DD")); // "2081-01-01" (1 Baisakh 2081)
+console.log(q4.end.format("YYYY-MM-DD"));   // "2081-03-31" (End of Ashadh 2081)
+```
+
+---
+
+## Related
+
+* [`NepaliDate.getFiscalYearQuarters()`](/docs/nodejs/fiscal-year/get-fiscal-year-quarters): Returns all four quarters in one call.
+* [`NepaliDate.getCurrentFiscalYear()`](/docs/nodejs/fiscal-year/get-current-fiscal-year): Returns current fiscal year integer.
+

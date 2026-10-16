@@ -1,0 +1,66 @@
+---
+title: date.getDay()
+description: API reference for the date.getDay() method.
+icon: Calendar
+---
+
+Returns the day of the week as an integer (`0` to `6`) for the current `NepaliDate` instance.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+getDay(): number;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `number`
+* **Range**: `0` to `6`
+
+| Index | Weekday (English) | Weekday (Devanagari) |
+| :---: | :--- | :--- |
+| `0` | Sunday | आइतबार |
+| `1` | Monday | सोमबार |
+| `2` | Tuesday | मङ्गलबार |
+| `3` | Wednesday | बुधबार |
+| `4` | Thursday | बिहिबार |
+| `5` | Friday | शुक्रबार |
+| `6` | Saturday | शनिबार |
+
+---
+
+## Example
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// 2081 Kartik 15 fell on a Friday
+const date = new NepaliDate("2081-07-15");
+console.log(date.getDay()); // 5
+```
+
+---
+
+## Related
+
+* [`NepaliDate.getDayName()`](/docs/nodejs/static/get-day-name): Retrieve the weekday string name.
+* [`date.getDate()`](/docs/nodejs/methods/get-date): Retrieve the day of the month (1–32).
+

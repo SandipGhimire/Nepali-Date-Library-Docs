@@ -1,0 +1,75 @@
+---
+title: Date Converter Guide
+description: Architecture, timezone safety, and guidelines for converting between Gregorian (AD) and Bikram Sambat (BS).
+icon: ArrowLeftRight
+---
+
+The `nepali-date-library` provides two pure, standalone helper functions—`ADtoBS` and `BStoAD`—designed for high-throughput string-based date conversions between the Gregorian calendar (AD) and Bikram Sambat (BS).
+
+---
+
+## When to Use Helper Functions vs. the `NepaliDate` Class
+
+| Requirement | Use `ADtoBS` / `BStoAD` | Use `NepaliDate` Class |
+| :--- | :---: | :---: |
+| Simple string-to-string conversion | Yes | Optional |
+| Database serialization / ETL pipelines | Yes | Optional |
+| Date arithmetic (`addDays`, `diff`) | No | Yes |
+| Custom token formatting (`MMMM`, `dddd`) | No | Yes |
+| Calendar boundary calculations (`startOfMonth`) | No | Yes |
+| Fiscal year & quarter calculations | No | Yes |
+
+---
+
+## Timezone Drift Prevention
+
+One of the most frequent bugs when converting dates in distributed environments is **single-day shifting caused by local server timezones**.
+
+For example, parsing `"2024-11-01"` using `new Date("2024-11-01")` in a system running in UTC-5 (Eastern Time) produces `2024-10-31 19:00:00`, which erroneously converts to the previous Nepali date.
+
+`ADtoBS` and `BStoAD` internally enforce **strict UTC parsing** via `Date.UTC`:
+- `"2024-11-01"` is always resolved at `2024-11-01T00:00:00.000Z`.
+- Conversions produce identical results regardless of whether your code runs in Tokyo (UTC+9), Kathmandu (UTC+5:45), London (UTC+0), or San Francisco (UTC-8).
+
+---
+
+## Input Format Standard
+
+Both conversion functions enforce the ISO-8601 standard date format:
+
+```text
+YYYY-MM-DD
+```
+
+- Years must be 4 digits.
+- Months must be 2 zero-padded digits (`01` to `12`).
+- Days must be 2 zero-padded digits (`01` to `32`).
+
+Passing strings with non-standard delimiters or single digits (e.g. `2081-7-5` or `2081/07/05`) will throw an explicit format error.
+
+---
+
+## Error Handling & `DateConversionError`
+
+All conversion errors throw a descriptive exception or an instance of `DateConversionError` containing the underlying cause:
+
+```typescript
+import { ADtoBS } from "nepali-date-library";
+
+try {
+  const bsDate = ADtoBS("invalid-date-string");
+} catch (error) {
+  if (error instanceof Error) {
+    console.error(error.message); // "Invalid date format. Expected format: YYYY-MM-DD"
+  }
+}
+```
+
+---
+
+## Next Steps
+
+Explore the individual function references:
+- [`ADtoBS()`](/docs/nodejs/date-converter/ad-to-bs): Convert Gregorian AD strings to Bikram Sambat BS.
+- [`BStoAD()`](/docs/nodejs/date-converter/bs-to-ad): Convert Bikram Sambat BS strings to Gregorian AD.
+

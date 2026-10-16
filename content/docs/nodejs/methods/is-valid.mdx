@@ -1,0 +1,66 @@
+---
+title: date.isValid()
+description: API reference for the date.isValid() instance method.
+icon: ShieldCheck
+---
+
+Checks whether the current `NepaliDate` instance represents a valid date within the supported Bikram Sambat calendar range and accurate month lengths.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+isValid(): boolean;
+```
+
+---
+
+## Parameters
+
+This method does not take any parameters.
+
+---
+
+## Return Value
+
+* **Type**: `boolean`
+* Returns `true` if the instance's year, month, and day are valid within the Bikram Sambat calendar data (1976 BS to 2100 BS); otherwise returns `false`.
+
+---
+
+## Examples
+
+### Validating Instance Dates
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-01-15");
+console.log(date.isValid()); // true
+```
+
+### Checking Post-Mutation Validity
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-01-01");
+console.log(date.isValid()); // true
+```
+
+---
+
+## Related
+
+* [`NepaliDate.isValid()`](/docs/nodejs/static/is-valid): Static validation helper taking numeric year, month, and day.
+* [`date.daysInMonth()`](/docs/nodejs/methods/days-in-month): Total days in the month.
+

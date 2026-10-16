@@ -1,0 +1,84 @@
+---
+title: date.getCurrentFiscalYearQuarterDates()
+description: API reference for the date.getCurrentFiscalYearQuarterDates() instance method.
+icon: CalendarRange
+---
+
+Returns the boundary `start` and `end` `NepaliDate` instances for the fiscal quarter containing the current date instance.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+```javascript
+const { NepaliDate } = require("nepali-date-library");
+```
+
+---
+
+## Signature
+
+```typescript
+getCurrentFiscalYearQuarterDates(): { start: NepaliDate; end: NepaliDate };
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `{ start: NepaliDate; end: NepaliDate }`
+* **Structure**:
+  * `start`: `NepaliDate` instance pointing to the first day of the quarter at `00:00:00.000`.
+  * `end`: `NepaliDate` instance pointing to the final day of the quarter at `23:59:59.999`.
+
+---
+
+## Examples
+
+### Getting Current Quarter Boundaries
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// Assuming today is 2081 Kartik 15 (Q2):
+const today = new NepaliDate();
+const { start, end } = today.getCurrentFiscalYearQuarterDates();
+
+console.log(start.format("YYYY-MM-DD")); // "2081-07-01" (1 Kartik)
+console.log(end.format("YYYY-MM-DD"));   // "2081-09-30" (Last day of Poush)
+```
+
+### Database Query Boundary Filter
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+function getActiveQuarterFilter() {
+  const now = new NepaliDate();
+  const { start, end } = now.getCurrentFiscalYearQuarterDates();
+
+  return {
+    startGregorian: start.getEnglishDate(),
+    endGregorian: end.getEnglishDate(),
+    quarterIndex: now.getCurrentFiscalYearQuarter(),
+  };
+}
+```
+
+---
+
+## Related
+
+* [`NepaliDate.getFiscalYearQuarter()`](/docs/nodejs/fiscal-year/get-fiscal-year-quarter): Static helper accepting an explicit quarter index.
+* [`NepaliDate.getFiscalYearQuarters()`](/docs/nodejs/fiscal-year/get-fiscal-year-quarters): Retrieve all 4 quarters in one object.
+

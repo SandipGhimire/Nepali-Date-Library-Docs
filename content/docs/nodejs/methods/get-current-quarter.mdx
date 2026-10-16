@@ -1,0 +1,80 @@
+---
+title: date.getCurrentQuarter()
+description: API reference for the date.getCurrentQuarter() method.
+icon: PieChart
+---
+
+Returns the Bikram Sambat calendar quarter number (`1-4`) for the current date based on the standard calendar year (starting Baisakh).
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+getCurrentQuarter(): number;
+```
+
+---
+
+## Parameters
+
+This method does not take any parameters.
+
+---
+
+## Return Value
+
+* **Type**: `number`
+* The calendar quarter integer (`1`, `2`, `3`, or `4`):
+  * `1`: Baisakh, Jestha, Asar (Months `0-2`)
+  * `2`: Shrawan, Bhadra, Aswin (Months `3-5`)
+  * `3`: Kartik, Mangsir, Poush (Months `6-8`)
+  * `4`: Magh, Falgun, Chaitra (Months `9-11`)
+
+---
+
+## Note on Fiscal Quarters
+
+Calendar quarters follow the Baisakh-to-Chaitra annual cycle. If you require Government of Nepal / IRD fiscal quarters (which begin in Shrawan), use [`date.getCurrentFiscalYearQuarter()`](/docs/nodejs/fiscal-year/get-current-fiscal-year-quarter) instead.
+
+---
+
+## Examples
+
+### Determining Current Calendar Quarter
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// 2081 Baisakh 15 (month index 0)
+const date1 = new NepaliDate(2081, 0, 15);
+console.log(date1.getCurrentQuarter()); // 1
+
+// 2081 Shrawan 1 (month index 3)
+const date2 = new NepaliDate(2081, 3, 1);
+console.log(date2.getCurrentQuarter()); // 2
+
+// 2081 Kartik 10 (month index 6)
+const date3 = new NepaliDate(2081, 6, 10);
+console.log(date3.getCurrentQuarter()); // 3
+
+// 2081 Magh 20 (month index 9)
+const date4 = new NepaliDate(2081, 9, 20);
+console.log(date4.getCurrentQuarter()); // 4
+```
+
+---
+
+## Related
+
+* [`NepaliDate.getQuarter()`](/docs/nodejs/fiscal-year/calendar-quarters): Get start and end dates for a specific calendar quarter.
+* [`date.getCurrentFiscalYearQuarter()`](/docs/nodejs/fiscal-year/get-current-fiscal-year-quarter): Get the Nepali fiscal quarter (`1-4`).
+

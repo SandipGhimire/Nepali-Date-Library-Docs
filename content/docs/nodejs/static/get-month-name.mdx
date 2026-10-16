@@ -1,0 +1,100 @@
+---
+title: NepaliDate.getMonthName()
+description: API reference for the static NepaliDate.getMonthName() method.
+icon: Type
+---
+
+Returns the localized name of a Bikram Sambat month in English or Devanagari (Nepali), supporting both full and abbreviated formats.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+static getMonthName(month: number, short?: boolean, nepali?: boolean): string;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Default | Description |
+| :--- | :--- | :---: | :---: | :--- |
+| `month` | `number` | Yes | - | Zero-indexed month number (`0-11`, where `0` is Baisakh). |
+| `short` | `boolean` | No | `false` | When `true`, returns the 3-letter abbreviated name. |
+| `nepali` | `boolean` | No | `false` | When `true`, returns the name in Devanagari script. |
+
+---
+
+## Return Value
+
+* **Type**: `string`
+* Localized month name string.
+
+---
+
+## Exceptions
+
+Throws an `Error` if `month` is less than `0` or greater than `11`:
+
+```typescript
+"Invalid month index, must be between 0-11"
+```
+
+---
+
+## Output Reference Matrix
+
+| Month Index | Default (`short: false, nepali: false`) | Short English (`short: true, nepali: false`) | Nepali Full (`short: false, nepali: true`) | Nepali Short (`short: true, nepali: true`) |
+| :---: | :--- | :--- | :--- | :--- |
+| `0` | `"Baisakh"` | `"Bai"` | `"बैशाख"` | `"बै"` |
+| `1` | `"Jestha"` | `"Jes"` | `"जेठ"` | `"जे"` |
+| `2` | `"Asar"` | `"Asa"` | `"असार"` | `"अ"` |
+| `3` | `"Shrawan"` | `"Shr"` | `"श्रावण"` | `"श्रा"` |
+| `4` | `"Bhadra"` | `"Bhd"` | `"भाद्र"` | `"भा"` |
+| `5` | `"Aswin"` | `"Asw"` | `"आश्विन"` | `"आ"` |
+| `6` | `"Kartik"` | `"Kar"` | `"कार्तिक"` | `"का"` |
+| `7` | `"Mangsir"` | `"Man"` | `"मंसिर"` | `"मं"` |
+| `8` | `"Poush"` | `"Pou"` | `"पौष"` | `"पौ"` |
+| `9` | `"Magh"` | `"Mag"` | `"माघ"` | `"मा"` |
+| `10` | `"Falgun"` | `"Fal"` | `"फाल्गुण"` | `"फा"` |
+| `11` | `"Chaitra"` | `"Cha"` | `"चैत्र"` | `"चै"` |
+
+---
+
+## Examples
+
+### Generating Localized Month Labels
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// Default English Full
+console.log(NepaliDate.getMonthName(0)); // "Baisakh"
+
+// English Short
+console.log(NepaliDate.getMonthName(0, true)); // "Bai"
+
+// Nepali Devanagari Full
+console.log(NepaliDate.getMonthName(0, false, true)); // "बैशाख"
+
+// Nepali Devanagari Short
+console.log(NepaliDate.getMonthName(0, true, true)); // "बै"
+```
+
+---
+
+## Related
+
+* [`NepaliDate.getDayName()`](/docs/nodejs/static/get-day-name): Localized weekday names.
+* [`MONTH_EN`](/docs/nodejs/constants/month-en): Array constant for English months.
+* [`MONTH_NP`](/docs/nodejs/constants/month-np): Array constant for Nepali months.
+

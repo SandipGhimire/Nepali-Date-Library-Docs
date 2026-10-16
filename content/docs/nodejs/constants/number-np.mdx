@@ -1,0 +1,70 @@
+---
+title: NUMBER_NP
+description: API reference for the NUMBER_NP Devanagari digit array constant.
+icon: Hash
+---
+
+An array of Devanagari numerals indexed `0` through `9`, used for formatting numbers into Nepali script.
+
+---
+
+## Import
+
+```typescript
+import { NUMBER_NP } from "nepali-date-library";
+```
+
+---
+
+## Value
+
+```typescript
+export const NUMBER_NP = ["०", "१", "२", "३", "४", "५", "६", "७", "८", "९"];
+```
+
+---
+
+## Index Mapping
+
+| Index | Character | Unicode Codepoint |
+| :---: | :---: | :--- |
+| `0` | `"०"` | `U+0966` |
+| `1` | `"१"` | `U+0967` |
+| `2` | `"२"` | `U+0968` |
+| `3` | `"३"` | `U+0969` |
+| `4` | `"४"` | `U+096A` |
+| `5` | `"५"` | `U+096B` |
+| `6` | `"६"` | `U+096C` |
+| `7` | `"७"` | `U+096D` |
+| `8` | `"८"` | `U+096E` |
+| `9` | `"९"` | `U+096F` |
+
+---
+
+## Examples
+
+### Converting Arabic Digits to Devanagari
+
+```typescript
+import { NUMBER_NP } from "nepali-date-library";
+
+function toNepaliDigits(num: number | string): string {
+  return String(num)
+    .split("")
+    .map((ch) => {
+      const code = ch.charCodeAt(0) - 48;
+      return code >= 0 && code <= 9 ? NUMBER_NP[code] : ch;
+    })
+    .join("");
+}
+
+console.log(toNepaliDigits(2081)); // "२०८१"
+console.log(toNepaliDigits("2081-01-25")); // "२०८१-०१-२५"
+```
+
+---
+
+## Related
+
+* [`date.format()`](/docs/nodejs/methods/format): Format dates with lowercase tokens (`yyyy`, `mm`, `dd`).
+

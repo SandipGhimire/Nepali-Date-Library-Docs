@@ -1,0 +1,57 @@
+---
+title: Fiscal Year & Quarters Guide
+description: Architecture, trimester breakdowns, and calculation rules for Nepal's official fiscal calendar.
+icon: Landmark
+---
+
+In Nepal, government finances, public taxation, corporate accounting, and legal filings follow the **Nepalese Fiscal Year (*Aarthik Barsha*)**, which begins on **1 Shrawan** and ends on the **last day of Ashadh** of the following calendar year.
+
+The `nepali-date-library` provides native methods to compute active fiscal years, determine quarterly boundaries, and handle cross-year transitions automatically.
+
+---
+
+## Fiscal Year Structure
+
+Because the fiscal year starts in the fourth month of Bikram Sambat (Shrawan), every fiscal cycle spans two calendar years:
+
+* **Format**: Standardized as `YYYY/YY` (e.g. `2081/82 BS`).
+* **Start Date**: `1 Shrawan` (Month index `3`, Day `1`).
+* **End Date**: `Last day of Ashadh` (Month index `2`, Day `31` or `32` of the succeeding calendar year).
+
+---
+
+## Fiscal Quarters (Trimesters)
+
+The financial year is divided into four 3-month quarters:
+
+| Quarter | Span (Bikram Sambat Months) | Typical Gregorian Span | Accounting Significance |
+| :--- | :--- | :--- | :--- |
+| **Q1** | 1 Shrawan – Last day of Ashwin | Mid-July to Mid-October | First trimester; Dashain festival preparations |
+| **Q2** | 1 Kartik – Last day of Poush | Mid-October to Mid-January | Second trimester; mid-term budget review |
+| **Q3** | 1 Magh – Last day of Chaitra | Mid-January to Mid-April | Third trimester; third-quarter corporate advance tax |
+| **Q4** | 1 Baisakh – Last day of Ashadh | Mid-April to Mid-July | Final trimester; annual financial closing & tax filing |
+
+> [!NOTE]
+> Notice that **Q4** takes place in the succeeding Bikram Sambat calendar year (Baisakh, Jestha, Ashadh). The library automatically increments the calendar year when calculating Q4 boundaries.
+
+---
+
+## Fiscal Quarters vs. Calendar Quarters
+
+`nepali-date-library` provides separate APIs for both systems:
+
+* **Fiscal Quarters**: Used for taxation, corporate accounting, and financial reporting. Runs **Shrawan to Ashadh**.
+* **Calendar Quarters**: Used for calendar quarters, seasonal reporting, and academic trimesters. Runs **Baisakh to Chaitra**.
+
+---
+
+## Section API Methods
+
+Explore each dedicated function reference:
+* [`NepaliDate.getCurrentFiscalYear()`](/docs/nodejs/fiscal-year/get-current-fiscal-year): Returns active fiscal year integer.
+* [`date.getCurrentFiscalYearQuarter()`](/docs/nodejs/fiscal-year/get-current-fiscal-year-quarter): Returns quarter number (`1 | 2 | 3 | 4`) for a date.
+* [`date.getCurrentFiscalYearQuarterDates()`](/docs/nodejs/fiscal-year/get-current-fiscal-year-quarter-dates): Returns `{ start, end }` dates for current quarter.
+* [`NepaliDate.getFiscalYearQuarter()`](/docs/nodejs/fiscal-year/get-fiscal-year-quarter): Calculates boundaries for any arbitrary quarter and year.
+* [`NepaliDate.getFiscalYearQuarters()`](/docs/nodejs/fiscal-year/get-fiscal-year-quarters): Returns all four fiscal quarters in a single call.
+* [`Calendar Quarters`](/docs/nodejs/fiscal-year/calendar-quarters): Standard calendar quarters (`getQuarter` & `getQuarters`).
+

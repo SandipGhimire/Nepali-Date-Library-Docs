@@ -1,0 +1,73 @@
+---
+title: date.getMonth()
+description: API reference for the date.getMonth() method.
+icon: Calendar
+---
+
+Returns the 0-indexed Bikram Sambat month of the current `NepaliDate` instance.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+getMonth(): number;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `number`
+* **Range**: `0` to `11`
+
+| Index | Month (English) | Month (Devanagari) |
+| :---: | :--- | :--- |
+| `0` | Baisakh | बैशाख |
+| `1` | Jestha | जेठ |
+| `2` | Ashadh / Asar | असार |
+| `3` | Shrawan | श्रावण |
+| `4` | Bhadra | भाद्र |
+| `5` | Ashwin / Aswin | आश्विन |
+| `6` | Kartik | कार्तिक |
+| `7` | Mangsir | मंसिर |
+| `8` | Poush | पौष |
+| `9` | Magh | माघ |
+| `10` | Falgun | फाल्गुण |
+| `11` | Chaitra | चैत्र |
+
+---
+
+## Example
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// 2081 Kartik 15
+const date = new NepaliDate("2081-07-15");
+
+console.log(date.getMonth()); // 6 (0-indexed)
+console.log(date.getMonth() + 1); // 7 (1-indexed for display)
+```
+
+---
+
+## Related
+
+* [`date.setMonth()`](/docs/nodejs/methods/set-month): Mutate the month component.
+* [`NepaliDate.getMonthName()`](/docs/nodejs/static/get-month-name): Get the localized string name for a month index.
+

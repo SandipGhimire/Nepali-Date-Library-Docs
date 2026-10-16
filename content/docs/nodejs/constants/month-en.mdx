@@ -1,0 +1,77 @@
+---
+title: MONTH_EN
+description: API reference for the MONTH_EN English month name constant array.
+icon: Calendar
+---
+
+An array containing the standard romanized English names of all 12 Bikram Sambat months, zero-indexed from Baisakh (`0`) to Chaitra (`11`).
+
+---
+
+## Import
+
+```typescript
+import { MONTH_EN } from "nepali-date-library";
+```
+
+---
+
+## Value
+
+```typescript
+export const MONTH_EN = [
+  "Baisakh",
+  "Jestha",
+  "Asar",
+  "Shrawan",
+  "Bhadra",
+  "Aswin",
+  "Kartik",
+  "Mangsir",
+  "Poush",
+  "Magh",
+  "Falgun",
+  "Chaitra",
+];
+```
+
+---
+
+## Index Mapping
+
+| Index | Month Name | Gregorian Equivalent (Approximate) |
+| :---: | :--- | :--- |
+| `0` | `"Baisakh"` | Mid-April to Mid-May |
+| `1` | `"Jestha"` | Mid-May to Mid-June |
+| `2` | `"Asar"` | Mid-June to Mid-July |
+| `3` | `"Shrawan"` | Mid-July to Mid-August |
+| `4` | `"Bhadra"` | Mid-August to Mid-September |
+| `5` | `"Aswin"` | Mid-September to Mid-October |
+| `6` | `"Kartik"` | Mid-October to Mid-November |
+| `7` | `"Mangsir"` | Mid-November to Mid-December |
+| `8` | `"Poush"` | Mid-December to Mid-January |
+| `9` | `"Magh"` | Mid-January to Mid-February |
+| `10` | `"Falgun"` | Mid-February to Mid-March |
+| `11` | `"Chaitra"` | Mid-March to Mid-April |
+
+---
+
+## Examples
+
+### Accessing Month Names by Index
+
+```typescript
+import { MONTH_EN, NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-01-15");
+console.log(MONTH_EN[date.getMonth()]); // "Baisakh"
+```
+
+---
+
+## Related
+
+* [`MONTH_SHORT_EN`](/docs/nodejs/constants/month-short-en): Abbreviated English month names.
+* [`MONTH_NP`](/docs/nodejs/constants/month-np): Devanagari Nepali month names.
+* [`NepaliDate.getMonthName()`](/docs/nodejs/static/get-month-name): Static helper with formatting options.
+

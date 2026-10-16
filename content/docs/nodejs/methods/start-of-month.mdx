@@ -1,0 +1,74 @@
+---
+title: date.startOfMonth()
+description: API reference for the date.startOfMonth() method.
+icon: Calendar
+---
+
+Returns a new `NepaliDate` instance representing the first day of the current Nepali month (day `1`).
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+startOfMonth(): NepaliDate;
+```
+
+---
+
+## Parameters
+
+This method does not take any parameters.
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* Returns a new `NepaliDate` set to day `1` of the current year and month. The original instance is not modified.
+
+---
+
+## Examples
+
+### Getting the First Day of the Month
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// 2081 Baisakh 25
+const date = new NepaliDate(2081, 0, 25);
+
+const start = date.startOfMonth();
+console.log(start.format("YYYY-MM-DD")); // "2081-01-01"
+console.log(start.getDate()); // 1
+```
+
+### Calendar Header Computation
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const today = new NepaliDate();
+const firstDay = today.startOfMonth();
+
+// Find weekday that the month begins on
+console.log(firstDay.getDay()); // 0 = Sunday, 1 = Monday, etc.
+```
+
+---
+
+## Related
+
+* [`date.endOfMonth()`](/docs/nodejs/methods/end-of-month): Return the last day of the current month.
+* [`date.startOfYear()`](/docs/nodejs/methods/start-of-year): Return the first day of the current year.
+* [`date.daysInMonth()`](/docs/nodejs/methods/days-in-month): Return total days in the month.
+

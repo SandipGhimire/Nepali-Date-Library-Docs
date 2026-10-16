@@ -1,0 +1,109 @@
+---
+title: ADtoBS()
+description: API reference and usage examples for the standalone ADtoBS date conversion function.
+icon: ArrowRight
+---
+
+Converts an Anno Domini (AD / Gregorian) date string to its equivalent Bikram Sambat (BS / Nepali) date string.
+
+---
+
+## Import
+
+```typescript
+import { ADtoBS } from "nepali-date-library";
+```
+
+```javascript
+const { ADtoBS } = require("nepali-date-library");
+```
+
+---
+
+## Signature
+
+```typescript
+function ADtoBS(adDate: string): string;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `adDate` | `string` | Yes | Gregorian date string formatted strictly as `YYYY-MM-DD`. |
+
+---
+
+## Return Value
+
+* **Type**: `string`
+* **Format**: `YYYY-MM-DD` representing the corresponding Bikram Sambat date.
+
+---
+
+## Exceptions
+
+| Error Message | Trigger Condition |
+| :--- | :--- |
+| `Invalid date format. Expected format: YYYY-MM-DD` | Thrown if `adDate` fails the format regex `^\d{4}-\d{2}-\d{2}$`. |
+| `Invalid date input '<adDate>'` | Thrown if date values produce `NaN` (e.g. `2024-02-31`). |
+| `DateConversionError: Failed to convert AD to BS` | Thrown if the date falls outside the verified ephemeris boundary (1919-04-13 to 2044-04-12 AD). |
+
+---
+
+## Examples
+
+### Basic Conversion
+
+```typescript
+import { ADtoBS } from "nepali-date-library";
+
+const bsDate = ADtoBS("2024-10-31");
+console.log(bsDate); // "2081-07-15"
+```
+
+### Batch Array Processing
+
+```typescript
+import { ADtoBS } from "nepali-date-library";
+
+const records = [
+  { id: 1, createdAt: "2024-01-01" },
+  { id: 2, createdAt: "2024-04-13" },
+  { id: 3, createdAt: "2024-10-31" },
+];
+
+const mappedRecords = records.map((record) => ({
+  ...record,
+  createdAtBS: ADtoBS(record.createdAt),
+}));
+
+console.log(mappedRecords[0].createdAtBS); // "2080-09-16"
+```
+
+### Error Handling
+
+```typescript
+import { ADtoBS } from "nepali-date-library";
+
+function safeADtoBS(dateString: string): string | null {
+  try {
+    return ADtoBS(dateString);
+  } catch {
+    return null;
+  }
+}
+
+console.log(safeADtoBS("2024-10-31")); // "2081-07-15"
+console.log(safeADtoBS("invalid")); // null
+```
+
+---
+
+## Related
+
+* [`BStoAD()`](/docs/nodejs/date-converter/bs-to-ad): Reciprocal conversion from BS to AD.
+* [`new NepaliDate(date)`](/docs/nodejs/class/constructor): Converting a JavaScript Date object into a full `NepaliDate` instance.
+

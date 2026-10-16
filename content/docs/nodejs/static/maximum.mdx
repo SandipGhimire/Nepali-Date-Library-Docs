@@ -1,0 +1,61 @@
+---
+title: NepaliDate.maximum()
+description: API reference for the static NepaliDate.maximum() method.
+icon: ArrowUpToLine
+---
+
+Returns the latest Gregorian date supported by the `NepaliDate` engine (corresponding to the final day of Bikram Sambat 2100 Chaitra).
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+static maximum(): Date;
+```
+
+---
+
+## Parameters
+
+This method does not take any parameters.
+
+---
+
+## Return Value
+
+* **Type**: `Date`
+* Returns a standard JavaScript `Date` instance representing the absolute upper limit of the calendar mapping dataset.
+
+---
+
+## Examples
+
+### Checking Upper Calendar Limit
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const maxDate = NepaliDate.maximum();
+console.log(maxDate.toISOString());
+
+// Converting maximum back to NepaliDate
+const nepaliMax = new NepaliDate(maxDate);
+console.log(nepaliMax.format("YYYY-MM-DD")); // "2100-12-30" (or 31)
+```
+
+---
+
+## Related
+
+* [`NepaliDate.minimum()`](/docs/nodejs/static/minimum): Earliest date supported.
+* [`NEPALI_DATE_MAP`](/docs/nodejs/constants/nepali-date-map): Calendar map dataset.
+

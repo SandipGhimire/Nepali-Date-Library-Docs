@@ -1,0 +1,125 @@
+---
+title: NepaliDate.getCalendarDays()
+description: API reference for the static NepaliDate.getCalendarDays() calendar grid builder method.
+icon: Grid
+---
+
+Generates a complete 42-cell (6 rows × 7 columns) calendar grid matrix for a given Bikram Sambat year and month, including leading padding days from the previous month and trailing padding days from the next month.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+static getCalendarDays(
+  year: number,
+  month: number
+): {
+  prevRemainingDays: number;
+  prevMonth: { year: number; month: number; days: number[] };
+  currentMonth: { year: number; month: number; days: number[] };
+  nextMonth: { year: number; month: number; days: number[] };
+  remainingDays: number;
+};
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `year` | `number` | Yes | Bikram Sambat year (e.g. `2081`). |
+| `month` | `number` | Yes | Zero-indexed month (`0-11`, where `0` is Baisakh and `11` is Chaitra). |
+
+---
+
+## Return Value
+
+* **Type**: `Object` containing calendar grid sections:
+  * `prevRemainingDays`: Number of leading days from the previous month needed to reach the first day's weekday.
+  * `prevMonth`: Object containing `year`, `month`, and `days` array for preceding filler dates.
+  * `currentMonth`: Object containing `year`, `month`, and `days` array (`1` through `daysInMonth`) for the active month.
+  * `nextMonth`: Object containing `year`, `month`, and `days` array for succeeding filler dates to complete 42 cells.
+  * `remainingDays`: Number of trailing days in `nextMonth`.
+
+---
+
+## Exceptions
+
+Throws an `Error` if the year or month index is invalid:
+
+```typescript
+"Invalid year or month"
+```
+
+---
+
+## Examples
+
+### Building a Monthly UI Calendar Grid
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// Generate grid for Baisakh 2081
+const grid = NepaliDate.getCalendarDays(2081, 0);
+
+console.log("Leading days count:", grid.prevRemainingDays);
+console.log("Leading days:", grid.prevMonth.days);
+console.log("Active month days:", grid.currentMonth.days);
+console.log("Trailing days:", grid.nextMonth.days);
+```
+
+### Rendering a 42-Cell React Calendar
+
+```tsx
+import React from "react";
+import { NepaliDate } from "nepali-date-library";
+
+export function NepaliCalendarView({ year, month }: { year: number; month: number }) {
+  const grid = NepaliDate.getCalendarDays(year, month);
+
+  return (
+    <div className="grid grid-cols-7 gap-1">
+      {/* Leading days from previous month */}
+      {grid.prevMonth.days.map((d) => (
+        <div key={`prev-${d}`} className="text-gray-400 p-2 text-center">
+          {d}
+        </div>
+      ))}
+
+      {/* Active month days */}
+      {grid.currentMonth.days.map((d) => (
+        <div key={`curr-${d}`} className="font-semibold p-2 text-center">
+          {d}
+        </div>
+      ))}
+
+      {/* Trailing days from next month */}
+      {grid.nextMonth.days.map((d) => (
+        <div key={`next-${d}`} className="text-gray-400 p-2 text-center">
+          {d}
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+---
+
+## Related
+
+* [`date.daysInMonth()`](/docs/nodejs/methods/days-in-month): Total number of days in the month.
+* [`date.getWeeksInMonth()`](/docs/nodejs/methods/get-weeks-in-month): Number of week rows needed.
+* [`NepaliDate.isValid()`](/docs/nodejs/static/is-valid): Date validation.
+

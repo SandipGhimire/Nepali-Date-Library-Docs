@@ -1,0 +1,80 @@
+---
+title: NepaliDate.isValid()
+description: API reference for the static NepaliDate.isValid() method.
+icon: ShieldCheck
+---
+
+Statically validates whether a specific Bikram Sambat year, month index (`0-11`), and day combination is valid according to astronomical calendar tables.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+static isValid(year: number, month: number, day: number): boolean;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `year` | `number` | Yes | Bikram Sambat year (e.g. `2081`). Supported range: `1976` to `2100`. |
+| `month` | `number` | Yes | Zero-indexed month (`0-11`, where `0` is Baisakh and `11` is Chaitra). |
+| `day` | `number` | Yes | Day of the month (`1-32`). |
+
+---
+
+## Return Value
+
+* **Type**: `boolean`
+* Returns `true` if the year is within supported range, month is between `0` and `11`, and day does not exceed the exact number of days in that month; otherwise returns `false`.
+
+---
+
+## Examples
+
+### Pre-validating User Input
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// 2081 Baisakh 31 is valid (Baisakh has 31 days)
+console.log(NepaliDate.isValid(2081, 0, 31)); // true
+
+// 2081 Baisakh 32 does not exist
+console.log(NepaliDate.isValid(2081, 0, 32)); // false
+
+// Month index must be 0-11
+console.log(NepaliDate.isValid(2081, 12, 1)); // false
+```
+
+### Form Input Validation Guard
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+function createNepaliEvent(y: number, m: number, d: number) {
+  if (!NepaliDate.isValid(y, m, d)) {
+    throw new Error(`Invalid Bikram Sambat date: ${y}-${m + 1}-${d}`);
+  }
+  return new NepaliDate(y, m, d);
+}
+```
+
+---
+
+## Related
+
+* [`date.isValid()`](/docs/nodejs/methods/is-valid): Instance method equivalent.
+* [`date.daysInMonth()`](/docs/nodejs/methods/days-in-month): Query total days in a month.
+

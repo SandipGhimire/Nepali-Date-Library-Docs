@@ -1,0 +1,86 @@
+---
+title: date.endOfWeek()
+description: API reference for the date.endOfWeek() method.
+icon: CalendarRange
+---
+
+Returns a new `NepaliDate` instance representing the final day of the week containing the current date, normalized to the end of the day (`23:59:59.999`).
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+endOfWeek(startOfWeek?: number): NepaliDate;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Default | Description |
+| :--- | :--- | :---: | :---: | :--- |
+| `startOfWeek` | `number` | No | `0` | Day of week index (`0-6`) that defines when the week begins. By default, `0` (Sunday) is the start, making Saturday (6) the end. |
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* Returns a new `NepaliDate` instance set to the end of the final day of the week (`23:59:59.999`). The original instance is not modified.
+
+---
+
+## Exceptions
+
+Throws an `Error` if `startOfWeek` is not an integer between `0` and `6`:
+
+```typescript
+"startOfWeek must be an integer between 0 and 6"
+```
+
+---
+
+## Examples
+
+### Default Week End (Saturday 23:59:59)
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-02-16");
+
+const weekEnd = date.endOfWeek();
+console.log(weekEnd.getDay()); // 6 (Saturday)
+console.log(weekEnd.getHours()); // 23
+console.log(weekEnd.getMinutes()); // 59
+```
+
+### Custom Week Ending on Sunday
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-02-16");
+
+// Week starts on Monday (1), meaning it ends on Sunday (0)
+const weekEnd = date.endOfWeek(1);
+console.log(weekEnd.getDay()); // 0 (Sunday)
+```
+
+---
+
+## Related
+
+* [`date.startOfWeek()`](/docs/nodejs/methods/start-of-week): Return the beginning of the week.
+* [`date.endOfDay()`](/docs/nodejs/methods/end-of-day): Return end of the day.
+* [`date.getDay()`](/docs/nodejs/methods/get-day): Get current day of week index (`0-6`).
+

@@ -1,0 +1,75 @@
+---
+title: date.parse()
+description: API reference for the date.parse() method.
+icon: FileText
+---
+
+Parses a Bikram Sambat date string and mutates the current `NepaliDate` instance to match the new coordinates.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+parse(dateString: string): void;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `dateString` | `string` | Yes | Date string formatted as `YYYY-MM-DD`, `YYYY/MM/DD`, or `YYYY.MM.DD`. |
+
+---
+
+## Return Value
+
+* **Type**: `void`
+* Mutates the current `NepaliDate` instance in place.
+
+---
+
+## Exceptions
+
+| Error Message | Trigger Condition |
+| :--- | :--- |
+| `Invalid date` | Thrown if string segments are non-numeric. |
+| `Nepal year out of range` | Thrown if the parsed year is outside 1976 to 2100 BS. |
+| `Invalid nepali month must be between 1 - 12` | Thrown if month is outside `1` to `12`. |
+| `Invalid nepali date must be between 1 - <max> in <year> <month>` | Thrown if day exceeds the month's verified length. |
+
+---
+
+## Example
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate();
+
+// Mutate instance from string
+date.parse("2081-07-15");
+console.log(date.format("YYYY-MM-DD")); // "2081-07-15"
+
+// Delimiters with slash or period are supported
+date.parse("2082/01/01");
+console.log(date.format("YYYY-MM-DD")); // "2082-01-01"
+```
+
+---
+
+## Related
+
+* [`new NepaliDate(string)`](/docs/nodejs/class/constructor): Construct a new instance directly from a string.
+* [`date.set()`](/docs/nodejs/methods/set): Set coordinates using numeric values.
+

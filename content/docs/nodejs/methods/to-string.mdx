@@ -1,0 +1,69 @@
+---
+title: date.toString()
+description: API reference for the date.toString() method.
+icon: Binary
+---
+
+Returns the standard string representation of the Nepali date in `YYYY/M/D` format.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+toString(): string;
+```
+
+---
+
+## Parameters
+
+This method does not take any parameters.
+
+---
+
+## Return Value
+
+* **Type**: `string`
+* Returns the date formatted as `${year}/${month + 1}/${day}` where month is 1-indexed.
+
+---
+
+## Examples
+
+### Default Serialization
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// 2081 Baisakh 15 (month index 0)
+const date = new NepaliDate(2081, 0, 15);
+
+console.log(date.toString()); // "2081/1/15"
+console.log(String(date));    // "2081/1/15"
+```
+
+### String Interpolation
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-10-25");
+console.log(`Nepali Date: ${date}`); // "Nepali Date: 2081/10/25"
+```
+
+---
+
+## Related
+
+* [`date.format()`](/docs/nodejs/methods/format): Custom formatted strings with zero-padding and Nepali script.
+* [`date.getEnglishDate()`](/docs/nodejs/methods/get-english-date): Retrieve equivalent JavaScript Date.
+

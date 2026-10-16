@@ -1,0 +1,56 @@
+---
+title: date.getYear()
+description: API reference for the date.getYear() method.
+icon: Calendar
+---
+
+Returns the 4-digit Bikram Sambat year of the current `NepaliDate` instance.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+getYear(): number;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `number`
+* **Range**: `1976` to `2100`
+* **Description**: Full 4-digit Bikram Sambat year integer.
+
+---
+
+## Example
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-07-15");
+console.log(date.getYear()); // 2081
+```
+
+---
+
+## Related
+
+* [`date.setYear()`](/docs/nodejs/methods/set-year): Mutate the year component.
+* [`date.getMonth()`](/docs/nodejs/methods/get-month): Retrieve the month component.
+

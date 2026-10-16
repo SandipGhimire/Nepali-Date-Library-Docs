@@ -1,0 +1,67 @@
+---
+title: date.setDate()
+description: API reference for the date.setDate() method.
+icon: Edit3
+---
+
+Sets the day of the month on the current `NepaliDate` instance and recalculates the internal timestamp.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+setDate(day: number): void;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `day` | `number` | Yes | Day of the month (`1` to `32`, validated against current month's length). |
+
+---
+
+## Return Value
+
+* **Type**: `void`
+* Mutates the current `NepaliDate` instance in place.
+
+---
+
+## Exceptions
+
+| Error Message | Trigger Condition |
+| :--- | :--- |
+| `Invalid nepali date must be between 1 - <max> in <year> <month>` | Thrown if `day` is less than `1` or greater than the maximum days in the current month for this year. |
+
+---
+
+## Example
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-01-01");
+date.setDate(25);
+
+console.log(date.format("YYYY-MM-DD")); // "2081-01-25"
+```
+
+---
+
+## Related
+
+* [`date.getDate()`](/docs/nodejs/methods/get-date): Retrieve the day of the month.
+* [`date.daysInMonth()`](/docs/nodejs/methods/days-in-month): Query the maximum allowed day count for this month.
+

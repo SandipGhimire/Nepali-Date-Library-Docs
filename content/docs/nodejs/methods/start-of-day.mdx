@@ -1,0 +1,76 @@
+---
+title: date.startOfDay()
+description: API reference for the date.startOfDay() method.
+icon: Sunrise
+---
+
+Returns a new `NepaliDate` instance representing the exact beginning of the day (`00:00:00.000`) aligned with Nepal Standard Time (UTC+05:45).
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+startOfDay(): NepaliDate;
+```
+
+---
+
+## Parameters
+
+This method does not take any parameters.
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* Returns a new cloned `NepaliDate` instance set to `00:00:00.000` on the same calendar day. The original instance is not modified.
+
+---
+
+## Examples
+
+### Normalizing Date to Midnight
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate();
+const start = date.startOfDay();
+
+console.log(start.getHours()); // 0
+console.log(start.getMinutes()); // 0
+console.log(start.getSeconds()); // 0
+console.log(start.getMilliseconds()); // 0
+```
+
+### Date Range Queries
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// Generate midnight boundaries for database filters
+const fromDate = new NepaliDate("2081-02-10").startOfDay();
+const toDate = new NepaliDate("2081-02-10").endOfDay();
+
+console.log(fromDate.getEnglishDate().toISOString());
+console.log(toDate.getEnglishDate().toISOString());
+```
+
+---
+
+## Related
+
+* [`date.endOfDay()`](/docs/nodejs/methods/end-of-day): Return end of the day (`23:59:59.999`).
+* [`date.startOfMonth()`](/docs/nodejs/methods/start-of-month): Return first day of the current month.
+* [`date.startOfYear()`](/docs/nodejs/methods/start-of-year): Return first day of the current year.
+

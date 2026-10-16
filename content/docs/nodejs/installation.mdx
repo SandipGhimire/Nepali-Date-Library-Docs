@@ -1,0 +1,85 @@
+---
+title: Installation & Setup
+description: Install and configure nepali-date-library in your Node.js and TypeScript applications.
+icon: Download
+---
+
+Install `nepali-date-library` using your package manager of choice.
+
+---
+
+## Package Installation
+
+<Tabs items={["pnpm", "npm", "yarn", "bun"]}>
+  <Tab value="pnpm">
+```bash
+pnpm add nepali-date-library
+```
+  </Tab>
+  <Tab value="npm">
+```bash
+npm install nepali-date-library
+```
+  </Tab>
+  <Tab value="yarn">
+```bash
+yarn add nepali-date-library
+```
+  </Tab>
+  <Tab value="bun">
+```bash
+bun add nepali-date-library
+```
+  </Tab>
+</Tabs>
+
+---
+
+## Import Syntax
+
+The package supports both ECMAScript Modules (ESM) and CommonJS (CJS) natively.
+
+### ECMAScript Modules (TypeScript / Modern JS)
+
+```typescript
+import { NepaliDate, ADtoBS, BStoAD } from "nepali-date-library";
+
+// or default import
+import NepaliDate from "nepali-date-library";
+```
+
+### CommonJS
+
+```javascript
+const { NepaliDate, ADtoBS, BStoAD } = require("nepali-date-library");
+
+// or default require
+const NepaliDate = require("nepali-date-library");
+```
+
+---
+
+## TypeScript Configuration
+
+`nepali-date-library` is written in TypeScript and ships with bundled type definitions (`.d.ts`). No additional `@types/` packages are required.
+
+Recommended `tsconfig.json` compiler options:
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "esModuleInterop": true
+  }
+}
+```
+
+---
+
+## Zero Dependencies
+
+The package has **0 runtime external dependencies**. It contains all astronomical calendar mappings, formatting tokens, and date arithmetic routines internally, guaranteeing small bundle size and zero transitive vulnerability risks.
+

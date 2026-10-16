@@ -1,0 +1,104 @@
+---
+title: date.addMonths()
+description: API reference for the date.addMonths() method.
+icon: CalendarPlus
+---
+
+Adds or subtracts a specified number of months to the current `NepaliDate` instance. If the target month has fewer days than the current day of the month, the day is automatically clamped to the last valid day of that month.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+addMonths(months: number): NepaliDate;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `months` | `number` | Yes | Number of months to add (positive) or subtract (negative). |
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* Returns a new `NepaliDate` instance with the added or subtracted months. The original instance is not modified.
+
+---
+
+## Exceptions
+
+Throws an `Error` if the resulting year falls outside the supported Bikram Sambat calendar range (1976 BS to 2100 BS):
+
+```typescript
+"Resulting date is out of supported range"
+```
+
+---
+
+## Examples
+
+### Adding Months Within the Same Year
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// 2081 Baisakh 15 (month index 0)
+const date = new NepaliDate(2081, 0, 15);
+
+const future = date.addMonths(3);
+console.log(future.format("YYYY-MM-DD")); // "2081-04-15" (Shrawan)
+```
+
+### Day Clamping on Shorter Months
+
+When transitioning into a month with fewer days, the day component automatically adjusts to the maximum valid day of that target month:
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// 2081 Baisakh 31 (Baisakh has 31 days)
+const date = new NepaliDate(2081, 0, 31);
+
+// Jestha 2081 has 32 days -> day remains 31
+const jestha = date.addMonths(1);
+console.log(jestha.format("YYYY-MM-DD")); // "2081-02-31"
+
+// Kartik 2081 has 30 days -> day is clamped to 30
+const kartik = date.addMonths(6);
+console.log(kartik.format("YYYY-MM-DD")); // "2081-07-30"
+```
+
+### Subtracting Months Across Year Boundaries
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// 2081 Baisakh 10
+const date = new NepaliDate(2081, 0, 10);
+
+const past = date.addMonths(-2);
+console.log(past.format("YYYY-MM-DD")); // "2080-11-10" (Falgun 2080)
+```
+
+---
+
+## Related
+
+* [`date.addDays()`](/docs/nodejs/methods/add-days): Add or subtract whole days.
+* [`date.addYears()`](/docs/nodejs/methods/add-years): Add or subtract whole years.
+* [`date.diff()`](/docs/nodejs/methods/diff): Calculate differences between two dates.
+

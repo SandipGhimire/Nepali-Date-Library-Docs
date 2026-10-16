@@ -1,0 +1,55 @@
+---
+title: date.getMilliseconds()
+description: API reference for the date.getMilliseconds() method.
+icon: Clock
+---
+
+Returns the millisecond component (`0` to `999`) of the current `NepaliDate` instance.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+getMilliseconds(): number;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `number`
+* **Range**: `0` to `999`
+
+---
+
+## Example
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate();
+console.log(date.getMilliseconds()); // e.g. 512
+```
+
+---
+
+## Related
+
+* [`date.getSeconds()`](/docs/nodejs/methods/get-seconds): Retrieve the second component.
+* [`date.getTime()`](/docs/nodejs/methods/get-time): Retrieve the full epoch timestamp.
+

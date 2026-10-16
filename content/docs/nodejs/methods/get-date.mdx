@@ -1,0 +1,56 @@
+---
+title: date.getDate()
+description: API reference for the date.getDate() method.
+icon: Calendar
+---
+
+Returns the day of the month for the current `NepaliDate` instance.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+getDate(): number;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `number`
+* **Range**: `1` to `32` (depending on the month and year).
+
+---
+
+## Example
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-07-15");
+console.log(date.getDate()); // 15
+```
+
+---
+
+## Related
+
+* [`date.setDate()`](/docs/nodejs/methods/set-date): Mutate the day of the month.
+* [`date.getDay()`](/docs/nodejs/methods/get-day): Retrieve the day of the week (0–6).
+* [`date.daysInMonth()`](/docs/nodejs/methods/days-in-month): Query total days in this month.
+

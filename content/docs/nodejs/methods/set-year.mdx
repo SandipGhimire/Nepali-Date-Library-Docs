@@ -1,0 +1,67 @@
+---
+title: date.setYear()
+description: API reference for the date.setYear() method.
+icon: Edit3
+---
+
+Sets the Bikram Sambat year on the current `NepaliDate` instance and recalculates the internal timestamp.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+setYear(year: number): void;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `year` | `number` | Yes | 4-digit Bikram Sambat year (`1976` to `2100`). |
+
+---
+
+## Return Value
+
+* **Type**: `void`
+* Mutates the current `NepaliDate` instance in place.
+
+---
+
+## Exceptions
+
+| Error Message | Trigger Condition |
+| :--- | :--- |
+| `Nepal year out of range` | Thrown if `year` is earlier than 1976 BS or later than 2100 BS. |
+
+---
+
+## Example
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2080-01-01");
+date.setYear(2082);
+
+console.log(date.format("YYYY-MM-DD")); // "2082-01-01"
+```
+
+---
+
+## Related
+
+* [`date.getYear()`](/docs/nodejs/methods/get-year): Retrieve the current year.
+* [`date.set()`](/docs/nodejs/methods/set): Set year, month, and day together.
+

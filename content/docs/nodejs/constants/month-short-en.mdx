@@ -1,0 +1,77 @@
+---
+title: MONTH_SHORT_EN
+description: API reference for the MONTH_SHORT_EN abbreviated English month name constant array.
+icon: Calendar
+---
+
+An array containing the 3-letter abbreviated English names of all 12 Bikram Sambat months, zero-indexed from Baisakh (`0`) to Chaitra (`11`).
+
+---
+
+## Import
+
+```typescript
+import { MONTH_SHORT_EN } from "nepali-date-library";
+```
+
+---
+
+## Value
+
+```typescript
+export const MONTH_SHORT_EN = [
+  "Bai",
+  "Jes",
+  "Asa",
+  "Shr",
+  "Bhd",
+  "Asw",
+  "Kar",
+  "Man",
+  "Pou",
+  "Mag",
+  "Fal",
+  "Cha",
+];
+```
+
+---
+
+## Index Mapping
+
+| Index | Abbreviation | Full Name |
+| :---: | :--- | :--- |
+| `0` | `"Bai"` | Baisakh |
+| `1` | `"Jes"` | Jestha |
+| `2` | `"Asa"` | Asar |
+| `3` | `"Shr"` | Shrawan |
+| `4` | `"Bhd"` | Bhadra |
+| `5` | `"Asw"` | Aswin |
+| `6` | `"Kar"` | Kartik |
+| `7` | `"Man"` | Mangsir |
+| `8` | `"Pou"` | Poush |
+| `9` | `"Mag"` | Magh |
+| `10` | `"Fal"` | Falgun |
+| `11` | `"Cha"` | Chaitra |
+
+---
+
+## Examples
+
+### Generating Compact Month Badges
+
+```typescript
+import { MONTH_SHORT_EN, NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-01-15");
+console.log(MONTH_SHORT_EN[date.getMonth()]); // "Bai"
+```
+
+---
+
+## Related
+
+* [`MONTH_EN`](/docs/nodejs/constants/month-en): Full English month names.
+* [`MONTH_SHORT_NP`](/docs/nodejs/constants/month-short-np): Abbreviated Nepali month names.
+* [`date.format()`](/docs/nodejs/methods/format): Formatting with the `MMM` token.
+

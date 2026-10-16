@@ -1,0 +1,77 @@
+---
+title: MONTH_SHORT_NP
+description: API reference for the MONTH_SHORT_NP abbreviated Devanagari month name constant array.
+icon: Calendar
+---
+
+An array containing the abbreviated Devanagari (Nepali) names of all 12 Bikram Sambat months, zero-indexed from Baisakh (`0`) to Chaitra (`11`).
+
+---
+
+## Import
+
+```typescript
+import { MONTH_SHORT_NP } from "nepali-date-library";
+```
+
+---
+
+## Value
+
+```typescript
+export const MONTH_SHORT_NP = [
+  "बै",
+  "जे",
+  "अ",
+  "श्रा",
+  "भा",
+  "आ",
+  "का",
+  "मं",
+  "पौ",
+  "मा",
+  "फा",
+  "चै",
+];
+```
+
+---
+
+## Index Mapping
+
+| Index | Short Name | Full Name |
+| :---: | :--- | :--- |
+| `0` | `"बै"` | बैशाख (Baisakh) |
+| `1` | `"जे"` | जेठ (Jestha) |
+| `2` | `"अ"` | असार (Asar) |
+| `3` | `"श्रा"` | श्रावण (Shrawan) |
+| `4` | `"भा"` | भाद्र (Bhadra) |
+| `5` | `"आ"` | आश्विन (Aswin) |
+| `6` | `"का"` | कार्तिक (Kartik) |
+| `7` | `"मं"` | मंसिर (Mangsir) |
+| `8` | `"पौ"` | पौष (Poush) |
+| `9` | `"मा"` | माघ (Magh) |
+| `10` | `"फा"` | फाल्गुण (Falgun) |
+| `11` | `"चै"` | चैत्र (Chaitra) |
+
+---
+
+## Examples
+
+### Generating Compact Month Badges
+
+```typescript
+import { MONTH_SHORT_NP, NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-01-15");
+console.log(MONTH_SHORT_NP[date.getMonth()]); // "बै"
+```
+
+---
+
+## Related
+
+* [`MONTH_NP`](/docs/nodejs/constants/month-np): Full Devanagari month names.
+* [`MONTH_SHORT_EN`](/docs/nodejs/constants/month-short-en): Abbreviated English month names.
+* [`date.format()`](/docs/nodejs/methods/format): Formatting with the `mmm` token.
+

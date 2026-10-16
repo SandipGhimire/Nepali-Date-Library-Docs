@@ -1,0 +1,86 @@
+---
+title: date.isAfter()
+description: API reference for the date.isAfter() method.
+icon: ArrowRight
+---
+
+Determines whether the current `NepaliDate` instance occurs chronologically after another specified `NepaliDate`.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+isAfter(date: NepaliDate): boolean;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `date` | `NepaliDate` | Yes | Target `NepaliDate` instance to compare against. |
+
+---
+
+## Return Value
+
+* **Type**: `boolean`
+* Returns `true` if the current date and time succeeds the provided `date` in absolute time; otherwise returns `false`.
+
+---
+
+## Precision
+
+Comparison is evaluated down to the exact millisecond using the underlying Unix timestamp:
+
+```typescript
+this.timestamp.getTime() > date.timestamp.getTime()
+```
+
+---
+
+## Examples
+
+### Chronological Comparison
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const releaseDate = new NepaliDate("2081-05-01");
+const currentDate = new NepaliDate("2081-06-10");
+
+console.log(currentDate.isAfter(releaseDate)); // true
+console.log(releaseDate.isAfter(currentDate)); // false
+```
+
+### Checking Expiration or Deadlines
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const deadline = new NepaliDate("2081-02-30").endOfDay();
+const submission = new NepaliDate();
+
+if (submission.isAfter(deadline)) {
+  console.log("Submission window has closed.");
+}
+```
+
+---
+
+## Related
+
+* [`date.isBefore()`](/docs/nodejs/methods/is-before): Check if a date precedes another.
+* [`date.isEqual()`](/docs/nodejs/methods/is-equal): Check if calendar dates are identical.
+* [`date.isSame()`](/docs/nodejs/methods/is-same): Check equality by specific unit.
+

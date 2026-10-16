@@ -1,0 +1,129 @@
+---
+title: new NepaliDate()
+description: API reference and constructor overloads for creating NepaliDate instances.
+icon: PlusCircle
+---
+
+Creates a new `NepaliDate` instance representing a date in the Bikram Sambat calendar system.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+```javascript
+const { NepaliDate } = require("nepali-date-library");
+```
+
+---
+
+## Signatures
+
+```typescript
+// 1. Current Date & Time
+new NepaliDate(): NepaliDate;
+
+// 2. From Gregorian Date Object
+new NepaliDate(date: Date): NepaliDate;
+
+// 3. From Formatted Date String
+new NepaliDate(dateString: string): NepaliDate;
+
+// 4. From Coordinates (Year, Month, Day)
+new NepaliDate(year: number, month: number, day: number): NepaliDate;
+
+// 5. From Unix Epoch Milliseconds
+new NepaliDate(timestamp: number): NepaliDate;
+
+// 6. From Existing Instance (Cloning)
+new NepaliDate(date: NepaliDate): NepaliDate;
+```
+
+---
+
+## Overload Details & Parameters
+
+### 1. No Arguments
+Constructs an instance set to the current system date and time.
+```typescript
+const now = new NepaliDate();
+```
+
+### 2. From JavaScript Date (`Date`)
+Converts a native JavaScript `Date` to its corresponding Bikram Sambat date.
+```typescript
+const jsDate = new Date();
+const date = new NepaliDate(jsDate);
+```
+
+### 3. From String (`string`)
+Parses a date string formatted as `YYYY-MM-DD`, `YYYY/MM/DD`, or `YYYY.MM.DD`.
+```typescript
+const date1 = new NepaliDate("2081-07-15");
+const date2 = new NepaliDate("2081/07/15");
+const date3 = new NepaliDate("2081.07.15");
+```
+
+### 4. From Coordinates (`year, month, day`)
+* `year`: 4-digit Bikram Sambat year (e.g. `2081`).
+* `month`: **0-indexed** month (`0` for Baisakh to `11` for Chaitra).
+* `day`: Day of month (`1` to `32`).
+```typescript
+// 2081 Kartik 15 (Month 6 is Kartik)
+const date = new NepaliDate(2081, 6, 15);
+```
+
+### 5. From Timestamp (`number`)
+Initializes the date from an epoch millisecond integer.
+```typescript
+const date = new NepaliDate(1730332800000);
+```
+
+---
+
+## Exceptions
+
+| Error Message | Trigger Condition |
+| :--- | :--- |
+| `Invalid argument syntax` | Thrown if parameters fail type checks or incomplete arguments are passed. |
+| `Invalid date` | Thrown if string parsing encounters non-numeric components. |
+| `Nepal year out of range` | Thrown if year is earlier than `1976` BS or later than `2100` BS. |
+| `Invalid nepali month must be between 1 - 12` | Thrown if string month component is outside `1`–`12`. |
+| `Invalid nepali date must be between 1 - <max> in <year> <month>` | Thrown if the day exceeds the days count for that specific month and year. |
+
+---
+
+## Examples
+
+### Complete Constructor Variations
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// Current instant
+const current = new NepaliDate();
+
+// String parsing
+const parsed = new NepaliDate("2080-01-01");
+
+// Numeric coordinates (Month 0 = Baisakh)
+const newYear = new NepaliDate(2082, 0, 1);
+
+// From Gregorian Date
+const fromAd = new NepaliDate(new Date("2024-10-31"));
+
+// Copy constructor
+const copy = new NepaliDate(parsed);
+```
+
+---
+
+## Related
+
+* [`NepaliDate.isValid()`](/docs/nodejs/static/is-valid): Validate coordinates prior to instantiation.
+* [`date.clone()`](/docs/nodejs/methods/clone): Clone an instance via method call.
+* [`date.parse()`](/docs/nodejs/methods/parse): Mutate an existing instance from a string.
+

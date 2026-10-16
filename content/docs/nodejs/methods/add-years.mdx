@@ -1,0 +1,90 @@
+---
+title: date.addYears()
+description: API reference for the date.addYears() method.
+icon: CalendarDays
+---
+
+Adds or subtracts a specified number of years to the current `NepaliDate` instance. The method preserves the current month index and clamps the day if the target year's month has fewer days.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+addYears(years: number): NepaliDate;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `years` | `number` | Yes | Number of years to add (positive) or subtract (negative). |
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* Returns a new `NepaliDate` instance with the added or subtracted years. The original instance is not modified.
+
+---
+
+## Exceptions
+
+Throws an `Error` if the resulting year falls outside the supported Bikram Sambat calendar range (1976 BS to 2100 BS):
+
+```typescript
+"Resulting date is out of supported range"
+```
+
+---
+
+## Examples
+
+### Adding and Subtracting Years
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-05-15");
+
+const future = date.addYears(5);
+console.log(future.format("YYYY-MM-DD")); // "2086-05-15"
+
+const past = date.addYears(-10);
+console.log(past.format("YYYY-MM-DD")); // "2071-05-15"
+```
+
+### Day Clamping on Variable Month Lengths
+
+Because month lengths in the Bikram Sambat astronomical calendar vary across years, `addYears()` automatically clamps the day component if the destination year has fewer days in that month:
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+// 2081 Baisakh 31 (Baisakh 2081 has 31 days)
+const date = new NepaliDate(2081, 0, 31);
+
+// If Baisakh in a target year has only 30 days, day clamps to 30
+const nextYear = date.addYears(1);
+console.log(nextYear.getDate()); // Clamped to valid range
+```
+
+---
+
+## Related
+
+* [`date.addDays()`](/docs/nodejs/methods/add-days): Add or subtract whole days.
+* [`date.addMonths()`](/docs/nodejs/methods/add-months): Add or subtract whole months.
+* [`date.diff()`](/docs/nodejs/methods/diff): Calculate differences between two dates.
+

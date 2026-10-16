@@ -1,0 +1,98 @@
+---
+title: NepaliDate.getFiscalYearQuarters()
+description: API reference for the static NepaliDate.getFiscalYearQuarters() method.
+icon: Layers
+---
+
+Returns an object containing the start and end boundary dates for all four quarters (`Q1`, `Q2`, `Q3`, `Q4`) of a given fiscal year.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+```javascript
+const { NepaliDate } = require("nepali-date-library");
+```
+
+---
+
+## Signature
+
+```typescript
+static getFiscalYearQuarters(fiscalYear?: number): {
+  Q1: { start: NepaliDate; end: NepaliDate };
+  Q2: { start: NepaliDate; end: NepaliDate };
+  Q3: { start: NepaliDate; end: NepaliDate };
+  Q4: { start: NepaliDate; end: NepaliDate };
+};
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Default | Description |
+| :--- | :--- | :---: | :--- | :--- |
+| `fiscalYear` | `number` | No | Current FY | Base Bikram Sambat year of the fiscal cycle (e.g. `2081`). |
+
+---
+
+## Return Value
+
+* **Type**: An object with keys `Q1`, `Q2`, `Q3`, and `Q4`.
+* **Structure**:
+  * `Q1`: 1 Shrawan – Last day of Ashwin
+  * `Q2`: 1 Kartik – Last day of Poush
+  * `Q3`: 1 Magh – Last day of Chaitra
+  * `Q4`: 1 Baisakh – Last day of Ashadh (in succeeding calendar year)
+
+---
+
+## Examples
+
+### Getting Current Fiscal Year Quarters
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const quarters = NepaliDate.getFiscalYearQuarters();
+
+console.log("Q1 Start:", quarters.Q1.start.format("YYYY-MM-DD")); // 2081-04-01
+console.log("Q1 End:  ", quarters.Q1.end.format("YYYY-MM-DD"));   // 2081-06-30
+console.log("Q2 Start:", quarters.Q2.start.format("YYYY-MM-DD")); // 2081-07-01
+console.log("Q2 End:  ", quarters.Q2.end.format("YYYY-MM-DD"));   // 2081-09-30
+console.log("Q3 Start:", quarters.Q3.start.format("YYYY-MM-DD")); // 2081-10-01
+console.log("Q3 End:  ", quarters.Q3.end.format("YYYY-MM-DD"));   // 2081-12-30
+console.log("Q4 Start:", quarters.Q4.start.format("YYYY-MM-DD")); // 2082-01-01
+console.log("Q4 End:  ", quarters.Q4.end.format("YYYY-MM-DD"));   // 2082-03-31
+```
+
+### Iterating for Financial Charts
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const quarters = NepaliDate.getFiscalYearQuarters(2080);
+
+const quarterList = Object.entries(quarters).map(([quarterName, dates]) => ({
+  quarter: quarterName,
+  startDateBS: dates.start.format("YYYY-MM-DD"),
+  endDateBS: dates.end.format("YYYY-MM-DD"),
+  startDateAD: dates.start.getEnglishDate().toISOString().split("T")[0],
+  endDateAD: dates.end.getEnglishDate().toISOString().split("T")[0],
+}));
+
+console.log(quarterList);
+```
+
+---
+
+## Related
+
+* [`NepaliDate.getFiscalYearQuarter()`](/docs/nodejs/fiscal-year/get-fiscal-year-quarter): Retrieve a single quarter.
+* [`Calendar Quarters`](/docs/nodejs/fiscal-year/calendar-quarters): Standard calendar quarters aligned with Baisakh.
+

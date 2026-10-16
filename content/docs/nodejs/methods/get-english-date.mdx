@@ -1,0 +1,80 @@
+---
+title: date.getEnglishDate()
+description: API reference for the date.getEnglishDate() method.
+icon: Globe
+---
+
+Returns the equivalent native JavaScript `Date` object (representing the Gregorian calendar date in UTC) corresponding to this `NepaliDate` instance.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+getEnglishDate(): Date;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `Date`
+* **Description**: A standard JavaScript `Date` instance calibrated in UTC.
+
+---
+
+## Examples
+
+### Converting to Native JavaScript Date
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const nepaliDate = new NepaliDate("2081-07-15");
+const jsDate = nepaliDate.getEnglishDate();
+
+console.log(jsDate instanceof Date); // true
+console.log(jsDate.toISOString()); // "2024-10-31T00:00:00.000Z"
+console.log(jsDate.getUTCFullYear()); // 2024
+console.log(jsDate.getUTCMonth()); // 9 (October, 0-indexed)
+console.log(jsDate.getUTCDate()); // 31
+```
+
+### Passing to Third-Party Date Utilities
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-01-01");
+const englishDate = date.getEnglishDate();
+
+// Interoperable with Intl.DateTimeFormat or external libraries
+const formatted = new Intl.DateTimeFormat("en-US", {
+  dateStyle: "full",
+  timeZone: "UTC",
+}).format(englishDate);
+
+console.log(formatted); // "Saturday, April 13, 2024"
+```
+
+---
+
+## Related
+
+* [`BStoAD()`](/docs/nodejs/date-converter/bs-to-ad): Standalone helper returning a formatted string instead of a `Date` object.
+* [`new NepaliDate(date)`](/docs/nodejs/class/constructor): Constructing a `NepaliDate` from a JavaScript `Date`.
+

@@ -1,0 +1,68 @@
+---
+title: WEEK_SHORT_NP
+description: API reference for the WEEK_SHORT_NP abbreviated Devanagari weekday name constant array.
+icon: CalendarDays
+---
+
+An array containing the abbreviated Devanagari (Nepali) names of the 7 days of the week, indexed `0` (Sunday) through `6` (Saturday).
+
+---
+
+## Import
+
+```typescript
+import { WEEK_SHORT_NP } from "nepali-date-library";
+```
+
+---
+
+## Value
+
+```typescript
+export const WEEK_SHORT_NP = [
+  "आइत",
+  "सोम",
+  "मंगल",
+  "बुध",
+  "बिहि",
+  "शुक्र",
+  "शनि",
+];
+```
+
+---
+
+## Index Mapping
+
+| Index | Short Name | Full Name | English Equivalent |
+| :---: | :--- | :--- | :--- |
+| `0` | `"आइत"` | आइतबार | Sunday |
+| `1` | `"सोम"` | सोमबार | Monday |
+| `2` | `"मंगल"` | मंगलबार | Tuesday |
+| `3` | `"बुध"` | बुधबार | Wednesday |
+| `4` | `"बिहि"` | बिहिबार | Thursday |
+| `5` | `"शुक्र"` | शुक्रबार | Friday |
+| `6` | `"शनि"` | शनिबार | Saturday |
+
+---
+
+## Examples
+
+### Building Calendar Column Headers in Devanagari
+
+```typescript
+import { WEEK_SHORT_NP } from "nepali-date-library";
+
+// Generate week header row for UI calendar
+console.log(WEEK_SHORT_NP.join(" | "));
+// "आइत | सोम | मंगल | बुध | बिहि | शुक्र | शनि"
+```
+
+---
+
+## Related
+
+* [`WEEK_NP`](/docs/nodejs/constants/week-np): Full Devanagari weekday names.
+* [`WEEK_SHORT_EN`](/docs/nodejs/constants/week-short-en): Abbreviated English weekday names.
+* [`date.format()`](/docs/nodejs/methods/format): Formatting with the `ddd` token.
+

@@ -1,0 +1,67 @@
+---
+title: WEEK_NP
+description: API reference for the WEEK_NP Devanagari weekday name constant array.
+icon: CalendarDays
+---
+
+An array containing the standard full Devanagari (Nepali) names of the 7 days of the week, indexed `0` (Sunday) through `6` (Saturday).
+
+---
+
+## Import
+
+```typescript
+import { WEEK_NP } from "nepali-date-library";
+```
+
+---
+
+## Value
+
+```typescript
+export const WEEK_NP = [
+  "आइतबार",
+  "सोमबार",
+  "मंगलबार",
+  "बुधबार",
+  "बिहिबार",
+  "शुक्रबार",
+  "शनिबार",
+];
+```
+
+---
+
+## Index Mapping
+
+| Index | Devanagari Weekday | English Equivalent |
+| :---: | :--- | :--- |
+| `0` | `"आइतबार"` | Sunday |
+| `1` | `"सोमबार"` | Monday |
+| `2` | `"मंगलबार"` | Tuesday |
+| `3` | `"बुधबार"` | Wednesday |
+| `4` | `"बिहिबार"` | Thursday |
+| `5` | `"शुक्रबार"` | Friday |
+| `6` | `"शनिबार"` | Saturday |
+
+---
+
+## Examples
+
+### Getting Current Weekday Name in Nepali
+
+```typescript
+import { WEEK_NP, NepaliDate } from "nepali-date-library";
+
+const date = new NepaliDate("2081-01-25");
+console.log(WEEK_NP[date.getDay()]); // "बिहिबार"
+```
+
+---
+
+## Related
+
+* [`WEEK_SHORT_NP`](/docs/nodejs/constants/week-short-np): Abbreviated Devanagari weekday names.
+* [`WEEK_EN`](/docs/nodejs/constants/week-en): Full English weekday names.
+* [`NepaliDate.getDayName()`](/docs/nodejs/static/get-day-name): Static helper with locale options.
+

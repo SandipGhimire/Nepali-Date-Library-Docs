@@ -1,0 +1,107 @@
+---
+title: date.diff()
+description: API reference for the date.diff() method.
+icon: Divide
+---
+
+Calculates the difference between the current `NepaliDate` instance and another `NepaliDate` in terms of days, months, or years.
+
+---
+
+## Import
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+```
+
+---
+
+## Signature
+
+```typescript
+diff(date: NepaliDate, unit: "year" | "month" | "day"): number;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `date` | `NepaliDate` | Yes | The target `NepaliDate` instance to compare against. |
+| `unit` | `"year" \| "month" \| "day"` | Yes | The unit of measurement for the difference calculation. |
+
+---
+
+## Return Value
+
+* **Type**: `number`
+* The numeric difference between the two dates (`this - date`).
+* Positive if the current date is after `date`.
+* Negative if the current date is before `date`.
+* Zero if they are identical in the evaluated unit.
+
+---
+
+## Calculation Rules
+
+* **`"day"`**: Computed using Unix timestamps: `Math.floor((this.getTime() - date.getTime()) / 86400000)`.
+* **`"month"`**: Computed using calendar month indices: `(this.year - date.year) * 12 + (this.month - date.month)`.
+* **`"year"`**: Computed by year difference: `this.year - date.year`.
+
+---
+
+## Exceptions
+
+Throws an `Error` if an invalid unit string is supplied:
+
+```typescript
+"Invalid unit for diff calculation"
+```
+
+---
+
+## Examples
+
+### Difference in Days
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date1 = new NepaliDate("2081-01-20");
+const date2 = new NepaliDate("2081-01-05");
+
+console.log(date1.diff(date2, "day")); // 15
+console.log(date2.diff(date1, "day")); // -15
+```
+
+### Difference in Months
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date1 = new NepaliDate("2081-06-15");
+const date2 = new NepaliDate("2080-04-15");
+
+console.log(date1.diff(date2, "month")); // 14
+```
+
+### Difference in Years
+
+```typescript
+import { NepaliDate } from "nepali-date-library";
+
+const date1 = new NepaliDate("2085-01-01");
+const date2 = new NepaliDate("2081-01-01");
+
+console.log(date1.diff(date2, "year")); // 4
+```
+
+---
+
+## Related
+
+* [`date.isBefore()`](/docs/nodejs/methods/is-before): Check if a date precedes another.
+* [`date.isAfter()`](/docs/nodejs/methods/is-after): Check if a date succeeds another.
+* [`date.isEqual()`](/docs/nodejs/methods/is-equal): Check if two dates are equal.
+
