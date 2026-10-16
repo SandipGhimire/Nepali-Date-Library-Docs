@@ -2,7 +2,7 @@
 
 import Link from "fumadocs-core/link";
 import { usePathname } from "fumadocs-core/framework";
-import { CalendarDays, Download, Code2 } from "lucide-react";
+import { CalendarDays, LayoutDashboard, Download, Code2 } from "lucide-react";
 import { cn } from "../../lib/cn";
 
 export function SidebarTopNavigation() {
@@ -13,6 +13,11 @@ export function SidebarTopNavigation() {
       title: "What is Nepali Date?",
       href: "/docs/origination",
       icon: <CalendarDays className="size-4 shrink-0" />,
+    },
+    {
+      title: "Overview",
+      href: "/docs/overview",
+      icon: <LayoutDashboard className="size-4 shrink-0" />,
     },
     {
       title: "Installation",

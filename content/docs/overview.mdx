@@ -1,0 +1,74 @@
+---
+title: Project Overview
+description: Comprehensive overview of the Nepali Date Library multi-language ecosystem, live package metrics, architecture, and developer profile.
+icon: LayoutDashboard
+---
+
+The **Nepali Date Library** is an open-source, production-grade computational suite engineered to bring accurate, standardized, and zero-dependency **Bikram Sambat (BS)** date operations to modern software ecosystems across **Node.js / TypeScript**, **Python**, and **PHP**.
+
+Whether you are building financial banking software adhering to Nepal's Shrawan-to-Ashadh fiscal calendar, government enterprise portals, e-commerce checkouts, or mobile applications, the suite provides unified semantics and verified ephemeris tables.
+
+---
+
+## Ecosystem Distributions & Metrics
+
+The library is officially distributed across the primary package registries of each supported language ecosystem:
+
+<EcosystemOverview />
+
+---
+
+## Core Architectural Pillars
+
+The library suite is built around five foundational design principles:
+
+### 1. Zero External Dependencies
+Every package in the suite is built from the ground up without runtime external dependencies. This eliminates supply-chain risks, avoids version conflicts, and keeps bundle footprints minimal.
+
+### 2. Standardized Cross-Language API
+Developers working across full-stack applications (e.g., a Python backend with a Node.js frontend or a PHP Laravel service with a TypeScript worker) enjoy identical method names, formatting tokens, and date manipulation semantics.
+
+### 3. Certified Astronomical Ephemeris (1976 – 2100 BS)
+Because Bikram Sambat months are based on solar ingress (*Sankranti*) and vary from 29 to 32 days based on Keplerian orbital mechanics, the library embeds verified ephemeris tables spanning over 124 years (**1976/01/01 to 2100/12/31 BS**).
+
+### 4. High-Throughput Performance
+All date conversions and arithmetic execute in under a few microseconds, making the library suitable for high-frequency database batch migrations, real-time analytics pipelines, and edge compute functions.
+
+### 5. Built-In Nepalese Fiscal Year Logic
+Native support for Nepal's official fiscal calendar (*Aarthik Barsha*), running from 1 Shrawan to the final day of Ashadh, including quarter categorization (Q1 to Q4) and fiscal year string formatting (`2081/82`).
+
+---
+
+## Feature Matrix Across SDKs
+
+| Feature Capability | Node.js / TypeScript | Python | PHP |
+| :--- | :---: | :---: | :---: |
+| **Bidirectional AD ↔ BS Conversion** | Yes | Yes | Yes |
+| **Validated Range (1976 – 2100 BS)** | Yes | Yes | Yes |
+| **Date Arithmetic (+/- Days, Months, Years)** | Yes | Yes | Yes |
+| **Custom Format Tokens (`YYYY-MM-DD`, etc.)** | Yes | Yes | Yes |
+| **Nepali Fiscal Year & Quarter Calculation** | Yes | Yes | Yes |
+| **Devanagari Numerals & Month Names** | Yes | Yes | Yes |
+| **Strict Type Safety & IntelliSense** | TypeScript types (`.d.ts`) | Type hints (`py.typed`) | PHP 8.0+ strict typing |
+| **Zero Runtime Dependencies** | Yes | Yes | Yes |
+| **Package Distribution** | npm / yarn / pnpm | PyPI (pip / uv / poetry) | Packagist (Composer) |
+
+---
+
+## Maintainer
+
+Created and maintained by **Sandip Ghimire**:
+
+<DeveloperProfile />
+
+---
+
+## Open Source & Licensing
+
+The entire Nepali Date Library suite is released under the permissive **MIT License**, permitting unrestricted commercial use, modification, distribution, and private deployment.
+
+Contributions, feature proposals, and bug reports are warmly welcomed across the respective GitHub repositories:
+- Submit issues or pull requests to the corresponding language repository.
+- Follow standard semantic versioning practices when proposing changes.
+- Ensure that any proposed additions preserve zero external runtime dependencies.
+

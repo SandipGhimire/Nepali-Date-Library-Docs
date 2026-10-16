@@ -29,11 +29,13 @@ function PageTitleIcon({ slug, icon }: { slug?: string[]; icon?: string }) {
     icon ||
     (firstSlug === "origination"
       ? "CalendarDays"
-      : firstSlug === "installation"
-        ? "Download"
-        : firstSlug === "examples"
-          ? "Code2"
-          : "BookOpen");
+      : firstSlug === "overview"
+        ? "LayoutDashboard"
+        : firstSlug === "installation"
+          ? "Download"
+          : firstSlug === "examples"
+            ? "Code2"
+            : "BookOpen");
 
   const IconComp = (
     (iconName in LucideIcons

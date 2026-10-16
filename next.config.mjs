@@ -13,11 +13,6 @@ const config = {
         destination: "/docs/origination",
         permanent: false,
       },
-      {
-        source: "/docs/overview",
-        destination: "/docs/origination",
-        permanent: false,
-      },
     ];
   },
 };
