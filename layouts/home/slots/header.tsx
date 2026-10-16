@@ -86,27 +86,39 @@ export function Header(props: ComponentProps<"header">) {
     >
       {slots.navTitle && <slots.navTitle className="inline-flex items-center gap-2.5 font-semibold" />}
       {nav?.children}
-      <div className="flex flex-row items-center justify-end gap-4 flex-1 max-lg:hidden">
-        {slots.searchTrigger && <slots.searchTrigger.full hideIfDisabled className="w-full max-w-[240px]" />}
-        <div className="w-px h-5 bg-fd-border/50" />
-        <ul className="flex flex-row items-center gap-1.5 max-sm:hidden">
+      <div className="flex flex-row items-center justify-end gap-3.5 flex-1 max-lg:hidden">
+        {slots.searchTrigger && (
+          <>
+            <slots.searchTrigger.full hideIfDisabled className="w-full max-w-[240px]" />
+            <div className="w-px h-5 bg-fd-border/50" />
+          </>
+        )}
+
+        {/* 1. Navigation Links: Docs, Converter */}
+        <ul className="flex flex-row items-center gap-1">
           {navItems
-            .filter((item) => !isSecondary(item))
+            .filter((item) => item.type !== "custom" && !isSecondary(item))
             .map((item, i) => (
-              <NavigationMenuLinkItem key={i} item={item} className="text-sm" />
+              <NavigationMenuLinkItem key={i} item={item} className="text-sm font-medium" />
             ))}
         </ul>
+
+        {/* Divider between Links and GitHub */}
         <div className="w-px h-5 bg-fd-border/50" />
-        <ul className="flex flex-row gap-2 items-center empty:hidden">
-          {navItems.filter(isSecondary).map((item, i) => (
-            <NavigationMenuLinkItem
-              key={i}
-              className={cn(item.type === "icon" && "-mx-1 first:ms-0 last:me-0")}
-              item={item}
-            />
-          ))}
-        </ul>
+
+        {/* 2. GitHub Star Badge */}
+        <div className="flex items-center">
+          {navItems
+            .filter((item) => item.type === "custom" || isSecondary(item))
+            .map((item, i) => (
+              <NavigationMenuLinkItem key={i} item={item} />
+            ))}
+        </div>
+
+        {/* Divider between GitHub and Theme Toggle */}
         <div className="w-px h-5 bg-fd-border/50" />
+
+        {/* 3. Theme Toggle & Language */}
         {slots.themeSwitch && <slots.themeSwitch />}
         {slots.languageSelect && (
           <slots.languageSelect.root>
@@ -114,26 +126,28 @@ export function Header(props: ComponentProps<"header">) {
           </slots.languageSelect.root>
         )}
       </div>
-      <div className="flex flex-row items-center ms-auto -me-1.5 lg:hidden">
+
+      {/* Mobile Toggle Button */}
+      <div className="flex flex-row items-center ms-auto -me-1.5 lg:hidden gap-1">
         {slots.searchTrigger && <slots.searchTrigger.sm hideIfDisabled className="p-2" />}
-        <CollapsibleTrigger
+        <button
+          type="button"
           aria-label={t("Toggle Menu", { note: "aria-label" })}
+          aria-expanded={open}
+          onClick={(e) => {
+            e.stopPropagation();
+            setOpen((prev) => !prev);
+          }}
           className={cn(
             buttonVariants({
               size: "icon",
               color: "ghost",
             }),
+            "cursor-pointer active:scale-95",
           )}
-          onPointerEnter={
-            nav?.enableHoverToOpen
-              ? () => {
-                  setOpen(true);
-                }
-              : undefined
-          }
         >
-          <ChevronDown className={cn("transition-transform", open && "rotate-180")} />
-        </CollapsibleTrigger>
+          <ChevronDown className={cn("size-5 transition-transform duration-200", open && "rotate-180")} />
+        </button>
       </div>
     </Primitive.List>
   );
@@ -147,13 +161,13 @@ export function Header(props: ComponentProps<"header">) {
           id="nd-nav"
           {...props}
           ref={mergeRefs(headerRef, props.ref)}
-          className={cn("sticky h-14 top-0 z-40", props.className)}
+          className={cn("sticky top-0 z-40 transition-colors", open ? "h-auto" : "h-14", props.className)}
         >
           <Primitive.Root
             className={(s) =>
               cn(
                 "transition-[box-shadow,background-color,border-color,border-radius] duration-200",
-                open && "max-lg:shadow-lg max-lg:rounded-b-2xl max-lg:bg-fd-background/90 max-lg:backdrop-blur-lg",
+                open && "max-lg:shadow-xl max-lg:rounded-b-2xl max-lg:bg-fd-background/95 max-lg:backdrop-blur-xl border-b border-fd-border/60",
                 isNavTransparent && !open && !s.open
                   ? "bg-gradient-to-b from-[#F7F7F5]/85 via-[#F7F7F5]/45 to-transparent dark:from-[#171715]/85 dark:via-[#171715]/45 dark:to-transparent backdrop-blur-[2px] border-b border-black/[0.04] dark:border-white/[0.04]"
                   : "bg-fd-background/80 backdrop-blur-md border-b border-fd-border/40 shadow-xs",
@@ -163,29 +177,26 @@ export function Header(props: ComponentProps<"header">) {
           >
             {list}
             <CollapsibleContent className="mx-auto max-w-(--fd-layout-width) lg:hidden">
-              <div className="flex flex-col pt-2 p-4 lg:flex-row lg:items-center lg:justify-end">
+              <div className="flex flex-col gap-3 p-4 pt-1">
                 <MobileNavigationMenuContext value={useMemo(() => ({ setOpen }), [])}>
-                  {menuItems
-                    .filter((item) => !isSecondary(item))
-                    .map((item, i) => (
-                      <MobileNavigationMenuLinkItem key={i} item={item} className="lg:hidden" />
-                    ))}
-                  <div className="-ms-1.5 flex flex-row items-center gap-2 max-sm:mt-2">
-                    {menuItems.filter(isSecondary).map((item, i) => (
-                      <MobileNavigationMenuLinkItem
-                        key={i}
-                        item={item}
-                        className={cn(item.type === "icon" && "-mx-1 first:ms-0")}
-                      />
-                    ))}
-                    <div role="separator" className="flex-1" />
-                    {slots.languageSelect && (
-                      <slots.languageSelect.root>
-                        <Languages className="size-5" />
-                        {slots.languageSelect.text && <slots.languageSelect.text />}
-                        <ChevronDown className="size-3 text-fd-muted-foreground" />
-                      </slots.languageSelect.root>
-                    )}
+                  {/* Primary Links in Drawer: Docs, Converter */}
+                  <div className="flex flex-col gap-1">
+                    {menuItems
+                      .filter((item) => item.type !== "custom" && !isSecondary(item))
+                      .map((item, i) => (
+                        <MobileNavigationMenuLinkItem key={i} item={item} />
+                      ))}
+                  </div>
+
+                  {/* Drawer Footer Row: GitHub Star Button + Theme Toggle */}
+                  <div className="flex items-center justify-between border-t border-fd-border/50 pt-3 mt-1">
+                    <div className="flex items-center">
+                      {menuItems
+                        .filter((item) => item.type === "custom" || isSecondary(item))
+                        .map((item, i) => (
+                          <MobileNavigationMenuLinkItem key={i} item={item} />
+                        ))}
+                    </div>
                     {slots.themeSwitch && <slots.themeSwitch />}
                   </div>
                 </MobileNavigationMenuContext>
@@ -341,7 +352,7 @@ function MobileNavigationMenuLinkItem({ item, ...props }: { item: LinkItemType; 
       item={item}
       className={cn(
         {
-          main: "inline-flex items-center gap-2 py-1.5 transition-colors hover:text-fd-popover-foreground/50 data-[active=true]:font-medium data-[active=true]:text-fd-primary [&_svg]:size-4",
+          main: "flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors hover:bg-fd-accent hover:text-fd-foreground data-[active=true]:text-fd-primary data-[active=true]:bg-fd-primary/10 [&_svg]:size-4.5",
           icon: buttonVariants({
             size: "icon",
             color: "ghost",

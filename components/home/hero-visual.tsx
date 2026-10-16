@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useEffect, useRef } from "react";
+import Link from "next/link";
 import { NepaliDate, NUMBER_NP, MONTH_NP } from "nepali-date-library";
 import {
   ArrowLeftRight,
@@ -301,7 +302,8 @@ echo $date->toAD();
         {/* ========================================================= */}
         {/* 2. CONVERT BUTTON (Directly Above Console, Above Copy)     */}
         {/* ========================================================= */}
-        <div
+        <Link
+          href="/converter"
           style={{ transform: "translateZ(46px)" }}
           className="absolute left-[360px] sm:left-[395px] top-[156px] sm:top-[164px] flex items-center gap-2 rounded-xl border border-[#E1804B]/40 bg-white/95 dark:bg-[#20201D]/95 px-3 py-1.5 shadow-lg shadow-[#E1804B]/15 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#E1804B] cursor-pointer"
         >
@@ -309,7 +311,7 @@ echo $date->toAD();
             <RefreshCw className="h-3 w-3 stroke-[2.4]" />
           </div>
           <span className="font-bold text-fd-foreground text-[11.5px] tracking-tight">Convert</span>
-        </div>
+        </Link>
 
         {/* ========================================================= */}
         {/* 3. CODE TERMINAL (Shifted More Right, Compact & Sleek)    */}

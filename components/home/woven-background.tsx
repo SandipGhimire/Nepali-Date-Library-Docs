@@ -37,13 +37,13 @@ export function WovenBackground({ className, svgClassName, ...props }: WovenBack
           {/* Light Mode Layer */}
           <g className="dark:hidden transition-opacity duration-300">
             <rect width="1600" height="900" fill="#F7F7F5" />
-            <image href="/images/woven-bg-light.webp" width="1600" height="900" preserveAspectRatio="xMidYMin slice" opacity="0.35" />
+            <image href="/images/woven-bg-light.jpg" width="1600" height="900" preserveAspectRatio="xMidYMin slice" opacity="0.35" />
           </g>
 
           {/* Dark Mode Layer */}
           <g className="hidden dark:block transition-opacity duration-300">
             <rect width="1600" height="900" fill="#171715" />
-            <image href="/images/woven-bg-dark.webp" width="1600" height="900" preserveAspectRatio="xMidYMin slice" opacity="0.3" />
+            <image href="/images/woven-bg-dark.jpeg" width="1600" height="900" preserveAspectRatio="xMidYMin slice" opacity="0.3" />
           </g>
         </g>
       </svg>
