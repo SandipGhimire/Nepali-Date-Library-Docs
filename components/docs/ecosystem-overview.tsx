@@ -1,7 +1,5 @@
-"use client";
-
-import { useState } from "react";
-import { ExternalLink, Download, Copy, Check, Terminal } from "lucide-react";
+import Link from "next/link";
+import { ExternalLink, Download, ArrowRight } from "lucide-react";
 import { NpmLogo, PackagistLogo, PypiLogo } from "@/components/icons/package-logos";
 
 interface PackageCardData {
@@ -12,7 +10,7 @@ interface PackageCardData {
   packageUrl: string;
   repoName: string;
   repoUrl: string;
-  installCommand: string;
+  docsUrl: string;
   badges: Array<{
     alt: string;
     src: string;
@@ -29,7 +27,7 @@ const packages: PackageCardData[] = [
     packageUrl: "https://www.npmjs.com/package/nepali-date-library",
     repoName: "SandipGhimire/Nepali-Date-Library-NodeJS",
     repoUrl: "https://github.com/SandipGhimire/Nepali-Date-Library-NodeJS",
-    installCommand: "npm install nepali-date-library",
+    docsUrl: "/docs/nodejs",
     badges: [
       {
         alt: "Monthly Downloads",
@@ -56,7 +54,7 @@ const packages: PackageCardData[] = [
     packageUrl: "https://pypi.org/project/nepali-date-library/",
     repoName: "SandipGhimire/Nepali-Date-Library-Python",
     repoUrl: "https://github.com/SandipGhimire/Nepali-Date-Library-Python",
-    installCommand: "pip install nepali-date-library",
+    docsUrl: "/docs/python",
     badges: [
       {
         alt: "Monthly Downloads",
@@ -83,7 +81,7 @@ const packages: PackageCardData[] = [
     packageUrl: "https://packagist.org/packages/sghimire/nepali-date-library",
     repoName: "SandipGhimire/Nepali-Date-Library-PHP",
     repoUrl: "https://github.com/SandipGhimire/Nepali-Date-Library-PHP",
-    installCommand: "composer require sghimire/nepali-date-library",
+    docsUrl: "/docs/php",
     badges: [
       {
         alt: "Monthly Downloads",
@@ -103,37 +101,6 @@ const packages: PackageCardData[] = [
     ],
   },
 ];
-
-function CopyableCommand({ command }: { command: string }) {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(command);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  return (
-    <div className="flex items-center justify-between rounded-lg border border-fd-border/70 bg-fd-secondary/40 px-3 py-1.5 font-mono text-xs text-fd-foreground">
-      <div className="flex items-center gap-2 overflow-hidden truncate">
-        <Terminal className="size-3.5 shrink-0 text-fd-muted-foreground" />
-        <span className="truncate">{command}</span>
-      </div>
-      <button
-        onClick={handleCopy}
-        type="button"
-        title="Copy install command"
-        className="ml-2 inline-flex size-6 shrink-0 items-center justify-center rounded-md border border-fd-border/60 bg-fd-background text-fd-muted-foreground transition-colors hover:text-fd-foreground hover:border-fd-primary/40"
-      >
-        {copied ? (
-          <Check className="size-3 text-emerald-500" />
-        ) : (
-          <Copy className="size-3" />
-        )}
-      </button>
-    </div>
-  );
-}
 
 export function EcosystemOverview() {
   return (
@@ -161,26 +128,18 @@ export function EcosystemOverview() {
               {/* Package Identification */}
               <div className="mt-3.5 space-y-1">
                 <div className="text-[11px] font-medium uppercase tracking-wider text-fd-muted-foreground">
-                  Package Name
+                  Package
                 </div>
                 <div className="font-mono text-xs font-semibold text-fd-foreground">
                   {pkg.packageName}
                 </div>
               </div>
 
-              {/* Install Command */}
-              <div className="mt-3.5 space-y-1">
-                <div className="text-[11px] font-medium uppercase tracking-wider text-fd-muted-foreground">
-                  Install
-                </div>
-                <CopyableCommand command={pkg.installCommand} />
-              </div>
-
               {/* Live Metric Badges */}
-              <div className="mt-4 space-y-1.5">
+              <div className="mt-3.5 space-y-1.5">
                 <div className="flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-wider text-fd-muted-foreground">
                   <Download className="size-3 text-fd-primary" />
-                  <span>Metrics & Version</span>
+                  <span>Downloads & Version</span>
                 </div>
                 <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
                   {pkg.badges.map((badge, idx) => (
@@ -203,26 +162,36 @@ export function EcosystemOverview() {
               </div>
             </div>
 
-            {/* External Action Links */}
-            <div className="mt-5 flex items-center gap-2 border-t border-fd-border/50 pt-3 text-xs">
-              <a
-                href={pkg.packageUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-fd-border bg-fd-secondary/50 px-2.5 py-1.5 font-medium text-fd-foreground transition-all hover:bg-fd-accent hover:border-fd-primary/40 hover:text-fd-primary"
+            {/* Actions: Primary View Docs Button + Secondary Links */}
+            <div className="mt-5 space-y-2 border-t border-fd-border/50 pt-3.5">
+              <Link
+                href={pkg.docsUrl}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-fd-primary px-3 py-2 text-xs font-semibold text-fd-primary-foreground shadow-2xs transition-all hover:bg-fd-primary/90 hover:shadow-xs active:scale-[0.99]"
               >
-                <span>Registry</span>
-                <ExternalLink className="size-3 opacity-70" />
-              </a>
-              <a
-                href={pkg.repoUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-fd-border bg-fd-secondary/50 px-2.5 py-1.5 font-medium text-fd-foreground transition-all hover:bg-fd-accent hover:border-fd-primary/40 hover:text-fd-primary"
-              >
-                <span>Repository</span>
-                <ExternalLink className="size-3 opacity-70" />
-              </a>
+                <span>View Docs</span>
+                <ArrowRight className="size-3.5" />
+              </Link>
+
+              <div className="flex items-center gap-2 text-xs">
+                <a
+                  href={pkg.packageUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-fd-border bg-fd-secondary/40 px-2.5 py-1.5 font-medium text-fd-muted-foreground transition-colors hover:bg-fd-accent hover:text-fd-foreground"
+                >
+                  <span>Registry</span>
+                  <ExternalLink className="size-3 opacity-60" />
+                </a>
+                <a
+                  href={pkg.repoUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg border border-fd-border bg-fd-secondary/40 px-2.5 py-1.5 font-medium text-fd-muted-foreground transition-colors hover:bg-fd-accent hover:text-fd-foreground"
+                >
+                  <span>GitHub</span>
+                  <ExternalLink className="size-3 opacity-60" />
+                </a>
+              </div>
             </div>
           </div>
         ))}
@@ -230,4 +199,3 @@ export function EcosystemOverview() {
     </div>
   );
 }
-
