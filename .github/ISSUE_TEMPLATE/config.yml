@@ -1,1 +1,8 @@
 blank_issues_enabled: true
+contact_links:
+  - name: Nepali Date Library Repository
+    url: https://github.com/SandipGhimire/Nepali-Date-Library
+    about: Main repository for the multi-language Nepali Date ecosystem.
+  - name: Live Documentation & Converter
+    url: https://nepalidate.sandip-ghimire.com.np
+    about: Official Nepali Date documentation and interactive Bikram Sambat date converter.

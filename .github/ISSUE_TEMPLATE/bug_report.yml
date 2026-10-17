@@ -1,27 +1,47 @@
-name: Documentation issue
-description: Report an error, broken link, inaccurate code snippet, or typo in documentation.
+name: Documentation Issue
+description: Report an error, broken link, inaccurate code snippet, or typo in the Nepali Date documentation.
 title: "[Doc Issue]: "
-labels: ["documentation"]
+labels: ["documentation", "bug"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve the **Nepali Date** documentation! Please fill out the details below.
   - type: input
     id: url
     attributes:
-      label: Page URL
-      description: URL of the documentation page on wefter.dev where the issue appears.
-      placeholder: "e.g. https://wefter.dev/docs/javascript-apis"
+      label: Page URL or Path
+      description: URL or route of the documentation page where the issue appears.
+      placeholder: "e.g. https://nepalidate.sandip-ghimire.com.np/docs/nodejs or /docs/php/methods/format"
+    validations:
+      required: true
+  - type: dropdown
+    id: ecosystem
+    attributes:
+      label: Affected Section / Ecosystem
+      description: Which part of the documentation contains the issue?
+      options:
+        - "Node.js / TypeScript (/docs/nodejs)"
+        - "Python (/docs/python)"
+        - "PHP (/docs/php)"
+        - "Overview / Core Guides (/docs)"
+        - "Interactive Date Converter (/converter)"
+        - "Other"
     validations:
       required: true
   - type: textarea
     id: description
     attributes:
       label: Issue description
-      description: What is incorrect, unclear, or broken?
-      placeholder: Describe the typo, broken link, or inaccurate snippet.
+      description: What is incorrect, unclear, broken, or outdated?
+      placeholder: Describe the typo, broken link, inaccurate code snippet, or wrong output value.
     validations:
       required: true
   - type: textarea
     id: correction
     attributes:
       label: Suggested correction
-      description: What should the documentation say instead?
-      placeholder: Provide the corrected text or code snippet.
+      description: What should the documentation say or show instead?
+      placeholder: Provide the corrected text, code snippet, or link.
+    validations:
+      required: false
