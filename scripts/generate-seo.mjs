@@ -304,6 +304,13 @@ const llmsTxt = `# Nepali Date Library
 - **Formatting & Localization**: Flexible date format tokens (\`YYYY-MM-DD\`, \`DD MMMM YYYY\`, \`dddd\`, etc.) rendered in English and Devanagari numerals and script.
 - **Date Comparison & Queries**: Check \`isBefore\`, \`isAfter\`, \`isSame\`, \`isLeapYear\`, \`startOfMonth\`, \`endOfMonth\`, \`startOfYear\`, \`endOfYear\`.
 
+## Common Search Keywords & Queries
+- **Date Converter**: Nepali date converter, Bikram Sambat date converter, BS to AD converter, AD to BS converter, English date to Nepali date, convert BS to AD, convert AD to BS.
+- **Nepali Date & Calendar**: Nepali date, Nepali date library, Bikram Sambat, Bikram Sambat calendar, BS date, BS calendar, Nepali calendar online, Nepali patro, Nepali miti, today Nepali date, aajako Nepali date, aajako miti.
+- **Calculators & Utilities**: Nepali age calculator, Nepali date difference calculator, Nepali date arithmetic, add days to Nepali date, Bikram Sambat leap year.
+- **Fiscal Year (Aarthik Barsha)**: Nepal Government fiscal year calculator, Shrawan to Ashadh fiscal year, fiscal quarters (Q1, Q2, Q3, Q4).
+- **SDKs & Package Managers**: \`nepali-date-library\` on npm (Node.js/TypeScript), \`nepali-date-library\` on PyPI (Python), \`sghimire/nepali-date-library\` on Packagist (PHP).
+
 ## Quick Start Code Recipes
 
 ### NodeJS / TypeScript

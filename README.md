@@ -1,38 +1,39 @@
-# Nepali Date Documentation Engine 🇳🇵
+# Nepali Date Documentation & Interactive Suite 🇳🇵
 
 [![Website](https://img.shields.io/badge/Website-nepali--pkg.date-E1804B?style=for-the-badge&logo=google-chrome&logoColor=white)](https://nepali-pkg.date)
+[![Converter](https://img.shields.io/badge/Converter-Live%20Suite-24292E?style=for-the-badge)](https://nepali-pkg.date/converter)
 [![Next.js](https://img.shields.io/badge/Next.js-16.4.1-black?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![Turbopack](https://img.shields.io/badge/Bundler-Turbopack-000000?style=for-the-badge&logo=turbopack&logoColor=white)](https://turbo.build/pack)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4.3-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-7.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![License](https://img.shields.io/badge/License-MIT-27845A?style=for-the-badge)](./LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-27845A?style=for-the-badge)](./LICENSE)
 
-The official documentation website and interactive web suite for the **Nepali Date (Bikram Sambat) Library Ecosystem**. Built on **Next.js 16** (App Router & Turbopack), **Fumadocs**, and **Tailwind CSS v4**, this platform serves as the central documentation source, live playground, and AI knowledge hub for the TypeScript/Node.js, Python, and PHP packages.
+The official documentation portal, live interactive playground, and AI knowledge engine for the **Nepali Date (Bikram Sambat) Library Ecosystem**. Built on **Next.js 16** (App Router & Turbopack), **Fumadocs**, and **Tailwind CSS v4**, this platform serves as the central documentation source, live conversion suite, and AI knowledge hub across Node.js, Python, and PHP implementations.
 
-🌐 **Production Website**: [https://nepali-pkg.date](https://nepali-pkg.date)
+🌐 **Production Website**: [https://nepali-pkg.date](https://nepali-pkg.date)  
+🔄 **Live Date Converter Suite**: [https://nepali-pkg.date/converter](https://nepali-pkg.date/converter)
 
 ---
 
 ## ⚡ Key Highlights
 
-- **Interactive Date Converter Suite**:
+- **Interactive Date & Age Converter Suite**:
   - Bikram Sambat (BS) $\leftrightarrow$ Gregorian (AD) high-precision bidirectional conversion.
-  - Date difference calculator (years, months, days, weekdays).
-  - Accurate age calculator with total day counts and upcoming birthday indicators.
-  - Nepali fiscal year and quarter computation.
-  - Dynamic date arithmetic and manipulation engine.
+  - Multi-unit date difference calculator (years, months, days, weekdays).
+  - Accurate age calculator with total days lived and next birthday countdown.
+  - Live Nepali fiscal year and quarter computation.
 - **Multi-Language SDK Documentation**:
-  - Unified, side-by-side API guides for **Node.js/TypeScript**, **Python**, and **PHP**.
+  - Unified guides and complete API references for [**Node.js / TypeScript**](https://nepali-pkg.date/docs/nodejs), [**Python**](https://nepali-pkg.date/docs/python), and [**PHP**](https://nepali-pkg.date/docs/php).
   - Over 220+ statically generated documentation pages with zero layout shift (CLS).
 - **AI Engine Optimization (AEO / GEO)**:
-  - Automated plain-text LLM context endpoints ([`/llms.txt`](https://nepali-pkg.date/llms.txt) and [`/llms-full.txt`](https://nepali-pkg.date/llms-full.txt)).
-  - Comprehensive Schema.org JSON-LD structured data (`TechArticle`, `WebApplication`, `BreadcrumbList`, `FAQPage`).
+  - Machine-readable context endpoints ([`/llms.txt`](https://nepali-pkg.date/llms.txt) and [`/llms-full.txt`](https://nepali-pkg.date/llms-full.txt)).
+  - Schema.org JSON-LD structured data (`TechArticle`, `WebApplication`, `BreadcrumbList`, `FAQPage`).
   - Dynamic `sitemap.xml` and AI-crawler targeted `robots.txt`.
 - **Terracotta & Obsidian Brand Design**:
-  - Theme-aware UI (light & dark mode) tailored to Nepali heritage tones.
-  - Global 4px slim scrollbars with transparent tracks and stepper button suppression.
+  - Theme-aware UI (light & dark mode) tailored to Nepali heritage terracotta tones.
+  - Custom responsive layout with sticky table of contents and dynamic per-library versioning.
 - **Enterprise CI/CD Automation**:
-  - GitHub Actions manual build runner compiling `master` and publishing pre-built release artifacts directly to the `release` branch for one-step VM deployment.
+  - GitHub Actions build runner compiling `master` and publishing pre-built release artifacts directly to the `release` branch for one-step VM deployment.
 
 ---
 
@@ -73,6 +74,7 @@ Docs/
 ├── scripts/
 │   ├── generate-seo.mjs        # Pre-build scanner generating sitemap & llms.txt
 │   └── patch-tailwindcss.cjs   # Build patch for Tailwind v4 integration
+├── deploy.sh                   # Safe, conflict-free server deployment script
 └── .github/
     └── workflows/
         └── build-and-push.yml  # Manual GitHub Actions compiler & release publisher
@@ -89,8 +91,6 @@ Docs/
 
 ### 1. Installation
 
-Clone the repository and install project dependencies:
-
 ```bash
 git clone https://github.com/SandipGhimire/Nepali-Date-Library.git
 cd NepaliDate/Docs
@@ -99,20 +99,16 @@ pnpm install
 
 ### 2. Environment Configuration
 
-Copy the example environment file and configure optional keys:
-
 ```bash
 cp .env.example .env.local
 ```
 
-| Variable               | Description                            | Default                   |
-| :--------------------- | :------------------------------------- | :------------------------ |
-| `NEXT_PUBLIC_SITE_URL` | Canonical site URL                     | `https://nepali-pkg.date` |
-| `ADSENSE_CLIENT_ID`    | Google AdSense Publisher ID (optional) | `""`                      |
+| Variable | Description | Default |
+| :--- | :--- | :--- |
+| `NEXT_PUBLIC_SITE_URL` | Canonical site URL | `https://nepali-pkg.date` |
+| `ADSENSE_CLIENT_ID` | Google AdSense Publisher ID (optional) | `""` |
 
 ### 3. Local Development
-
-Start the Turbopack-powered development server:
 
 ```bash
 pnpm dev
@@ -123,8 +119,6 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ---
 
 ## 📦 Build & Verification
-
-To verify the production build and regenerate static SEO assets locally:
 
 ```bash
 # Generate SEO assets (sitemap.xml, robots.txt, llms.txt, webmanifest)
@@ -141,31 +135,25 @@ pnpm start
 
 ## 🚀 CI/CD & Deployment
 
-This project uses a dedicated GitHub Actions workflow ([`.github/workflows/build-and-push.yml`](./.github/workflows/build-and-push.yml)) to compile production builds in the cloud:
+1. **GitHub Actions Build Pipeline** ([`.github/workflows/build-and-push.yml`](./.github/workflows/build-and-push.yml)):
+   - Triggered manually (`workflow_dispatch`).
+   - Compiles all 220+ static documentation pages and dynamic SEO assets.
+   - Pushes pre-compiled build artifacts to the `release` branch.
 
-1. **Trigger**: Manually executed via GitHub Actions tab (`workflow_dispatch`).
-2. **Process**:
-   - Always checks out `master` branch.
-   - Executes `pnpm build` (compiles all 220+ static pages, scripts, and assets).
-   - Un-ignores `.next/`, `.source/`, and `public/`.
-   - Force-pushes the pre-compiled distribution directly to the `release` branch using the custom `Nepali Date Bot`.
-3. **VM Deployment**:
-   On your server (running behind Cloudflare Tunnel & PM2):
+2. **One-Command Server Deployment**:
    ```bash
-   git fetch origin release
-   git checkout release
-   git pull origin release
-   pnpm install --prod
-   pm2 reload ecosystem.config.cjs --update-env
+   ./deploy.sh
    ```
+   *The `deploy.sh` script automatically preserves `.env`, resets cleanly to `origin/release`, verifies dependencies, and reloads your service without merge conflicts.*
 
 ---
 
-## 📚 Ecosystem Ports
+## 📚 Ecosystem Documentation Links
 
-- **NodeJS / TypeScript**: [`nepali-date-library` on npm](https://www.npmjs.com/package/nepali-date-library)
-- **Python**: [`nepali-date-library` on PyPI](https://pypi.org/project/nepali-date-library/)
-- **PHP**: [`sghimire/nepali-date-library` on Packagist](https://packagist.org/packages/sghimire/nepali-date-library)
+- **NodeJS / TypeScript Guide**: [nepali-pkg.date/docs/nodejs](https://nepali-pkg.date/docs/nodejs)
+- **Python Package Guide**: [nepali-pkg.date/docs/python](https://nepali-pkg.date/docs/python)
+- **PHP Library Guide**: [nepali-pkg.date/docs/php](https://nepali-pkg.date/docs/php)
+- **Online Converter Suite**: [nepali-pkg.date/converter](https://nepali-pkg.date/converter)
 
 ---
 
@@ -177,4 +165,5 @@ We welcome contributions, documentation corrections, and new guide proposals! Pl
 
 ## 📄 License
 
-This documentation engine and library ecosystem are open-source software licensed under the [MIT License](./LICENSE).
+This documentation engine and library ecosystem are open-source software licensed under the [MIT License](./LICENSE).  
+Made with ❤️ by [Sandip Ghimire](https://github.com/SandipGhimire).

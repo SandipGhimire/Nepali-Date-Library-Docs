@@ -2,7 +2,7 @@
 
 import Link from "fumadocs-core/link";
 import { usePathname } from "fumadocs-core/framework";
-import { CalendarDays, LayoutDashboard, Download, Code2, RefreshCw } from "lucide-react";
+import { CalendarDays, LayoutDashboard, Download, Code2, GitPullRequest } from "lucide-react";
 import { cn } from "../../lib/cn";
 
 export function SidebarTopNavigation() {
@@ -20,11 +20,6 @@ export function SidebarTopNavigation() {
       icon: <LayoutDashboard className="size-4 shrink-0" />,
     },
     {
-      title: "Date Converter",
-      href: "/converter",
-      icon: <RefreshCw className="size-4 shrink-0" />,
-    },
-    {
       title: "Installation",
       href: "/docs/installation",
       icon: <Download className="size-4 shrink-0" />,
@@ -33,6 +28,11 @@ export function SidebarTopNavigation() {
       title: "Examples",
       href: "/docs/examples",
       icon: <Code2 className="size-4 shrink-0" />,
+    },
+    {
+      title: "Contribution Guide",
+      href: "/docs/contribution",
+      icon: <GitPullRequest className="size-4 shrink-0" />,
     },
   ];
 

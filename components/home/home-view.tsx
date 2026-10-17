@@ -15,6 +15,7 @@ import {
   Zap,
   ChevronRight,
   FileCode2,
+  RefreshCw,
 } from "lucide-react";
 import { GithubStarButton } from "@/components/github-star";
 import { WovenBackground } from "@/components/home/woven-background";
@@ -55,12 +56,20 @@ const steps = [
 
 const features = [
   {
-    icon: Zap,
-    title: "Verified Bikram Sambat Data",
+    icon: RefreshCw,
+    title: "Bikram Sambat Date Converter (BS ↔ AD)",
     description:
-      "Accurate date mapping from 1976 BS to 2100 BS. Built with verified month day counts, leap years, and official calendar logic.",
-    highlight: "1976 - 2100 BS",
+      "Instant bidirectional conversion between Bikram Sambat (BS) and Gregorian (AD) calendars with live age calculation and date difference tools.",
+    highlight: "Date Converter",
     span: "lg:col-span-2",
+  },
+  {
+    icon: Zap,
+    title: "Verified Ephemeris (1976 – 2100 BS)",
+    description:
+      "Accurate solar calendar mapping from 1976 BS to 2100 BS. Built with verified month day counts, leap years, and official calendar logic.",
+    highlight: "1976 - 2100 BS",
+    span: "lg:col-span-1",
   },
   {
     icon: Globe,
@@ -261,8 +270,9 @@ export function HomeView() {
 
             {/* Subtext */}
             <p className="mt-5 max-w-xl text-base sm:text-lg text-fd-muted-foreground leading-relaxed text-pretty">
-              A comprehensive multi-language ecosystem to convert, format, validate, and manipulate Nepali (Bikram
-              Sambat) dates with consistent APIs across TypeScript, Python, and PHP.
+              Fast, verified Nepali Date (Bikram Sambat / BS) converter and zero-dependency library ecosystem. Convert
+              bidirectionally between BS and AD, calculate dates, and manage Nepal fiscal years with unified APIs across
+              TypeScript, Python, and PHP.
             </p>
 
             {/* Action CTAs */}
@@ -276,11 +286,11 @@ export function HomeView() {
               </Link>
 
               <Link
-                href="/docs/origination"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-fd-border bg-fd-card/80 px-5 py-3 text-sm font-semibold text-fd-foreground backdrop-blur-sm transition-all hover:bg-fd-accent hover:border-fd-border/80"
+                href="/converter"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-fd-primary/30 bg-fd-primary/10 px-5 py-3 text-sm font-semibold text-fd-primary backdrop-blur-sm transition-all hover:bg-fd-primary/20 hover:border-fd-primary/50"
               >
-                <Code2 className="h-4 w-4 text-fd-muted-foreground" />
-                <span>Read Documentation</span>
+                <RefreshCw className="h-4 w-4" />
+                <span>Date Converter (BS ↔ AD)</span>
               </Link>
 
               <GithubStarButton className="px-5 py-3 text-sm" />

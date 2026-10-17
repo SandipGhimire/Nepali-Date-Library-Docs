@@ -22,6 +22,13 @@
 - **Formatting & Localization**: Flexible date format tokens (`YYYY-MM-DD`, `DD MMMM YYYY`, `dddd`, etc.) rendered in English and Devanagari numerals and script.
 - **Date Comparison & Queries**: Check `isBefore`, `isAfter`, `isSame`, `isLeapYear`, `startOfMonth`, `endOfMonth`, `startOfYear`, `endOfYear`.
 
+## Common Search Keywords & Queries
+- **Date Converter**: Nepali date converter, Bikram Sambat date converter, BS to AD converter, AD to BS converter, English date to Nepali date, convert BS to AD, convert AD to BS.
+- **Nepali Date & Calendar**: Nepali date, Nepali date library, Bikram Sambat, Bikram Sambat calendar, BS date, BS calendar, Nepali calendar online, Nepali patro, Nepali miti, today Nepali date, aajako Nepali date, aajako miti.
+- **Calculators & Utilities**: Nepali age calculator, Nepali date difference calculator, Nepali date arithmetic, add days to Nepali date, Bikram Sambat leap year.
+- **Fiscal Year (Aarthik Barsha)**: Nepal Government fiscal year calculator, Shrawan to Ashadh fiscal year, fiscal quarters (Q1, Q2, Q3, Q4).
+- **SDKs & Package Managers**: `nepali-date-library` on npm (Node.js/TypeScript), `nepali-date-library` on PyPI (Python), `sghimire/nepali-date-library` on Packagist (PHP).
+
 ## Quick Start Code Recipes
 
 ### NodeJS / TypeScript
@@ -95,6 +102,7 @@ echo $bs->getFiscalYear(); // 2081/82
 
 ## Complete Method Directory
 - [Nepali Date Library](https://nepali-pkg.date/docs): A comprehensive, multi-language library for working with Nepali (Bikram Sambat) dates.
+- [Contribution Guide](https://nepali-pkg.date/docs/contribution): Learn how to contribute to the Nepali Date Library ecosystem across Node.js, Python, PHP, and Documentation.
 - [Examples & Practical Recipes](https://nepali-pkg.date/docs/examples): Real-world patterns and cross-language code recipes for working with Nepali dates.
 - [Installation](https://nepali-pkg.date/docs/installation): Install Nepali Date Library in your project using your preferred package manager across Node.js, Python, or PHP.
 - [Overview](https://nepali-pkg.date/docs/nodejs): Complete documentation and feature guide for the Nepali Date Library in Node.js and TypeScript applications.
@@ -480,6 +488,167 @@ The library supports Bikram Sambat dates from **2000 BS to 2090+ BS** with verif
 
 ---
 
+## Page: Contribution Guide (/docs/contribution)
+Description: Learn how to contribute to the Nepali Date Library ecosystem across Node.js, Python, PHP, and Documentation.
+
+Thank you for your interest in contributing to the **Nepali Date (Bikram Sambat) Ecosystem**! This open-source project is built and maintained to provide synchronized, robust, zero-dependency calendar tools across JavaScript/TypeScript, Python, and PHP.
+
+Whether you are fixing a typo, adding calendar tests, improving performance, or porting new features across languages, your contributions are warmly welcomed.
+
+---
+
+## Ecosystem Repositories
+
+The ecosystem consists of four main projects:
+
+| Project | Ecosystem | Source Repository |
+| :--- | :--- | :--- |
+| **Node.js / TypeScript** | npm, yarn, pnpm, bun | [GitHub Repository](https://github.com/SandipGhimire/Nepali-Date-Library-NodeJS) |
+| **Python** | PyPI (uv, pip, poetry) | [GitHub Repository](https://github.com/SandipGhimire/Nepali-Date-Library-Python) |
+| **PHP** | Packagist (Composer) | [GitHub Repository](https://github.com/SandipGhimire/Nepali-Date-Library-PHP) |
+| **Documentation & Converter** | Next.js 16 / Fumadocs | [GitHub Repository](https://github.com/SandipGhimire/Nepali-Date-Library) |
+
+---
+
+## Core Contribution Principles
+
+Before proposing changes, please keep our core architectural principles in mind:
+
+1. **Zero External Runtime Dependencies**:
+   All three language packages (`nepali-date-library`) MUST maintain zero external dependencies at runtime. Do not add runtime packages.
+
+2. **Standardized Cross-Language Semantics**:
+   The API surface across Node.js, Python, and PHP is intentionally synchronized. Method names, formatting tokens (e.g. `YYYY-MM-DD`, `dddd`), fiscal year quarters, and edge case handling should match across all implementations.
+
+3. **Certified Range Accuracy (1976 – 2100 BS)**:
+   Any changes affecting date conversion or calendar math must pass the exhaustive ephemeris verification tests covering 1976/01/01 to 2100/12/31 BS.
+
+4. **Deterministic Timezone Isolation**:
+   Date arithmetic, weekday getters, and day start/end calculations must execute deterministically regardless of the host machine's local timezone.
+
+---
+
+## Development Environment Setup
+
+Select your target language below for environment setup and test commands:
+
+<Tabs items={["Node.js / TypeScript", "Python", "PHP", "Documentation"]}>
+  <Tab value="Node.js / TypeScript">
+    ### Node.js / TypeScript Setup
+
+    **Prerequisites**: Node.js `>= 22.0.0`, pnpm `>= 10.0.0`
+
+    ```bash
+    # Clone repository
+    git clone https://github.com/SandipGhimire/Nepali-Date-Library-NodeJS.git
+    cd Nepali-Date-Library-NodeJS
+
+    # Install dependencies
+    pnpm install
+
+    # Build ESM and CJS bundles
+    pnpm run build
+
+    # Run tests (Vitest)
+    pnpm run test
+
+    # Run legacy Node compatibility tests (Node 8-17)
+    pnpm run test:compat
+
+    # Lint and formatting
+    pnpm run lint
+    pnpm run format
+    ```
+  </Tab>
+
+  <Tab value="Python">
+    ### Python Setup
+
+    **Prerequisites**: Python `>= 3.9`, [uv](https://docs.astral.sh/uv/) (recommended)
+
+    ```bash
+    # Clone repository
+    git clone https://github.com/SandipGhimire/Nepali-Date-Library-Python.git
+    cd Nepali-Date-Library-Python
+
+    # Create virtual environment and install dev dependencies
+    uv sync --group dev
+
+    # Run unit tests and style checks
+    uv run task test
+
+    # Or run pytest directly
+    uv run pytest
+
+    # Format code with black
+    uv run black src tests
+
+    # Static type checking
+    uv run mypy src
+    ```
+  </Tab>
+
+  <Tab value="PHP">
+    ### PHP Setup
+
+    **Prerequisites**: PHP `>= 7.1`, [Composer](https://getcomposer.org/)
+
+    ```bash
+    # Clone repository
+    git clone https://github.com/SandipGhimire/Nepali-Date-Library-PHP.git
+    cd Nepali-Date-Library-PHP
+
+    # Install dependencies
+    composer install
+
+    # Run full PHPUnit test suite
+    composer test
+    ```
+  </Tab>
+
+  <Tab value="Documentation">
+    ### Documentation Engine Setup
+
+    **Prerequisites**: Node.js `>= 22.0.0`, pnpm `>= 10.0.0`
+
+    ```bash
+    # Navigate to Docs directory in main repo
+    cd Docs
+
+    # Install dependencies
+    pnpm install
+
+    # Start development server with Turbopack
+    pnpm dev
+    ```
+
+    Open [http://localhost:3000](http://localhost:3000) to view local live edits with instant hot reload.
+  </Tab>
+</Tabs>
+
+---
+
+## Pull Request Guidelines
+
+1. **Fork & Branch**: Fork the target repository and create a descriptive branch:
+   ```bash
+   git checkout -b feat/devanagari-weekday-tokens
+   ```
+2. **Write Tests**: Accompany every bug fix or feature with clear unit tests verifying the behavior.
+3. **Run CI Checks**: Verify that all test suites, linters, and type checkers pass without errors.
+4. **Descriptive Commits**: Use conventional commits (e.g., `feat:`, `fix:`, `docs:`, `chore:`).
+5. **Submit PR**: Open a Pull Request referencing any related issues with reproduction steps or rationale.
+
+---
+
+## Community & Code of Conduct
+
+We are dedicated to providing a welcoming, inclusive, and respectful environment for all contributors. Please treat fellow maintainers and contributors with professionalism, kindness, and constructive feedback.
+
+Made with ❤️ by [Sandip Ghimire](https://github.com/SandipGhimire).
+
+---
+
 ## Page: Examples & Practical Recipes (/docs/examples)
 Description: Real-world patterns and cross-language code recipes for working with Nepali dates.
 
@@ -801,7 +970,7 @@ The Nepali Date Library for Node.js provides a high performance toolkit with zer
     },
     {
       alt: "GitHub Stars",
-      src: "https://img.shields.io/github/stars/SandipGhimire/Nepali-Date-Library-NodeJS?style=flat&logo=github&logoColor=white&label=Stars&color=24292e",
+      src: "https://img.shields.io/github/stars/SandipGhimire/Nepali-Date-Library-NodeJS?style=flat&logo=github",
       href: "https://github.com/SandipGhimire/Nepali-Date-Library-NodeJS"
     },
     {
@@ -6780,7 +6949,7 @@ The Nepali Date Library for PHP provides a modern object oriented toolkit with z
     },
     {
       alt: "GitHub Stars",
-      src: "https://img.shields.io/github/stars/SandipGhimire/Nepali-Date-Library-PHP?style=flat&logo=github&logoColor=white&label=Stars&color=24292e",
+      src: "https://img.shields.io/github/stars/SandipGhimire/Nepali-Date-Library-PHP?style=flat&logo=github",
       href: "https://github.com/SandipGhimire/Nepali-Date-Library-PHP"
     },
     {
@@ -11179,7 +11348,7 @@ The Nepali Date Library for Python provides a clean and idiomatic toolkit with z
     },
     {
       alt: "GitHub Stars",
-      src: "https://img.shields.io/github/stars/SandipGhimire/Nepali-Date-Library-Python?style=flat&logo=github&logoColor=white&label=Stars&color=24292e",
+      src: "https://img.shields.io/github/stars/SandipGhimire/Nepali-Date-Library-Python?style=flat&logo=github",
       href: "https://github.com/SandipGhimire/Nepali-Date-Library-Python"
     },
     {

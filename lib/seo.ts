@@ -11,25 +11,48 @@ export const DEFAULT_DESCRIPTION =
 
 export const SEO_KEYWORDS = [
   // Primary Converter & Calendar Keywords
+  "date converter",
   "nepali date converter",
+  "bikram sambat date converter",
   "bikram sambat converter",
   "bs to ad converter",
   "ad to bs converter",
   "nepali date to english date converter",
   "english date to nepali date converter",
+  "convert nepali date to english",
+  "convert english date to nepali",
+  "nepali date converter online",
+  "free nepali date converter",
+  "nepali calendar converter",
+  "bs date converter",
+  "ad date converter",
+  "nepali miti converter",
+  "bs to ad",
+  "ad to bs",
+  "bs date",
+  "ad date",
+
+  // Calendar & Patro Terms
+  "nepali date",
   "nepali calendar",
+  "bikram sambat",
   "bikram sambat calendar",
+  "bs calendar",
+  "nepali patro",
+  "nepali patro online",
+  "nepali miti",
   "today nepali date",
   "aajako nepali date",
-  "nepali miti converter",
+  "aajako miti",
   "nepali date today",
   "nepali date picker",
-  "nepali patro online",
   "bikram sambat to gregorian converter",
   "gregorian to bikram sambat converter",
+  "bikram sambat calendar 1976 to 2100",
 
   // Multi-Language Library Keywords
   "nepali date library",
+  "nepalidate",
   "nepali date npm",
   "nepali-date-library",
   "nepali date nodejs",
@@ -38,15 +61,19 @@ export const SEO_KEYWORDS = [
   "nepali date python",
   "nepali-date-library python",
   "nepali date pip",
+  "nepali date pypi",
   "nepali date php",
   "nepali date composer",
   "sghimire nepali date library",
   "nepali date laravel",
+  "nepali calendar api",
+  "nepali date api",
 
-  // Core Capabilities & Calculations
+  // Capabilities, Arithmetic & Fiscal Year
   "nepali fiscal year calculator",
   "nepal government fiscal year",
   "nepali fiscal year quarter",
+  "aarthik barsha",
   "shrawan to ashadh fiscal year",
   "nepali date arithmetic",
   "add days to nepali date",
@@ -54,9 +81,8 @@ export const SEO_KEYWORDS = [
   "nepali age calculator",
   "bikram sambat leap year",
   "devanagari date format",
-  "nepali calendar 1976 to 2100",
   "nepali date validation",
-  "nepali time and date api",
+  "nepali time and date",
 ];
 
 export const AUTHOR_INFO = {
