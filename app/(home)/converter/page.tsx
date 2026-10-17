@@ -1,6 +1,8 @@
 import { WovenBackground } from "@/components/home/woven-background";
 import { Footer } from "@/components/home/footer";
 import { ConverterSuite } from "@/components/converter/converter-suite";
+import { AdSenseBanner } from "@/components/ads/adsense-banner";
+import { ADSENSE_SLOTS } from "@/lib/adsense";
 import type { Metadata } from "next";
 import {
   SITE_URL,
@@ -131,6 +133,10 @@ export default function ConverterPage() {
         <section className="relative w-full flex-1 bg-fd-background px-4 sm:px-6 py-10 sm:py-16 md:py-20">
           <div className="mx-auto w-full max-w-4xl lg:max-w-5xl">
             <ConverterSuite />
+            <AdSenseBanner
+              slot={ADSENSE_SLOTS.converter}
+              className="mt-12"
+            />
           </div>
         </section>
       </main>

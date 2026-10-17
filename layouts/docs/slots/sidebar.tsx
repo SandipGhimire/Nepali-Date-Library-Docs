@@ -18,6 +18,8 @@ import Link from "fumadocs-core/link";
 import { useTreePath } from "@fumadocs/base-ui/contexts/tree";
 import { SidebarGithubStar, SidebarConverterLink } from "../../../components/github-star";
 import { SidebarTopNavigation } from "../../../components/docs-sidebar/top-nav";
+import { AdSenseBanner } from "../../../components/ads/adsense-banner";
+import { ADSENSE_SLOTS } from "../../../lib/adsense";
 
 const itemVariants = cva(
   "relative flex flex-row items-center gap-2 rounded-lg p-2 text-start text-fd-muted-foreground wrap-anywhere [&_svg]:size-4 [&_svg]:shrink-0",
@@ -71,6 +73,11 @@ export function Sidebar({ footer, banner, collapsible = true, components, ...res
             <SidebarLinkItem key={i} item={item} className={cn(i === list.length - 1 && "mb-4")} />
           ))}
         <SidebarPageTree {...components} />
+        <AdSenseBanner
+          variant="sidebar"
+          slot={ADSENSE_SLOTS.sidebar}
+          className="mt-6 mb-2"
+        />
       </div>
     </Base.SidebarViewport>
   );

@@ -10,137 +10,145 @@
 [data-theme="light"] {
   color-scheme: light;
 
-  --primary: #E1804B;
-  --primary-hover: #C96937;
-  --primary-active: #AD5429;
-  --primary-foreground: #FFFFFF;
-  --primary-subtle: #F6E5DA;
+  --primary: #e1804b;
+  --primary-hover: #c96937;
+  --primary-active: #ad5429;
+  --primary-foreground: #ffffff;
+  --primary-subtle: #f6e5da;
 
-  --background: #F7F7F5;
+  --background: #f7f7f5;
   --foreground: #262522;
 
-  --card: #FFFFFF;
+  --card: #ffffff;
   --card-foreground: #262522;
 
-  --surface: #F0EFEC;
-  --surface-hover: #E9E7E2;
+  --surface: #f0efec;
+  --surface-hover: #e9e7e2;
 
-  --border: #E5E2DC;
-  --input: #E5E2DC;
-  --ring: #E1804B;
+  --border: #e5e2dc;
+  --input: #e5e2dc;
+  --ring: #e1804b;
 
-  --muted: #F0EFEC;
-  --muted-foreground: #77746E;
+  --muted: #f0efec;
+  --muted-foreground: #77746e;
 
-  --success: #27845A;
-  --warning: #B7791F;
-  --destructive: #C43D3D;
+  --success: #27845a;
+  --warning: #b7791f;
+  --destructive: #c43d3d;
 
   /* Fumadocs UI Mapping */
-  --color-fd-background: #F7F7F5;
+  --color-fd-background: #f7f7f5;
   --color-fd-foreground: #262522;
 
-  --color-fd-muted: #F0EFEC;
-  --color-fd-muted-foreground: #77746E;
+  --color-fd-muted: #f0efec;
+  --color-fd-muted-foreground: #77746e;
 
-  --color-fd-popover: #FFFFFF;
+  --color-fd-popover: #ffffff;
   --color-fd-popover-foreground: #262522;
 
-  --color-fd-card: #FFFFFF;
+  --color-fd-card: #ffffff;
   --color-fd-card-foreground: #262522;
 
-  --color-fd-border: #E5E2DC;
+  --color-fd-border: #e5e2dc;
 
-  --color-fd-primary: #E1804B;
-  --color-fd-primary-foreground: #FFFFFF;
+  --color-fd-primary: #e1804b;
+  --color-fd-primary-foreground: #ffffff;
 
-  --color-fd-secondary: #F0EFEC;
+  --color-fd-secondary: #f0efec;
   --color-fd-secondary-foreground: #262522;
 
-  --color-fd-accent: #F6E5DA;
-  --color-fd-accent-foreground: #AD5429;
+  --color-fd-accent: #f6e5da;
+  --color-fd-accent-foreground: #ad5429;
 
-  --color-fd-ring: #E1804B;
+  --color-fd-ring: #e1804b;
+
+  --scrollbar-thumb: rgba(225, 128, 75, 0.2);
+  --scrollbar-thumb-hover: rgba(225, 128, 75, 0.45);
+  --scrollbar-thumb-active: rgba(225, 128, 75, 0.7);
 }
 
 .dark,
 [data-theme="dark"] {
   color-scheme: dark;
 
-  --primary: #E1804B;
-  --primary-hover: #F09665;
-  --primary-active: #C96937;
+  --primary: #e1804b;
+  --primary-hover: #f09665;
+  --primary-active: #c96937;
   --primary-foreground: #171715;
-  --primary-subtle: #3A2920;
+  --primary-subtle: #3a2920;
 
   --background: #171715;
-  --foreground: #F3F1ED;
+  --foreground: #f3f1ed;
 
-  --card: #20201D;
-  --card-foreground: #F3F1ED;
+  --card: #20201d;
+  --card-foreground: #f3f1ed;
 
   --surface: #252420;
-  --surface-hover: #302E29;
+  --surface-hover: #302e29;
 
   --border: #383630;
   --input: #383630;
-  --ring: #E1804B;
+  --ring: #e1804b;
 
   --muted: #252420;
-  --muted-foreground: #A6A39C;
+  --muted-foreground: #a6a39c;
 
-  --success: #55B987;
-  --warning: #E8B65B;
-  --destructive: #F07171;
+  --success: #55b987;
+  --warning: #e8b65b;
+  --destructive: #f07171;
 
   /* Fumadocs UI Mapping */
   --color-fd-background: #171715;
-  --color-fd-foreground: #F3F1ED;
+  --color-fd-foreground: #f3f1ed;
 
   --color-fd-muted: #252420;
-  --color-fd-muted-foreground: #A6A39C;
+  --color-fd-muted-foreground: #a6a39c;
 
-  --color-fd-popover: #20201D;
-  --color-fd-popover-foreground: #F3F1ED;
+  --color-fd-popover: #20201d;
+  --color-fd-popover-foreground: #f3f1ed;
 
-  --color-fd-card: #20201D;
-  --color-fd-card-foreground: #F3F1ED;
+  --color-fd-card: #20201d;
+  --color-fd-card-foreground: #f3f1ed;
 
   --color-fd-border: #383630;
 
-  --color-fd-primary: #E1804B;
+  --color-fd-primary: #e1804b;
   --color-fd-primary-foreground: #171715;
 
   --color-fd-secondary: #252420;
-  --color-fd-secondary-foreground: #F3F1ED;
+  --color-fd-secondary-foreground: #f3f1ed;
 
-  --color-fd-accent: #3A2920;
-  --color-fd-accent-foreground: #F09665;
+  --color-fd-accent: #3a2920;
+  --color-fd-accent-foreground: #f09665;
 
-  --color-fd-ring: #E1804B;
+  --color-fd-ring: #e1804b;
+
+  --scrollbar-thumb: rgba(225, 128, 75, 0.25);
+  --scrollbar-thumb-hover: rgba(225, 128, 75, 0.5);
+  --scrollbar-thumb-active: rgba(225, 128, 75, 0.75);
 }
 
 @theme {
-  --color-fd-background: #F7F7F5;
+  --color-fd-background: #f7f7f5;
   --color-fd-foreground: #262522;
-  --color-fd-muted: #F0EFEC;
-  --color-fd-muted-foreground: #77746E;
-  --color-fd-popover: #FFFFFF;
+  --color-fd-muted: #f0efec;
+  --color-fd-muted-foreground: #77746e;
+  --color-fd-popover: #ffffff;
   --color-fd-popover-foreground: #262522;
-  --color-fd-card: #FFFFFF;
+  --color-fd-card: #ffffff;
   --color-fd-card-foreground: #262522;
-  --color-fd-border: #E5E2DC;
-  --color-fd-primary: #E1804B;
-  --color-fd-primary-foreground: #FFFFFF;
-  --color-fd-secondary: #F0EFEC;
+  --color-fd-border: #e5e2dc;
+  --color-fd-primary: #e1804b;
+  --color-fd-primary-foreground: #ffffff;
+  --color-fd-secondary: #f0efec;
   --color-fd-secondary-foreground: #262522;
-  --color-fd-accent: #F6E5DA;
-  --color-fd-accent-foreground: #AD5429;
-  --color-fd-ring: #E1804B;
+  --color-fd-accent: #f6e5da;
+  --color-fd-accent-foreground: #ad5429;
+  --color-fd-ring: #e1804b;
 }
 
 .text-brand-gradient {
-  background: linear-gradient(135deg, #E1804B 0%, #C96937 50%, #AD5429 100%);
+  background: linear-gradient(135deg, #e1804b 0%, #c96937 50%, #ad5429 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -148,37 +156,37 @@
 
 .dark .text-brand-gradient,
 [data-theme="dark"] .text-brand-gradient {
-  background: linear-gradient(135deg, #F09665 0%, #E1804B 50%, #C96937 100%);
+  background: linear-gradient(135deg, #f09665 0%, #e1804b 50%, #c96937 100%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
 }
 
 ::selection {
-  background: #F6E5DA;
-  color: #AD5429;
+  background: #f6e5da;
+  color: #ad5429;
 }
 
 .dark ::selection,
 [data-theme="dark"] ::selection {
-  background: #3A2920;
-  color: #F09665;
+  background: #3a2920;
+  color: #f09665;
 }
 
 pre,
 code {
-  --color-fd-muted: #F0EFEC;
+  --color-fd-muted: #f0efec;
 }
 
 .dark pre,
 .dark code,
 [data-theme="dark"] pre,
 [data-theme="dark"] code {
-  --color-fd-muted: #20201D;
+  --color-fd-muted: #20201d;
 }
 
 body {
-  background-color: #F7F7F5;
+  background-color: #f7f7f5;
   background-image:
     radial-gradient(circle at 12% 8%, rgba(225, 128, 75, 0.04), transparent 45%),
     radial-gradient(circle at 88% 92%, rgba(201, 105, 55, 0.03), transparent 45%);
@@ -194,4 +202,325 @@ body {
     radial-gradient(circle at 88% 92%, rgba(240, 150, 101, 0.05), transparent 45%);
   background-repeat: no-repeat;
   background-attachment: fixed;
+}
+
+/* ==========================================================================
+   Global Slim Scrollbar (4px, Primary Color, Transparent Track, No Arrows)
+   ========================================================================== */
+
+/* Standard CSS for Firefox & standards-compliant browsers */
+html,
+body,
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
+}
+
+/* WebKit / Chromium (Chrome, Edge, Safari, Brave, Arc, Opera) */
+::-webkit-scrollbar,
+*::-webkit-scrollbar,
+.fd-scroll-container::-webkit-scrollbar {
+  width: 4px !important;
+  height: 4px !important;
+}
+
+::-webkit-scrollbar-track,
+*::-webkit-scrollbar-track,
+.fd-scroll-container::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb,
+*::-webkit-scrollbar-thumb,
+.fd-scroll-container::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb) !important;
+  border-radius: 9999px !important;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover,
+*::-webkit-scrollbar-thumb:hover,
+.fd-scroll-container::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover) !important;
+}
+
+::-webkit-scrollbar-thumb:active,
+*::-webkit-scrollbar-thumb:active,
+.fd-scroll-container::-webkit-scrollbar-thumb:active {
+  background-color: var(--scrollbar-thumb-active) !important;
+}
+
+/* Remove all scrollbar buttons / arrows / icons completely across all elements */
+::-webkit-scrollbar-button,
+*::-webkit-scrollbar-button,
+.fd-scroll-container::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: 0 !important;
+  max-height: 0 !important;
+  background: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+::-webkit-scrollbar-button:start,
+::-webkit-scrollbar-button:end,
+*::-webkit-scrollbar-button:start,
+*::-webkit-scrollbar-button:end,
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment,
+*::-webkit-scrollbar-button:start:decrement,
+*::-webkit-scrollbar-button:end:increment {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+  background-image: none !important;
+}
+
+/* Transparent corner when both vertical and horizontal scrollbars exist */
+::-webkit-scrollbar-corner,
+*::-webkit-scrollbar-corner,
+.fd-scroll-container::-webkit-scrollbar-corner {
+  display: none !important;
+  background: transparent !important;
+}
+
+/* Radix ScrollArea Support (Fumadocs Viewports & Sidebar) */
+[data-radix-scroll-area-scrollbar] {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+[data-radix-scroll-area-scrollbar][data-orientation="vertical"] {
+  width: 4px !important;
+}
+
+[data-radix-scroll-area-scrollbar][data-orientation="horizontal"] {
+  height: 4px !important;
+}
+
+[data-radix-scroll-area-thumb],
+[data-slot="scrollbar-thumb"] {
+  background-color: var(--scrollbar-thumb) !important;
+  border-radius: 9999px !important;
+  transition: background-color 0.2s ease;
+}
+
+[data-radix-scroll-area-thumb]:hover,
+[data-slot="scrollbar-thumb"]:hover {
+  background-color: var(--scrollbar-thumb-hover) !important;
+}
+
+[data-radix-scroll-area-corner] {
+  background: transparent !important;
+}
+
+/* Completely remove scrollbars from TOC ("On this page") */
+#nd-toc,
+#nd-toc *,
+.no-scrollbar,
+.no-scrollbar *,
+[data-toc-popover-content],
+[data-toc-popover-content] * {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+#nd-toc::-webkit-scrollbar,
+#nd-toc *::-webkit-scrollbar,
+.no-scrollbar::-webkit-scrollbar,
+.no-scrollbar *::-webkit-scrollbar,
+[data-toc-popover-content]::-webkit-scrollbar,
+[data-toc-popover-content] *::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+/* ==========================================================================
+   Custom Nepali Date Theme Styling for Sidebar & Navigation
+   ========================================================================== */
+
+#nd-sidebar,
+#nd-sidebar-mobile {
+  border-color: var(--color-fd-border);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Sidebar Background with subtle depth and ambient warmth */
+#nd-sidebar {
+  background: linear-gradient(180deg, #ffffff 0%, #faf8f5 100%);
+  border-right: 1px solid rgba(229, 226, 220, 0.85);
+  box-shadow: 2px 0 16px -4px rgba(0, 0, 0, 0.03);
+}
+
+.dark #nd-sidebar,
+[data-theme="dark"] #nd-sidebar {
+  background: linear-gradient(180deg, rgba(24, 24, 21, 0.98) 0%, rgba(18, 18, 16, 0.99) 100%);
+  border-right: 1px solid rgba(56, 54, 48, 0.7);
+  box-shadow: 4px 0 24px -4px rgba(0, 0, 0, 0.4);
+}
+
+/* Mobile Sidebar Drawer Background */
+#nd-sidebar-mobile {
+  background: #faf8f5;
+  border-right: 1px solid rgba(229, 226, 220, 0.85);
+}
+
+.dark #nd-sidebar-mobile,
+[data-theme="dark"] #nd-sidebar-mobile {
+  background: #171715;
+  border-right: 1px solid rgba(56, 54, 48, 0.8);
+}
+
+/* Sidebar Links & Item Hover / Active States */
+#nd-sidebar a:not([data-nav-title]),
+#nd-sidebar-mobile a:not([data-nav-title]),
+#nd-sidebar button,
+#nd-sidebar-mobile button {
+  transition: all 0.15s ease-in-out;
+}
+
+/* Item Hover State (excluded on header logo/title) */
+#nd-sidebar a:not([data-active="true"]):not([data-nav-title]):hover,
+#nd-sidebar-mobile a:not([data-active="true"]):not([data-nav-title]):hover {
+  background: rgba(225, 128, 75, 0.08) !important;
+  color: #c96937 !important;
+  transform: translateX(2px);
+}
+
+.dark #nd-sidebar a:not([data-active="true"]):not([data-nav-title]):hover,
+.dark #nd-sidebar-mobile a:not([data-active="true"]):not([data-nav-title]):hover,
+[data-theme="dark"] #nd-sidebar a:not([data-active="true"]):not([data-nav-title]):hover,
+[data-theme="dark"] #nd-sidebar-mobile a:not([data-active="true"]):not([data-nav-title]):hover {
+  background: rgba(225, 128, 75, 0.12) !important;
+  color: #f09665 !important;
+  transform: translateX(2px);
+}
+
+/* Header Logo / NavTitle: completely remove hover background, color changes, and transform */
+[data-nav-title],
+[data-nav-title]:hover,
+#nd-sidebar [data-nav-title],
+#nd-sidebar [data-nav-title]:hover,
+#nd-sidebar-mobile [data-nav-title],
+#nd-sidebar-mobile [data-nav-title]:hover,
+header [data-nav-title],
+header [data-nav-title]:hover {
+  background: transparent !important;
+  background-color: transparent !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Active Item State */
+#nd-sidebar [data-active="true"],
+#nd-sidebar-mobile [data-active="true"] {
+  background: linear-gradient(90deg, rgba(225, 128, 75, 0.14) 0%, rgba(225, 128, 75, 0.04) 100%) !important;
+  color: #c96937 !important;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  position: relative;
+}
+
+.dark #nd-sidebar [data-active="true"],
+.dark #nd-sidebar-mobile [data-active="true"],
+[data-theme="dark"] #nd-sidebar [data-active="true"],
+[data-theme="dark"] #nd-sidebar-mobile [data-active="true"] {
+  background: linear-gradient(90deg, rgba(225, 128, 75, 0.22) 0%, rgba(225, 128, 75, 0.06) 100%) !important;
+  color: #f09665 !important;
+  font-weight: 600;
+}
+
+/* Active Indicator Line: glowing rounded terracotta accent */
+#nd-sidebar [data-active="true"]::before,
+#nd-sidebar-mobile [data-active="true"]::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 18%;
+  bottom: 18%;
+  width: 3px;
+  border-radius: 9999px;
+  background: #e1804b;
+  box-shadow: 0 0 10px rgba(225, 128, 75, 0.7);
+}
+
+/* Folder Tree Branch Hierarchy Lines */
+#nd-sidebar [data-state] > div::before,
+#nd-sidebar-mobile [data-state] > div::before {
+  background: linear-gradient(180deg, rgba(225, 128, 75, 0.3) 0%, rgba(229, 226, 220, 0.6) 100%) !important;
+}
+
+.dark #nd-sidebar [data-state] > div::before,
+.dark #nd-sidebar-mobile [data-state] > div::before,
+[data-theme="dark"] #nd-sidebar [data-state] > div::before,
+[data-theme="dark"] #nd-sidebar-mobile [data-state] > div::before {
+  background: linear-gradient(180deg, rgba(225, 128, 75, 0.35) 0%, rgba(56, 54, 48, 0.5) 100%) !important;
+}
+
+/* Sidebar Separators / Category Headings */
+#nd-sidebar p,
+#nd-sidebar-mobile p {
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  font-size: 10.5px;
+  text-transform: uppercase;
+}
+
+/* Libraries Dropdown Trigger & Search Input Polish */
+#nd-sidebar button[data-popup-open="true"],
+#nd-sidebar-mobile button[data-popup-open="true"] {
+  border-color: #e1804b !important;
+  box-shadow: 0 0 0 2px rgba(225, 128, 75, 0.2);
+}
+
+/* Bottom Controls Dock (Theme Switch, GitHub star, Converter) */
+#nd-sidebar .border.bg-fd-secondary\/50,
+#nd-sidebar-mobile .border.bg-fd-secondary\/50 {
+  background: rgba(240, 239, 236, 0.7) !important;
+  backdrop-filter: blur(8px);
+  border-color: rgba(229, 226, 220, 0.8) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.dark #nd-sidebar .border.bg-fd-secondary\/50,
+.dark #nd-sidebar-mobile .border.bg-fd-secondary\/50,
+[data-theme="dark"] #nd-sidebar .border.bg-fd-secondary\/50,
+[data-theme="dark"] #nd-sidebar-mobile .border.bg-fd-secondary\/50 {
+  background: rgba(32, 32, 29, 0.85) !important;
+  backdrop-filter: blur(8px);
+  border-color: rgba(56, 54, 48, 0.8) !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Right Table of Contents (On this page) Custom Polish */
+#nd-toc a:hover {
+  color: #e1804b !important;
+  transform: translateX(2px);
+  transition: all 0.15s ease;
+}
+
+.dark #nd-toc a:hover,
+[data-theme="dark"] #nd-toc a:hover {
+  color: #f09665 !important;
+}
+
+#nd-toc a[data-active="true"] {
+  color: #e1804b !important;
+  font-weight: 600;
+}
+
+.dark #nd-toc a[data-active="true"],
+[data-theme="dark"] #nd-toc a[data-active="true"] {
+  color: #f09665 !important;
 }

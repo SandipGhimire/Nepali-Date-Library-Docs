@@ -20,6 +20,8 @@ import { GithubStarButton } from "@/components/github-star";
 import { WovenBackground } from "@/components/home/woven-background";
 import { HeroVisual } from "@/components/home/hero-visual";
 import { Footer } from "@/components/home/footer";
+import { AdSenseBanner } from "@/components/ads/adsense-banner";
+import { ADSENSE_SLOTS } from "@/lib/adsense";
 
 const steps = [
   {
@@ -653,6 +655,11 @@ export function HomeView() {
             </Link>
           </div>
         </div>
+      </section>
+
+      {/* Sponsor / Ad Banner Section */}
+      <section className="mx-auto w-full max-w-4xl px-6 py-4">
+        <AdSenseBanner slot={ADSENSE_SLOTS.home} />
       </section>
 
       {/* Footer */}

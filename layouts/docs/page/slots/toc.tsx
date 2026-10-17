@@ -4,7 +4,7 @@ import * as TocClerk from "../../../../components/toc/clerk";
 import * as Base from "../../../../components/toc";
 import { useTranslations } from "@fuma-translate/react";
 import { cn } from "../../../../lib/cn";
-import { ChevronDown, Text } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import {
   createContext,
   use,
@@ -19,6 +19,8 @@ import {
 import { useTreePath } from "@fumadocs/base-ui/contexts/tree";
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "../../../../components/ui/collapsible";
 import { useDocsLayout } from "../..";
+import { AdSenseBanner } from "../../../../components/ads/adsense-banner";
+import { ADSENSE_SLOTS } from "../../../../lib/adsense";
 
 export type TOCProviderProps = Base.TOCProviderProps;
 
@@ -67,8 +69,7 @@ export function TOC({ container, header, footer, style = "normal", list }: TOCPr
       )}
     >
       {header}
-      <h3 id="toc-title" className="inline-flex items-center gap-1.5 text-sm text-fd-muted-foreground">
-        <Text className="size-4" />
+      <h3 id="toc-title" className="inline-flex items-center gap-1.5 text-sm font-medium text-fd-muted-foreground">
         {t("On this page")}
       </h3>
       <Base.TOCScrollArea className="ms-px">
@@ -78,6 +79,7 @@ export function TOC({ container, header, footer, style = "normal", list }: TOCPr
             <TOCItem key={item.url} item={item} />
           ))}
         </TOCItems>
+        <AdSenseBanner variant="sidebar" slot={ADSENSE_SLOTS.toc} className="mt-6 mb-2" />
       </Base.TOCScrollArea>
       {footer}
     </div>

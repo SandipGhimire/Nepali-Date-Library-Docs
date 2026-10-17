@@ -1,0 +1,87 @@
+name: Compile and Push Production Build
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+    inputs:
+      target_branch:
+        description: "Branch to push compiled build files to"
+        required: true
+        default: "release"
+        type: string
+
+concurrency:
+  group: build-and-push-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-push:
+    name: Compile Master & Push Release Artifacts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout master branch
+        uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build production artifacts & dynamic SEO
+        run: pnpm build
+        env:
+          NODE_ENV: production
+          NEXT_PUBLIC_SITE_URL: "https://nepali-pkg.date"
+
+      - name: Prepare branch and push compiled build
+        run: |
+          TARGET_BRANCH="${{ inputs.target_branch || 'release' }}"
+          echo "Target deployment branch: $TARGET_BRANCH"
+
+          # Git bot credentials
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Remove .next and .source from .gitignore on the release branch
+          # so git can track the compiled build artifacts
+          sed -i '/\.next/d' .gitignore
+          sed -i '/\.source/d' .gitignore
+
+          # Fetch remote target branch if it already exists
+          git fetch origin "$TARGET_BRANCH" 2>/dev/null || true
+
+          # Create or switch to target branch based on current master
+          git checkout -B "$TARGET_BRANCH"
+
+          # Force-add the production build artifacts and generated files
+          git add -f .next
+          git add -f .source
+          git add -f public
+          git add .gitignore
+          git add -A
+
+          # Commit with commit hash reference
+          MASTER_SHA=$(git rev-parse --short master)
+          git commit -m "chore(release): pre-compiled production build from master [$MASTER_SHA] [skip ci]" || echo "No changes to commit"
+
+          # Push to the remote branch
+          git push origin "$TARGET_BRANCH" --force
+

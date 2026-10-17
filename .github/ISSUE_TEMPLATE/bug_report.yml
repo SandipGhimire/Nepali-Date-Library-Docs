@@ -12,7 +12,7 @@ body:
     attributes:
       label: Page URL or Path
       description: URL or route of the documentation page where the issue appears.
-      placeholder: "e.g. https://nepalidate.sandip-ghimire.com.np/docs/nodejs or /docs/php/methods/format"
+      placeholder: "e.g. https://nepali-pkg.date/docs/nodejs or /docs/php/methods/format"
     validations:
       required: true
   - type: dropdown

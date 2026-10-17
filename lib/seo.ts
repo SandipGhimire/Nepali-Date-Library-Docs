@@ -1,5 +1,5 @@
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://nepalidate.sandip-ghimire.com.np";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://nepali-pkg.date";
 
 export const SITE_NAME = "Nepali Date Library";
 

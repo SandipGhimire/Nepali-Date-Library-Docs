@@ -10,6 +10,8 @@ import {
   getBreadcrumbSchema,
   getTechArticleSchema,
 } from "@/lib/seo";
+import { AdSenseBanner } from "@/components/ads/adsense-banner";
+import { ADSENSE_SLOTS } from "@/lib/adsense";
 
 import * as LucideIcons from "lucide-react";
 import { icons, type LucideIcon } from "lucide-react";
@@ -118,6 +120,10 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
           components={getMDXComponents({
             a: createRelativeLink(docsSource, page),
           })}
+        />
+        <AdSenseBanner
+          slot={ADSENSE_SLOTS.docs}
+          className="mt-12 mb-4"
         />
       </DocsBody>
     </DocsPage>

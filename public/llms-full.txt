@@ -3,10 +3,10 @@
 > Universal, production-ready multi-language ecosystem for working with Nepali (Bikram Sambat / BS) dates. Supports NodeJS/TypeScript, Python, and PHP with unified APIs, zero dependencies, and 100% verified calendar data.
 
 ## Official Resources
-- Website: https://nepalidate.sandip-ghimire.com.np
-- Date Converter Suite: https://nepalidate.sandip-ghimire.com.np/converter
-- Full Documentation: https://nepalidate.sandip-ghimire.com.np/docs
-- Complete AI Reference: https://nepalidate.sandip-ghimire.com.np/llms-full.txt
+- Website: https://nepali-pkg.date
+- Date Converter Suite: https://nepali-pkg.date/converter
+- Full Documentation: https://nepali-pkg.date/docs
+- Complete AI Reference: https://nepali-pkg.date/llms-full.txt
 - GitHub Organization: https://github.com/SandipGhimire/Nepali-Date
 
 ## Package Ecosystem & Installation
@@ -84,231 +84,231 @@ echo $bs->getFiscalYear(); // 2081/82
 ```
 
 ## Key Documentation Sections
-- [Origination & Philosophy](https://nepalidate.sandip-ghimire.com.np/docs/origination): Historical background of Bikram Sambat and why this library was built.
-- [Ecosystem Overview](https://nepalidate.sandip-ghimire.com.np/docs/overview): Cross-platform feature parity across Node, Python, and PHP.
-- [Multi-Language Installation](https://nepalidate.sandip-ghimire.com.np/docs/installation): Package managers and environment setup.
-- [Code Examples](https://nepalidate.sandip-ghimire.com.np/docs/examples): Real-world workflows, form integrations, and date math.
-- [NodeJS Documentation](https://nepalidate.sandip-ghimire.com.np/docs/nodejs): Complete TypeScript API reference and guides.
-- [Python Documentation](https://nepalidate.sandip-ghimire.com.np/docs/python): Pythonic API reference and datetime interoperability.
-- [PHP Documentation](https://nepalidate.sandip-ghimire.com.np/docs/php): Composer package reference and DateTime compatibility.
-- [Online Converter](https://nepalidate.sandip-ghimire.com.np/converter): Interactive web tools for instant conversions and age calculation.
+- [Origination & Philosophy](https://nepali-pkg.date/docs/origination): Historical background of Bikram Sambat and why this library was built.
+- [Ecosystem Overview](https://nepali-pkg.date/docs/overview): Cross-platform feature parity across Node, Python, and PHP.
+- [Multi-Language Installation](https://nepali-pkg.date/docs/installation): Package managers and environment setup.
+- [Code Examples](https://nepali-pkg.date/docs/examples): Real-world workflows, form integrations, and date math.
+- [NodeJS Documentation](https://nepali-pkg.date/docs/nodejs): Complete TypeScript API reference and guides.
+- [Python Documentation](https://nepali-pkg.date/docs/python): Pythonic API reference and datetime interoperability.
+- [PHP Documentation](https://nepali-pkg.date/docs/php): Composer package reference and DateTime compatibility.
+- [Online Converter](https://nepali-pkg.date/converter): Interactive web tools for instant conversions and age calculation.
 
 ## Complete Method Directory
-- [Nepali Date Library](https://nepalidate.sandip-ghimire.com.np/docs): A comprehensive, multi-language library for working with Nepali (Bikram Sambat) dates.
-- [Examples & Practical Recipes](https://nepalidate.sandip-ghimire.com.np/docs/examples): Real-world patterns and cross-language code recipes for working with Nepali dates.
-- [Installation](https://nepalidate.sandip-ghimire.com.np/docs/installation): Install Nepali Date Library in your project using your preferred package manager across Node.js, Python, or PHP.
-- [Overview](https://nepalidate.sandip-ghimire.com.np/docs/nodejs): Complete documentation and feature guide for the Nepali Date Library in Node.js and TypeScript applications.
-- [new NepaliDate()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/class/constructor): Constructor overloads and initialization options for creating NepaliDate instances in Node.js and TypeScript.
-- [Instance Properties](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/class/properties): Reference for public instance properties available on every NepaliDate object including year, month, day, and underlying timestamp.
-- [MONTH_EN](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/constants/month-en): Array containing standard romanized English names of all twelve Bikram Sambat calendar months.
-- [MONTH_NP](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/constants/month-np): Array containing official Devanagari Nepali names of all twelve Bikram Sambat calendar months.
-- [MONTH_SHORT_EN](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/constants/month-short-en): Array containing three letter abbreviated English names for all twelve Bikram Sambat months.
-- [MONTH_SHORT_NP](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/constants/month-short-np): Array containing abbreviated Devanagari Nepali names for all twelve Bikram Sambat calendar months.
-- [NEPALI_DATE_MAP](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/constants/nepali-date-map): Historical calendar mapping table storing verified day counts for every Bikram Sambat month between 1976 and 2100 BS.
-- [NUMBER_NP](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/constants/number-np): Array containing Devanagari numeral glyphs for digits zero through nine used for Nepali number localization.
-- [WEEK_EN](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/constants/week-en): Array containing full English names for all seven days of the week starting from Sunday.
-- [WEEK_NP](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/constants/week-np): Array containing full Devanagari Nepali names for all seven days of the week starting from Sunday.
-- [WEEK_SHORT_EN](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/constants/week-short-en): Array containing abbreviated English weekday names ordered from Sunday through Saturday.
-- [WEEK_SHORT_NP](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/constants/week-short-np): Array containing short Devanagari abbreviations for each day of the week starting from Sunday.
-- [Date Converter Guide](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/date-converter): Comprehensive guide to converting dates between Gregorian and Bikram Sambat calendar systems using standalone helper functions.
-- [ADtoBS()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/date-converter/ad-to-bs): Pure helper function to convert Gregorian calendar date strings into Bikram Sambat date strings.
-- [BStoAD()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/date-converter/bs-to-ad): Pure helper function to convert Bikram Sambat date strings into Gregorian calendar date strings.
-- [Fiscal Year & Quarters Guide](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/fiscal-year): Architecture and calculation rules for Nepal official fiscal year and quarterly trimester accounting cycles.
-- [Calendar Quarters](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/fiscal-year/calendar-quarters): Explanation of standard Bikram Sambat calendar quarters compared to government fiscal trimesters.
-- [NepaliDate.getCurrentFiscalYear()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/fiscal-year/get-current-fiscal-year): Method to retrieve the formatted fiscal year string for a given NepaliDate instance.
-- [date.getCurrentFiscalYearQuarter()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/fiscal-year/get-current-fiscal-year-quarter): Method to calculate the active fiscal trimester quarter number for a NepaliDate instance.
-- [date.getCurrentFiscalYearQuarterDates()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/fiscal-year/get-current-fiscal-year-quarter-dates): Method to retrieve exact start and end boundary dates for the active fiscal quarter.
-- [NepaliDate.getFiscalYearQuarter()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/fiscal-year/get-fiscal-year-quarter): Static method to determine the fiscal trimester number for any specified month index.
-- [NepaliDate.getFiscalYearQuarters()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/fiscal-year/get-fiscal-year-quarters): Static utility returning all four fiscal trimesters with their constituent months and date ranges for a given year.
-- [Installation & Setup](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/installation): Installation and setup guide for the nepali date library in Node.js and TypeScript applications using standard package managers.
-- [date.addDays()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/add-days): Add or subtract a specified number of days to a NepaliDate instance with automatic month and year rollover.
-- [date.addMonths()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/add-months): Add or subtract months to a NepaliDate instance while adjusting for variable month lengths.
-- [date.addYears()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/add-years): Add or subtract years to a NepaliDate instance while preserving month and day values.
-- [date.clone()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/clone): Create an independent deep clone of an existing NepaliDate instance.
-- [date.daysInMonth()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/days-in-month): Retrieve the total number of days in the current or specified Bikram Sambat month.
-- [date.diff()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/diff): Calculate the chronological difference between two NepaliDate instances in specific time units.
-- [date.endOfDay()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/end-of-day): Return a new NepaliDate instance set to the final millisecond of the current day.
-- [date.endOfMonth()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/end-of-month): Return a new NepaliDate instance set to the final day of the current Bikram Sambat month.
-- [date.endOfWeek()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/end-of-week): Return a new NepaliDate instance set to the final day of the current week on Saturday.
-- [date.endOfYear()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/end-of-year): Return a new NepaliDate instance set to the final day of the Bikram Sambat year on the last day of Chaitra.
-- [date.format()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/format): Format a NepaliDate instance into a custom string using token patterns for English and Nepali output.
-- [date.getCurrentQuarter()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/get-current-quarter): Return the standard Bikram Sambat calendar quarter number from one to four for the current date.
-- [date.getDate()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/get-date): Retrieve the numeric day of the month from a NepaliDate instance.
-- [date.getDay()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/get-day): Retrieve the numeric day of the week index from zero for Sunday through six for Saturday.
-- [date.getEnglishDate()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/get-english-date): Retrieve the equivalent Gregorian date as a native JavaScript Date object.
-- [date.getHours()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/get-hours): Retrieve the hour component from zero to twenty three for the current date instance.
-- [date.getMilliseconds()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/get-milliseconds): Retrieve the millisecond component from zero to nine hundred ninety nine.
-- [date.getMinutes()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/get-minutes): Retrieve the minute component from zero to fifty nine for the current date instance.
-- [date.getMonth()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/get-month): Retrieve the zero based Bikram Sambat month index from zero for Baisakh to eleven for Chaitra.
-- [date.getSeconds()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/get-seconds): Retrieve the second component from zero to fifty nine for the current date instance.
-- [date.getTime()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/get-time): Retrieve the numeric timestamp in milliseconds since the Unix epoch.
-- [date.getWeeksInMonth()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/get-weeks-in-month): Calculate the number of calendar week rows required to render the current month in a grid.
-- [date.getYear()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/get-year): Retrieve the four digit Bikram Sambat year number from a NepaliDate instance.
-- [date.isAfter()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/is-after): Check whether the current date occurs chronologically after another specified date.
-- [date.isBefore()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/is-before): Check whether the current date occurs chronologically before another specified date.
-- [date.isEqual()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/is-equal): Check whether two date instances share the exact same calendar date coordinates regardless of time.
-- [date.isLeapYear()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/is-leap-year): Determine whether the current Bikram Sambat calendar year has three hundred sixty six or more days.
-- [date.isSame()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/is-same): Check whether two dates match across a specified granularity such as year, month, or day.
-- [date.isValid()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/is-valid): Validate whether the current NepaliDate instance represents a legitimate calendar date within supported bounds.
-- [date.parse()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/parse): Parse a formatted Bikram Sambat date string and update the current date instance in place.
-- [date.set()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/set): Set year, month, and day coordinates simultaneously on a NepaliDate instance.
-- [date.setDate()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/set-date): Set the day of the month on a NepaliDate instance and recalculate its timestamp.
-- [date.setMonth()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/set-month): Set the Bikram Sambat month index on a NepaliDate instance with automatic day clamping.
-- [date.setYear()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/set-year): Set the Bikram Sambat year on a NepaliDate instance within the supported calendar range.
-- [date.startOfDay()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/start-of-day): Return a new NepaliDate instance set to the first moment of the current day at midnight.
-- [date.startOfMonth()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/start-of-month): Return a new NepaliDate instance set to the first day of the current Bikram Sambat month.
-- [date.startOfWeek()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/start-of-week): Return a new NepaliDate instance set to the first day of the week on Sunday.
-- [date.startOfYear()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/start-of-year): Return a new NepaliDate instance set to the first day of the Bikram Sambat year on 1 Baisakh.
-- [date.toString()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/methods/to-string): Return the default string representation of a NepaliDate instance in standard year, month, and day format.
-- [Quick Start](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/quick-start): Practical guide and essential code examples to start working with Bikram Sambat dates in Node.js and TypeScript.
-- [NepaliDate.getCalendarDays()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/static/get-calendar-days): Static utility to generate a complete forty two cell calendar grid matrix for any month and year.
-- [NepaliDate.getDayName()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/static/get-day-name): Static utility to retrieve the localized English or Nepali name for any day of the week index.
-- [NepaliDate.getMonthName()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/static/get-month-name): Static utility to retrieve the localized English or Nepali month name for any month index.
-- [NepaliDate.isValid()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/static/is-valid): Static validation function to verify whether a given year, month, and day combination forms a valid Bikram Sambat date.
-- [NepaliDate.maximum()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/static/maximum): Static method returning the maximum supported date boundary for the NepaliDate calendar engine.
-- [NepaliDate.minimum()](https://nepalidate.sandip-ghimire.com.np/docs/nodejs/static/minimum): Static method returning the minimum supported date boundary for the NepaliDate calendar engine.
-- [What is Nepali Date? (Origination & Calendar)](https://nepalidate.sandip-ghimire.com.np/docs/origination): Deep dive into the origins, history, astronomical foundation, calendar mechanics, and timeline of Bikram Sambat (विक्रम संवत्).
-- [Project Overview](https://nepalidate.sandip-ghimire.com.np/docs/overview): Comprehensive overview of the Nepali Date Library multi-language ecosystem, live package metrics, architecture, and developer profile.
-- [Overview](https://nepalidate.sandip-ghimire.com.np/docs/php): Complete documentation and feature guide for the Nepali Date Library in PHP applications.
-- [new NepaliDate()](https://nepalidate.sandip-ghimire.com.np/docs/php/class/constructor): Constructor overloads and initialization options for creating NepaliDate instances in PHP.
-- [Instance Properties & Getters](https://nepalidate.sandip-ghimire.com.np/docs/php/class/properties): Guide to property encapsulation and public getters available on every NepaliDate instance in PHP.
-- [Constants::$MONTH_EN](https://nepalidate.sandip-ghimire.com.np/docs/php/constants/month-en): Array containing standard romanized English names of all twelve Bikram Sambat calendar months.
-- [Constants::$MONTH_NP](https://nepalidate.sandip-ghimire.com.np/docs/php/constants/month-np): Array containing official Devanagari Nepali names of all twelve Bikram Sambat calendar months.
-- [Constants::$MONTH_SHORT_EN](https://nepalidate.sandip-ghimire.com.np/docs/php/constants/month-short-en): Array containing three letter abbreviated English names for all twelve Bikram Sambat months.
-- [Constants::$MONTH_SHORT_NP](https://nepalidate.sandip-ghimire.com.np/docs/php/constants/month-short-np): Array containing abbreviated Devanagari Nepali names for all twelve Bikram Sambat calendar months.
-- [Constants::$NEPALI_DATE_MAP](https://nepalidate.sandip-ghimire.com.np/docs/php/constants/nepali-date-map): Historical calendar mapping table storing verified day counts for every Bikram Sambat month between 1976 and 2100 BS.
-- [Constants::$NUMBER_NP](https://nepalidate.sandip-ghimire.com.np/docs/php/constants/number-np): Array containing Devanagari numeral glyphs for digits zero through nine used for Nepali number localization.
-- [Constants::$WEEK_EN](https://nepalidate.sandip-ghimire.com.np/docs/php/constants/week-en): Array containing full English names for all seven days of the week starting from Sunday.
-- [Constants::$WEEK_NP](https://nepalidate.sandip-ghimire.com.np/docs/php/constants/week-np): Array containing full Devanagari Nepali names for all seven days of the week starting from Sunday.
-- [Constants::$WEEK_SHORT_EN](https://nepalidate.sandip-ghimire.com.np/docs/php/constants/week-short-en): Array containing abbreviated English weekday names ordered from Sunday through Saturday.
-- [Constants::$WEEK_SHORT_NP](https://nepalidate.sandip-ghimire.com.np/docs/php/constants/week-short-np): Array containing short Devanagari abbreviations for each day of the week starting from Sunday.
-- [Date Converter Guide](https://nepalidate.sandip-ghimire.com.np/docs/php/date-converter): Comprehensive guide to converting dates between Gregorian and Bikram Sambat calendar systems using standalone helper functions.
-- [ADtoBS()](https://nepalidate.sandip-ghimire.com.np/docs/php/date-converter/ad-to-bs): Pure helper function to convert Gregorian calendar date strings into Bikram Sambat date strings.
-- [BStoAD()](https://nepalidate.sandip-ghimire.com.np/docs/php/date-converter/bs-to-ad): Pure helper function to convert Bikram Sambat date strings into Gregorian calendar date strings.
-- [Fiscal Year & Quarters Guide](https://nepalidate.sandip-ghimire.com.np/docs/php/fiscal-year): Architecture and calculation rules for Nepal official fiscal year and quarterly trimester accounting cycles.
-- [Calendar Quarters](https://nepalidate.sandip-ghimire.com.np/docs/php/fiscal-year/calendar-quarters): Explanation of standard Bikram Sambat calendar quarters compared to government fiscal trimesters.
-- [NepaliDate::getCurrentFiscalYear()](https://nepalidate.sandip-ghimire.com.np/docs/php/fiscal-year/get-current-fiscal-year): Method to retrieve the formatted fiscal year string for a given NepaliDate instance.
-- [date->getCurrentFiscalYearQuarter()](https://nepalidate.sandip-ghimire.com.np/docs/php/fiscal-year/get-current-fiscal-year-quarter): Method to calculate the active fiscal trimester quarter number for a NepaliDate instance.
-- [date->getCurrentFiscalYearQuarterDates()](https://nepalidate.sandip-ghimire.com.np/docs/php/fiscal-year/get-current-fiscal-year-quarter-dates): Method to retrieve exact start and end boundary dates for the active fiscal quarter.
-- [NepaliDate::getFiscalYearQuarter()](https://nepalidate.sandip-ghimire.com.np/docs/php/fiscal-year/get-fiscal-year-quarter): Static method to determine the fiscal trimester number for any specified month index.
-- [NepaliDate::getFiscalYearQuarters()](https://nepalidate.sandip-ghimire.com.np/docs/php/fiscal-year/get-fiscal-year-quarters): Static utility returning all four fiscal trimesters with their constituent months and date ranges for a given year.
-- [Installation & Setup](https://nepalidate.sandip-ghimire.com.np/docs/php/installation): Installation and setup instructions for nepali date library in PHP applications using Composer.
-- [date->addDays()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/add-days): Add or subtract a specified number of days to a NepaliDate instance with automatic month and year rollover.
-- [date->addMonths()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/add-months): Add or subtract months to a NepaliDate instance while adjusting for variable month lengths.
-- [date->addYears()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/add-years): Add or subtract years to a NepaliDate instance while preserving month and day values.
-- [date->clone()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/clone): Create an independent deep clone of an existing NepaliDate instance.
-- [date->daysInMonth()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/days-in-month): Retrieve the total number of days in the current or specified Bikram Sambat month.
-- [date->diff()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/diff): Calculate the chronological difference between two NepaliDate instances in specific time units.
-- [date->endOfDay()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/end-of-day): Return a new NepaliDate instance set to the final millisecond of the current day.
-- [date->endOfMonth()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/end-of-month): Return a new NepaliDate instance set to the final day of the current Bikram Sambat month.
-- [date->endOfWeek()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/end-of-week): Return a new NepaliDate instance set to the final day of the current week on Saturday.
-- [date->endOfYear()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/end-of-year): Return a new NepaliDate instance set to the final day of the Bikram Sambat year on the last day of Chaitra.
-- [date->format()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/format): Format a NepaliDate instance into a custom string using token patterns for English and Nepali output.
-- [date->getCurrentQuarter()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/get-current-quarter): Return the standard Bikram Sambat calendar quarter number from one to four for the current date.
-- [date->getDate()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/get-date): Retrieve the numeric day of the month from a NepaliDate instance.
-- [date->getDay()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/get-day): Retrieve the numeric day of the week index from zero for Sunday through six for Saturday.
-- [date->getEnglishDate()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/get-english-date): Retrieve the equivalent Gregorian date as a native JavaScript Date object.
-- [date->getHours()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/get-hours): Retrieve the hour component from zero to twenty three for the current date instance.
-- [date->getMilliseconds()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/get-milliseconds): Retrieve the millisecond component from zero to nine hundred ninety nine.
-- [date->getMinutes()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/get-minutes): Retrieve the minute component from zero to fifty nine for the current date instance.
-- [date->getMonth()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/get-month): Retrieve the zero based Bikram Sambat month index from zero for Baisakh to eleven for Chaitra.
-- [date->getSeconds()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/get-seconds): Retrieve the second component from zero to fifty nine for the current date instance.
-- [date->getTime()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/get-time): Retrieve the numeric timestamp in milliseconds since the Unix epoch.
-- [date->getWeeksInMonth()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/get-weeks-in-month): Calculate the number of calendar week rows required to render the current month in a grid.
-- [date->getYear()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/get-year): Retrieve the four digit Bikram Sambat year number from a NepaliDate instance.
-- [date->isAfter()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/is-after): Check whether the current date occurs chronologically after another specified date.
-- [date->isBefore()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/is-before): Check whether the current date occurs chronologically before another specified date.
-- [date->isEqual()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/is-equal): Check whether two date instances share the exact same calendar date coordinates regardless of time.
-- [date->isLeapYear()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/is-leap-year): Determine whether the current Bikram Sambat calendar year has three hundred sixty six or more days.
-- [date->isSame()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/is-same): Check whether two dates match across a specified granularity such as year, month, or day.
-- [date->isValidInstance()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/is-valid): Validate whether the current NepaliDate instance represents a legitimate calendar date within supported bounds.
-- [date->parse()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/parse): Parse a formatted Bikram Sambat date string and update the current date instance in place.
-- [date->set()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/set): Set year, month, and day coordinates simultaneously on a NepaliDate instance.
-- [date->setDate()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/set-date): Set the day of the month on a NepaliDate instance and recalculate its timestamp.
-- [date->setMonth()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/set-month): Set the Bikram Sambat month index on a NepaliDate instance with automatic day clamping.
-- [date->setYear()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/set-year): Set the Bikram Sambat year on a NepaliDate instance within the supported calendar range.
-- [date->startOfDay()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/start-of-day): Return a new NepaliDate instance set to the first moment of the current day at midnight.
-- [date->startOfMonth()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/start-of-month): Return a new NepaliDate instance set to the first day of the current Bikram Sambat month.
-- [date->startOfWeek()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/start-of-week): Return a new NepaliDate instance set to the first day of the week on Sunday.
-- [date->startOfYear()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/start-of-year): Return a new NepaliDate instance set to the first day of the Bikram Sambat year on 1 Baisakh.
-- [date->toString()](https://nepalidate.sandip-ghimire.com.np/docs/php/methods/to-string): Return the default string representation of a NepaliDate instance in standard year, month, and day format.
-- [Quick Start](https://nepalidate.sandip-ghimire.com.np/docs/php/quick-start): Practical guide and essential code examples to start working with Bikram Sambat dates in PHP.
-- [NepaliDate::getCalendarDays()](https://nepalidate.sandip-ghimire.com.np/docs/php/static/get-calendar-days): Static utility to generate a complete forty two cell calendar grid matrix for any month and year.
-- [NepaliDate::getDayName()](https://nepalidate.sandip-ghimire.com.np/docs/php/static/get-day-name): Static utility to retrieve the localized English or Nepali name for any day of the week index.
-- [NepaliDate::getMonthName()](https://nepalidate.sandip-ghimire.com.np/docs/php/static/get-month-name): Static utility to retrieve the localized English or Nepali month name for any month index.
-- [NepaliDate::isValid()](https://nepalidate.sandip-ghimire.com.np/docs/php/static/is-valid): Static validation function to verify whether a given year, month, and day combination forms a valid Bikram Sambat date.
-- [NepaliDate::maximum()](https://nepalidate.sandip-ghimire.com.np/docs/php/static/maximum): Static method returning the maximum supported date boundary for the NepaliDate calendar engine.
-- [NepaliDate::minimum()](https://nepalidate.sandip-ghimire.com.np/docs/php/static/minimum): Static method returning the minimum supported date boundary for the NepaliDate calendar engine.
-- [Overview](https://nepalidate.sandip-ghimire.com.np/docs/python): Complete documentation and feature guide for the Nepali Date Library in Python applications.
-- [NepaliDate()](https://nepalidate.sandip-ghimire.com.np/docs/python/class/constructor): Constructor overloads and initialization options for creating NepaliDate instances in Python.
-- [Instance Properties](https://nepalidate.sandip-ghimire.com.np/docs/python/class/properties): Reference for public instance properties available on every NepaliDate object including year, month, day, and underlying timestamp.
-- [month_en](https://nepalidate.sandip-ghimire.com.np/docs/python/constants/month-en): Array containing standard romanized English names of all twelve Bikram Sambat calendar months.
-- [month_np](https://nepalidate.sandip-ghimire.com.np/docs/python/constants/month-np): Array containing official Devanagari Nepali names of all twelve Bikram Sambat calendar months.
-- [month_short_en](https://nepalidate.sandip-ghimire.com.np/docs/python/constants/month-short-en): Array containing three letter abbreviated English names for all twelve Bikram Sambat months.
-- [month_short_np](https://nepalidate.sandip-ghimire.com.np/docs/python/constants/month-short-np): Array containing abbreviated Devanagari Nepali names for all twelve Bikram Sambat calendar months.
-- [nepali_date_map](https://nepalidate.sandip-ghimire.com.np/docs/python/constants/nepali-date-map): Historical calendar mapping table storing verified day counts for every Bikram Sambat month between 1976 and 2100 BS.
-- [number_np](https://nepalidate.sandip-ghimire.com.np/docs/python/constants/number-np): Array containing Devanagari numeral glyphs for digits zero through nine used for Nepali number localization.
-- [week_en](https://nepalidate.sandip-ghimire.com.np/docs/python/constants/week-en): Array containing full English names for all seven days of the week starting from Sunday.
-- [week_np](https://nepalidate.sandip-ghimire.com.np/docs/python/constants/week-np): Array containing full Devanagari Nepali names for all seven days of the week starting from Sunday.
-- [week_short_en](https://nepalidate.sandip-ghimire.com.np/docs/python/constants/week-short-en): Array containing abbreviated English weekday names ordered from Sunday through Saturday.
-- [week_short_np](https://nepalidate.sandip-ghimire.com.np/docs/python/constants/week-short-np): Array containing short Devanagari abbreviations for each day of the week starting from Sunday.
-- [Date Converter Guide](https://nepalidate.sandip-ghimire.com.np/docs/python/date-converter): Comprehensive guide to converting dates between Gregorian and Bikram Sambat calendar systems using standalone helper functions.
-- [ADtoBS()](https://nepalidate.sandip-ghimire.com.np/docs/python/date-converter/ad-to-bs): Pure helper function to convert Gregorian calendar date strings into Bikram Sambat date strings.
-- [BStoAD()](https://nepalidate.sandip-ghimire.com.np/docs/python/date-converter/bs-to-ad): Pure helper function to convert Bikram Sambat date strings into Gregorian calendar date strings.
-- [Fiscal Year & Quarters Guide](https://nepalidate.sandip-ghimire.com.np/docs/python/fiscal-year): Architecture and calculation rules for Nepal official fiscal year and quarterly trimester accounting cycles.
-- [Calendar Quarters](https://nepalidate.sandip-ghimire.com.np/docs/python/fiscal-year/calendar-quarters): Explanation of standard Bikram Sambat calendar quarters compared to government fiscal trimesters.
-- [NepaliDate.current_fiscal_year()](https://nepalidate.sandip-ghimire.com.np/docs/python/fiscal-year/current-fiscal-year): Method to retrieve the formatted fiscal year string for a given NepaliDate instance.
-- [date.fiscal_quarter()](https://nepalidate.sandip-ghimire.com.np/docs/python/fiscal-year/fiscal-quarter): Method to calculate the active fiscal trimester quarter number for a NepaliDate instance.
-- [date.fiscal_quarter_dates()](https://nepalidate.sandip-ghimire.com.np/docs/python/fiscal-year/fiscal-quarter-dates): Method to retrieve exact start and end boundary dates for the active fiscal quarter.
-- [NepaliDate.get_fiscal_quarter()](https://nepalidate.sandip-ghimire.com.np/docs/python/fiscal-year/get-fiscal-quarter): Static method to determine the fiscal trimester number for any specified month index.
-- [NepaliDate.get_fiscal_quarters()](https://nepalidate.sandip-ghimire.com.np/docs/python/fiscal-year/get-fiscal-quarters): Static utility returning all four fiscal trimesters with their constituent months and date ranges for a given year.
-- [Installation & Setup](https://nepalidate.sandip-ghimire.com.np/docs/python/installation): Installation and setup instructions for nepali date library in Python projects using pip, uv, and poetry.
-- [date.add_days()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/add-days): Add or subtract a specified number of days to a NepaliDate instance with automatic month and year rollover.
-- [date.add_months()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/add-months): Add or subtract months to a NepaliDate instance while adjusting for variable month lengths.
-- [date.add_years()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/add-years): Add or subtract years to a NepaliDate instance while preserving month and day values.
-- [date.clone()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/clone): Create an independent deep clone of an existing NepaliDate instance.
-- [date.current_quarter()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/current-quarter): Return the standard Bikram Sambat calendar quarter number from one to four for the current date.
-- [date.days_in_month()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/days-in-month): Retrieve the total number of days in the current or specified Bikram Sambat month.
-- [date.diff()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/diff): Calculate the chronological difference between two NepaliDate instances in specific time units.
-- [date.end_of_day()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/end-of-day): Return a new NepaliDate instance set to the final millisecond of the current day.
-- [date.end_of_month()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/end-of-month): Return a new NepaliDate instance set to the final day of the current Bikram Sambat month.
-- [date.end_of_week()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/end-of-week): Return a new NepaliDate instance set to the final day of the current week on Saturday.
-- [date.end_of_year()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/end-of-year): Return a new NepaliDate instance set to the final day of the Bikram Sambat year on the last day of Chaitra.
-- [date.format()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/format): Format a NepaliDate instance into a custom string using token patterns for English and Nepali output.
-- [date.get_date()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/get-date): Retrieve the numeric day of the month from a NepaliDate instance.
-- [date.get_day()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/get-day): Retrieve the numeric day of the week index from zero for Sunday through six for Saturday.
-- [date.get_english_date()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/get-english-date): Retrieve the equivalent Gregorian date as a native JavaScript Date object.
-- [date.get_hours()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/get-hours): Retrieve the hour component from zero to twenty three for the current date instance.
-- [date.get_milliseconds()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/get-milliseconds): Retrieve the millisecond component from zero to nine hundred ninety nine.
-- [date.get_minutes()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/get-minutes): Retrieve the minute component from zero to fifty nine for the current date instance.
-- [date.get_month()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/get-month): Retrieve the zero based Bikram Sambat month index from zero for Baisakh to eleven for Chaitra.
-- [date.get_seconds()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/get-seconds): Retrieve the second component from zero to fifty nine for the current date instance.
-- [date.get_time()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/get-time): Retrieve the numeric timestamp in milliseconds since the Unix epoch.
-- [date.get_weeks_in_month()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/get-weeks-in-month): Calculate the number of calendar week rows required to render the current month in a grid.
-- [date.get_year()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/get-year): Retrieve the four digit Bikram Sambat year number from a NepaliDate instance.
-- [date.is_after()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/is-after): Check whether the current date occurs chronologically after another specified date.
-- [date.is_before()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/is-before): Check whether the current date occurs chronologically before another specified date.
-- [date.is_equal()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/is-equal): Check whether two date instances share the exact same calendar date coordinates regardless of time.
-- [date.is_leap_year()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/is-leap-year): Determine whether the current Bikram Sambat calendar year has three hundred sixty six or more days.
-- [date.is_same()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/is-same): Check whether two dates match across a specified granularity such as year, month, or day.
-- [date.is_valid_instance()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/is-valid): Validate whether the current NepaliDate instance represents a legitimate calendar date within supported bounds.
-- [date.parse()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/parse): Parse a formatted Bikram Sambat date string and update the current date instance in place.
-- [date.set()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/set): Set year, month, and day coordinates simultaneously on a NepaliDate instance.
-- [date.set_date()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/set-date): Set the day of the month on a NepaliDate instance and recalculate its timestamp.
-- [date.set_english_date()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/set-english-date): Update internal Bikram Sambat coordinates from a native Python datetime object.
-- [date.set_month()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/set-month): Set the Bikram Sambat month index on a NepaliDate instance with automatic day clamping.
-- [date.set_year()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/set-year): Set the Bikram Sambat year on a NepaliDate instance within the supported calendar range.
-- [date.start_of_day()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/start-of-day): Return a new NepaliDate instance set to the first moment of the current day at midnight.
-- [date.start_of_month()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/start-of-month): Return a new NepaliDate instance set to the first day of the current Bikram Sambat month.
-- [date.start_of_week()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/start-of-week): Return a new NepaliDate instance set to the first day of the week on Sunday.
-- [date.start_of_year()](https://nepalidate.sandip-ghimire.com.np/docs/python/methods/start-of-year): Return a new NepaliDate instance set to the first day of the Bikram Sambat year on 1 Baisakh.
-- [Quick Start](https://nepalidate.sandip-ghimire.com.np/docs/python/quick-start): Practical guide and essential code examples to start working with Bikram Sambat dates in Python.
-- [NepaliDate.get_calendar_days()](https://nepalidate.sandip-ghimire.com.np/docs/python/static/get-calendar-days): Static utility to generate a complete forty two cell calendar grid matrix for any month and year.
-- [NepaliDate.get_day_name()](https://nepalidate.sandip-ghimire.com.np/docs/python/static/get-day-name): Static utility to retrieve the localized English or Nepali name for any day of the week index.
-- [NepaliDate.get_month_name()](https://nepalidate.sandip-ghimire.com.np/docs/python/static/get-month-name): Static utility to retrieve the localized English or Nepali month name for any month index.
-- [NepaliDate.is_valid()](https://nepalidate.sandip-ghimire.com.np/docs/python/static/is-valid): Static validation function to verify whether a given year, month, and day combination forms a valid Bikram Sambat date.
-- [NepaliDate.maximum()](https://nepalidate.sandip-ghimire.com.np/docs/python/static/maximum): Static method returning the maximum supported date boundary for the NepaliDate calendar engine.
-- [NepaliDate.minimum()](https://nepalidate.sandip-ghimire.com.np/docs/python/static/minimum): Static method returning the minimum supported date boundary for the NepaliDate calendar engine.
+- [Nepali Date Library](https://nepali-pkg.date/docs): A comprehensive, multi-language library for working with Nepali (Bikram Sambat) dates.
+- [Examples & Practical Recipes](https://nepali-pkg.date/docs/examples): Real-world patterns and cross-language code recipes for working with Nepali dates.
+- [Installation](https://nepali-pkg.date/docs/installation): Install Nepali Date Library in your project using your preferred package manager across Node.js, Python, or PHP.
+- [Overview](https://nepali-pkg.date/docs/nodejs): Complete documentation and feature guide for the Nepali Date Library in Node.js and TypeScript applications.
+- [new NepaliDate()](https://nepali-pkg.date/docs/nodejs/class/constructor): Constructor overloads and initialization options for creating NepaliDate instances in Node.js and TypeScript.
+- [Instance Properties](https://nepali-pkg.date/docs/nodejs/class/properties): Reference for public instance properties available on every NepaliDate object including year, month, day, and underlying timestamp.
+- [MONTH_EN](https://nepali-pkg.date/docs/nodejs/constants/month-en): Array containing standard romanized English names of all twelve Bikram Sambat calendar months.
+- [MONTH_NP](https://nepali-pkg.date/docs/nodejs/constants/month-np): Array containing official Devanagari Nepali names of all twelve Bikram Sambat calendar months.
+- [MONTH_SHORT_EN](https://nepali-pkg.date/docs/nodejs/constants/month-short-en): Array containing three letter abbreviated English names for all twelve Bikram Sambat months.
+- [MONTH_SHORT_NP](https://nepali-pkg.date/docs/nodejs/constants/month-short-np): Array containing abbreviated Devanagari Nepali names for all twelve Bikram Sambat calendar months.
+- [NEPALI_DATE_MAP](https://nepali-pkg.date/docs/nodejs/constants/nepali-date-map): Historical calendar mapping table storing verified day counts for every Bikram Sambat month between 1976 and 2100 BS.
+- [NUMBER_NP](https://nepali-pkg.date/docs/nodejs/constants/number-np): Array containing Devanagari numeral glyphs for digits zero through nine used for Nepali number localization.
+- [WEEK_EN](https://nepali-pkg.date/docs/nodejs/constants/week-en): Array containing full English names for all seven days of the week starting from Sunday.
+- [WEEK_NP](https://nepali-pkg.date/docs/nodejs/constants/week-np): Array containing full Devanagari Nepali names for all seven days of the week starting from Sunday.
+- [WEEK_SHORT_EN](https://nepali-pkg.date/docs/nodejs/constants/week-short-en): Array containing abbreviated English weekday names ordered from Sunday through Saturday.
+- [WEEK_SHORT_NP](https://nepali-pkg.date/docs/nodejs/constants/week-short-np): Array containing short Devanagari abbreviations for each day of the week starting from Sunday.
+- [Date Converter Guide](https://nepali-pkg.date/docs/nodejs/date-converter): Comprehensive guide to converting dates between Gregorian and Bikram Sambat calendar systems using standalone helper functions.
+- [ADtoBS()](https://nepali-pkg.date/docs/nodejs/date-converter/ad-to-bs): Pure helper function to convert Gregorian calendar date strings into Bikram Sambat date strings.
+- [BStoAD()](https://nepali-pkg.date/docs/nodejs/date-converter/bs-to-ad): Pure helper function to convert Bikram Sambat date strings into Gregorian calendar date strings.
+- [Fiscal Year & Quarters Guide](https://nepali-pkg.date/docs/nodejs/fiscal-year): Architecture and calculation rules for Nepal official fiscal year and quarterly trimester accounting cycles.
+- [Calendar Quarters](https://nepali-pkg.date/docs/nodejs/fiscal-year/calendar-quarters): Explanation of standard Bikram Sambat calendar quarters compared to government fiscal trimesters.
+- [NepaliDate.getCurrentFiscalYear()](https://nepali-pkg.date/docs/nodejs/fiscal-year/get-current-fiscal-year): Method to retrieve the formatted fiscal year string for a given NepaliDate instance.
+- [date.getCurrentFiscalYearQuarter()](https://nepali-pkg.date/docs/nodejs/fiscal-year/get-current-fiscal-year-quarter): Method to calculate the active fiscal trimester quarter number for a NepaliDate instance.
+- [date.getCurrentFiscalYearQuarterDates()](https://nepali-pkg.date/docs/nodejs/fiscal-year/get-current-fiscal-year-quarter-dates): Method to retrieve exact start and end boundary dates for the active fiscal quarter.
+- [NepaliDate.getFiscalYearQuarter()](https://nepali-pkg.date/docs/nodejs/fiscal-year/get-fiscal-year-quarter): Static method to determine the fiscal trimester number for any specified month index.
+- [NepaliDate.getFiscalYearQuarters()](https://nepali-pkg.date/docs/nodejs/fiscal-year/get-fiscal-year-quarters): Static utility returning all four fiscal trimesters with their constituent months and date ranges for a given year.
+- [Installation & Setup](https://nepali-pkg.date/docs/nodejs/installation): Installation and setup guide for the nepali date library in Node.js and TypeScript applications using standard package managers.
+- [date.addDays()](https://nepali-pkg.date/docs/nodejs/methods/add-days): Add or subtract a specified number of days to a NepaliDate instance with automatic month and year rollover.
+- [date.addMonths()](https://nepali-pkg.date/docs/nodejs/methods/add-months): Add or subtract months to a NepaliDate instance while adjusting for variable month lengths.
+- [date.addYears()](https://nepali-pkg.date/docs/nodejs/methods/add-years): Add or subtract years to a NepaliDate instance while preserving month and day values.
+- [date.clone()](https://nepali-pkg.date/docs/nodejs/methods/clone): Create an independent deep clone of an existing NepaliDate instance.
+- [date.daysInMonth()](https://nepali-pkg.date/docs/nodejs/methods/days-in-month): Retrieve the total number of days in the current or specified Bikram Sambat month.
+- [date.diff()](https://nepali-pkg.date/docs/nodejs/methods/diff): Calculate the chronological difference between two NepaliDate instances in specific time units.
+- [date.endOfDay()](https://nepali-pkg.date/docs/nodejs/methods/end-of-day): Return a new NepaliDate instance set to the final millisecond of the current day.
+- [date.endOfMonth()](https://nepali-pkg.date/docs/nodejs/methods/end-of-month): Return a new NepaliDate instance set to the final day of the current Bikram Sambat month.
+- [date.endOfWeek()](https://nepali-pkg.date/docs/nodejs/methods/end-of-week): Return a new NepaliDate instance set to the final day of the current week on Saturday.
+- [date.endOfYear()](https://nepali-pkg.date/docs/nodejs/methods/end-of-year): Return a new NepaliDate instance set to the final day of the Bikram Sambat year on the last day of Chaitra.
+- [date.format()](https://nepali-pkg.date/docs/nodejs/methods/format): Format a NepaliDate instance into a custom string using token patterns for English and Nepali output.
+- [date.getCurrentQuarter()](https://nepali-pkg.date/docs/nodejs/methods/get-current-quarter): Return the standard Bikram Sambat calendar quarter number from one to four for the current date.
+- [date.getDate()](https://nepali-pkg.date/docs/nodejs/methods/get-date): Retrieve the numeric day of the month from a NepaliDate instance.
+- [date.getDay()](https://nepali-pkg.date/docs/nodejs/methods/get-day): Retrieve the numeric day of the week index from zero for Sunday through six for Saturday.
+- [date.getEnglishDate()](https://nepali-pkg.date/docs/nodejs/methods/get-english-date): Retrieve the equivalent Gregorian date as a native JavaScript Date object.
+- [date.getHours()](https://nepali-pkg.date/docs/nodejs/methods/get-hours): Retrieve the hour component from zero to twenty three for the current date instance.
+- [date.getMilliseconds()](https://nepali-pkg.date/docs/nodejs/methods/get-milliseconds): Retrieve the millisecond component from zero to nine hundred ninety nine.
+- [date.getMinutes()](https://nepali-pkg.date/docs/nodejs/methods/get-minutes): Retrieve the minute component from zero to fifty nine for the current date instance.
+- [date.getMonth()](https://nepali-pkg.date/docs/nodejs/methods/get-month): Retrieve the zero based Bikram Sambat month index from zero for Baisakh to eleven for Chaitra.
+- [date.getSeconds()](https://nepali-pkg.date/docs/nodejs/methods/get-seconds): Retrieve the second component from zero to fifty nine for the current date instance.
+- [date.getTime()](https://nepali-pkg.date/docs/nodejs/methods/get-time): Retrieve the numeric timestamp in milliseconds since the Unix epoch.
+- [date.getWeeksInMonth()](https://nepali-pkg.date/docs/nodejs/methods/get-weeks-in-month): Calculate the number of calendar week rows required to render the current month in a grid.
+- [date.getYear()](https://nepali-pkg.date/docs/nodejs/methods/get-year): Retrieve the four digit Bikram Sambat year number from a NepaliDate instance.
+- [date.isAfter()](https://nepali-pkg.date/docs/nodejs/methods/is-after): Check whether the current date occurs chronologically after another specified date.
+- [date.isBefore()](https://nepali-pkg.date/docs/nodejs/methods/is-before): Check whether the current date occurs chronologically before another specified date.
+- [date.isEqual()](https://nepali-pkg.date/docs/nodejs/methods/is-equal): Check whether two date instances share the exact same calendar date coordinates regardless of time.
+- [date.isLeapYear()](https://nepali-pkg.date/docs/nodejs/methods/is-leap-year): Determine whether the current Bikram Sambat calendar year has three hundred sixty six or more days.
+- [date.isSame()](https://nepali-pkg.date/docs/nodejs/methods/is-same): Check whether two dates match across a specified granularity such as year, month, or day.
+- [date.isValid()](https://nepali-pkg.date/docs/nodejs/methods/is-valid): Validate whether the current NepaliDate instance represents a legitimate calendar date within supported bounds.
+- [date.parse()](https://nepali-pkg.date/docs/nodejs/methods/parse): Parse a formatted Bikram Sambat date string and update the current date instance in place.
+- [date.set()](https://nepali-pkg.date/docs/nodejs/methods/set): Set year, month, and day coordinates simultaneously on a NepaliDate instance.
+- [date.setDate()](https://nepali-pkg.date/docs/nodejs/methods/set-date): Set the day of the month on a NepaliDate instance and recalculate its timestamp.
+- [date.setMonth()](https://nepali-pkg.date/docs/nodejs/methods/set-month): Set the Bikram Sambat month index on a NepaliDate instance with automatic day clamping.
+- [date.setYear()](https://nepali-pkg.date/docs/nodejs/methods/set-year): Set the Bikram Sambat year on a NepaliDate instance within the supported calendar range.
+- [date.startOfDay()](https://nepali-pkg.date/docs/nodejs/methods/start-of-day): Return a new NepaliDate instance set to the first moment of the current day at midnight.
+- [date.startOfMonth()](https://nepali-pkg.date/docs/nodejs/methods/start-of-month): Return a new NepaliDate instance set to the first day of the current Bikram Sambat month.
+- [date.startOfWeek()](https://nepali-pkg.date/docs/nodejs/methods/start-of-week): Return a new NepaliDate instance set to the first day of the week on Sunday.
+- [date.startOfYear()](https://nepali-pkg.date/docs/nodejs/methods/start-of-year): Return a new NepaliDate instance set to the first day of the Bikram Sambat year on 1 Baisakh.
+- [date.toString()](https://nepali-pkg.date/docs/nodejs/methods/to-string): Return the default string representation of a NepaliDate instance in standard year, month, and day format.
+- [Quick Start](https://nepali-pkg.date/docs/nodejs/quick-start): Practical guide and essential code examples to start working with Bikram Sambat dates in Node.js and TypeScript.
+- [NepaliDate.getCalendarDays()](https://nepali-pkg.date/docs/nodejs/static/get-calendar-days): Static utility to generate a complete forty two cell calendar grid matrix for any month and year.
+- [NepaliDate.getDayName()](https://nepali-pkg.date/docs/nodejs/static/get-day-name): Static utility to retrieve the localized English or Nepali name for any day of the week index.
+- [NepaliDate.getMonthName()](https://nepali-pkg.date/docs/nodejs/static/get-month-name): Static utility to retrieve the localized English or Nepali month name for any month index.
+- [NepaliDate.isValid()](https://nepali-pkg.date/docs/nodejs/static/is-valid): Static validation function to verify whether a given year, month, and day combination forms a valid Bikram Sambat date.
+- [NepaliDate.maximum()](https://nepali-pkg.date/docs/nodejs/static/maximum): Static method returning the maximum supported date boundary for the NepaliDate calendar engine.
+- [NepaliDate.minimum()](https://nepali-pkg.date/docs/nodejs/static/minimum): Static method returning the minimum supported date boundary for the NepaliDate calendar engine.
+- [What is Nepali Date? (Origination & Calendar)](https://nepali-pkg.date/docs/origination): Deep dive into the origins, history, astronomical foundation, calendar mechanics, and timeline of Bikram Sambat (विक्रम संवत्).
+- [Project Overview](https://nepali-pkg.date/docs/overview): Comprehensive overview of the Nepali Date Library multi-language ecosystem, live package metrics, architecture, and developer profile.
+- [Overview](https://nepali-pkg.date/docs/php): Complete documentation and feature guide for the Nepali Date Library in PHP applications.
+- [new NepaliDate()](https://nepali-pkg.date/docs/php/class/constructor): Constructor overloads and initialization options for creating NepaliDate instances in PHP.
+- [Instance Properties & Getters](https://nepali-pkg.date/docs/php/class/properties): Guide to property encapsulation and public getters available on every NepaliDate instance in PHP.
+- [Constants::$MONTH_EN](https://nepali-pkg.date/docs/php/constants/month-en): Array containing standard romanized English names of all twelve Bikram Sambat calendar months.
+- [Constants::$MONTH_NP](https://nepali-pkg.date/docs/php/constants/month-np): Array containing official Devanagari Nepali names of all twelve Bikram Sambat calendar months.
+- [Constants::$MONTH_SHORT_EN](https://nepali-pkg.date/docs/php/constants/month-short-en): Array containing three letter abbreviated English names for all twelve Bikram Sambat months.
+- [Constants::$MONTH_SHORT_NP](https://nepali-pkg.date/docs/php/constants/month-short-np): Array containing abbreviated Devanagari Nepali names for all twelve Bikram Sambat calendar months.
+- [Constants::$NEPALI_DATE_MAP](https://nepali-pkg.date/docs/php/constants/nepali-date-map): Historical calendar mapping table storing verified day counts for every Bikram Sambat month between 1976 and 2100 BS.
+- [Constants::$NUMBER_NP](https://nepali-pkg.date/docs/php/constants/number-np): Array containing Devanagari numeral glyphs for digits zero through nine used for Nepali number localization.
+- [Constants::$WEEK_EN](https://nepali-pkg.date/docs/php/constants/week-en): Array containing full English names for all seven days of the week starting from Sunday.
+- [Constants::$WEEK_NP](https://nepali-pkg.date/docs/php/constants/week-np): Array containing full Devanagari Nepali names for all seven days of the week starting from Sunday.
+- [Constants::$WEEK_SHORT_EN](https://nepali-pkg.date/docs/php/constants/week-short-en): Array containing abbreviated English weekday names ordered from Sunday through Saturday.
+- [Constants::$WEEK_SHORT_NP](https://nepali-pkg.date/docs/php/constants/week-short-np): Array containing short Devanagari abbreviations for each day of the week starting from Sunday.
+- [Date Converter Guide](https://nepali-pkg.date/docs/php/date-converter): Comprehensive guide to converting dates between Gregorian and Bikram Sambat calendar systems using standalone helper functions.
+- [ADtoBS()](https://nepali-pkg.date/docs/php/date-converter/ad-to-bs): Pure helper function to convert Gregorian calendar date strings into Bikram Sambat date strings.
+- [BStoAD()](https://nepali-pkg.date/docs/php/date-converter/bs-to-ad): Pure helper function to convert Bikram Sambat date strings into Gregorian calendar date strings.
+- [Fiscal Year & Quarters Guide](https://nepali-pkg.date/docs/php/fiscal-year): Architecture and calculation rules for Nepal official fiscal year and quarterly trimester accounting cycles.
+- [Calendar Quarters](https://nepali-pkg.date/docs/php/fiscal-year/calendar-quarters): Explanation of standard Bikram Sambat calendar quarters compared to government fiscal trimesters.
+- [NepaliDate::getCurrentFiscalYear()](https://nepali-pkg.date/docs/php/fiscal-year/get-current-fiscal-year): Method to retrieve the formatted fiscal year string for a given NepaliDate instance.
+- [date->getCurrentFiscalYearQuarter()](https://nepali-pkg.date/docs/php/fiscal-year/get-current-fiscal-year-quarter): Method to calculate the active fiscal trimester quarter number for a NepaliDate instance.
+- [date->getCurrentFiscalYearQuarterDates()](https://nepali-pkg.date/docs/php/fiscal-year/get-current-fiscal-year-quarter-dates): Method to retrieve exact start and end boundary dates for the active fiscal quarter.
+- [NepaliDate::getFiscalYearQuarter()](https://nepali-pkg.date/docs/php/fiscal-year/get-fiscal-year-quarter): Static method to determine the fiscal trimester number for any specified month index.
+- [NepaliDate::getFiscalYearQuarters()](https://nepali-pkg.date/docs/php/fiscal-year/get-fiscal-year-quarters): Static utility returning all four fiscal trimesters with their constituent months and date ranges for a given year.
+- [Installation & Setup](https://nepali-pkg.date/docs/php/installation): Installation and setup instructions for nepali date library in PHP applications using Composer.
+- [date->addDays()](https://nepali-pkg.date/docs/php/methods/add-days): Add or subtract a specified number of days to a NepaliDate instance with automatic month and year rollover.
+- [date->addMonths()](https://nepali-pkg.date/docs/php/methods/add-months): Add or subtract months to a NepaliDate instance while adjusting for variable month lengths.
+- [date->addYears()](https://nepali-pkg.date/docs/php/methods/add-years): Add or subtract years to a NepaliDate instance while preserving month and day values.
+- [date->clone()](https://nepali-pkg.date/docs/php/methods/clone): Create an independent deep clone of an existing NepaliDate instance.
+- [date->daysInMonth()](https://nepali-pkg.date/docs/php/methods/days-in-month): Retrieve the total number of days in the current or specified Bikram Sambat month.
+- [date->diff()](https://nepali-pkg.date/docs/php/methods/diff): Calculate the chronological difference between two NepaliDate instances in specific time units.
+- [date->endOfDay()](https://nepali-pkg.date/docs/php/methods/end-of-day): Return a new NepaliDate instance set to the final millisecond of the current day.
+- [date->endOfMonth()](https://nepali-pkg.date/docs/php/methods/end-of-month): Return a new NepaliDate instance set to the final day of the current Bikram Sambat month.
+- [date->endOfWeek()](https://nepali-pkg.date/docs/php/methods/end-of-week): Return a new NepaliDate instance set to the final day of the current week on Saturday.
+- [date->endOfYear()](https://nepali-pkg.date/docs/php/methods/end-of-year): Return a new NepaliDate instance set to the final day of the Bikram Sambat year on the last day of Chaitra.
+- [date->format()](https://nepali-pkg.date/docs/php/methods/format): Format a NepaliDate instance into a custom string using token patterns for English and Nepali output.
+- [date->getCurrentQuarter()](https://nepali-pkg.date/docs/php/methods/get-current-quarter): Return the standard Bikram Sambat calendar quarter number from one to four for the current date.
+- [date->getDate()](https://nepali-pkg.date/docs/php/methods/get-date): Retrieve the numeric day of the month from a NepaliDate instance.
+- [date->getDay()](https://nepali-pkg.date/docs/php/methods/get-day): Retrieve the numeric day of the week index from zero for Sunday through six for Saturday.
+- [date->getEnglishDate()](https://nepali-pkg.date/docs/php/methods/get-english-date): Retrieve the equivalent Gregorian date as a native JavaScript Date object.
+- [date->getHours()](https://nepali-pkg.date/docs/php/methods/get-hours): Retrieve the hour component from zero to twenty three for the current date instance.
+- [date->getMilliseconds()](https://nepali-pkg.date/docs/php/methods/get-milliseconds): Retrieve the millisecond component from zero to nine hundred ninety nine.
+- [date->getMinutes()](https://nepali-pkg.date/docs/php/methods/get-minutes): Retrieve the minute component from zero to fifty nine for the current date instance.
+- [date->getMonth()](https://nepali-pkg.date/docs/php/methods/get-month): Retrieve the zero based Bikram Sambat month index from zero for Baisakh to eleven for Chaitra.
+- [date->getSeconds()](https://nepali-pkg.date/docs/php/methods/get-seconds): Retrieve the second component from zero to fifty nine for the current date instance.
+- [date->getTime()](https://nepali-pkg.date/docs/php/methods/get-time): Retrieve the numeric timestamp in milliseconds since the Unix epoch.
+- [date->getWeeksInMonth()](https://nepali-pkg.date/docs/php/methods/get-weeks-in-month): Calculate the number of calendar week rows required to render the current month in a grid.
+- [date->getYear()](https://nepali-pkg.date/docs/php/methods/get-year): Retrieve the four digit Bikram Sambat year number from a NepaliDate instance.
+- [date->isAfter()](https://nepali-pkg.date/docs/php/methods/is-after): Check whether the current date occurs chronologically after another specified date.
+- [date->isBefore()](https://nepali-pkg.date/docs/php/methods/is-before): Check whether the current date occurs chronologically before another specified date.
+- [date->isEqual()](https://nepali-pkg.date/docs/php/methods/is-equal): Check whether two date instances share the exact same calendar date coordinates regardless of time.
+- [date->isLeapYear()](https://nepali-pkg.date/docs/php/methods/is-leap-year): Determine whether the current Bikram Sambat calendar year has three hundred sixty six or more days.
+- [date->isSame()](https://nepali-pkg.date/docs/php/methods/is-same): Check whether two dates match across a specified granularity such as year, month, or day.
+- [date->isValidInstance()](https://nepali-pkg.date/docs/php/methods/is-valid): Validate whether the current NepaliDate instance represents a legitimate calendar date within supported bounds.
+- [date->parse()](https://nepali-pkg.date/docs/php/methods/parse): Parse a formatted Bikram Sambat date string and update the current date instance in place.
+- [date->set()](https://nepali-pkg.date/docs/php/methods/set): Set year, month, and day coordinates simultaneously on a NepaliDate instance.
+- [date->setDate()](https://nepali-pkg.date/docs/php/methods/set-date): Set the day of the month on a NepaliDate instance and recalculate its timestamp.
+- [date->setMonth()](https://nepali-pkg.date/docs/php/methods/set-month): Set the Bikram Sambat month index on a NepaliDate instance with automatic day clamping.
+- [date->setYear()](https://nepali-pkg.date/docs/php/methods/set-year): Set the Bikram Sambat year on a NepaliDate instance within the supported calendar range.
+- [date->startOfDay()](https://nepali-pkg.date/docs/php/methods/start-of-day): Return a new NepaliDate instance set to the first moment of the current day at midnight.
+- [date->startOfMonth()](https://nepali-pkg.date/docs/php/methods/start-of-month): Return a new NepaliDate instance set to the first day of the current Bikram Sambat month.
+- [date->startOfWeek()](https://nepali-pkg.date/docs/php/methods/start-of-week): Return a new NepaliDate instance set to the first day of the week on Sunday.
+- [date->startOfYear()](https://nepali-pkg.date/docs/php/methods/start-of-year): Return a new NepaliDate instance set to the first day of the Bikram Sambat year on 1 Baisakh.
+- [date->toString()](https://nepali-pkg.date/docs/php/methods/to-string): Return the default string representation of a NepaliDate instance in standard year, month, and day format.
+- [Quick Start](https://nepali-pkg.date/docs/php/quick-start): Practical guide and essential code examples to start working with Bikram Sambat dates in PHP.
+- [NepaliDate::getCalendarDays()](https://nepali-pkg.date/docs/php/static/get-calendar-days): Static utility to generate a complete forty two cell calendar grid matrix for any month and year.
+- [NepaliDate::getDayName()](https://nepali-pkg.date/docs/php/static/get-day-name): Static utility to retrieve the localized English or Nepali name for any day of the week index.
+- [NepaliDate::getMonthName()](https://nepali-pkg.date/docs/php/static/get-month-name): Static utility to retrieve the localized English or Nepali month name for any month index.
+- [NepaliDate::isValid()](https://nepali-pkg.date/docs/php/static/is-valid): Static validation function to verify whether a given year, month, and day combination forms a valid Bikram Sambat date.
+- [NepaliDate::maximum()](https://nepali-pkg.date/docs/php/static/maximum): Static method returning the maximum supported date boundary for the NepaliDate calendar engine.
+- [NepaliDate::minimum()](https://nepali-pkg.date/docs/php/static/minimum): Static method returning the minimum supported date boundary for the NepaliDate calendar engine.
+- [Overview](https://nepali-pkg.date/docs/python): Complete documentation and feature guide for the Nepali Date Library in Python applications.
+- [NepaliDate()](https://nepali-pkg.date/docs/python/class/constructor): Constructor overloads and initialization options for creating NepaliDate instances in Python.
+- [Instance Properties](https://nepali-pkg.date/docs/python/class/properties): Reference for public instance properties available on every NepaliDate object including year, month, day, and underlying timestamp.
+- [month_en](https://nepali-pkg.date/docs/python/constants/month-en): Array containing standard romanized English names of all twelve Bikram Sambat calendar months.
+- [month_np](https://nepali-pkg.date/docs/python/constants/month-np): Array containing official Devanagari Nepali names of all twelve Bikram Sambat calendar months.
+- [month_short_en](https://nepali-pkg.date/docs/python/constants/month-short-en): Array containing three letter abbreviated English names for all twelve Bikram Sambat months.
+- [month_short_np](https://nepali-pkg.date/docs/python/constants/month-short-np): Array containing abbreviated Devanagari Nepali names for all twelve Bikram Sambat calendar months.
+- [nepali_date_map](https://nepali-pkg.date/docs/python/constants/nepali-date-map): Historical calendar mapping table storing verified day counts for every Bikram Sambat month between 1976 and 2100 BS.
+- [number_np](https://nepali-pkg.date/docs/python/constants/number-np): Array containing Devanagari numeral glyphs for digits zero through nine used for Nepali number localization.
+- [week_en](https://nepali-pkg.date/docs/python/constants/week-en): Array containing full English names for all seven days of the week starting from Sunday.
+- [week_np](https://nepali-pkg.date/docs/python/constants/week-np): Array containing full Devanagari Nepali names for all seven days of the week starting from Sunday.
+- [week_short_en](https://nepali-pkg.date/docs/python/constants/week-short-en): Array containing abbreviated English weekday names ordered from Sunday through Saturday.
+- [week_short_np](https://nepali-pkg.date/docs/python/constants/week-short-np): Array containing short Devanagari abbreviations for each day of the week starting from Sunday.
+- [Date Converter Guide](https://nepali-pkg.date/docs/python/date-converter): Comprehensive guide to converting dates between Gregorian and Bikram Sambat calendar systems using standalone helper functions.
+- [ADtoBS()](https://nepali-pkg.date/docs/python/date-converter/ad-to-bs): Pure helper function to convert Gregorian calendar date strings into Bikram Sambat date strings.
+- [BStoAD()](https://nepali-pkg.date/docs/python/date-converter/bs-to-ad): Pure helper function to convert Bikram Sambat date strings into Gregorian calendar date strings.
+- [Fiscal Year & Quarters Guide](https://nepali-pkg.date/docs/python/fiscal-year): Architecture and calculation rules for Nepal official fiscal year and quarterly trimester accounting cycles.
+- [Calendar Quarters](https://nepali-pkg.date/docs/python/fiscal-year/calendar-quarters): Explanation of standard Bikram Sambat calendar quarters compared to government fiscal trimesters.
+- [NepaliDate.current_fiscal_year()](https://nepali-pkg.date/docs/python/fiscal-year/current-fiscal-year): Method to retrieve the formatted fiscal year string for a given NepaliDate instance.
+- [date.fiscal_quarter()](https://nepali-pkg.date/docs/python/fiscal-year/fiscal-quarter): Method to calculate the active fiscal trimester quarter number for a NepaliDate instance.
+- [date.fiscal_quarter_dates()](https://nepali-pkg.date/docs/python/fiscal-year/fiscal-quarter-dates): Method to retrieve exact start and end boundary dates for the active fiscal quarter.
+- [NepaliDate.get_fiscal_quarter()](https://nepali-pkg.date/docs/python/fiscal-year/get-fiscal-quarter): Static method to determine the fiscal trimester number for any specified month index.
+- [NepaliDate.get_fiscal_quarters()](https://nepali-pkg.date/docs/python/fiscal-year/get-fiscal-quarters): Static utility returning all four fiscal trimesters with their constituent months and date ranges for a given year.
+- [Installation & Setup](https://nepali-pkg.date/docs/python/installation): Installation and setup instructions for nepali date library in Python projects using pip, uv, and poetry.
+- [date.add_days()](https://nepali-pkg.date/docs/python/methods/add-days): Add or subtract a specified number of days to a NepaliDate instance with automatic month and year rollover.
+- [date.add_months()](https://nepali-pkg.date/docs/python/methods/add-months): Add or subtract months to a NepaliDate instance while adjusting for variable month lengths.
+- [date.add_years()](https://nepali-pkg.date/docs/python/methods/add-years): Add or subtract years to a NepaliDate instance while preserving month and day values.
+- [date.clone()](https://nepali-pkg.date/docs/python/methods/clone): Create an independent deep clone of an existing NepaliDate instance.
+- [date.current_quarter()](https://nepali-pkg.date/docs/python/methods/current-quarter): Return the standard Bikram Sambat calendar quarter number from one to four for the current date.
+- [date.days_in_month()](https://nepali-pkg.date/docs/python/methods/days-in-month): Retrieve the total number of days in the current or specified Bikram Sambat month.
+- [date.diff()](https://nepali-pkg.date/docs/python/methods/diff): Calculate the chronological difference between two NepaliDate instances in specific time units.
+- [date.end_of_day()](https://nepali-pkg.date/docs/python/methods/end-of-day): Return a new NepaliDate instance set to the final millisecond of the current day.
+- [date.end_of_month()](https://nepali-pkg.date/docs/python/methods/end-of-month): Return a new NepaliDate instance set to the final day of the current Bikram Sambat month.
+- [date.end_of_week()](https://nepali-pkg.date/docs/python/methods/end-of-week): Return a new NepaliDate instance set to the final day of the current week on Saturday.
+- [date.end_of_year()](https://nepali-pkg.date/docs/python/methods/end-of-year): Return a new NepaliDate instance set to the final day of the Bikram Sambat year on the last day of Chaitra.
+- [date.format()](https://nepali-pkg.date/docs/python/methods/format): Format a NepaliDate instance into a custom string using token patterns for English and Nepali output.
+- [date.get_date()](https://nepali-pkg.date/docs/python/methods/get-date): Retrieve the numeric day of the month from a NepaliDate instance.
+- [date.get_day()](https://nepali-pkg.date/docs/python/methods/get-day): Retrieve the numeric day of the week index from zero for Sunday through six for Saturday.
+- [date.get_english_date()](https://nepali-pkg.date/docs/python/methods/get-english-date): Retrieve the equivalent Gregorian date as a native JavaScript Date object.
+- [date.get_hours()](https://nepali-pkg.date/docs/python/methods/get-hours): Retrieve the hour component from zero to twenty three for the current date instance.
+- [date.get_milliseconds()](https://nepali-pkg.date/docs/python/methods/get-milliseconds): Retrieve the millisecond component from zero to nine hundred ninety nine.
+- [date.get_minutes()](https://nepali-pkg.date/docs/python/methods/get-minutes): Retrieve the minute component from zero to fifty nine for the current date instance.
+- [date.get_month()](https://nepali-pkg.date/docs/python/methods/get-month): Retrieve the zero based Bikram Sambat month index from zero for Baisakh to eleven for Chaitra.
+- [date.get_seconds()](https://nepali-pkg.date/docs/python/methods/get-seconds): Retrieve the second component from zero to fifty nine for the current date instance.
+- [date.get_time()](https://nepali-pkg.date/docs/python/methods/get-time): Retrieve the numeric timestamp in milliseconds since the Unix epoch.
+- [date.get_weeks_in_month()](https://nepali-pkg.date/docs/python/methods/get-weeks-in-month): Calculate the number of calendar week rows required to render the current month in a grid.
+- [date.get_year()](https://nepali-pkg.date/docs/python/methods/get-year): Retrieve the four digit Bikram Sambat year number from a NepaliDate instance.
+- [date.is_after()](https://nepali-pkg.date/docs/python/methods/is-after): Check whether the current date occurs chronologically after another specified date.
+- [date.is_before()](https://nepali-pkg.date/docs/python/methods/is-before): Check whether the current date occurs chronologically before another specified date.
+- [date.is_equal()](https://nepali-pkg.date/docs/python/methods/is-equal): Check whether two date instances share the exact same calendar date coordinates regardless of time.
+- [date.is_leap_year()](https://nepali-pkg.date/docs/python/methods/is-leap-year): Determine whether the current Bikram Sambat calendar year has three hundred sixty six or more days.
+- [date.is_same()](https://nepali-pkg.date/docs/python/methods/is-same): Check whether two dates match across a specified granularity such as year, month, or day.
+- [date.is_valid_instance()](https://nepali-pkg.date/docs/python/methods/is-valid): Validate whether the current NepaliDate instance represents a legitimate calendar date within supported bounds.
+- [date.parse()](https://nepali-pkg.date/docs/python/methods/parse): Parse a formatted Bikram Sambat date string and update the current date instance in place.
+- [date.set()](https://nepali-pkg.date/docs/python/methods/set): Set year, month, and day coordinates simultaneously on a NepaliDate instance.
+- [date.set_date()](https://nepali-pkg.date/docs/python/methods/set-date): Set the day of the month on a NepaliDate instance and recalculate its timestamp.
+- [date.set_english_date()](https://nepali-pkg.date/docs/python/methods/set-english-date): Update internal Bikram Sambat coordinates from a native Python datetime object.
+- [date.set_month()](https://nepali-pkg.date/docs/python/methods/set-month): Set the Bikram Sambat month index on a NepaliDate instance with automatic day clamping.
+- [date.set_year()](https://nepali-pkg.date/docs/python/methods/set-year): Set the Bikram Sambat year on a NepaliDate instance within the supported calendar range.
+- [date.start_of_day()](https://nepali-pkg.date/docs/python/methods/start-of-day): Return a new NepaliDate instance set to the first moment of the current day at midnight.
+- [date.start_of_month()](https://nepali-pkg.date/docs/python/methods/start-of-month): Return a new NepaliDate instance set to the first day of the current Bikram Sambat month.
+- [date.start_of_week()](https://nepali-pkg.date/docs/python/methods/start-of-week): Return a new NepaliDate instance set to the first day of the week on Sunday.
+- [date.start_of_year()](https://nepali-pkg.date/docs/python/methods/start-of-year): Return a new NepaliDate instance set to the first day of the Bikram Sambat year on 1 Baisakh.
+- [Quick Start](https://nepali-pkg.date/docs/python/quick-start): Practical guide and essential code examples to start working with Bikram Sambat dates in Python.
+- [NepaliDate.get_calendar_days()](https://nepali-pkg.date/docs/python/static/get-calendar-days): Static utility to generate a complete forty two cell calendar grid matrix for any month and year.
+- [NepaliDate.get_day_name()](https://nepali-pkg.date/docs/python/static/get-day-name): Static utility to retrieve the localized English or Nepali name for any day of the week index.
+- [NepaliDate.get_month_name()](https://nepali-pkg.date/docs/python/static/get-month-name): Static utility to retrieve the localized English or Nepali month name for any month index.
+- [NepaliDate.is_valid()](https://nepali-pkg.date/docs/python/static/is-valid): Static validation function to verify whether a given year, month, and day combination forms a valid Bikram Sambat date.
+- [NepaliDate.maximum()](https://nepali-pkg.date/docs/python/static/maximum): Static method returning the maximum supported date boundary for the NepaliDate calendar engine.
+- [NepaliDate.minimum()](https://nepali-pkg.date/docs/python/static/minimum): Static method returning the minimum supported date boundary for the NepaliDate calendar engine.
 
 
 ---

@@ -9,7 +9,7 @@ const CONTENT_DOCS_DIR = path.join(ROOT_DIR, "content", "docs");
 const PUBLIC_DIR = path.join(ROOT_DIR, "public");
 
 const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://nepalidate.sandip-ghimire.com.np";
+  process.env.NEXT_PUBLIC_SITE_URL || "https://nepali-pkg.date";
 
 /**
  * Parses frontmatter fields (title, description) from an MDX file string

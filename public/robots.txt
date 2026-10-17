@@ -67,5 +67,5 @@ Allow: /
 User-agent: Omgilibot
 Allow: /
 
-Host: https://nepalidate.sandip-ghimire.com.np
-Sitemap: https://nepalidate.sandip-ghimire.com.np/sitemap.xml
+Host: https://nepali-pkg.date
+Sitemap: https://nepali-pkg.date/sitemap.xml

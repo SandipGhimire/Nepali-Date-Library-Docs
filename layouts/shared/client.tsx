@@ -79,7 +79,7 @@ export function baseSlots({ useProps }: { useProps: () => BaseSlotsProps }) {
 
     if (typeof title === "function") return title({ href: url, ...props });
     return (
-      <Link href={url} {...props}>
+      <Link href={url} data-nav-title="" {...props}>
         {title}
       </Link>
     );
