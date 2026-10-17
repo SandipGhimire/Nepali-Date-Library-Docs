@@ -140,6 +140,20 @@ export function Sidebar({ footer, banner, collapsible = true, components, ...res
               )}
             </div>
             {footer}
+            <div className="flex items-center justify-between px-1 pt-1.5 text-[11px] text-fd-muted-foreground/75 border-t border-fd-border/40 mt-1">
+              <span className="flex items-center gap-1">
+                <span>By</span>
+                <a
+                  href="https://github.com/SandipGhimire"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-medium text-fd-foreground hover:text-fd-primary transition-colors underline decoration-fd-border underline-offset-2 hover:decoration-fd-primary"
+                >
+                  Sandip Ghimire
+                </a>
+              </span>
+              <span className="font-mono text-[10px] text-fd-muted-foreground/60">v1.1.16</span>
+            </div>
           </div>
         )}
       </SidebarContent>

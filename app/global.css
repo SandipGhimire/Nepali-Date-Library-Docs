@@ -524,3 +524,15 @@ header [data-nav-title]:hover {
 [data-theme="dark"] #nd-toc a[data-active="true"] {
   color: #f09665 !important;
 }
+
+/* Google AdSense Display Polish & Auto-Collapse */
+ins.adsbygoogle[data-ad-status="unfilled"],
+[data-adsense-container]:has(ins.adsbygoogle[data-ad-status="unfilled"]) {
+  display: none !important;
+}
+
+[data-adsense-container] iframe {
+  max-width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
