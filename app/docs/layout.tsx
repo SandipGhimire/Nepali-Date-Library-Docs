@@ -8,6 +8,7 @@ export default function Layout({ children }: LayoutProps<"/docs">) {
       tree={docsSource.getPageTree()}
       tabs={rootTabs}
       {...baseOptions()}
+      links={[]}
     >
       {children}
     </DocsLayout>

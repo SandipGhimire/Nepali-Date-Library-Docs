@@ -30,8 +30,9 @@ export function TOCScrollArea({ ref, className, ...props }: ComponentProps<"div"
   return (
     <div
       ref={mergeRefs(viewRef, ref)}
+      data-toc-scroll-area=""
       className={cn(
-        "relative min-h-0 text-sm overflow-x-clip overflow-y-auto overscroll-contain [scrollbar-width:none] mask-[linear-gradient(to_bottom,transparent,white_16px,white_calc(100%-16px),transparent)] py-3",
+        "relative min-h-0 flex-1 text-sm overflow-x-hidden overflow-y-auto overscroll-contain scrollbar-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden py-3",
         className,
       )}
       {...props}

@@ -47,7 +47,7 @@ export function AdSenseBanner({
       className={
         isSidebar
           ? `my-3 w-full max-w-full overflow-hidden rounded-lg border border-fd-border/50 bg-fd-secondary/30 p-2 text-center transition-all ${className}`
-          : `my-8 w-full max-w-full overflow-hidden rounded-xl border border-fd-border/50 bg-fd-card/40 p-2.5 sm:p-3 text-center transition-all ${className}`
+          : `my-6 sm:my-8 w-full max-w-full overflow-hidden rounded-xl border border-fd-border/50 bg-fd-card/40 p-2 sm:p-3 text-center transition-all ${className}`
       }
     >
       {/* Tiny clean sponsor label */}
@@ -64,7 +64,7 @@ export function AdSenseBanner({
         <ins
           ref={adRef}
           className="adsbygoogle"
-          style={{ display: "block", minWidth: "100%", width: "100%", textAlign: "center" }}
+          style={{ display: "block", width: "100%", textAlign: "center" }}
           data-ad-client={ADSENSE_CLIENT_ID}
           data-ad-slot={slot || undefined}
           data-ad-format={isSidebar ? "rectangle, horizontal" : format}

@@ -23,19 +23,6 @@ export function Footer({ className }: { className?: string }) {
               A comprehensive, multi-language ecosystem for working with Nepali (Bikram Sambat) dates across
               NodeJS, Python, and PHP.
             </p>
-            <div className="flex items-center gap-2 pt-1 text-xs text-fd-muted-foreground">
-              <span>Made with</span>
-              <Heart className="size-3.5 fill-red-500 text-red-500 inline-block" />
-              <span>by</span>
-              <a
-                href="https://github.com/SandipGhimire"
-                target="_blank"
-                rel="noreferrer"
-                className="font-semibold text-fd-foreground hover:text-fd-primary transition-colors underline decoration-fd-border underline-offset-4 hover:decoration-fd-primary"
-              >
-                Sandip Ghimire
-              </a>
-            </div>
           </div>
 
           {/* Column 1: Ecosystem */}
@@ -107,7 +94,9 @@ export function Footer({ className }: { className?: string }) {
             </div>
             <span className="hidden sm:inline text-fd-border">•</span>
             <span>
-              Crafted by{" "}
+              Made with{" "}
+              <Heart className="size-3.5 fill-red-500 text-red-500 inline-block" />
+              {" "}by{" "}
               <a
                 href="https://github.com/SandipGhimire"
                 target="_blank"

@@ -63,6 +63,12 @@ export function Sidebar({ footer, banner, collapsible = true, components, ...res
     props: { tabs, nav, tabMode },
   } = useDocsLayout();
   const iconLinks = menuItems.filter((item) => item.type === "icon");
+  const pathname = usePathname();
+  const activeVersion = useMemo(() => {
+    if (pathname.includes("/python")) return "v1.0.2";
+    if (pathname.includes("/php")) return "v1.0.1";
+    return "v1.1.16";
+  }, [pathname]);
   const viewport = (
     <Base.SidebarViewport>
       <div className="flex flex-col gap-0.5">
@@ -152,7 +158,7 @@ export function Sidebar({ footer, banner, collapsible = true, components, ...res
                   Sandip Ghimire
                 </a>
               </span>
-              <span className="font-mono text-[10px] text-fd-muted-foreground/60">v1.1.16</span>
+              <span className="font-mono text-[10px] text-fd-muted-foreground/60">{activeVersion}</span>
             </div>
           </div>
         )}
@@ -208,7 +214,23 @@ export function Sidebar({ footer, banner, collapsible = true, components, ...res
           {banner}
         </div>
         {viewport}
-        <div className="flex flex-col border-t p-4 pt-2 empty:hidden">{footer}</div>
+        <div className="flex flex-col border-t p-4 pt-2 empty:hidden">
+          {footer}
+          <div className="flex items-center justify-between px-1 pt-1.5 text-[11px] text-fd-muted-foreground/75 border-t border-fd-border/40 mt-1">
+            <span className="flex items-center gap-1">
+              <span>By</span>
+              <a
+                href="https://github.com/SandipGhimire"
+                target="_blank"
+                rel="noreferrer"
+                className="font-medium text-fd-foreground hover:text-fd-primary transition-colors underline decoration-fd-border underline-offset-2 hover:decoration-fd-primary"
+              >
+                Sandip Ghimire
+              </a>
+            </span>
+            <span className="font-mono text-[10px] text-fd-muted-foreground/60">{activeVersion}</span>
+          </div>
+        </div>
       </SidebarDrawer>
     </>
   );

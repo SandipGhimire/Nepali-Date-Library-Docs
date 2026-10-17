@@ -63,7 +63,7 @@ export function TOC({ container, header, footer, style = "normal", list }: TOCPr
       id="nd-toc"
       {...container}
       className={cn(
-        "sticky top-(--fd-docs-row-1) h-[calc(var(--fd-docs-height)-var(--fd-docs-row-1))] flex flex-col [grid-area:toc] w-(--fd-toc-width) pt-12 pe-4 pb-2 xl:layout:[--fd-toc-width:268px] max-xl:hidden",
+        "sticky top-[var(--fd-docs-row-1,0px)] h-[calc(var(--fd-docs-height,100dvh)-var(--fd-docs-row-1,0px))] max-h-[calc(var(--fd-docs-height,100dvh)-var(--fd-docs-row-1,0px))] flex flex-col overflow-hidden [grid-area:toc] w-(--fd-toc-width) pt-12 pe-4 pb-2 xl:layout:[--fd-toc-width:268px] max-xl:hidden",
         container?.className,
       )}
     >
@@ -71,7 +71,7 @@ export function TOC({ container, header, footer, style = "normal", list }: TOCPr
       <h3 id="toc-title" className="inline-flex items-center gap-1.5 text-sm font-medium text-fd-muted-foreground">
         {t("On this page")}
       </h3>
-      <Base.TOCScrollArea className="ms-px">
+      <Base.TOCScrollArea className="ms-px scrollbar-none [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         <TOCItems {...list}>
           {items.length === 0 && <TOCEmpty />}
           {items.map((item) => (
