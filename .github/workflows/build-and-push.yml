@@ -18,6 +18,11 @@ on:
         required: false
         default: "bot@nepali-pkg.date"
         type: string
+      adsense_client_id:
+        description: "Google AdSense Publisher ID (e.g. ca-pub-...)"
+        required: false
+        default: "ca-pub-8151465607564713"
+        type: string
 
 concurrency:
   group: build-and-push-${{ github.ref }}
@@ -57,6 +62,7 @@ jobs:
         env:
           NODE_ENV: production
           NEXT_PUBLIC_SITE_URL: "https://nepali-pkg.date"
+          NEXT_PUBLIC_ADSENSE_CLIENT_ID: ${{ inputs.adsense_client_id || secrets.NEXT_PUBLIC_ADSENSE_CLIENT_ID || vars.NEXT_PUBLIC_ADSENSE_CLIENT_ID || 'ca-pub-8151465607564713' }}
 
       - name: Prepare branch and push compiled build
         run: |
@@ -95,4 +101,3 @@ jobs:
 
           # Push to the remote branch
           git push origin "$TARGET_BRANCH" --force
-

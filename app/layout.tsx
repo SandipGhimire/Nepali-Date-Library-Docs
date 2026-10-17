@@ -1,5 +1,5 @@
 import { RootProvider } from "@fumadocs/base-ui/provider/next";
-import { AdSenseProvider } from "@/components/ads/adsense-provider";
+import { ADSENSE_CLIENT_ID } from "@/lib/adsense";
 import type { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
 import "./global.css";
@@ -105,23 +105,32 @@ export default function Layout({ children }: { children: ReactNode }) {
         {/* Machine-readable LLMs & AI indexing links */}
         <link rel="help" href="/llms.txt" title="LLM Context Specification" />
         <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Full AI Knowledge Context" />
+        {/* Google AdSense Verification & Loader (Compile-time) */}
+        {ADSENSE_CLIENT_ID && (
+          <>
+            <meta name="google-adsense-account" content={ADSENSE_CLIENT_ID} />
+            <script
+              async
+              src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`}
+              crossOrigin="anonymous"
+            />
+          </>
+        )}
         {/* Global JSON-LD Structured Data */}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
       </head>
       <body className="flex flex-col min-h-screen">
-        <AdSenseProvider>
-          <RootProvider
-            theme={{
-              scriptProps: {
-                // @ts-ignore
-                async: true,
-              },
-            }}
-          >
-            {children}
-          </RootProvider>
-        </AdSenseProvider>
+        <RootProvider
+          theme={{
+            scriptProps: {
+              // @ts-ignore
+              async: true,
+            },
+          }}
+        >
+          {children}
+        </RootProvider>
       </body>
     </html>
   );
