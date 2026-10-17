@@ -1,15 +1,22 @@
 name: Compile and Push Production Build
 
 on:
-  push:
-    branches:
-      - master
   workflow_dispatch:
     inputs:
       target_branch:
         description: "Branch to push compiled build files to"
         required: true
         default: "release"
+        type: string
+      bot_name:
+        description: "Custom Git commit author name"
+        required: false
+        default: "Nepali Date Bot"
+        type: string
+      bot_email:
+        description: "Custom Git commit author email"
+        required: false
+        default: "bot@nepali-pkg.date"
         type: string
 
 concurrency:
@@ -54,11 +61,15 @@ jobs:
       - name: Prepare branch and push compiled build
         run: |
           TARGET_BRANCH="${{ inputs.target_branch || 'release' }}"
-          echo "Target deployment branch: $TARGET_BRANCH"
+          BOT_NAME="${{ inputs.bot_name || vars.BOT_NAME || 'Nepali Date Bot' }}"
+          BOT_EMAIL="${{ inputs.bot_email || vars.BOT_EMAIL || 'bot@nepali-pkg.date' }}"
 
-          # Git bot credentials
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          echo "Target deployment branch: $TARGET_BRANCH"
+          echo "Commit author: $BOT_NAME <$BOT_EMAIL>"
+
+          # Custom bot credentials
+          git config user.name "$BOT_NAME"
+          git config user.email "$BOT_EMAIL"
 
           # Remove .next and .source from .gitignore on the release branch
           # so git can track the compiled build artifacts
