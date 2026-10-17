@@ -1,0 +1,63 @@
+---
+title: date->isSame()
+description: Check whether two dates match across a specified granularity such as year, month, or day.
+icon: Equal
+---
+
+The `isSame` method compares the current `NepaliDate` instance with another date at a specified level of granularity, such as year, month, day, hour, or minute. It returns true if both dates match within that specific unit, simplifying range checks and calendar filters.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function isSame(NepaliDate $date, string $unit): bool;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `$date` | `NepaliDate` | Yes | Date instance to compare with. |
+| `$unit` | `string` | Yes | Granularity: `'year'`, `'month'`, `'date'`, `'day'`. |
+
+---
+
+## Return Value
+
+* **Type**: `bool`
+* **Description**: Returns `true` if the specified unit matches.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$d1 = new NepaliDate('2081-07-05');
+$d2 = new NepaliDate('2081-07-20');
+
+// Same month and year
+var_dump($d1->isSame($d2, 'month')); // true
+
+// Different day
+var_dump($d1->isSame($d2, 'date'));  // false
+```
+
+---
+
+## Related
+
+* [`date->isEqual()`](/docs/php/methods/is-equal): Compare full date equality.
+* [`date->diff()`](/docs/php/methods/diff): Quantitative difference.

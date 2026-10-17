@@ -1,0 +1,54 @@
+---
+title: date->isValidInstance()
+description: Validate whether the current NepaliDate instance represents a legitimate calendar date within supported bounds.
+icon: CheckCircle
+---
+
+The `isValidInstance` method checks whether the current `NepaliDate` instance contains valid calendar values and falls within the supported range of 1976 through 2100 BS. It verifies that year, month, and day coordinates correspond to an authentic historical date.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function isValidInstance(): bool;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `bool`
+* **Description**: Returns `true` if the date is valid.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate('2081-07-15');
+var_dump($date->isValidInstance()); // true
+```
+
+---
+
+## Related
+
+* [`NepaliDate::isValid()`](/docs/php/static/is-valid): Static validation method.
+* [`NepaliDate::minimum()`](/docs/php/static/minimum): Earliest supported date.

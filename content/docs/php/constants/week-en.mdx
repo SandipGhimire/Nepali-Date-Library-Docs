@@ -1,0 +1,64 @@
+---
+title: Constants::$WEEK_EN
+description: Array containing full English names for all seven days of the week starting from Sunday.
+icon: Calendar
+---
+
+The `Constants::$WEEK_EN` constant is an array containing the full English weekday names ordered from Sunday at index 0 through Saturday at index 6. This ordering matches the standard day index convention returned by date methods, allowing seamless weekday lookups in English interfaces.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\Helper\Constants;
+```
+
+---
+
+## Value
+
+```php
+Constants::$WEEK_EN = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+];
+```
+
+---
+
+## Weekday Index Table
+
+| Index | English Name | Nepali Equivalent |
+| :---: | :--- | :--- |
+| `0` | `"Sunday"` | Aaitabar |
+| `1` | `"Monday"` | Sombar |
+| `2` | `"Tuesday"` | Mangalbar |
+| `3` | `"Wednesday"` | Budhabar |
+| `4` | `"Thursday"` | Bihibar |
+| `5` | `"Friday"` | Sukrabar |
+| `6` | `"Saturday"` | Shanibar |
+
+---
+
+## Example Usage
+
+```php
+use NepaliDateLibrary\NepaliDate;
+use NepaliDateLibrary\Helper\Constants;
+
+$date = new NepaliDate('2081-07-15');
+echo Constants::$WEEK_EN[$date->getDay()]; // "Friday"
+```
+
+---
+
+## Related
+
+* [`Constants::$WEEK_SHORT_EN`](/docs/php/constants/week-short-en): Abbreviated three letter English weekday names.
+* [`Constants::$WEEK_NP`](/docs/php/constants/week-np): Full Devanagari Nepali weekday names.

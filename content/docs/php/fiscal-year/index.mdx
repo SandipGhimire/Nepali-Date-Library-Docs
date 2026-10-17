@@ -1,0 +1,43 @@
+---
+title: Fiscal Year & Quarters Guide
+description: Architecture and calculation rules for Nepal official fiscal year and quarterly trimester accounting cycles.
+icon: Landmark
+---
+
+In Nepal the official fiscal year begins on 1 Shrawan and ends on the final day of Ashadh in the following calendar year. The nepali date library includes specialized functions to compute fiscal years, identify trimester quarters, and determine quarter start and end boundary dates for financial, tax, and accounting systems.
+
+---
+
+## Fiscal Year Structure
+
+Because the fiscal year starts in the fourth month of Bikram Sambat (Shrawan), every fiscal cycle spans two calendar years:
+
+* **Format**: Standardized as `YYYY/YY` (for example `2081/82 BS`).
+* **Start Date**: `1 Shrawan` (Month index `3`, Day `1`).
+* **End Date**: `Last day of Ashadh` (Month index `2`, Day `31` or `32` of the succeeding calendar year).
+
+---
+
+## Fiscal Quarters (Trimesters)
+
+The financial year in Nepal is divided into four three month trimesters:
+
+| Quarter | Trimester Name | Constituent Months | Month Indices | Approximate Period |
+| :---: | :--- | :--- | :---: | :--- |
+| **Q1** | First Trimester | Shrawan, Bhadra, Aswin | `3`, `4`, `5` | Mid July to Mid October |
+| **Q2** | Second Trimester | Kartik, Mangsir, Poush | `6`, `7`, `8` | Mid October to Mid January |
+| **Q3** | Third Trimester | Magh, Falgun, Chaitra | `9`, `10`, `11` | Mid January to Mid April |
+| **Q4** | Fourth Trimester | Baisakh, Jestha, Ashadh | `0`, `1`, `2` | Mid April to Mid July (Next Year) |
+
+---
+
+## Available API Methods
+
+| Method | Type | Description |
+| :--- | :---: | :--- |
+| [`NepaliDate::getCurrentFiscalYear()`](/docs/php/fiscal-year/get-current-fiscal-year) | Static | Returns the starting Bikram Sambat year of the active fiscal year. |
+| [`date->getCurrentFiscalYearQuarter()`](/docs/php/fiscal-year/get-current-fiscal-year-quarter) | Instance | Returns the fiscal quarter index (1 to 4) for the date. |
+| [`date->getCurrentFiscalYearQuarterDates()`](/docs/php/fiscal-year/get-current-fiscal-year-quarter-dates) | Instance | Returns exact start and end `NepaliDate` objects for the active fiscal quarter. |
+| [`NepaliDate::getFiscalYearQuarter()`](/docs/php/fiscal-year/get-fiscal-year-quarter) | Static | Returns start and end boundaries for any specified quarter and year. |
+| [`NepaliDate::getFiscalYearQuarters()`](/docs/php/fiscal-year/get-fiscal-year-quarters) | Static | Returns boundary dates for all four fiscal trimesters of a given year. |
+| [`Calendar Quarters Guide`](/docs/php/fiscal-year/calendar-quarters) | Guide | Explains standard Bikram Sambat calendar quarters vs fiscal trimesters. |

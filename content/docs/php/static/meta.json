@@ -1,0 +1,12 @@
+{
+  "title": "Static Methods",
+  "icon": "Sparkles",
+  "pages": [
+    "is-valid",
+    "minimum",
+    "maximum",
+    "get-month-name",
+    "get-day-name",
+    "get-calendar-days"
+  ]
+}

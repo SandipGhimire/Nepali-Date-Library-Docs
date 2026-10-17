@@ -1,0 +1,59 @@
+---
+title: date->set()
+description: Set year, month, and day coordinates simultaneously on a NepaliDate instance.
+icon: Edit3
+---
+
+The `set` method updates the Bikram Sambat year, zero based month index, and day values of the current `NepaliDate` instance in a single atomic call. It validates the combined coordinates against the calendar map and recalculates the internal timestamp.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function set(int $year, int $month, int $date): void;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `$year` | `int` | Yes | Bikram Sambat year integer between 1976 and 2100. |
+| `$month` | `int` | Yes | Zero based month index from 0 (Baisakh) to 11 (Chaitra). |
+| `$date` | `int` | Yes | Day number of the month from 1 to 32. |
+
+---
+
+## Return Value
+
+* **Type**: `void`
+* **Note**: Mutates the current `NepaliDate` instance in place.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate('2080-01-01');
+$date->set(2081, 6, 15); // Kartik 15, 2081 BS
+echo $date->format('YYYY-MM-DD'); // "2081-07-15"
+```
+
+---
+
+## Related
+
+* [`date->setYear()`](/docs/php/methods/set-year): Mutate year only.
+* [`date->setMonth()`](/docs/php/methods/set-month): Mutate month only.

@@ -1,0 +1,74 @@
+---
+title: Constants::$MONTH_SHORT_EN
+description: Array containing three letter abbreviated English names for all twelve Bikram Sambat months.
+icon: Calendar
+---
+
+The `Constants::$MONTH_SHORT_EN` constant provides three letter abbreviated English labels for each of the twelve Bikram Sambat months. It follows the zero based index convention from index 0 for Bai up to index 11 for Cha, making it ideal for compact calendar widgets, mobile screens, and table headers.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\Helper\Constants;
+```
+
+---
+
+## Value
+
+```php
+Constants::$MONTH_SHORT_EN = [
+    "Bai",
+    "Jes",
+    "Asa",
+    "Shr",
+    "Bhd",
+    "Asw",
+    "Kar",
+    "Man",
+    "Pou",
+    "Mag",
+    "Fal",
+    "Cha",
+];
+```
+
+---
+
+## Month Abbreviation Table
+
+| Index | Abbreviation | Full Name |
+| :---: | :--- | :--- |
+| `0` | `"Bai"` | Baisakh |
+| `1` | `"Jes"` | Jestha |
+| `2` | `"Asa"` | Asar |
+| `3` | `"Shr"` | Shrawan |
+| `4` | `"Bhd"` | Bhadra |
+| `5` | `"Asw"` | Aswin |
+| `6` | `"Kar"` | Kartik |
+| `7` | `"Man"` | Mangsir |
+| `8` | `"Pou"` | Poush |
+| `9` | `"Mag"` | Magh |
+| `10` | `"Fal"` | Falgun |
+| `11` | `"Cha"` | Chaitra |
+
+---
+
+## Example Usage
+
+```php
+use NepaliDateLibrary\NepaliDate;
+use NepaliDateLibrary\Helper\Constants;
+
+$date = new NepaliDate('2081-07-15');
+echo Constants::$MONTH_SHORT_EN[$date->getMonth()]; // "Kar"
+```
+
+---
+
+## Related
+
+* [`Constants::$MONTH_EN`](/docs/php/constants/month-en): Full English month names.
+* [`Constants::$MONTH_SHORT_NP`](/docs/php/constants/month-short-np): Devanagari short month abbreviations.

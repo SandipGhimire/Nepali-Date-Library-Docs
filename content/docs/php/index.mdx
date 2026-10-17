@@ -1,10 +1,10 @@
 ---
 title: Overview
-description: Comprehensive guide, quick start, and feature reference for the Nepali Date Library in PHP.
+description: Complete documentation and feature guide for the Nepali Date Library in PHP applications.
 icon: packagist
 ---
 
-The **Nepali Date Library** for PHP is an object-oriented Composer library providing Bikram Sambat (BS) date conversion, arithmetic, calendar formatting, and fiscal year calculations for PHP 8.0+.
+The Nepali Date Library for PHP provides a modern object oriented toolkit with zero external dependencies for Bikram Sambat calendar operations. It handles bidirectional conversion between Bikram Sambat and Gregorian calendars, date arithmetic, custom string formatting, fiscal year calculations, and calendar grid generation for PHP web applications and enterprise systems.
 
 <PackageMeta
   distributor="Packagist"
@@ -50,65 +50,58 @@ The **Nepali Date Library** for PHP is an object-oriented Composer library provi
 
 ## Installation
 
-Install using Composer:
+Install the package via Composer:
 
-<Tabs items={["composer"]}>
-  <Tab value="composer">
 ```bash
 composer require sghimire/nepali-date-library
 ```
-  </Tab>
-</Tabs>
 
 ---
 
-## Quick Start
+## Quick Example
 
 ```php
 <?php
 
 require 'vendor/autoload.php';
 
-use NepaliDate\NepaliDate;
+use NepaliDateLibrary\NepaliDate;
+use function NepaliDateLibrary\ADtoBS;
+use function NepaliDateLibrary\BStoAD;
 
-// 1. Current Nepali date
-$nepaliDate = new NepaliDate();
-echo $nepaliDate->format('Y-m-d'); // e.g. 2081-06-29
+// Current Nepali date
+$today = new NepaliDate();
+echo $today->format('YYYY-MM-DD');
 
-// 2. Parse specific BS date
-$event = new NepaliDate('2081-07-15');
-echo $event->format('l, F j, Y'); // "Friday, Kartik 15, 2081"
+// Specific Bikram Sambat date (month 0 is Baisakh)
+$event = new NepaliDate(2081, 6, 15);
+echo $event->format('dddd, MMMM DD, YYYY');
 
-// 3. Convert to Gregorian (AD)
-$adDate = $event->toAD(); // "2024-10-31"
-
-// 4. Standalone conversion helpers
-use function NepaliDate\ad_to_bs;
-use function NepaliDate\bs_to_ad;
-
-$bs = ad_to_bs('2024-11-15'); // "2081-07-30"
-$ad = bs_to_ad('2081-07-30'); // "2024-11-15"
+// Standalone date conversion helpers
+$bsDate = ADtoBS('2024-11-15');
+$adDate = BStoAD('2081-07-30');
 ```
 
 ---
 
-## Core Capabilities
+## Feature Matrix
 
-- **Modern PHP Standards**: Strict typing, PSR compliance, and full support for PHP 8.0 to 8.4+.
-- **Bidirectional Conversion**: Accurate, validated conversions between AD and BS spanning 1976 to 2100 BS.
-- **Date Arithmetic**: Fluent methods (`addDays`, `subDays`, `addMonths`, `subMonths`) with month-end boundary clamping.
-- **Fiscal Calendar Engine**: Automatic resolution of Nepali fiscal years (e.g. `2081/82`) and quarters.
-- **Localization**: Supports formatting in English and Nepali Devanagari script.
+| Feature | Support | Description |
+| :--- | :---: | :--- |
+| **Bikram Sambat Calendar Engine** | Yes | Verified calendar matrix spanning years 1976 through 2100 BS. |
+| **Bidirectional AD to BS Conversion** | Yes | Standalone conversion functions and full object instances. |
+| **Date Arithmetic** | Yes | Add and subtract days, months, and years with automatic rollover. |
+| **Fiscal Year Operations** | Yes | Official Nepalese fiscal calendar starting on 1 Shrawan. |
+| **Custom Format Patterns** | Yes | Token formatting for year, month, weekday, and Devanagari script. |
+| **Calendar Grid Builder** | Yes | Forty two cell matrix generation for calendar interfaces. |
 
 ---
 
-## Package Details
+## Package Information
 
-| Specification | Resource & Link |
+| Specification | Details |
 | :--- | :--- |
-| **Package Name** | `sghimire/nepali-date-library` |
-| **Packagist Registry** | [packagist.org/packages/sghimire/nepali-date-library](https://packagist.org/packages/sghimire/nepali-date-library) |
-| **GitHub Repository** | [SandipGhimire/Nepali-Date-Library-PHP](https://github.com/SandipGhimire/Nepali-Date-Library-PHP) |
-| **Download Metrics** | [View Stats on Packagist](https://packagist.org/packages/sghimire/nepali-date-library) |
-| **PHP Support** | PHP 8.0, 8.1, 8.2, 8.3, 8.4+ |
-| **License** | MIT |
+| **Composer Package** | [`sghimire/nepali-date-library`](https://packagist.org/packages/sghimire/nepali-date-library) |
+| **Repository** | [GitHub](https://github.com/SandipGhimire/Nepali-Date-Library-PHP) |
+| **Supported PHP** | PHP 7.1, 7.2, 7.3, 7.4, 8.0, 8.1, 8.2, 8.3, 8.4+ |
+| **License** | MIT License |

@@ -1,0 +1,105 @@
+---
+title: new NepaliDate()
+description: Constructor overloads and initialization options for creating NepaliDate instances in PHP.
+icon: PlusCircle
+---
+
+The `NepaliDate` constructor creates instances representing specific points in time mapped to the Bikram Sambat calendar system. You can construct an instance representing the current moment, provide separate year, month, and day integers, supply a standard date string, or pass a native PHP DateTimeInterface object. Bikram Sambat months are indexed starting from 0 for Baisakh through 11 for Chaitra.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signatures
+
+```php
+// 1. Current Date and Time
+new NepaliDate(): NepaliDate;
+
+// 2. From PHP DateTimeInterface object
+new NepaliDate(DateTimeInterface $date): NepaliDate;
+
+// 3. From another NepaliDate instance (copy constructor)
+new NepaliDate(NepaliDate $date): NepaliDate;
+
+// 4. From Bikram Sambat date string
+new NepaliDate(string $dateString): NepaliDate;
+
+// 5. From separate Year, Month, Day integers
+new NepaliDate(int $year, int $month, int $day): NepaliDate;
+
+// 6. From Unix millisecond timestamp
+new NepaliDate(int $timestampMs): NepaliDate;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `$yearOrDate` | `int`, `string`, `DateTimeInterface`, `NepaliDate`, `null` | No | Year integer, ISO date string, DateTimeInterface, or another NepaliDate instance. |
+| `$month` | `int`, `null` | No | Zero based month index from `0` for Baisakh to `11` for Chaitra when specifying integers. |
+| `$day` | `int`, `null` | No | Day of the month from `1` to `32` depending on the year and month. |
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* **Description**: A newly instantiated `NepaliDate` instance representing the specified point in time.
+
+---
+
+## Examples
+
+### Current Date and Time
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$now = new NepaliDate();
+echo $now->format('YYYY-MM-DD');
+```
+
+### From Numeric Coordinates
+
+```php
+// Month 0 is Baisakh, Day 1
+$newYear = new NepaliDate(2081, 0, 1);
+echo $newYear->format('YYYY-MM-DD'); // "2081-01-01"
+```
+
+### From Date String
+
+```php
+// Delimiters can be hyphens, slashes, or dots
+$date1 = new NepaliDate('2081-07-15');
+$date2 = new NepaliDate('2081/07/15');
+$date3 = new NepaliDate('2081.07.15');
+```
+
+### From PHP DateTimeImmutable
+
+```php
+use DateTimeImmutable;
+use DateTimeZone;
+use NepaliDateLibrary\NepaliDate;
+
+$adDate = DateTimeImmutable::createFromFormat('!Y-m-d', '2024-10-31', new DateTimeZone('UTC'));
+$nd = new NepaliDate($adDate);
+echo $nd->format('YYYY-MM-DD'); // "2081-07-15"
+```
+
+---
+
+## Related
+
+* [`Instance Properties`](/docs/php/class/properties): Getters for calendar coordinates.
+* [`date->set()`](/docs/php/methods/set): Update year, month, and day coordinates simultaneously.

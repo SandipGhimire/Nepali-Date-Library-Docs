@@ -1,0 +1,58 @@
+---
+title: date->getDay()
+description: Retrieve the numeric day of the week index from zero for Sunday through six for Saturday.
+icon: Calendar
+---
+
+The `getDay` method returns an integer representing the day of the week for the current `NepaliDate` instance. The return value ranges from 0 for Sunday to 6 for Saturday, aligning with standard calendar day conventions.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function getDay(): int;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `int`
+* **Range**: `0` to `6`
+* **Description**: Day of the week integer starting from `0` for Sunday up to `6` for Saturday.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+use NepaliDateLibrary\Helper\Constants;
+
+$date = new NepaliDate('2081-07-15');
+$weekdayIndex = $date->getDay();
+echo $weekdayIndex . PHP_EOL; // 5 (Friday)
+echo Constants::$WEEK_EN[$weekdayIndex]; // "Friday"
+```
+
+---
+
+## Related
+
+* [`NepaliDate::getDayName()`](/docs/php/static/get-day-name): Retrieve localized weekday names.
+* [`date->getDate()`](/docs/php/methods/get-date): Retrieve the day of the month.

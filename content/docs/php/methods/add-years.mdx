@@ -1,0 +1,57 @@
+---
+title: date->addYears()
+description: Add or subtract years to a NepaliDate instance while preserving month and day values.
+icon: Plus
+---
+
+The `addYears` method adds or subtracts a specified number of years to the current `NepaliDate` instance. It recalculates the underlying timestamp while retaining the month and day coordinates, adjusting the day number if the target year has fewer days in that specific month.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function addYears(int $years): self;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `$years` | `int` | Yes | Number of years to advance or rewind. |
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* **Description**: Returns `$this` after mutation.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate('2075-01-01');
+$date->addYears(5);
+echo $date->format('YYYY-MM-DD'); // "2080-01-01"
+```
+
+---
+
+## Related
+
+* [`date->addMonths()`](/docs/php/methods/add-months): Add or subtract months.
+* [`date->diff()`](/docs/php/methods/diff): Difference between two dates.

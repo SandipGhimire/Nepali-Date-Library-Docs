@@ -1,0 +1,56 @@
+---
+title: date->getTime()
+description: Retrieve the numeric timestamp in milliseconds since the Unix epoch.
+icon: Clock
+---
+
+The `getTime` method returns the number of milliseconds elapsed since the Unix epoch of January 1, 1970 UTC. This integer value matches the return value of standard epoch timestamps and allows direct numerical comparison between date instances.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function getTime(): int;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `int`
+* **Description**: Milliseconds elapsed since January 1, 1970 00:00:00 UTC.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$d1 = new NepaliDate('2081-01-01');
+$d2 = new NepaliDate('2081-01-02');
+
+var_dump($d1->getTime() < $d2->getTime()); // true
+```
+
+---
+
+## Related
+
+* [`date->getEnglishDate()`](/docs/php/methods/get-english-date): Retrieve PHP DateTimeImmutable object.
+* [`date->diff()`](/docs/php/methods/diff): Calculate duration differences.

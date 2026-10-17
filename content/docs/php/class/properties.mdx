@@ -1,0 +1,53 @@
+---
+title: Instance Properties & Getters
+description: Guide to property encapsulation and public getters available on every NepaliDate instance in PHP.
+icon: Braces
+---
+
+In PHP the `NepaliDate` class follows strict object oriented encapsulation principles. Internal state properties are private to protect calendar integrity, while public getter methods provide access to the four digit Bikram Sambat year, zero based month index, day of the month, and underlying Gregorian timestamp.
+
+---
+
+## Public Getters Reference
+
+| Method | Return Type | Description | Value Range |
+| :--- | :--- | :--- | :--- |
+| `$date->getYear()` | `int` | The four digit Bikram Sambat year. | `1976` to `2100` |
+| `$date->getMonth()` | `int` | The zero based Bikram Sambat month index. | `0` (Baisakh) to `11` (Chaitra) |
+| `$date->getDate()` | `int` | The day of the month. | `1` to `32` |
+| `$date->getEnglishDate()` | `DateTimeImmutable` | The equivalent Gregorian date in UTC. | Native PHP DateTimeImmutable |
+| `$date->getTime()` | `int` | The Unix epoch millisecond timestamp. | 64-bit integer timestamp |
+
+---
+
+## Examples
+
+### Reading Coordinates via Getters
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate('2081-07-15');
+
+echo $date->getYear();            // 2081
+echo $date->getMonth();           // 6 (Kartik is index 6)
+echo $date->getDate();            // 15
+echo $date->getEnglishDate()->format('Y-m-d'); // "2024-10-31"
+```
+
+### Working with Month Indices
+
+Because `$date->getMonth()` is zero based, add 1 when outputting conventional month numbers:
+
+```php
+$humanMonth = $date->getMonth() + 1; // 7
+echo NepaliDate::getMonthName($date->getMonth()); // "Kartik"
+```
+
+---
+
+## Related
+
+* [`date->getYear()`](/docs/php/methods/get-year): Getter method for year.
+* [`date->getMonth()`](/docs/php/methods/get-month): Getter method for month index.
+* [`date->getDate()`](/docs/php/methods/get-date): Getter method for day of month.

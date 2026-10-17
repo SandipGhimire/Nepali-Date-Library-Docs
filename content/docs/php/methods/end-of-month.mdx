@@ -1,0 +1,55 @@
+---
+title: date->endOfMonth()
+description: Return a new NepaliDate instance set to the final day of the current Bikram Sambat month.
+icon: Calendar
+---
+
+The `endOfMonth` method returns a new `NepaliDate` instance positioned on the last valid calendar day of the active month. It automatically checks the calendar map to determine whether the month ends on day 29, 30, 31, or 32, which is useful for monthly reporting and billing cycles.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function endOfMonth(): self;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* **Description**: New date instance on the final day of the current month.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate('2081-01-10');
+$lastDay = $date->endOfMonth();
+echo $lastDay->format('YYYY-MM-DD'); // Day 31 for Baisakh 2081
+```
+
+---
+
+## Related
+
+* [`date->startOfMonth()`](/docs/php/methods/start-of-month): First day of the month.
+* [`date->daysInMonth()`](/docs/php/methods/days-in-month): Total days in the month.

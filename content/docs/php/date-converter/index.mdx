@@ -1,0 +1,60 @@
+---
+title: Date Converter Guide
+description: Comprehensive guide to converting dates between Gregorian and Bikram Sambat calendar systems using standalone helper functions.
+icon: ArrowLeftRight
+---
+
+The date converter utilities provide pure standalone functions for converting date strings directly between the Gregorian calendar and the Bikram Sambat calendar. These functions operate without creating full class instances, making them suitable for high throughput batch processing, database migrations, and backend service integration.
+
+---
+
+## Available Functions
+
+The library exports two primary conversion functions in the `NepaliDateLibrary` namespace:
+
+* [`NepaliDateLibrary\ADtoBS(string $adDate)`](/docs/php/date-converter/ad-to-bs): Converts a Gregorian calendar date string to a Bikram Sambat date string.
+* [`NepaliDateLibrary\BStoAD(string $bsDate)`](/docs/php/date-converter/bs-to-ad): Converts a Bikram Sambat date string to a Gregorian calendar date string.
+
+---
+
+## Format Requirements
+
+Both functions require strict ISO formatted date strings:
+
+```text
+YYYY-MM-DD
+```
+
+* Four digit year (`YYYY`)
+* Two digit month with leading zero (`MM`)
+* Two digit day with leading zero (`DD`)
+
+---
+
+## Comparison: Helper Functions vs NepaliDate Class
+
+| Requirement | Use `ADtoBS` and `BStoAD` | Use `NepaliDate` Class |
+| :--- | :---: | :---: |
+| Fast string conversion | Recommended | Optional |
+| Database pipelines and ETL | Recommended | Optional |
+| Date arithmetic (`addDays`, `diff`) | No | Recommended |
+| Custom token formatting | No | Recommended |
+| Calendar boundary calculations | No | Recommended |
+| Fiscal year operations | No | Recommended |
+
+---
+
+## Quick Example
+
+```php
+use function NepaliDateLibrary\ADtoBS;
+use function NepaliDateLibrary\BStoAD;
+
+// Gregorian to Bikram Sambat
+$bs = ADtoBS('2024-11-15');
+echo $bs; // "2081-07-30"
+
+// Bikram Sambat to Gregorian
+$ad = BStoAD('2081-07-30');
+echo $ad; // "2024-11-15"
+```

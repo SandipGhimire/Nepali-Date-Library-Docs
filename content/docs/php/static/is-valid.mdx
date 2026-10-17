@@ -1,0 +1,64 @@
+---
+title: NepaliDate::isValid()
+description: Static validation function to verify whether a given year, month, and day combination forms a valid Bikram Sambat date.
+icon: CheckCircle
+---
+
+The static `isValid` method verifies whether a specified Bikram Sambat year, month index, and day number represent a real calendar date. It consults verified historical data tables to confirm that the year falls within the supported range of 1976 through 2100 BS and that the day number does not exceed the actual number of days in that specific month.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public static function isValid(int $year, int $month, int $day): bool;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `$year` | `int` | Yes | Four digit Bikram Sambat year between `1976` and `2100`. |
+| `$month` | `int` | Yes | Zero based month index from `0` (Baisakh) to `11` (Chaitra). |
+| `$day` | `int` | Yes | Day number of the month from `1` to `32`. |
+
+---
+
+## Return Value
+
+* **Type**: `bool`
+* **Description**: Returns `true` if the date is valid, otherwise `false`.
+
+---
+
+## Examples
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+// Valid date (Baisakh 1, 2081 BS)
+var_dump(NepaliDate::isValid(2081, 0, 1));   // true
+
+// Invalid day (Baisakh 32 does not exist in 2080 BS)
+var_dump(NepaliDate::isValid(2080, 0, 32));  // false
+
+// Out of range year
+var_dump(NepaliDate::isValid(1950, 0, 1));   // false
+```
+
+---
+
+## Related
+
+* [`date->isValidInstance()`](/docs/php/methods/is-valid): Instance validation method.
+* [`NepaliDate::minimum()`](/docs/php/static/minimum): Earliest supported date boundary.

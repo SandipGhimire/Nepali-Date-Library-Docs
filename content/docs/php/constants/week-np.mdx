@@ -1,0 +1,64 @@
+---
+title: Constants::$WEEK_NP
+description: Array containing full Devanagari Nepali names for all seven days of the week starting from Sunday.
+icon: Calendar
+---
+
+The `Constants::$WEEK_NP` constant provides the full Devanagari Nepali names for the seven days of the week, beginning with Aaitabar at index 0 and concluding with Shanibar at index 6. It enables complete localization for calendar headings, date labels, and event scheduling in Nepali language applications.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\Helper\Constants;
+```
+
+---
+
+## Value
+
+```php
+Constants::$WEEK_NP = [
+    "आइतबार",
+    "सोमबार",
+    "मंगलबार",
+    "बुधबार",
+    "बिहिबार",
+    "शुक्रबार",
+    "शनिबार",
+];
+```
+
+---
+
+## Weekday Index Table
+
+| Index | Devanagari Name | Romanized | English |
+| :---: | :--- | :--- | :--- |
+| `0` | `आइतबार` | Aaitabar | Sunday |
+| `1` | `सोमबार` | Sombar | Monday |
+| `2` | `मंगलबार` | Mangalbar | Tuesday |
+| `3` | `बुधबार` | Budhabar | Wednesday |
+| `4` | `बिहिबार` | Bihibar | Thursday |
+| `5` | `शुक्रबार` | Sukrabar | Friday |
+| `6` | `शनिबार` | Shanibar | Saturday |
+
+---
+
+## Example Usage
+
+```php
+use NepaliDateLibrary\NepaliDate;
+use NepaliDateLibrary\Helper\Constants;
+
+$date = new NepaliDate('2081-07-15');
+echo Constants::$WEEK_NP[$date->getDay()]; // "शुक्रबार"
+```
+
+---
+
+## Related
+
+* [`Constants::$WEEK_SHORT_NP`](/docs/php/constants/week-short-np): Short Devanagari weekday abbreviations.
+* [`Constants::$WEEK_EN`](/docs/php/constants/week-en): Full English weekday names.

@@ -1,0 +1,56 @@
+---
+title: date->startOfDay()
+description: Return a new NepaliDate instance set to the first moment of the current day at midnight.
+icon: Sunrise
+---
+
+The `startOfDay` method returns a new `NepaliDate` instance with time coordinates set to midnight at 00 hours, 00 minutes, 00 seconds, and 000 milliseconds. This is useful for date normalization and time neutral comparisons.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function startOfDay(): self;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* **Description**: New date instance set to 00:00:00.000 UTC.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate();
+$midnight = $date->startOfDay();
+echo $midnight->getHours() . PHP_EOL;   // 0
+echo $midnight->getMinutes() . PHP_EOL; // 0
+```
+
+---
+
+## Related
+
+* [`date->endOfDay()`](/docs/php/methods/end-of-day): Set time to final millisecond of the day.
+* [`date->startOfMonth()`](/docs/php/methods/start-of-month): Boundary for month start.

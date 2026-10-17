@@ -1,0 +1,58 @@
+---
+title: date->getCurrentQuarter()
+description: Return the standard Bikram Sambat calendar quarter number from one to four for the current date.
+icon: PieChart
+---
+
+The `getCurrentQuarter` method returns an integer from 1 to 4 designating the standard calendar quarter containing the current date. Calendar quarters divide the Bikram Sambat year into four sequential segments starting from 1 Baisakh, which differs from government fiscal trimesters that commence in Shrawan.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function getCurrentQuarter(): int;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `int`
+* **Range**: `1` to `4`
+* **Description**: Standard calendar quarter number.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate('2081-01-15'); // Baisakh
+echo $date->getCurrentQuarter(); // 1
+
+$date2 = new NepaliDate('2081-07-15'); // Kartik
+echo $date2->getCurrentQuarter(); // 3
+```
+
+---
+
+## Related
+
+* [`date->getCurrentFiscalYearQuarter()`](/docs/php/fiscal-year/get-current-fiscal-year-quarter): Official fiscal trimester number.
+* [`Calendar Quarters Guide`](/docs/php/fiscal-year/calendar-quarters): Comparison guide.

@@ -1,0 +1,55 @@
+---
+title: date->getMinutes()
+description: Retrieve the minute component from zero to fifty nine for the current date instance.
+icon: Clock
+---
+
+The `getMinutes` method returns the minute value as an integer from 0 to 59 for the current `NepaliDate` instance. It is derived from the underlying timestamp representing the recorded time of the date object.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function getMinutes(): int;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `int`
+* **Range**: `0` to `59`
+* **Description**: Minute integer between 0 and 59.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$now = new NepaliDate();
+echo "Current minute: " . $now->getMinutes();
+```
+
+---
+
+## Related
+
+* [`date->getHours()`](/docs/php/methods/get-hours): Retrieve the hour component.
+* [`date->getSeconds()`](/docs/php/methods/get-seconds): Retrieve the second component.

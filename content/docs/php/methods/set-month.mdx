@@ -1,0 +1,58 @@
+---
+title: date->setMonth()
+description: Set the Bikram Sambat month index on a NepaliDate instance with automatic day clamping.
+icon: Edit3
+---
+
+The `setMonth` method updates the Bikram Sambat month for the current `NepaliDate` instance using a zero based month index from 0 for Baisakh to 11 for Chaitra. If the current day exceeds the total days in the destination month, the day is automatically clamped to the final valid day of that month.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function setMonth(int $month): void;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `$month` | `int` | Yes | Target zero based month index from `0` to `11`. |
+
+---
+
+## Return Value
+
+* **Type**: `void`
+* **Note**: Mutates the current instance in place.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate('2081-01-31');
+// Change to month index 1 (Jestha)
+$date->setMonth(1);
+echo $date->format('YYYY-MM-DD');
+```
+
+---
+
+## Related
+
+* [`date->getMonth()`](/docs/php/methods/get-month): Retrieve month index.
+* [`date->addMonths()`](/docs/php/methods/add-months): Add or subtract months.

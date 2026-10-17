@@ -1,0 +1,55 @@
+---
+title: date->getSeconds()
+description: Retrieve the second component from zero to fifty nine for the current date instance.
+icon: Clock
+---
+
+The `getSeconds` method returns the second value as an integer from 0 to 59 for the current `NepaliDate` instance. It enables precise second level timing and formatting.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function getSeconds(): int;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `int`
+* **Range**: `0` to `59`
+* **Description**: Second integer between 0 and 59.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$now = new NepaliDate();
+echo "Current second: " . $now->getSeconds();
+```
+
+---
+
+## Related
+
+* [`date->getMinutes()`](/docs/php/methods/get-minutes): Retrieve the minute component.
+* [`date->getMilliseconds()`](/docs/php/methods/get-milliseconds): Retrieve milliseconds.

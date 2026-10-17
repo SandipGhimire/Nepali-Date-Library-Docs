@@ -1,0 +1,58 @@
+---
+title: NepaliDate::maximum()
+description: Static method returning the maximum supported date boundary for the NepaliDate calendar engine.
+icon: ArrowUpToLine
+---
+
+The `maximum` static method returns a native PHP DateTimeImmutable object representing the latest Gregorian date supported by the library calendar engine. This corresponds to the final day of Chaitra in year 2100 BS and serves as an upper bound for date validation and calendar limits.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public static function maximum(): DateTimeImmutable;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `DateTimeImmutable`
+* **Value**: Gregorian UTC datetime corresponding to the last day of Chaitra in year `2100 BS` (mid April 2044 AD).
+
+---
+
+## Examples
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$maxDate = NepaliDate::maximum();
+echo "Latest supported AD date: " . $maxDate->format('Y-m-d') . PHP_EOL;
+
+// Construct NepaliDate from the maximum boundary
+$ndMax = new NepaliDate($maxDate);
+echo "Latest BS date: " . $ndMax->format('YYYY-MM-DD');
+```
+
+---
+
+## Related
+
+* [`NepaliDate::minimum()`](/docs/php/static/minimum): Earliest supported date boundary.
+* [`NepaliDate::isValid()`](/docs/php/static/is-valid): Check date bounds.

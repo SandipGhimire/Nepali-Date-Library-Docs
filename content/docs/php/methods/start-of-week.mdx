@@ -1,0 +1,57 @@
+---
+title: date->startOfWeek()
+description: Return a new NepaliDate instance set to the first day of the week on Sunday.
+icon: Calendar
+---
+
+The `startOfWeek` method returns a new `NepaliDate` instance set to Sunday, the first day of the weekly cycle containing the current date. It serves as an anchor date for week based scheduling and calendar grids.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function startOfWeek(int $startOfWeek = 0): self;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Default | Description |
+| :--- | :--- | :---: | :---: | :--- |
+| `$startOfWeek` | `int` | No | `0` | Weekday index to treat as week start (0 for Sunday). |
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* **Description**: New date instance set to the first day of the week.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate('2081-07-15');
+$weekStart = $date->startOfWeek();
+echo $weekStart->getDay(); // 0 (Sunday)
+```
+
+---
+
+## Related
+
+* [`date->endOfWeek()`](/docs/php/methods/end-of-week): Saturday boundary of the week.
+* [`date->startOfMonth()`](/docs/php/methods/start-of-month): First day of the month.

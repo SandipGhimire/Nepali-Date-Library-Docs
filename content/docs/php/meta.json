@@ -3,6 +3,16 @@
   "root": true,
   "icon": "packagist",
   "pages": [
-    "index"
+    "index",
+    "installation",
+    "quick-start",
+    "---API Reference---",
+    "class",
+    "methods",
+    "static",
+    "fiscal-year",
+    "---Ecosystem---",
+    "date-converter",
+    "constants"
   ]
 }

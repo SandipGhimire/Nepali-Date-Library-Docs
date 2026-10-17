@@ -1,0 +1,64 @@
+---
+title: Constants::$WEEK_SHORT_NP
+description: Array containing short Devanagari abbreviations for each day of the week starting from Sunday.
+icon: Calendar
+---
+
+The `Constants::$WEEK_SHORT_NP` constant supplies short Devanagari abbreviations for each day of the week, beginning with index 0 for Aaitabar and ending with index 6 for Shanibar. These compact symbols are ideal for calendar grid headers and mobile date selectors where horizontal width is limited.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\Helper\Constants;
+```
+
+---
+
+## Value
+
+```php
+Constants::$WEEK_SHORT_NP = [
+    "आ",
+    "सो",
+    "मं",
+    "बु",
+    "बि",
+    "शु",
+    "श",
+];
+```
+
+---
+
+## Weekday Abbreviation Table
+
+| Index | Short Devanagari | Full Devanagari | English |
+| :---: | :--- | :--- | :--- |
+| `0` | `आ` | आइतबार | Sunday |
+| `1` | `सो` | सोमबार | Monday |
+| `2` | `मं` | मंगलबार | Tuesday |
+| `3` | `बु` | बुधबार | Wednesday |
+| `4` | `बि` | बिहिबार | Thursday |
+| `5` | `शु` | शुक्रबार | Friday |
+| `6` | `श` | शनिबार | Saturday |
+
+---
+
+## Example Usage
+
+```php
+use NepaliDateLibrary\NepaliDate;
+use NepaliDateLibrary\Helper\Constants;
+
+$date = new NepaliDate('2081-07-15');
+echo Constants::$WEEK_SHORT_NP[$date->getDay()]; // "शु"
+```
+
+---
+
+## Related
+
+* [`Constants::$WEEK_NP`](/docs/php/constants/week-np): Full Devanagari weekday names.
+* [`Constants::$WEEK_SHORT_EN`](/docs/php/constants/week-short-en): Three letter English weekday abbreviations.

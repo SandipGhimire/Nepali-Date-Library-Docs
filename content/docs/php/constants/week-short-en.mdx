@@ -1,0 +1,64 @@
+---
+title: Constants::$WEEK_SHORT_EN
+description: Array containing abbreviated English weekday names ordered from Sunday through Saturday.
+icon: Calendar
+---
+
+The `Constants::$WEEK_SHORT_EN` constant contains short three letter English abbreviations for each day of the week, starting with Sun at index 0 and ending with Sat at index 6. These concise labels are widely used in monthly calendar headers, compact date selectors, and agenda views.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\Helper\Constants;
+```
+
+---
+
+## Value
+
+```php
+Constants::$WEEK_SHORT_EN = [
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
+];
+```
+
+---
+
+## Weekday Abbreviation Table
+
+| Index | Abbreviation | Full Name |
+| :---: | :--- | :--- |
+| `0` | `"Sun"` | Sunday |
+| `1` | `"Mon"` | Monday |
+| `2` | `"Tue"` | Tuesday |
+| `3` | `"Wed"` | Wednesday |
+| `4` | `"Thu"` | Thursday |
+| `5` | `"Fri"` | Friday |
+| `6` | `"Sat"` | Saturday |
+
+---
+
+## Example Usage
+
+```php
+use NepaliDateLibrary\NepaliDate;
+use NepaliDateLibrary\Helper\Constants;
+
+$date = new NepaliDate('2081-07-15');
+echo Constants::$WEEK_SHORT_EN[$date->getDay()]; // "Fri"
+```
+
+---
+
+## Related
+
+* [`Constants::$WEEK_EN`](/docs/php/constants/week-en): Full English weekday names.
+* [`Constants::$WEEK_SHORT_NP`](/docs/php/constants/week-short-np): Devanagari short weekday abbreviations.

@@ -1,0 +1,71 @@
+---
+title: NepaliDate::getDayName()
+description: Static utility to retrieve the localized English or Nepali name for any day of the week index.
+icon: Calendar
+---
+
+The `getDayName` static method converts a numeric weekday index from 0 for Sunday through 6 for Saturday into its localized name. It supports both English and Nepali Devanagari script output, allowing flexible localization across international and local application interfaces.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public static function getDayName(
+    int $day,
+    bool $short = false,
+    bool $nepali = false
+): string;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Default | Description |
+| :--- | :--- | :---: | :---: | :--- |
+| `$day` | `int` | Yes | - | Weekday index from `0` for Sunday to `6` for Saturday. |
+| `$short` | `bool` | No | `false` | Return abbreviated name. |
+| `$nepali` | `bool` | No | `false` | Return name in Devanagari Nepali script. |
+
+---
+
+## Return Value
+
+* **Type**: `string`
+* **Description**: Localized weekday name string.
+
+---
+
+## Examples
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+// English full name (5 is Friday)
+echo NepaliDate::getDayName(5) . PHP_EOL; // "Friday"
+
+// English abbreviation
+echo NepaliDate::getDayName(5, true) . PHP_EOL; // "Fri"
+
+// Devanagari full name
+echo NepaliDate::getDayName(5, false, true) . PHP_EOL; // "शुक्रबार"
+
+// Devanagari abbreviation
+echo NepaliDate::getDayName(5, true, true) . PHP_EOL; // "शु"
+```
+
+---
+
+## Related
+
+* [`NepaliDate::getMonthName()`](/docs/php/static/get-month-name): Retrieve localized month names.
+* [`Constants::$WEEK_EN`](/docs/php/constants/week-en): Complete list of English weekday names.

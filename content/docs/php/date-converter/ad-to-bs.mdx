@@ -1,0 +1,80 @@
+---
+title: ADtoBS()
+description: Pure helper function to convert Gregorian calendar date strings into Bikram Sambat date strings.
+icon: ArrowRight
+---
+
+The `ADtoBS` function performs direct mathematical conversion of a Gregorian date string into its corresponding Bikram Sambat date string. It accepts standard date formats and returns the converted Nepali date, handling month day variations and leap year calculations automatically without external dependencies.
+
+---
+
+## Import
+
+```php
+use function NepaliDateLibrary\ADtoBS;
+```
+
+---
+
+## Signature
+
+```php
+function ADtoBS(string $adDate): string;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `$adDate` | `string` | Yes | Gregorian date string formatted strictly as `YYYY-MM-DD`. |
+
+---
+
+## Return Value
+
+* **Type**: `string`
+* **Format**: `YYYY-MM-DD` representing the corresponding Bikram Sambat date.
+
+---
+
+## Exceptions
+
+| Exception Class | Trigger Condition |
+| :--- | :--- |
+| `InvalidArgumentException` | Thrown if input does not match format `YYYY-MM-DD` or contains invalid calendar dates. |
+| `RuntimeException` | Thrown if the date falls outside the supported historical range. |
+
+---
+
+## Examples
+
+### Basic Conversion
+
+```php
+use function NepaliDateLibrary\ADtoBS;
+
+$nepaliDate = ADtoBS('2023-04-14');
+echo $nepaliDate; // "2080-01-01"
+```
+
+### Processing Database Records
+
+```php
+$records = [
+    ['id' => 1, 'created_at' => '2024-01-01'],
+    ['id' => 2, 'created_at' => '2024-07-15'],
+];
+
+foreach ($records as &$item) {
+    $item['created_at_bs'] = ADtoBS($item['created_at']);
+}
+```
+
+---
+
+## Related
+
+* [`BStoAD()`](/docs/php/date-converter/bs-to-ad): Reverse conversion from Bikram Sambat to Gregorian.
+* [`NepaliDate Class`](/docs/php/class/constructor): Full date manipulation and arithmetic object.

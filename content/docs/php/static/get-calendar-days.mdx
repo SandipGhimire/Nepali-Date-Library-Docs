@@ -1,0 +1,71 @@
+---
+title: NepaliDate::getCalendarDays()
+description: Static utility to generate a complete forty two cell calendar grid matrix for any month and year.
+icon: Grid
+---
+
+The `getCalendarDays` static method generates a complete forty two cell grid structure representing six rows of seven days for displaying a monthly calendar view. It includes trailing days from the previous month and leading days from the next month to fill out the matrix, simplifying the creation of date pickers and visual calendar components.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public static function getCalendarDays(int $year, int $month): array;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `$year` | `int` | Yes | Four digit Bikram Sambat year between `1976` and `2100`. |
+| `$month` | `int` | Yes | Zero based month index from `0` (Baisakh) to `11` (Chaitra). |
+
+---
+
+## Return Value
+
+* **Type**: `array{year: int, month: int, days: array<int, array{date: NepaliDate, isCurrentMonth: bool, day: int}>}`
+* **Structure**:
+  * `'year'`: Bikram Sambat year integer.
+  * `'month'`: Month index integer.
+  * `'days'`: List of 42 cell associative arrays with keys:
+    * `'date'`: `NepaliDate` instance.
+    * `'isCurrentMonth'`: Boolean indicating if day belongs to requested month.
+    * `'day'`: Day number integer.
+
+---
+
+## Examples
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+// Generate grid matrix for Kartik 2081 BS (month index 6)
+$grid = NepaliDate::getCalendarDays(2081, 6);
+
+echo "Total cells: " . count($grid['days']) . PHP_EOL; // 42 cells
+
+// Iterate cells in monthly view
+foreach ($grid['days'] as $cell) {
+    $status = $cell['isCurrentMonth'] ? 'Current' : 'Neighbor';
+    echo "Day {$cell['day']} ({$status})" . PHP_EOL;
+}
+```
+
+---
+
+## Related
+
+* [`date->daysInMonth()`](/docs/php/methods/days-in-month): Total days in a month.
+* [`date->getWeeksInMonth()`](/docs/php/methods/get-weeks-in-month): Number of calendar rows needed.

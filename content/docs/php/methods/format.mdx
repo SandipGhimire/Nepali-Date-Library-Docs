@@ -1,0 +1,73 @@
+---
+title: date->format()
+description: Format a NepaliDate instance into a custom string using token patterns for English and Nepali output.
+icon: Type
+---
+
+The `format` method transforms a `NepaliDate` instance into a formatted string according to a pattern of token specifiers. It supports tokens for year, month, day, weekday, hours, minutes, and seconds, with full support for localized English names as well as Devanagari script numerals and words.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function format(string $formatStr): string;
+```
+
+---
+
+## Common Format Tokens
+
+| Token | Output Format | Example |
+| :--- | :--- | :--- |
+| `YYYY` | Four digit year | `2081` |
+| `YY` | Two digit year | `81` |
+| `MMMM` | Full month name | `Kartik` |
+| `MMM` | Short month name | `Kar` |
+| `MM` | Two digit month number | `07` |
+| `M` | One or two digit month number | `7` |
+| `DD` | Two digit day of month | `15` |
+| `D` | One or two digit day of month | `15` |
+| `dddd` | Full weekday name | `Friday` |
+| `ddd` | Short weekday name | `Fri` |
+| `HH` | Two digit 24-hour time | `14` |
+| `mm` | Two digit minute | `30` |
+| `ss` | Two digit second | `45` |
+| `NYYY` | Devanagari numerals year | `२०८१` |
+| `NMMM` | Full Devanagari month name | `कार्तिक` |
+| `NDD` | Devanagari numerals day | `१५` |
+| `NDDD` | Full Devanagari weekday name | `शुक्रबार` |
+
+---
+
+## Examples
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate('2081-07-15');
+
+// Standard ISO format
+echo $date->format('YYYY-MM-DD'); // "2081-07-15"
+
+// Long English date
+echo $date->format('dddd, MMMM DD, YYYY'); // "Friday, Kartik 15, 2081"
+
+// Devanagari format
+echo $date->format('NDDD, NMMM NDD, NYYY'); // "शुक्रबार, कार्तिक १५, २०८१"
+```
+
+---
+
+## Related
+
+* [`date->clone()`](/docs/php/methods/clone): Duplicate a date instance.
+* [`NepaliDate::getMonthName()`](/docs/php/static/get-month-name): Static month name helper.

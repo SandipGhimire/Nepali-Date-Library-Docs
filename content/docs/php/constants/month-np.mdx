@@ -1,0 +1,74 @@
+---
+title: Constants::$MONTH_NP
+description: Array containing official Devanagari Nepali names of all twelve Bikram Sambat calendar months.
+icon: Calendar
+---
+
+The `Constants::$MONTH_NP` constant is an immutable array containing the standard Nepali names in Devanagari script for the twelve Bikram Sambat months. Each index maps directly to the zero based month number, starting at index 0 for Baisakh through index 11 for Chaitra, enabling accurate localization in user interfaces and printed documents.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\Helper\Constants;
+```
+
+---
+
+## Value
+
+```php
+Constants::$MONTH_NP = [
+    "बैशाख",
+    "जेठ",
+    "असार",
+    "श्रावण",
+    "भाद्र",
+    "आश्विन",
+    "कार्तिक",
+    "मंसिर",
+    "पौष",
+    "माघ",
+    "फाल्गुण",
+    "चैत्र",
+];
+```
+
+---
+
+## Month Index Table
+
+| Index | Devanagari Name | Romanized Name |
+| :---: | :--- | :--- |
+| `0` | `बैशाख` | Baisakh |
+| `1` | `जेठ` | Jestha |
+| `2` | `असार` | Asar |
+| `3` | `श्रावण` | Shrawan |
+| `4` | `भाद्र` | Bhadra |
+| `5` | `आश्विन` | Aswin |
+| `6` | `कार्तिक` | Kartik |
+| `7` | `मंसिर` | Mangsir |
+| `8` | `पौष` | Poush |
+| `9` | `माघ` | Magh |
+| `10` | `फाल्गुण` | Falgun |
+| `11` | `चैत्र` | Chaitra |
+
+---
+
+## Example Usage
+
+```php
+use NepaliDateLibrary\NepaliDate;
+use NepaliDateLibrary\Helper\Constants;
+
+$date = new NepaliDate('2081-07-15');
+echo Constants::$MONTH_NP[$date->getMonth()]; // "कार्तिक"
+```
+
+---
+
+## Related
+
+* [`Constants::$MONTH_SHORT_NP`](/docs/php/constants/month-short-np): Short Devanagari month abbreviations.
+* [`Constants::$MONTH_EN`](/docs/php/constants/month-en): Romanized English month names.

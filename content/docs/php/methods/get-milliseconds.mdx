@@ -1,0 +1,55 @@
+---
+title: date->getMilliseconds()
+description: Retrieve the millisecond component from zero to nine hundred ninety nine.
+icon: Clock
+---
+
+The `getMilliseconds` method returns the millisecond fraction of the current second as an integer from 0 to 999. It provides high resolution timing details for precision logging and event timestamping.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function getMilliseconds(): int;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `int`
+* **Range**: `0` to `999`
+* **Description**: Millisecond integer between 0 and 999.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$now = new NepaliDate();
+echo "Milliseconds: " . $now->getMilliseconds();
+```
+
+---
+
+## Related
+
+* [`date->getTime()`](/docs/php/methods/get-time): Retrieve epoch timestamp in milliseconds.
+* [`date->getSeconds()`](/docs/php/methods/get-seconds): Retrieve second component.

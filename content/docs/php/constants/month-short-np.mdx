@@ -1,0 +1,74 @@
+---
+title: Constants::$MONTH_SHORT_NP
+description: Array containing abbreviated Devanagari Nepali names for all twelve Bikram Sambat calendar months.
+icon: Calendar
+---
+
+The `Constants::$MONTH_SHORT_NP` constant supplies short Devanagari abbreviations for each Bikram Sambat month. Starting with index 0 for Baisakh and ending with index 11 for Chaitra, these abbreviated labels are designed for space constrained displays such as date pickers, dashboard summaries, and mobile layouts.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\Helper\Constants;
+```
+
+---
+
+## Value
+
+```php
+Constants::$MONTH_SHORT_NP = [
+    "बै",
+    "जे",
+    "अ",
+    "श्रा",
+    "भा",
+    "आ",
+    "का",
+    "मं",
+    "पौ",
+    "मा",
+    "फा",
+    "चै",
+];
+```
+
+---
+
+## Month Abbreviation Table
+
+| Index | Short Devanagari | Full Devanagari | Romanized |
+| :---: | :--- | :--- | :--- |
+| `0` | `बै` | बैशाख | Baisakh |
+| `1` | `जे` | जेठ | Jestha |
+| `2` | `अ` | असार | Asar |
+| `3` | `श्रा` | श्रावण | Shrawan |
+| `4` | `भा` | भाद्र | Bhadra |
+| `5` | `आ` | आश्विन | Aswin |
+| `6` | `का` | कार्तिक | Kartik |
+| `7` | `मं` | मंसिर | Mangsir |
+| `8` | `पौ` | पौष | Poush |
+| `9` | `मा` | माघ | Magh |
+| `10` | `फा` | फाल्गुण | Falgun |
+| `11` | `चै` | चैत्र | Chaitra |
+
+---
+
+## Example Usage
+
+```php
+use NepaliDateLibrary\NepaliDate;
+use NepaliDateLibrary\Helper\Constants;
+
+$date = new NepaliDate('2081-07-15');
+echo Constants::$MONTH_SHORT_NP[$date->getMonth()]; // "का"
+```
+
+---
+
+## Related
+
+* [`Constants::$MONTH_NP`](/docs/php/constants/month-np): Full Devanagari month names.
+* [`Constants::$MONTH_SHORT_EN`](/docs/php/constants/month-short-en): Three letter English month abbreviations.

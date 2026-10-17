@@ -1,0 +1,58 @@
+---
+title: date->isEqual()
+description: Check whether two date instances share the exact same calendar date coordinates regardless of time.
+icon: Equal
+---
+
+The `isEqual` method checks whether the current `NepaliDate` instance shares the exact same Bikram Sambat year, month, and day coordinates as another date object, ignoring any differences in hours, minutes, seconds, or milliseconds.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function isEqual(NepaliDate $date): bool;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `$date` | `NepaliDate` | Yes | Date instance to compare coordinates with. |
+
+---
+
+## Return Value
+
+* **Type**: `bool`
+* **Description**: Returns `true` if year, month, and day are identical.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$d1 = new NepaliDate('2081-07-15');
+$d2 = new NepaliDate('2081-07-15');
+
+var_dump($d1->isEqual($d2)); // true
+```
+
+---
+
+## Related
+
+* [`date->isSame()`](/docs/php/methods/is-same): Compare with custom granularity.
+* [`date->isBefore()`](/docs/php/methods/is-before): Check chronological order.

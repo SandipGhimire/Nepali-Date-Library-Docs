@@ -1,0 +1,60 @@
+---
+title: date->diff()
+description: Calculate the chronological difference between two NepaliDate instances in specific time units.
+icon: GitCompare
+---
+
+The `diff` method calculates the elapsed time duration between the current `NepaliDate` instance and another date object. It can return the difference in days, months, years, hours, minutes, seconds, or milliseconds, making it suitable for calculating age, tenure, or interval durations.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function diff(NepaliDate $date, string $unit): int;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `$date` | `NepaliDate` | Yes | Target date instance to compare against. |
+| `$unit` | `string` | Yes | Measurement unit: `'days'`, `'months'`, `'years'`, `'hours'`, `'minutes'`, `'seconds'`. |
+
+---
+
+## Return Value
+
+* **Type**: `int`
+* **Description**: Integer difference count in the specified unit.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$d1 = new NepaliDate('2081-01-01');
+$d2 = new NepaliDate('2081-01-20');
+
+$daysDiff = $d2->diff($d1, 'days');
+echo "Difference in days: {$daysDiff}"; // 19
+```
+
+---
+
+## Related
+
+* [`date->isBefore()`](/docs/php/methods/is-before): Check chronological order.
+* [`date->isAfter()`](/docs/php/methods/is-after): Check chronological order.

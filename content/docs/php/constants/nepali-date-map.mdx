@@ -1,0 +1,66 @@
+---
+title: Constants::$NEPALI_DATE_MAP
+description: Historical calendar mapping table storing verified day counts for every Bikram Sambat month between 1976 and 2100 BS.
+icon: Database
+---
+
+The `Constants::$NEPALI_DATE_MAP` data structure contains the official calendar matrix for the Bikram Sambat system spanning years 1976 through 2100 BS. Because Bikram Sambat months have variable day counts determined by astronomical solar calculations rather than fixed rules, this mapping table provides the definitive source of truth for conversions, day calculations, and month lengths.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\Helper\Constants;
+```
+
+---
+
+## Structure
+
+```php
+class Constants
+{
+    /**
+     * @var array<int, array{year:int, days:int[], totalDays:int, daysTillNow:int}>
+     */
+    public static $NEPALI_DATE_MAP;
+}
+```
+
+---
+
+## Field Reference
+
+| Field | Type | Description |
+| :--- | :--- | :--- |
+| `year` | `int` | The Bikram Sambat year integer between 1976 and 2100 BS. |
+| `days` | `int[]` | Twelve integers specifying the exact day counts for each month from Baisakh to Chaitra. |
+| `totalDays` | `int` | Total cumulative days in that specific calendar year. |
+| `daysTillNow` | `int` | Cumulative day offset since the calendar epoch. |
+
+---
+
+## Example Usage
+
+```php
+use NepaliDateLibrary\Helper\Constants;
+
+// Retrieve month day counts for year 2081 BS
+$year2081 = null;
+foreach (Constants::$NEPALI_DATE_MAP as $entry) {
+    if ($entry['year'] === 2081) {
+        $year2081 = $entry;
+        break;
+    }
+}
+
+echo "Days in Baisakh 2081: " . $year2081['days'][0]; // 31
+```
+
+---
+
+## Related
+
+* [`date->daysInMonth()`](/docs/php/methods/days-in-month): Query total days in a given month.
+* [`NepaliDate::isValid()`](/docs/php/static/is-valid): Statically validate calendar coordinates.

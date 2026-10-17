@@ -1,0 +1,58 @@
+---
+title: date->isAfter()
+description: Check whether the current date occurs chronologically after another specified date.
+icon: Clock
+---
+
+The `isAfter` method evaluates whether the current `NepaliDate` instance occurs chronologically later than another date or timestamp. It compares exact millisecond values to determine chronological order accurately.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function isAfter(NepaliDate $date): bool;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `$date` | `NepaliDate` | Yes | Target date to compare against. |
+
+---
+
+## Return Value
+
+* **Type**: `bool`
+* **Description**: Returns `true` if current date is chronologically later than `$date`.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$d1 = new NepaliDate('2081-01-15');
+$d2 = new NepaliDate('2081-01-01');
+
+var_dump($d1->isAfter($d2)); // true
+```
+
+---
+
+## Related
+
+* [`date->isBefore()`](/docs/php/methods/is-before): Check if earlier in time.
+* [`date->isEqual()`](/docs/php/methods/is-equal): Check calendar date equality.

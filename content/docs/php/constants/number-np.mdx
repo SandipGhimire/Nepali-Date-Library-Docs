@@ -1,0 +1,65 @@
+---
+title: Constants::$NUMBER_NP
+description: Array containing Devanagari numeral glyphs for digits zero through nine used for Nepali number localization.
+icon: Hash
+---
+
+The `Constants::$NUMBER_NP` constant is an array containing the ten Devanagari numeral characters representing digits 0 through 9 in Nepali script. It provides a direct lookup table for formatting numbers, years, dates, and currency values into native Devanagari script for Nepali language interfaces.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\Helper\Constants;
+```
+
+---
+
+## Value
+
+```php
+Constants::$NUMBER_NP = ["०", "१", "२", "३", "४", "५", "६", "७", "८", "९"];
+```
+
+---
+
+## Digit Lookup Table
+
+| Index | Arabic Digit | Devanagari Numeral | Unicode Code Point |
+| :---: | :---: | :---: | :--- |
+| `0` | `0` | `०` | `U+0966` |
+| `1` | `1` | `१` | `U+0967` |
+| `2` | `2` | `२` | `U+0968` |
+| `3` | `3` | `३` | `U+0969` |
+| `4` | `4` | `४` | `U+096A` |
+| `5` | `5` | `५` | `U+096B` |
+| `6` | `6` | `६` | `U+096C` |
+| `7` | `7` | `७` | `U+096D` |
+| `8` | `8` | `८` | `U+096E` |
+| `9` | `9` | `९` | `U+096F` |
+
+---
+
+## Examples
+
+```php
+use NepaliDateLibrary\Helper\Constants;
+
+function toDevanagari(int $number): string
+{
+    $digits = str_split((string) $number);
+    return implode('', array_map(function ($d) {
+        return Constants::$NUMBER_NP[(int) $d];
+    }, $digits));
+}
+
+echo toDevanagari(2081); // "२०८१"
+```
+
+---
+
+## Related
+
+* [`date->format()`](/docs/php/methods/format): Format dates with Devanagari token support.
+* [`Constants::$MONTH_NP`](/docs/php/constants/month-np): Devanagari month names.

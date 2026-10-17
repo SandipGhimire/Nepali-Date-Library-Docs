@@ -1,0 +1,60 @@
+---
+title: date->clone()
+description: Create an independent deep clone of an existing NepaliDate instance.
+icon: Copy
+---
+
+The `clone` method creates and returns an independent duplicate of the current `NepaliDate` instance. Because several library arithmetic and mutation methods alter instances in place, creating a clone allows you to perform calculations without modifying the original date object.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function clone(): self;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* **Description**: A new independent `NepaliDate` instance with identical coordinates and timestamp.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$original = new NepaliDate('2081-07-15');
+$duplicate = $original->clone();
+
+// Mutating duplicate does not affect original
+$duplicate->addDays(10);
+
+echo $original->format('YYYY-MM-DD') . PHP_EOL;  // "2081-07-15"
+echo $duplicate->format('YYYY-MM-DD') . PHP_EOL; // "2081-07-25"
+```
+
+---
+
+## Related
+
+* [`NepaliDate Constructor`](/docs/php/class/constructor): Copy constructor support.
+* [`date->addDays()`](/docs/php/methods/add-days): In-place day arithmetic.

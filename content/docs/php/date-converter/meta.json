@@ -1,0 +1,9 @@
+{
+  "title": "Date Converter",
+  "icon": "ArrowLeftRight",
+  "pages": [
+    "index",
+    "ad-to-bs",
+    "bs-to-ad"
+  ]
+}

@@ -1,0 +1,59 @@
+---
+title: Installation & Setup
+description: Installation and setup instructions for nepali date library in PHP applications using Composer.
+icon: Download
+---
+
+The nepali date library is distributed as a standard Composer package on Packagist with zero external dependencies. It works seamlessly across modern PHP versions and integrates directly with Laravel, Symfony, WordPress, and standalone PHP projects.
+
+---
+
+## Package Installation
+
+<Tabs items={["composer"]}>
+  <Tab value="composer">
+```bash
+composer require sghimire/nepali-date-library
+```
+  </Tab>
+</Tabs>
+
+---
+
+## Composer Configuration
+
+Add the package dependency to your `composer.json` file manually if preferred:
+
+```json
+{
+  "require": {
+    "sghimire/nepali-date-library": "^1.0"
+  }
+}
+```
+
+Then run `composer update` or `composer install` to download the package.
+
+---
+
+## Autoloading
+
+Include the Composer generated autoload script at the entry point of your PHP script:
+
+```php
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate();
+echo $date->format('YYYY-MM-DD');
+```
+
+---
+
+## Next Steps
+
+* [Quick Start Guide](/docs/php/quick-start): Learn core workflows and common patterns.
+* [NepaliDate Class Reference](/docs/php/class/constructor): Explore constructor signatures and instance creation.

@@ -1,0 +1,61 @@
+---
+title: NepaliDate::getFiscalYearQuarters()
+description: Static utility returning all four fiscal trimesters with their constituent months and date ranges for a given year.
+icon: LayoutGrid
+---
+
+The static `getFiscalYearQuarters` method returns a complete structural breakdown of all four fiscal trimesters for a specified Bikram Sambat year. Each quarter entry includes its trimester index, English and Nepali month names, and corresponding calendar boundary information.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public static function getFiscalYearQuarters(?int $fiscalYear = null): array;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `$fiscalYear` | `int`, `null` | No | Four digit starting Bikram Sambat year. Defaults to current fiscal year. |
+
+---
+
+## Return Value
+
+* **Type**: `array<string, array{start: NepaliDate, end: NepaliDate}>`
+* **Structure**: An associative array with keys `'Q1'`, `'Q2'`, `'Q3'`, and `'Q4'`, each containing `'start'` and `'end'` `NepaliDate` objects.
+
+---
+
+## Examples
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$quarters = NepaliDate::getFiscalYearQuarters(2081);
+
+foreach ($quarters as $qName => $boundaries) {
+    $startStr = $boundaries['start']->format('YYYY-MM-DD');
+    $endStr = $boundaries['end']->format('YYYY-MM-DD');
+    echo "{$qName}: {$startStr} to {$endStr}" . PHP_EOL;
+}
+```
+
+---
+
+## Related
+
+* [`NepaliDate::getFiscalYearQuarter()`](/docs/php/fiscal-year/get-fiscal-year-quarter): Query a single trimester boundary.
+* [`date->getCurrentFiscalYearQuarterDates()`](/docs/php/fiscal-year/get-current-fiscal-year-quarter-dates): Active quarter boundaries for an instance.

@@ -1,0 +1,55 @@
+---
+title: date->getYear()
+description: Retrieve the four digit Bikram Sambat year number from a NepaliDate instance.
+icon: Calendar
+---
+
+The `getYear` method returns the full four digit Bikram Sambat year as an integer for the current `NepaliDate` instance. It returns the complete calendar year such as 2081 within the supported range of 1976 through 2100 BS.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function getYear(): int;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `int`
+* **Range**: `1976` to `2100`
+* **Description**: Four digit Bikram Sambat year integer.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate('2081-07-15');
+echo $date->getYear(); // 2081
+```
+
+---
+
+## Related
+
+* [`date->setYear()`](/docs/php/methods/set-year): Mutate the year component.
+* [`date->getMonth()`](/docs/php/methods/get-month): Retrieve the month component.

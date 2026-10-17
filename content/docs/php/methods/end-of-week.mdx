@@ -1,0 +1,57 @@
+---
+title: date->endOfWeek()
+description: Return a new NepaliDate instance set to the final day of the current week on Saturday.
+icon: Calendar
+---
+
+The `endOfWeek` method produces a new `NepaliDate` instance representing the last day of the week containing the current date. In standard Nepali calendar practice, Saturday is regarded as the final day of the weekly cycle.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function endOfWeek(int $startOfWeek = 0): self;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Default | Description |
+| :--- | :--- | :---: | :---: | :--- |
+| `$startOfWeek` | `int` | No | `0` | Weekday index treated as week start. |
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* **Description**: New date instance set to Saturday (index 6).
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate('2081-07-15');
+$weekEnd = $date->endOfWeek();
+echo $weekEnd->getDay(); // 6 (Saturday)
+```
+
+---
+
+## Related
+
+* [`date->startOfWeek()`](/docs/php/methods/start-of-week): First day of the week.
+* [`date->endOfMonth()`](/docs/php/methods/end-of-month): Final day of the month.

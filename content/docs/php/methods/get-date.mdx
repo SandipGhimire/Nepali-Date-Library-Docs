@@ -1,0 +1,55 @@
+---
+title: date->getDate()
+description: Retrieve the numeric day of the month from a NepaliDate instance.
+icon: Calendar
+---
+
+The `getDate` method returns the day of the month as an integer from 1 to 32 for the current `NepaliDate` instance. Unlike Gregorian months which have at most 31 days, Bikram Sambat calendar months can extend up to 32 days depending on the year and month.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function getDate(): int;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `int`
+* **Range**: `1` to `32`
+* **Description**: Day of the month integer.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate('2081-07-15');
+echo $date->getDate(); // 15
+```
+
+---
+
+## Related
+
+* [`date->setDate()`](/docs/php/methods/set-date): Mutate the day of the month.
+* [`date->getDay()`](/docs/php/methods/get-day): Retrieve the day of the week.

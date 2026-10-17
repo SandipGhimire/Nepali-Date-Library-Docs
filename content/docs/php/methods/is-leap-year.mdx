@@ -1,0 +1,54 @@
+---
+title: date->isLeapYear()
+description: Determine whether the current Bikram Sambat calendar year has three hundred sixty six or more days.
+icon: Calendar
+---
+
+The `isLeapYear` method checks whether the active Bikram Sambat year contains 366 or more days based on official solar calendar tables. Because Bikram Sambat year lengths depend on astronomical calculations rather than fixed leap year cycles, this method checks the actual cumulative day count for the year.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function isLeapYear(): bool;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `bool`
+* **Description**: Returns `true` if the year has 366 or more days.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate('2081-01-01');
+var_dump($date->isLeapYear());
+```
+
+---
+
+## Related
+
+* [`date->daysInMonth()`](/docs/php/methods/days-in-month): Total days in a month.
+* [`Constants::$NEPALI_DATE_MAP`](/docs/php/constants/nepali-date-map): Calendar mapping table.

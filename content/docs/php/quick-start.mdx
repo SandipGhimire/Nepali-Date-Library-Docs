@@ -1,0 +1,138 @@
+---
+title: Quick Start
+description: Practical guide and essential code examples to start working with Bikram Sambat dates in PHP.
+icon: Zap
+---
+
+This quick start guide demonstrates common practical workflows for creating dates, performing calendar arithmetic, formatting output strings, and converting between Gregorian and Bikram Sambat calendars in PHP. Use these patterns for building web portals, financial reports, and calendar tools.
+
+---
+
+## 1. Creating Dates
+
+Initialize dates representing the current moment, specific Bikram Sambat coordinates, or existing Gregorian dates:
+
+```php
+<?php
+
+require 'vendor/autoload.php';
+
+use NepaliDateLibrary\NepaliDate;
+use DateTimeImmutable;
+use DateTimeZone;
+
+// Current date and time in Nepal
+$now = new NepaliDate();
+echo $now->format('YYYY-MM-DD') . PHP_EOL;
+
+// Specific Bikram Sambat date (Year, Month 0-11, Day 1-32)
+// Month index 6 corresponds to Kartik
+$constitutionDay = new NepaliDate(2072, 5, 3);
+echo $constitutionDay->format('YYYY-MM-DD') . PHP_EOL;
+
+// Parse from standard string formats (YYYY-MM-DD, YYYY/MM/DD, YYYY.MM.DD)
+$parsedDate = new NepaliDate('2081-07-15');
+echo $parsedDate->format('MMMM DD, YYYY') . PHP_EOL;
+
+// From native PHP DateTimeInterface object
+$gregorian = DateTimeImmutable::createFromFormat('!Y-m-d', '2024-10-31', new DateTimeZone('UTC'));
+$fromGregorian = new NepaliDate($gregorian);
+echo $fromGregorian->format('YYYY-MM-DD') . PHP_EOL;
+```
+
+---
+
+## 2. Converting Between Calendars
+
+Convert strings directly without instantiating class objects:
+
+```php
+<?php
+
+use function NepaliDateLibrary\ADtoBS;
+use function NepaliDateLibrary\BStoAD;
+
+// Convert Gregorian (AD) to Bikram Sambat (BS)
+$bsString = ADtoBS('2024-11-15');
+echo $bsString . PHP_EOL; // "2081-07-30"
+
+// Convert Bikram Sambat (BS) to Gregorian (AD)
+$adString = BStoAD('2081-07-30');
+echo $adString . PHP_EOL; // "2024-11-15"
+```
+
+---
+
+## 3. Date Arithmetic
+
+Add or subtract days, months, and years with automatic rollover:
+
+```php
+<?php
+
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate('2081-01-25');
+
+// Add 15 days (automatically transitions to Jestha)
+$date->addDays(15);
+echo $date->format('YYYY-MM-DD') . PHP_EOL;
+
+// Add 3 months
+$date->addMonths(3);
+echo $date->format('YYYY-MM-DD') . PHP_EOL;
+
+// Calculate difference in days between two dates
+$d1 = new NepaliDate('2081-01-01');
+$d2 = new NepaliDate('2081-01-15');
+$diffDays = $d2->diff($d1, 'days');
+echo "Days difference: {$diffDays}" . PHP_EOL;
+```
+
+---
+
+## 4. Fiscal Year and Trimesters
+
+Query official Nepalese fiscal calendar information:
+
+```php
+<?php
+
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate('2081-06-15');
+
+// Active fiscal quarter (trimester 1 to 4)
+$quarter = $date->getCurrentFiscalYearQuarter();
+echo "Fiscal Quarter: {$quarter}" . PHP_EOL;
+
+// Current fiscal year starting integer
+$fy = NepaliDate::getCurrentFiscalYear();
+echo "Current Fiscal Year: {$fy}" . PHP_EOL;
+
+// Start and end dates of the active fiscal quarter
+$dates = $date->getCurrentFiscalYearQuarterDates();
+echo "Quarter starts: " . $dates['start']->format('YYYY-MM-DD') . PHP_EOL;
+echo "Quarter ends:   " . $dates['end']->format('YYYY-MM-DD') . PHP_EOL;
+```
+
+---
+
+## 5. Devanagari Formatting
+
+Format dates with Nepali numerals and month names:
+
+```php
+<?php
+
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate('2081-07-15');
+
+// English format tokens
+echo $date->format('dddd, MMMM DD, YYYY') . PHP_EOL;
+// "Friday, Kartik 15, 2081"
+
+// Devanagari format tokens
+echo $date->format('NDDD, NMMM NDD, NYYY') . PHP_EOL;
+```

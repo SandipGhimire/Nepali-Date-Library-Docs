@@ -1,0 +1,55 @@
+---
+title: date->getHours()
+description: Retrieve the hour component from zero to twenty three for the current date instance.
+icon: Clock
+---
+
+The `getHours` method returns the hour of the day as an integer between 0 and 23 for the current `NepaliDate` instance. It reflects local time coordinates stored within the instance timestamp.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function getHours(): int;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `int`
+* **Range**: `0` to `23`
+* **Description**: Hour integer representing time of day.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$now = new NepaliDate();
+echo "Current hour: " . $now->getHours();
+```
+
+---
+
+## Related
+
+* [`date->getMinutes()`](/docs/php/methods/get-minutes): Retrieve the minute component.
+* [`date->getSeconds()`](/docs/php/methods/get-seconds): Retrieve the second component.

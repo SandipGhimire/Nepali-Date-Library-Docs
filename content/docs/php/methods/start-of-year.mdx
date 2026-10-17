@@ -1,0 +1,55 @@
+---
+title: date->startOfYear()
+description: Return a new NepaliDate instance set to the first day of the Bikram Sambat year on 1 Baisakh.
+icon: Calendar
+---
+
+The `startOfYear` method returns a new `NepaliDate` instance set to 1 Baisakh, the first day of the Bikram Sambat calendar year. This is useful for year to date financial tracking and annual summary reports.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function startOfYear(): self;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* **Description**: New date instance positioned on 1 Baisakh of the current year.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate('2081-07-15');
+$yearStart = $date->startOfYear();
+echo $yearStart->format('YYYY-MM-DD'); // "2081-01-01"
+```
+
+---
+
+## Related
+
+* [`date->endOfYear()`](/docs/php/methods/end-of-year): Final day of the year.
+* [`date->startOfMonth()`](/docs/php/methods/start-of-month): First day of the month.

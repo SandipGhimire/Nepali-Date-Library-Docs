@@ -48,17 +48,16 @@ export function PypiLogo({ className = "size-4" }: { className?: string }) {
 
 export function PackagistLogo({ className = "size-4" }: { className?: string }) {
   return (
-    <svg
-      role="img"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={cn("shrink-0 text-[#F28D1A]", className)}
-      aria-label="Packagist"
-    >
-      <path d="M12 .002a2.38 2.38 0 0 0-.616.082L2.738 2.68a2.39 2.39 0 0 0-1.734 2.3v13.987a2.39 2.39 0 0 0 1.734 2.3l8.646 2.597c.4.12.828.12 1.232 0l8.646-2.597a2.39 2.39 0 0 0 1.734-2.3V4.98a2.39 2.39 0 0 0-1.734-2.3L12.616.084A2.38 2.38 0 0 0 12 .002zm-.004 2.213l7.986 2.4-3.992 1.2-7.987-2.4 3.993-1.2zm-5.32 2.6l7.986 2.4-3.993 1.2-7.986-2.4 3.993-1.2zm10.64 2.198l2.663.8v9.986a.39.39 0 0 1-.284.376l-7.05 2.118v-9.986a.39.39 0 0 1 .284-.376l4.387-1.318zm-7.988 2.4l3.993 1.2v9.987a.39.39 0 0 1-.284.375L3.987 18.88a.39.39 0 0 1-.284-.376V8.518a.39.39 0 0 1 .284-.376l3.993-1.2v2.4a.39.39 0 0 0 .348.388l1.002.102a.39.39 0 0 0 .428-.388v-2.03z" />
-    </svg>
+    <img
+      src="/images/packagist-logo.png"
+      alt="Packagist"
+      className={cn("inline-block shrink-0 object-contain aspect-square select-none", className)}
+      loading="eager"
+      decoding="async"
+    />
   );
 }
+
 
 export function DistributorLogo({
   distributor,

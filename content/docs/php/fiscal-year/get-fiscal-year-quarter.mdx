@@ -1,0 +1,60 @@
+---
+title: NepaliDate::getFiscalYearQuarter()
+description: Static method to determine the fiscal trimester number for any specified month index.
+icon: SearchCheck
+---
+
+The static `getFiscalYearQuarter` method determines the fiscal trimester number corresponding to a given Bikram Sambat month index from 0 to 11. It allows quick lookups without needing to instantiate a full NepaliDate object, making it useful in financial aggregation pipelines and reporting utilities.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public static function getFiscalYearQuarter(int $quarter, ?int $fiscalYear = null): array;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `$quarter` | `int` | Yes | Trimester index from `1` to `4`. |
+| `$fiscalYear` | `int`, `null` | No | Starting Bikram Sambat year of the fiscal period. Defaults to current fiscal year. |
+
+---
+
+## Return Value
+
+* **Type**: `array{start: NepaliDate, end: NepaliDate}`
+* **Structure**: Array with `'start'` and `'end'` keys holding boundary `NepaliDate` instances.
+
+---
+
+## Examples
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+// Get boundaries for Q2 of fiscal year 2081/82 BS
+$q2Dates = NepaliDate::getFiscalYearQuarter(2, 2081);
+
+echo "Start: " . $q2Dates['start']->format('YYYY-MM-DD') . PHP_EOL; // 1 Kartik
+echo "End:   " . $q2Dates['end']->format('YYYY-MM-DD') . PHP_EOL;   // Last day of Poush
+```
+
+---
+
+## Related
+
+* [`NepaliDate::getFiscalYearQuarters()`](/docs/php/fiscal-year/get-fiscal-year-quarters): Retrieve all four quarters for a fiscal year.
+* [`date->getCurrentFiscalYearQuarterDates()`](/docs/php/fiscal-year/get-current-fiscal-year-quarter-dates): Instance method for current date.

@@ -1,0 +1,57 @@
+---
+title: date->toString()
+description: Return the default string representation of a NepaliDate instance in standard year, month, and day format.
+icon: FileText
+---
+
+The `toString` method converts the `NepaliDate` instance into a standard readable date string formatted as year, month, and day separated by forward slashes. It provides a simple default serialization format suitable for logs and quick display.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function toString(): string;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `string`
+* **Format**: `YYYY/M/D` (e.g. `"2081/7/15"`).
+
+---
+
+## Examples
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate('2081-07-15');
+echo $date->toString() . PHP_EOL; // "2081/7/15"
+
+// String casting triggers __toString()
+echo (string) $date; // "2081/7/15"
+```
+
+---
+
+## Related
+
+* [`date->format()`](/docs/php/methods/format): Custom token formatting.
+* [`date->clone()`](/docs/php/methods/clone): Duplicate an instance.

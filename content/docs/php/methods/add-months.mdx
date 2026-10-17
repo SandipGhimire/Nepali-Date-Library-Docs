@@ -1,0 +1,57 @@
+---
+title: date->addMonths()
+description: Add or subtract months to a NepaliDate instance while adjusting for variable month lengths.
+icon: Plus
+---
+
+The `addMonths` method advances or rewinds the current `NepaliDate` instance by a specified number of months. If the current day of the month exceeds the total days available in the destination month, the method automatically clamps the day to the final valid day of that month to ensure calendar consistency.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function addMonths(int $months): self;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `$months` | `int` | Yes | Positive or negative integer of months to add. |
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* **Description**: Returns `$this` after mutation.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate('2081-01-15');
+$date->addMonths(6);
+echo $date->format('YYYY-MM-DD'); // "2081-07-15"
+```
+
+---
+
+## Related
+
+* [`date->addYears()`](/docs/php/methods/add-years): Add or subtract years.
+* [`date->addDays()`](/docs/php/methods/add-days): Add or subtract days.

@@ -1,0 +1,58 @@
+---
+title: NepaliDate::getCurrentFiscalYear()
+description: Method to retrieve the formatted fiscal year string for a given NepaliDate instance.
+icon: Hash
+---
+
+The `getCurrentFiscalYear` method determines which official Nepalese fiscal year contains the current date instance. It returns a standardized fiscal year string such as 2081/82 based on whether the date falls before or after the 1 Shrawan fiscal transition boundary.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public static function getCurrentFiscalYear(): int;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `int`
+* **Description**: The starting four digit Bikram Sambat calendar year of the current fiscal year.
+* **Example**: Returns `2081` for fiscal year 2081/82 BS.
+
+---
+
+## Examples
+
+### Checking Active Fiscal Year
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$fyStart = NepaliDate::getCurrentFiscalYear();
+$fyLabel = "{$fyStart}/" . substr((string) ($fyStart + 1), -2);
+echo "Fiscal Year: {$fyLabel} BS"; // e.g. "2081/82 BS"
+```
+
+---
+
+## Related
+
+* [`date->getCurrentFiscalYearQuarter()`](/docs/php/fiscal-year/get-current-fiscal-year-quarter): Get the active fiscal trimester number.
+* [`date->getCurrentFiscalYearQuarterDates()`](/docs/php/fiscal-year/get-current-fiscal-year-quarter-dates): Get boundary dates of the active fiscal quarter.

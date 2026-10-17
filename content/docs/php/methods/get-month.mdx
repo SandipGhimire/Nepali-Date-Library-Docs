@@ -1,0 +1,55 @@
+---
+title: date->getMonth()
+description: Retrieve the zero based Bikram Sambat month index from zero for Baisakh to eleven for Chaitra.
+icon: Calendar
+---
+
+The `getMonth` method returns the month of the year as an integer between 0 and 11 for the current `NepaliDate` instance. The library adheres to the zero based indexing standard where 0 represents Baisakh, 1 represents Jestha, and 11 represents Chaitra.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function getMonth(): int;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `int`
+* **Range**: `0` to `11`
+* **Description**: Zero based month index from Baisakh (`0`) to Chaitra (`11`).
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate('2081-07-15'); // Kartik
+echo $date->getMonth(); // 6 (Kartik is index 6)
+```
+
+---
+
+## Related
+
+* [`date->setMonth()`](/docs/php/methods/set-month): Mutate the month component.
+* [`NepaliDate::getMonthName()`](/docs/php/static/get-month-name): Look up the month name.

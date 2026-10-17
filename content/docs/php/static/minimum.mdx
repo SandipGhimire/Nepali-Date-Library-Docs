@@ -1,0 +1,58 @@
+---
+title: NepaliDate::minimum()
+description: Static method returning the minimum supported date boundary for the NepaliDate calendar engine.
+icon: ArrowDownToLine
+---
+
+The `minimum` static method returns a native PHP DateTimeImmutable object representing the earliest Gregorian date supported by the library calendar engine. This corresponds to the first day of Baisakh in year 1976 BS and provides a reliable lower boundary for date pickers and form input validation.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public static function minimum(): DateTimeImmutable;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `DateTimeImmutable`
+* **Value**: Gregorian UTC datetime corresponding to `1976-01-01 BS` (mid April 1919 AD).
+
+---
+
+## Examples
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$minDate = NepaliDate::minimum();
+echo "Earliest supported AD date: " . $minDate->format('Y-m-d') . PHP_EOL;
+
+// Construct NepaliDate from the minimum boundary
+$ndMin = new NepaliDate($minDate);
+echo "Earliest BS date: " . $ndMin->format('YYYY-MM-DD'); // "1976-01-01"
+```
+
+---
+
+## Related
+
+* [`NepaliDate::maximum()`](/docs/php/static/maximum): Latest supported date boundary.
+* [`NepaliDate::isValid()`](/docs/php/static/is-valid): Validate date coordinates.

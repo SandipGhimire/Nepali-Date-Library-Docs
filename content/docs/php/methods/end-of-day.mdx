@@ -1,0 +1,56 @@
+---
+title: date->endOfDay()
+description: Return a new NepaliDate instance set to the final millisecond of the current day.
+icon: Sunset
+---
+
+The `endOfDay` method returns a new `NepaliDate` instance with time coordinates set to the final moment of the day at 23 hours, 59 minutes, 59 seconds, and 999 milliseconds. This is commonly used when setting upper boundaries for database queries, event schedules, and daily audit filters.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function endOfDay(): self;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* **Description**: New date instance set to 23:59:59.999 UTC.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate('2081-07-15');
+$dayEnd = $date->endOfDay();
+echo $dayEnd->getHours() . PHP_EOL;   // 23
+echo $dayEnd->getMinutes() . PHP_EOL; // 59
+```
+
+---
+
+## Related
+
+* [`date->startOfDay()`](/docs/php/methods/start-of-day): Set time to midnight.
+* [`date->endOfMonth()`](/docs/php/methods/end-of-month): Final day of the month.

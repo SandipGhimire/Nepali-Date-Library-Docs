@@ -1,0 +1,64 @@
+---
+title: date->getCurrentFiscalYearQuarterDates()
+description: Method to retrieve exact start and end boundary dates for the active fiscal quarter.
+icon: CalendarRange
+---
+
+The `getCurrentFiscalYearQuarterDates` method computes the exact starting date and ending date for the fiscal quarter containing the current date instance. It returns an object containing boundary dates as new NepaliDate objects, which is helpful for quarterly financial reporting, audit periods, and tax filing windows.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function getCurrentFiscalYearQuarterDates(): array;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `array{start: NepaliDate, end: NepaliDate}`
+* **Structure**:
+  * `'start'`: `NepaliDate` object positioned on the first day of the fiscal quarter at midnight.
+  * `'end'`: `NepaliDate` object positioned on the final day of the fiscal quarter.
+
+---
+
+## Examples
+
+### Generating Quarterly Accounting Windows
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate('2081-05-15'); // Bhadra (Q1)
+$quarterInfo = $date->getCurrentFiscalYearQuarterDates();
+
+$startDate = $quarterInfo['start'];
+$endDate = $quarterInfo['end'];
+
+echo "Q1 starts: " . $startDate->format('YYYY-MM-DD') . PHP_EOL; // "2081-04-01" (1 Shrawan)
+echo "Q1 ends:   " . $endDate->format('YYYY-MM-DD') . PHP_EOL;   // "2081-06-30" (End of Aswin)
+```
+
+---
+
+## Related
+
+* [`NepaliDate::getFiscalYearQuarter()`](/docs/php/fiscal-year/get-fiscal-year-quarter): Look up boundaries for any quarter.
+* [`date->getCurrentFiscalYearQuarter()`](/docs/php/fiscal-year/get-current-fiscal-year-quarter): Retrieve active quarter index.

@@ -1,0 +1,57 @@
+---
+title: date->setDate()
+description: Set the day of the month on a NepaliDate instance and recalculate its timestamp.
+icon: Edit3
+---
+
+The `setDate` method updates the day of the month for the current `NepaliDate` instance and recalculates its underlying Gregorian timestamp. It validates the new day against the maximum number of days available in the active month.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function setDate(int $day): void;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `$day` | `int` | Yes | Target day of the month between `1` and `32`. |
+
+---
+
+## Return Value
+
+* **Type**: `void`
+* **Note**: Mutates the current instance in place.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate('2081-07-01');
+$date->setDate(15);
+echo $date->format('YYYY-MM-DD'); // "2081-07-15"
+```
+
+---
+
+## Related
+
+* [`date->getDate()`](/docs/php/methods/get-date): Retrieve day of the month.
+* [`date->addDays()`](/docs/php/methods/add-days): Add or subtract days.

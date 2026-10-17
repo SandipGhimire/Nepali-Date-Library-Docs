@@ -1,0 +1,57 @@
+---
+title: date->getEnglishDate()
+description: Retrieve the equivalent Gregorian date as a native JavaScript Date object.
+icon: Calendar
+---
+
+The `getEnglishDate` method returns the native PHP DateTimeImmutable object corresponding to the current `NepaliDate` instance. This allows seamless integration with third party libraries, databases, and standard PHP APIs that expect a native Gregorian datetime object.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function getEnglishDate(): DateTimeImmutable;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `DateTimeImmutable`
+* **Description**: Native PHP DateTimeImmutable object in UTC matching the current Bikram Sambat date.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$nd = new NepaliDate('2081-07-15');
+$adDate = $nd->getEnglishDate();
+
+echo get_class($adDate) . PHP_EOL; // "DateTimeImmutable"
+echo $adDate->format('Y-m-d');      // "2024-10-31"
+```
+
+---
+
+## Related
+
+* [`BStoAD()`](/docs/php/date-converter/bs-to-ad): String based date conversion.
+* [`NepaliDate Constructor`](/docs/php/class/constructor): Construct from DateTimeInterface.

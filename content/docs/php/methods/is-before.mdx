@@ -1,0 +1,59 @@
+---
+title: date->isBefore()
+description: Check whether the current date occurs chronologically before another specified date.
+icon: Clock
+---
+
+The `isBefore` method evaluates whether the current `NepaliDate` instance occurs earlier in time than another provided date. It takes into account both date and time components down to millisecond accuracy.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function isBefore(NepaliDate $date): bool;
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `$date` | `NepaliDate` | Yes | Target date to compare against. |
+
+---
+
+## Return Value
+
+* **Type**: `bool`
+* **Description**: Returns `true` if current date is chronologically earlier than `$date`.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$d1 = new NepaliDate('2081-01-01');
+$d2 = new NepaliDate('2081-01-15');
+
+var_dump($d1->isBefore($d2)); // true
+var_dump($d2->isBefore($d1)); // false
+```
+
+---
+
+## Related
+
+* [`date->isAfter()`](/docs/php/methods/is-after): Check if later in time.
+* [`date->isEqual()`](/docs/php/methods/is-equal): Check calendar date equality.

@@ -1,0 +1,55 @@
+---
+title: date->endOfYear()
+description: Return a new NepaliDate instance set to the final day of the Bikram Sambat year on the last day of Chaitra.
+icon: Calendar
+---
+
+The `endOfYear` method returns a new `NepaliDate` instance set to the closing day of the current Bikram Sambat calendar year. This corresponds to the final day of Chaitra, which is commonly needed for annual reconciliations and fiscal year preparations.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function endOfYear(): self;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* **Description**: New date instance on the final day of Chaitra.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate('2081-07-15');
+$yearEnd = $date->endOfYear();
+echo $yearEnd->format('YYYY-MM-DD');
+```
+
+---
+
+## Related
+
+* [`date->startOfYear()`](/docs/php/methods/start-of-year): First day of the year.
+* [`date->isLeapYear()`](/docs/php/methods/is-leap-year): Total year day check.

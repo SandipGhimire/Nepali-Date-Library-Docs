@@ -1,0 +1,55 @@
+---
+title: date->getWeeksInMonth()
+description: Calculate the number of calendar week rows required to render the current month in a grid.
+icon: Grid
+---
+
+The `getWeeksInMonth` method computes the total number of seven day week rows required to display the entire month in a standard calendar grid. Depending on which weekday the month starts on and how many days it contains, the returned count is usually five or six rows.
+
+---
+
+## Import
+
+```php
+use NepaliDateLibrary\NepaliDate;
+```
+
+---
+
+## Signature
+
+```php
+public function getWeeksInMonth(): int;
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `int`
+* **Range**: `4`, `5`, or `6`
+* **Description**: Number of week rows needed for a calendar view.
+
+---
+
+## Example
+
+```php
+use NepaliDateLibrary\NepaliDate;
+
+$date = new NepaliDate('2081-01-01');
+echo "Weeks in month: " . $date->getWeeksInMonth();
+```
+
+---
+
+## Related
+
+* [`NepaliDate::getCalendarDays()`](/docs/php/static/get-calendar-days): Matrix grid builder.
+* [`date->daysInMonth()`](/docs/php/methods/days-in-month): Total days in month.
