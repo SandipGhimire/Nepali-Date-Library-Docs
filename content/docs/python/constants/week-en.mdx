@@ -1,0 +1,64 @@
+---
+title: week_en
+description: Array containing full English names for all seven days of the week starting from Sunday.
+icon: Calendar
+---
+
+The `week_en` constant is an array containing the full English weekday names ordered from Sunday at index 0 through Saturday at index 6. This ordering matches the standard JavaScript and Python day index convention returned by date methods, allowing seamless weekday lookups in English interfaces.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import week_en
+```
+
+---
+
+## Value
+
+```python
+week_en = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+]
+```
+
+---
+
+## Weekday Index Table
+
+| Index | English Name | Nepali Equivalent |
+| :---: | :--- | :--- |
+| `0` | `"Sunday"` | Aaitabar |
+| `1` | `"Monday"` | Sombar |
+| `2` | `"Tuesday"` | Mangalbar |
+| `3` | `"Wednesday"` | Budhabar |
+| `4` | `"Thursday"` | Bihibar |
+| `5` | `"Friday"` | Sukrabar |
+| `6` | `"Saturday"` | Shanibar |
+
+---
+
+## Example Usage
+
+```python
+from nepali_date_library import NepaliDate, week_en
+
+date = NepaliDate("2081-07-15")
+day_index = date.get_day()
+print(f"Weekday: {week_en[day_index]}") # "Friday"
+```
+
+---
+
+## Related
+
+* [`week_short_en`](/docs/python/constants/week-short-en): Abbreviated three letter English weekday names.
+* [`week_np`](/docs/python/constants/week-np): Full Devanagari Nepali weekday names.

@@ -1,0 +1,57 @@
+---
+title: date.parse()
+description: Parse a formatted Bikram Sambat date string and update the current date instance in place.
+icon: FileText
+---
+
+The `parse` method parses a Bikram Sambat date string and updates the coordinates of the current `NepaliDate` instance in place. It supports various delimiter styles including slashes, dots, and hyphens, recalculating the underlying timestamp upon successful parsing.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def parse(self, date_string: str) -> None:
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `date_string` | `str` | Yes | Formatted Bikram Sambat date string (e.g. `"2081-07-15"`). |
+
+---
+
+## Return Value
+
+* **Type**: `None`
+* **Note**: Mutates the current instance in place.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+date = NepaliDate()
+date.parse("2081-07-15")
+print(date.format("YYYY-MM-DD")) # "2081-07-15"
+```
+
+---
+
+## Related
+
+* [`NepaliDate Constructor`](/docs/python/class/constructor): Create instances from strings.
+* [`date.format()`](/docs/python/methods/format): Format dates to strings.

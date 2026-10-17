@@ -1,0 +1,57 @@
+---
+title: date.start_of_week()
+description: Return a new NepaliDate instance set to the first day of the week on Sunday.
+icon: Calendar
+---
+
+The `start_of_week` method returns a new `NepaliDate` instance set to Sunday, the first day of the weekly cycle containing the current date. It serves as an anchor date for week based scheduling and calendar grids.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def start_of_week(self, start_of_week: int = 0) -> NepaliDate:
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Default | Description |
+| :--- | :--- | :---: | :---: | :--- |
+| `start_of_week` | `int` | No | `0` | Weekday index to treat as week start (0 for Sunday). |
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* **Description**: New date instance set to the first day of the week.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+date = NepaliDate("2081-07-15")
+week_start = date.start_of_week()
+print(week_start.get_day()) # 0 (Sunday)
+```
+
+---
+
+## Related
+
+* [`date.end_of_week()`](/docs/python/methods/end-of-week): Saturday boundary of the week.
+* [`date.start_of_month()`](/docs/python/methods/start-of-month): First day of the month.

@@ -1,0 +1,13 @@
+{
+  "title": "Fiscal Year & Quarters",
+  "icon": "Landmark",
+  "pages": [
+    "index",
+    "current-fiscal-year",
+    "fiscal-quarter",
+    "fiscal-quarter-dates",
+    "get-fiscal-quarter",
+    "get-fiscal-quarters",
+    "calendar-quarters"
+  ]
+}

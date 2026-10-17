@@ -1,0 +1,73 @@
+---
+title: month_short_np
+description: Array containing abbreviated Devanagari Nepali names for all twelve Bikram Sambat calendar months.
+icon: Calendar
+---
+
+The `month_short_np` constant supplies short Devanagari abbreviations for each Bikram Sambat month. Starting with index 0 for Baisakh and ending with index 11 for Chaitra, these abbreviated labels are designed for space constrained displays such as date pickers, dashboard summaries, and mobile layouts.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import month_short_np
+```
+
+---
+
+## Value
+
+```python
+month_short_np = [
+    "बै",
+    "जे",
+    "अ",
+    "श्रा",
+    "भा",
+    "आ",
+    "का",
+    "मं",
+    "पौ",
+    "मा",
+    "फा",
+    "चै",
+]
+```
+
+---
+
+## Month Abbreviation Table
+
+| Index | Short Devanagari | Full Devanagari | Romanized |
+| :---: | :--- | :--- | :--- |
+| `0` | `बै` | बैशाख | Baisakh |
+| `1` | `जे` | जेठ | Jestha |
+| `2` | `अ` | असार | Asar |
+| `3` | `श्रा` | श्रावण | Shrawan |
+| `4` | `भा` | भाद्र | Bhadra |
+| `5` | `आ` | आश्विन | Aswin |
+| `6` | `का` | कार्तिक | Kartik |
+| `7` | `मं` | मंसिर | Mangsir |
+| `8` | `पौ` | पौष | Poush |
+| `9` | `मा` | माघ | Magh |
+| `10` | `फा` | फाल्गुण | Falgun |
+| `11` | `चै` | चैत्र | Chaitra |
+
+---
+
+## Example Usage
+
+```python
+from nepali_date_library import NepaliDate, month_short_np
+
+date = NepaliDate("2081-07-15")
+print(month_short_np[date.get_month()]) # "का"
+```
+
+---
+
+## Related
+
+* [`month_np`](/docs/python/constants/month-np): Full Devanagari month names.
+* [`month_short_en`](/docs/python/constants/month-short-en): Three letter English month abbreviations.

@@ -1,0 +1,59 @@
+---
+title: NepaliDate.maximum()
+description: Static method returning the maximum supported date boundary for the NepaliDate calendar engine.
+icon: ArrowUpToLine
+---
+
+The `maximum` static method returns a native Python datetime object representing the latest Gregorian date supported by the library calendar engine. This corresponds to the final day of Chaitra in year 2100 BS and serves as an upper bound for date validation and calendar limits.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+@staticmethod
+def maximum() -> datetime:
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `datetime`
+* **Value**: Gregorian UTC datetime corresponding to the last day of Chaitra in year `2100 BS` (mid April 2044 AD).
+
+---
+
+## Examples
+
+```python
+from nepali_date_library import NepaliDate
+
+max_date = NepaliDate.maximum()
+print(f"Latest supported AD date: {max_date}")
+
+# Construct NepaliDate from the maximum boundary
+nd_max = NepaliDate(max_date)
+print(f"Latest BS date: {nd_max.format('YYYY-MM-DD')}")
+```
+
+---
+
+## Related
+
+* [`NepaliDate.minimum()`](/docs/python/static/minimum): Earliest supported date boundary.
+* [`NepaliDate.is_valid()`](/docs/python/static/is-valid): Check date bounds.

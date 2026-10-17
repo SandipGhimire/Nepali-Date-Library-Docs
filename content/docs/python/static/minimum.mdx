@@ -1,0 +1,59 @@
+---
+title: NepaliDate.minimum()
+description: Static method returning the minimum supported date boundary for the NepaliDate calendar engine.
+icon: ArrowDownToLine
+---
+
+The `minimum` static method returns a native Python datetime object representing the earliest Gregorian date supported by the library calendar engine. This corresponds to the first day of Baisakh in year 1976 BS and provides a reliable lower boundary for date pickers and form input validation.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+@staticmethod
+def minimum() -> datetime:
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `datetime`
+* **Value**: Gregorian UTC datetime corresponding to `1976-01-01 BS` (mid April 1919 AD).
+
+---
+
+## Examples
+
+```python
+from nepali_date_library import NepaliDate
+
+min_date = NepaliDate.minimum()
+print(f"Earliest supported AD date: {min_date}")
+
+# Construct NepaliDate from the minimum boundary
+nd_min = NepaliDate(min_date)
+print(f"Earliest BS date: {nd_min.format('YYYY-MM-DD')}") # "1976-01-01"
+```
+
+---
+
+## Related
+
+* [`NepaliDate.maximum()`](/docs/python/static/maximum): Latest supported date boundary.
+* [`NepaliDate.is_valid()`](/docs/python/static/is-valid): Validate date coordinates.

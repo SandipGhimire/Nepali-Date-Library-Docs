@@ -1,0 +1,56 @@
+---
+title: date.end_of_day()
+description: Return a new NepaliDate instance set to the final millisecond of the current day.
+icon: Sunset
+---
+
+The `end_of_day` method returns a new `NepaliDate` instance with time coordinates set to the final moment of the day at 23 hours, 59 minutes, 59 seconds, and 999 milliseconds. This is commonly used when setting upper boundaries for database queries, event schedules, and daily audit filters.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def end_of_day(self) -> NepaliDate:
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* **Description**: New date instance set to 23:59:59.999 UTC.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+date = NepaliDate("2081-07-15")
+day_end = date.end_of_day()
+print(day_end.get_hours())   # 23
+print(day_end.get_minutes()) # 59
+```
+
+---
+
+## Related
+
+* [`date.start_of_day()`](/docs/python/methods/start-of-day): Set time to midnight.
+* [`date.end_of_month()`](/docs/python/methods/end-of-month): Final day of the month.

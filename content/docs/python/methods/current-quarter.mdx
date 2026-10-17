@@ -1,0 +1,58 @@
+---
+title: date.current_quarter()
+description: Return the standard Bikram Sambat calendar quarter number from one to four for the current date.
+icon: PieChart
+---
+
+The `current_quarter` method returns an integer from 1 to 4 designating the standard calendar quarter containing the current date. Calendar quarters divide the Bikram Sambat year into four sequential segments starting from 1 Baisakh, which differs from government fiscal trimesters that commence in Shrawan.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def current_quarter(self) -> int:
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `int`
+* **Range**: `1` to `4`
+* **Description**: Standard calendar quarter number.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+date = NepaliDate("2081-01-15") # Baisakh
+print(date.current_quarter()) # 1
+
+date2 = NepaliDate("2081-07-15") # Kartik
+print(date2.current_quarter()) # 3
+```
+
+---
+
+## Related
+
+* [`date.fiscal_quarter()`](/docs/python/fiscal-year/fiscal-quarter): Official fiscal trimester number.
+* [`Calendar Quarters Guide`](/docs/python/fiscal-year/calendar-quarters): Comparison guide.

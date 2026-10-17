@@ -1,0 +1,55 @@
+---
+title: date.end_of_year()
+description: Return a new NepaliDate instance set to the final day of the Bikram Sambat year on the last day of Chaitra.
+icon: Calendar
+---
+
+The `end_of_year` method returns a new `NepaliDate` instance set to the closing day of the current Bikram Sambat calendar year. This corresponds to the final day of Chaitra, which is commonly needed for annual reconciliations and fiscal year preparations.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def end_of_year(self) -> NepaliDate:
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* **Description**: New date instance on the final day of Chaitra.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+date = NepaliDate("2081-07-15")
+year_end = date.end_of_year()
+print(year_end.format("YYYY-MM-DD")) # "2081-12-30" or similar
+```
+
+---
+
+## Related
+
+* [`date.start_of_year()`](/docs/python/methods/start-of-year): First day of the year.
+* [`date.is_leap_year()`](/docs/python/methods/is-leap-year): Total year day check.

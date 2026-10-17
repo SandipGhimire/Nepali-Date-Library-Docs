@@ -1,0 +1,69 @@
+---
+title: Installation & Setup
+description: Installation and setup instructions for nepali date library in Python projects using pip, uv, and poetry.
+icon: Download
+---
+
+The nepali date library is distributed as a lightweight Python package available on PyPI with zero external runtime dependencies. It supports all standard Python package managers and virtual environment workflows.
+
+---
+
+## Package Installation
+
+<Tabs items={["pip", "uv", "poetry"]}>
+  <Tab value="pip">
+```bash
+pip install nepali-date-library
+```
+  </Tab>
+  <Tab value="uv">
+```bash
+uv add nepali-date-library
+```
+  </Tab>
+  <Tab value="poetry">
+```bash
+poetry add nepali-date-library
+```
+  </Tab>
+</Tabs>
+
+---
+
+## Project Configuration
+
+### requirements.txt
+
+Add the package dependency to your `requirements.txt` file:
+
+```text
+nepali-date-library>=0.0.1
+```
+
+### pyproject.toml
+
+For modern packaging with Flit, Hatch, Poetry, or Setuptools:
+
+```toml
+[project]
+dependencies = [
+    "nepali-date-library>=0.0.1",
+]
+```
+
+---
+
+## Verification
+
+Verify that the installation succeeded by importing the class in your terminal:
+
+```bash
+python3 -c "import nepali_date_library; print(nepali_date_library.__version__)"
+```
+
+---
+
+## Next Steps
+
+* [Quick Start Guide](/docs/python/quick-start): Learn core workflows and common patterns.
+* [NepaliDate Class Reference](/docs/python/class/constructor): Explore constructor signatures and instance creation.

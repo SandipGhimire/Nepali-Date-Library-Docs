@@ -1,0 +1,124 @@
+---
+title: Quick Start
+description: Practical guide and essential code examples to start working with Bikram Sambat dates in Python.
+icon: Zap
+---
+
+This quick start guide demonstrates common practical workflows for creating dates, performing calendar arithmetic, formatting output strings, and converting between Gregorian and Bikram Sambat calendars in Python. Use these patterns for building web portals, financial reports, and calendar tools.
+
+---
+
+## 1. Creating Dates
+
+Initialize dates representing the current moment, specific Bikram Sambat coordinates, or existing Gregorian dates:
+
+```python
+from datetime import datetime, timezone
+from nepali_date_library import NepaliDate
+
+# Current date and time in Nepal
+now = NepaliDate()
+print(now.format("YYYY-MM-DD"))
+
+# Specific Bikram Sambat date (Year, Month 0-11, Day 1-32)
+# Month index 6 corresponds to Kartik
+constitution_day = NepaliDate(2072, 5, 3)
+print(constitution_day.format("YYYY-MM-DD"))
+
+# Parse from standard string formats (YYYY-MM-DD, YYYY/MM/DD, YYYY.MM.DD)
+parsed_date = NepaliDate("2081-07-15")
+print(parsed_date.format("MMMM DD, YYYY"))
+
+# From native Python datetime
+gregorian_dt = datetime(2024, 10, 31, tzinfo=timezone.utc)
+from_gregorian = NepaliDate(gregorian_dt)
+print(from_gregorian.format("YYYY-MM-DD"))
+```
+
+---
+
+## 2. Converting Between Calendars
+
+Convert strings directly without instantiating class objects:
+
+```python
+from nepali_date_library import ADtoBS, BStoAD
+
+# Convert Gregorian (AD) to Bikram Sambat (BS)
+bs_string = ADtoBS("2024-11-15")
+print(bs_string) # "2081-07-30"
+
+# Convert Bikram Sambat (BS) to Gregorian (AD)
+ad_string = BStoAD("2081-07-30")
+print(ad_string) # "2024-11-15"
+```
+
+---
+
+## 3. Date Arithmetic
+
+Add or subtract days, months, and years with automatic rollover:
+
+```python
+from nepali_date_library import NepaliDate
+
+date = NepaliDate("2081-01-25")
+
+# Add 15 days (automatically transitions to Jestha)
+date.add_days(15)
+print(date.format("YYYY-MM-DD"))
+
+# Add 3 months
+date.add_months(3)
+print(date.format("YYYY-MM-DD"))
+
+# Calculate difference in days between two dates
+d1 = NepaliDate("2081-01-01")
+d2 = NepaliDate("2081-01-15")
+diff_days = d2.diff(d1, "days")
+print(f"Days difference: {diff_days}")
+```
+
+---
+
+## 4. Fiscal Year and Trimesters
+
+Query official Nepalese fiscal calendar information:
+
+```python
+from nepali_date_library import NepaliDate
+
+date = NepaliDate("2081-06-15")
+
+# Active fiscal quarter (trimester 1 to 4)
+quarter = date.fiscal_quarter()
+print(f"Fiscal Quarter: {quarter}")
+
+# Current fiscal year string
+fy = NepaliDate.current_fiscal_year()
+print(f"Current Fiscal Year: {fy}")
+
+# Start and end dates of the active fiscal quarter
+dates = date.fiscal_quarter_dates()
+print(f"Quarter starts: {dates['start'].format('YYYY-MM-DD')}")
+print(f"Quarter ends: {dates['end'].format('YYYY-MM-DD')}")
+```
+
+---
+
+## 5. Devanagari Formatting
+
+Format dates with Nepali numerals and month names:
+
+```python
+from nepali_date_library import NepaliDate
+
+date = NepaliDate("2081-07-15")
+
+# English format tokens
+print(date.format("dddd, MMMM DD, YYYY"))
+# "Friday, Kartik 15, 2081"
+
+# Devanagari Nepali format tokens
+print(date.format("dddd, MMMM DD, YYYY", nepali=True))
+```

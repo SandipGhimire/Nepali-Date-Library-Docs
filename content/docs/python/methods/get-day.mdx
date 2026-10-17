@@ -1,0 +1,57 @@
+---
+title: date.get_day()
+description: Retrieve the numeric day of the week index from zero for Sunday through six for Saturday.
+icon: Calendar
+---
+
+The `get_day` method returns an integer representing the day of the week for the current `NepaliDate` instance. The return value ranges from 0 for Sunday to 6 for Saturday, aligning with standard calendar day conventions.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def get_day(self) -> int:
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `int`
+* **Range**: `0` to `6`
+* **Description**: Day of the week integer starting from `0` for Sunday up to `6` for Saturday.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate, week_en
+
+date = NepaliDate("2081-07-15")
+weekday_index = date.get_day()
+print(weekday_index) # 5 (Friday)
+print(week_en[weekday_index]) # "Friday"
+```
+
+---
+
+## Related
+
+* [`NepaliDate.get_day_name()`](/docs/python/static/get-day-name): Retrieve localized weekday names.
+* [`date.get_date()`](/docs/python/methods/get-date): Retrieve the day of the month.

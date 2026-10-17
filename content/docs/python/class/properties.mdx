@@ -1,0 +1,52 @@
+---
+title: Instance Properties
+description: Reference for public instance properties available on every NepaliDate object including year, month, day, and underlying timestamp.
+icon: Braces
+---
+
+Every `NepaliDate` instance provides direct read access to its core calendar coordinates through public properties. These include the four digit Bikram Sambat year, the month number indexed from 0 to 11, the day of the month from 1 to 32, and the underlying UTC timestamp stored as a native Python datetime object. These properties reflect the current state of the date instance after any modifications or arithmetic operations.
+
+---
+
+## Property Reference
+
+| Property | Type | Description | Value Range |
+| :--- | :--- | :--- | :--- |
+| `year` | `int` | The four digit Bikram Sambat year. | `1976` to `2100` |
+| `month` | `int` | The zero based Bikram Sambat month index. | `0` (Baisakh) to `11` (Chaitra) |
+| `day` | `int` | The day of the month. | `1` to `32` |
+| `timestamp` | `datetime` | The equivalent native Python `datetime` object in UTC. | Gregorian timestamp |
+
+---
+
+## Examples
+
+### Reading Properties
+
+```python
+from nepali_date_library import NepaliDate
+
+date = NepaliDate("2081-07-15")
+
+print(date.year)      # 2081
+print(date.month)     # 6 (Kartik is index 6)
+print(date.day)       # 15
+print(date.timestamp) # 2024-10-31 00:00:00+00:00
+```
+
+### Working with Month Indices
+
+Because `month` is indexed starting from 0, add 1 when displaying human readable month numbers, or use helper methods:
+
+```python
+print(date.month + 1) # 7 (Human readable month)
+print(date.get_month_name(date.month)) # "Kartik"
+```
+
+---
+
+## Related
+
+* [`date.get_year()`](/docs/python/methods/get-year): Getter method for year.
+* [`date.get_month()`](/docs/python/methods/get-month): Getter method for month index.
+* [`date.get_date()`](/docs/python/methods/get-date): Getter method for day of month.

@@ -1,0 +1,103 @@
+---
+title: NepaliDate()
+description: Constructor overloads and initialization options for creating NepaliDate instances in Python.
+icon: PlusCircle
+---
+
+The `NepaliDate` constructor creates instances representing specific points in time mapped to the Bikram Sambat calendar system. You can construct an instance representing the current moment, provide separate year, month, and day integers, supply a standard date string, or pass a native Python datetime object. Bikram Sambat months are indexed starting from 0 for Baisakh through 11 for Chaitra.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signatures
+
+```python
+# 1. Current Date and Time
+NepaliDate() -> NepaliDate
+
+# 2. From Gregorian datetime object
+NepaliDate(date: datetime) -> NepaliDate
+
+# 3. From another NepaliDate instance (copy constructor)
+NepaliDate(date: NepaliDate) -> NepaliDate
+
+# 4. From Bikram Sambat date string
+NepaliDate(date_string: str) -> NepaliDate
+
+# 5. From separate Year, Month, Day integers
+NepaliDate(year: int, month: int, day: int) -> NepaliDate
+
+# 6. From Unix millisecond timestamp
+NepaliDate(timestamp_ms: int) -> NepaliDate
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `year_or_date` | `int`, `str`, `datetime`, `NepaliDate`, `None` | No | Year integer, ISO date string, Gregorian datetime, or another NepaliDate instance. |
+| `month` | `int` | No | Zero based month index from `0` for Baisakh to `11` for Chaitra when specifying integers. |
+| `day` | `int` | No | Day of the month from `1` to `32` depending on the year and month. |
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* **Description**: A newly instantiated `NepaliDate` instance representing the specified point in time.
+
+---
+
+## Examples
+
+### Current Date and Time
+
+```python
+from nepali_date_library import NepaliDate
+
+now = NepaliDate()
+print(now.format("YYYY-MM-DD"))
+```
+
+### From Numeric Coordinates
+
+```python
+# Month 0 is Baisakh, Day 1
+new_year = NepaliDate(2081, 0, 1)
+print(new_year.format("YYYY-MM-DD")) # "2081-01-01"
+```
+
+### From Date String
+
+```python
+# Delimiters can be hyphens, slashes, or dots
+date1 = NepaliDate("2081-07-15")
+date2 = NepaliDate("2081/07/15")
+date3 = NepaliDate("2081.07.15")
+```
+
+### From Python datetime
+
+```python
+from datetime import datetime, timezone
+
+ad_date = datetime(2024, 10, 31, tzinfo=timezone.utc)
+nd = NepaliDate(ad_date)
+print(nd.format("YYYY-MM-DD")) # "2081-07-15"
+```
+
+---
+
+## Related
+
+* [`Instance Properties`](/docs/python/class/properties): Public properties accessible on NepaliDate instances.
+* [`date.set()`](/docs/python/methods/set): Update year, month, and day coordinates simultaneously.

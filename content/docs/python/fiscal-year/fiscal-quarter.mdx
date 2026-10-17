@@ -1,0 +1,83 @@
+---
+title: date.fiscal_quarter()
+description: Method to calculate the active fiscal trimester quarter number for a NepaliDate instance.
+icon: PieChart
+---
+
+The `fiscal_quarter` method returns an integer from 1 to 4 representing the active fiscal trimester of the current date. Because Nepal fiscal calendar starts in Shrawan, quarter 1 covers Shrawan through Ashwin, quarter 2 spans Kartik through Poush, quarter 3 covers Magh through Chaitra, and quarter 4 spans Baisakh through Ashadh.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def fiscal_quarter(self) -> int:
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `int`
+* **Range**: `1` to `4`
+* **Description**: The fiscal trimester index for the date.
+
+---
+
+## Trimester Mapping Table
+
+| Month Index | Month Name | Fiscal Quarter | Trimester Label |
+| :---: | :--- | :---: | :--- |
+| `3` | Shrawan | `1` | First Trimester (Q1) |
+| `4` | Bhadra | `1` | First Trimester (Q1) |
+| `5` | Aswin | `1` | First Trimester (Q1) |
+| `6` | Kartik | `2` | Second Trimester (Q2) |
+| `7` | Mangsir | `2` | Second Trimester (Q2) |
+| `8` | Poush | `2` | Second Trimester (Q2) |
+| `9` | Magh | `3` | Third Trimester (Q3) |
+| `10` | Falgun | `3` | Third Trimester (Q3) |
+| `11` | Chaitra | `3` | Third Trimester (Q3) |
+| `0` | Baisakh | `4` | Fourth Trimester (Q4) |
+| `1` | Jestha | `4` | Fourth Trimester (Q4) |
+| `2` | Asar | `4` | Fourth Trimester (Q4) |
+
+---
+
+## Examples
+
+```python
+from nepali_date_library import NepaliDate
+
+date1 = NepaliDate("2081-04-15") # Shrawan
+print(date1.fiscal_quarter())     # 1
+
+date2 = NepaliDate("2081-07-20") # Kartik
+print(date2.fiscal_quarter())     # 2
+
+date3 = NepaliDate("2081-10-10") # Magh
+print(date3.fiscal_quarter())     # 3
+
+date4 = NepaliDate("2082-01-05") # Baisakh
+print(date4.fiscal_quarter())     # 4
+```
+
+---
+
+## Related
+
+* [`date.fiscal_quarter_dates()`](/docs/python/fiscal-year/fiscal-quarter-dates): Retrieve boundary start and end dates.
+* [`date.current_quarter()`](/docs/python/methods/current-quarter): Standard Bikram Sambat calendar quarter.

@@ -1,0 +1,77 @@
+---
+title: BStoAD()
+description: Pure helper function to convert Bikram Sambat date strings into Gregorian calendar date strings.
+icon: ArrowLeft
+---
+
+The `BStoAD` function converts a Bikram Sambat date string into its equivalent Gregorian calendar date string. It validates the input Nepali date against verified historical calendar maps and returns a formatted Gregorian date string suitable for storage in standard SQL databases or transmission over web APIs.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import BStoAD
+```
+
+---
+
+## Signature
+
+```python
+def BStoAD(bsDate: str) -> str:
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `bsDate` | `str` | Yes | Bikram Sambat date string formatted strictly as `YYYY-MM-DD`. |
+
+---
+
+## Return Value
+
+* **Type**: `str`
+* **Format**: `YYYY-MM-DD` representing the equivalent Gregorian calendar date.
+
+---
+
+## Exceptions
+
+| Error Message | Trigger Condition |
+| :--- | :--- |
+| `Invalid date format. Expected format: YYYY-MM-DD` | Raised if input string fails the regex validation `^\d{4}-\d{2}-\d{2}$`. |
+| `Nepal year out of range` | Raised if the year is earlier than 1976 BS or later than 2100 BS. |
+| `Invalid Nepali month` | Raised if the month number is not between 1 and 12. |
+| `Invalid Nepali date` | Raised if the day number exceeds the actual days in that specific Nepali month. |
+
+---
+
+## Examples
+
+### Basic Conversion
+
+```python
+from nepali_date_library import BStoAD
+
+gregorian_date = BStoAD("2080-01-01")
+print(gregorian_date) # "2023-04-14"
+```
+
+### Storing in SQL Databases
+
+```python
+user_input_bs = "2081-07-15"
+database_ad_date = BStoAD(user_input_bs)
+print(database_ad_date) # "2024-10-31"
+```
+
+---
+
+## Related
+
+* [`ADtoBS()`](/docs/python/date-converter/ad-to-bs): Convert Gregorian date strings to Bikram Sambat.
+* [`date.get_english_date()`](/docs/python/methods/get-english-date): Retrieve a native Python datetime object.

@@ -1,0 +1,57 @@
+---
+title: date.add_months()
+description: Add or subtract months to a NepaliDate instance while adjusting for variable month lengths.
+icon: Plus
+---
+
+The `add_months` method advances or rewinds the current `NepaliDate` instance by a specified number of months. If the current day of the month exceeds the total days available in the destination month, the method automatically clamps the day to the final valid day of that month to ensure calendar consistency.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def add_months(self, months: int) -> NepaliDate:
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `months` | `int` | Yes | Positive or negative integer of months to add. |
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* **Description**: Returns `self` after mutation.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+date = NepaliDate("2081-01-15")
+date.add_months(6)
+print(date.format("YYYY-MM-DD")) # "2081-07-15"
+```
+
+---
+
+## Related
+
+* [`date.add_years()`](/docs/python/methods/add-years): Add or subtract years.
+* [`date.add_days()`](/docs/python/methods/add-days): Add or subtract days.

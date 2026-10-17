@@ -1,0 +1,55 @@
+---
+title: date.get_weeks_in_month()
+description: Calculate the number of calendar week rows required to render the current month in a grid.
+icon: Grid
+---
+
+The `get_weeks_in_month` method computes the total number of seven day week rows required to display the entire month in a standard calendar grid. Depending on which weekday the month starts on and how many days it contains, the returned count is usually five or six rows.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def get_weeks_in_month(self) -> int:
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `int`
+* **Range**: `4`, `5`, or `6`
+* **Description**: Number of week rows needed for a calendar view.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+date = NepaliDate("2081-01-01")
+print(f"Weeks in month: {date.get_weeks_in_month()}")
+```
+
+---
+
+## Related
+
+* [`NepaliDate.get_calendar_days()`](/docs/python/static/get-calendar-days): Matrix grid builder.
+* [`date.days_in_month()`](/docs/python/methods/days-in-month): Total days in month.

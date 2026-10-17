@@ -1,0 +1,55 @@
+---
+title: date.start_of_month()
+description: Return a new NepaliDate instance set to the first day of the current Bikram Sambat month.
+icon: Calendar
+---
+
+The `start_of_month` method returns a new `NepaliDate` instance positioned on day 1 of the active Bikram Sambat month with time set to midnight. It is commonly used for monthly calendar views, statements, and aggregation buckets.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def start_of_month(self) -> NepaliDate:
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* **Description**: New date instance on day 1 of the month.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+date = NepaliDate("2081-07-15")
+first_day = date.start_of_month()
+print(first_day.format("YYYY-MM-DD")) # "2081-07-01"
+```
+
+---
+
+## Related
+
+* [`date.end_of_month()`](/docs/python/methods/end-of-month): Final day of the month.
+* [`date.start_of_year()`](/docs/python/methods/start-of-year): First day of the year.

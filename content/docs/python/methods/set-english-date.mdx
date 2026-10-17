@@ -1,0 +1,60 @@
+---
+title: date.set_english_date()
+description: Update internal Bikram Sambat coordinates from a native Python datetime object.
+icon: Edit3
+---
+
+The `set_english_date` method converts a native Python datetime object into Bikram Sambat coordinates and updates the current `NepaliDate` instance in place. It recalculates the year, month, and day coordinates based on historical ephemeris tables.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def set_english_date(self, date: datetime) -> None:
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `date` | `datetime` | Yes | Gregorian datetime object to convert. |
+
+---
+
+## Return Value
+
+* **Type**: `None`
+* **Note**: Mutates the current instance in place.
+
+---
+
+## Example
+
+```python
+from datetime import datetime, timezone
+from nepali_date_library import NepaliDate
+
+nd = NepaliDate()
+gregorian = datetime(2023, 4, 14, tzinfo=timezone.utc)
+nd.set_english_date(gregorian)
+
+print(nd.format("YYYY-MM-DD")) # "2080-01-01"
+```
+
+---
+
+## Related
+
+* [`date.get_english_date()`](/docs/python/methods/get-english-date): Retrieve Gregorian datetime object.
+* [`ADtoBS()`](/docs/python/date-converter/ad-to-bs): Standalone string conversion.

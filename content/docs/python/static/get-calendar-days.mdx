@@ -1,0 +1,71 @@
+---
+title: NepaliDate.get_calendar_days()
+description: Static utility to generate a complete forty two cell calendar grid matrix for any month and year.
+icon: Grid
+---
+
+The `get_calendar_days` static method generates a complete forty two cell grid structure representing six rows of seven days for displaying a monthly calendar view. It includes trailing days from the previous month and leading days from the next month to fill out the matrix, simplifying the creation of date pickers and visual calendar components.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+@staticmethod
+def get_calendar_days(year: int, month: int) -> Dict[str, Any]:
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `year` | `int` | Yes | Four digit Bikram Sambat year between `1976` and `2100`. |
+| `month` | `int` | Yes | Zero based month index from `0` (Baisakh) to `11` (Chaitra). |
+
+---
+
+## Return Value
+
+* **Type**: `Dict[str, Any]`
+* **Structure**:
+  * `"year"`: Bikram Sambat year.
+  * `"month"`: Month index.
+  * `"days"`: List of 42 cell dictionaries with keys:
+    * `"date"`: `NepaliDate` instance.
+    * `"isCurrentMonth"`: Boolean indicating if day belongs to requested month.
+    * `"day"`: Day integer.
+
+---
+
+## Examples
+
+```python
+from nepali_date_library import NepaliDate
+
+# Generate grid matrix for Kartik 2081 BS (month index 6)
+grid = NepaliDate.get_calendar_days(2081, 6)
+
+print(f"Total cells: {len(grid['days'])}") # 42 cells
+
+# Print each day in the calendar view
+for cell in grid["days"]:
+    status = "Current" if cell["isCurrentMonth"] else "Neighbor"
+    print(f"Day {cell['day']} ({status})")
+```
+
+---
+
+## Related
+
+* [`date.days_in_month()`](/docs/python/methods/days-in-month): Total days in a month.
+* [`date.get_weeks_in_month()`](/docs/python/methods/get-weeks-in-month): Number of calendar rows needed.

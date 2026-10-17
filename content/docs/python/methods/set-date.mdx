@@ -1,0 +1,57 @@
+---
+title: date.set_date()
+description: Set the day of the month on a NepaliDate instance and recalculate its timestamp.
+icon: Edit3
+---
+
+The `set_date` method updates the day of the month for the current `NepaliDate` instance and recalculates its underlying Gregorian timestamp. It validates the new day against the maximum number of days available in the active month.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def set_date(self, day: int) -> None:
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `day` | `int` | Yes | Target day of the month between `1` and `32`. |
+
+---
+
+## Return Value
+
+* **Type**: `None`
+* **Note**: Mutates the current instance in place.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+date = NepaliDate("2081-07-01")
+date.set_date(15)
+print(date.format("YYYY-MM-DD")) # "2081-07-15"
+```
+
+---
+
+## Related
+
+* [`date.get_date()`](/docs/python/methods/get-date): Retrieve day of the month.
+* [`date.add_days()`](/docs/python/methods/add-days): Add or subtract days.

@@ -1,0 +1,65 @@
+---
+title: NepaliDate.is_valid()
+description: Static validation function to verify whether a given year, month, and day combination forms a valid Bikram Sambat date.
+icon: CheckCircle
+---
+
+The static `is_valid` method verifies whether a specified Bikram Sambat year, month index, and day number represent a real calendar date. It consults verified historical data tables to confirm that the year falls within the supported range of 1976 through 2100 BS and that the day number does not exceed the actual number of days in that specific month.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+@staticmethod
+def is_valid(year: int, month: int, date: int) -> bool:
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `year` | `int` | Yes | Four digit Bikram Sambat year between `1976` and `2100`. |
+| `month` | `int` | Yes | Zero based month index from `0` (Baisakh) to `11` (Chaitra). |
+| `date` | `int` | Yes | Day number of the month from `1` to `32`. |
+
+---
+
+## Return Value
+
+* **Type**: `bool`
+* **Description**: Returns `True` if the date is astronomically and historically valid, otherwise `False`.
+
+---
+
+## Examples
+
+```python
+from nepali_date_library import NepaliDate
+
+# Valid date (Baisakh 1, 2081 BS)
+print(NepaliDate.is_valid(2081, 0, 1))   # True
+
+# Invalid day (Baisakh 32 does not exist in 2080 BS)
+print(NepaliDate.is_valid(2080, 0, 32))  # False
+
+# Out of range year
+print(NepaliDate.is_valid(1950, 0, 1))   # False
+```
+
+---
+
+## Related
+
+* [`date.is_valid_instance()`](/docs/python/methods/is-valid): Instance validation method.
+* [`NepaliDate.minimum()`](/docs/python/static/minimum): Earliest supported date boundary.

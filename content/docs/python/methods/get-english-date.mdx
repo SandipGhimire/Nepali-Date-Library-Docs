@@ -1,0 +1,57 @@
+---
+title: date.get_english_date()
+description: Retrieve the equivalent Gregorian date as a native JavaScript Date object.
+icon: Calendar
+---
+
+The `get_english_date` method returns the native Python datetime object corresponding to the current `NepaliDate` instance. This allows seamless integration with third party libraries, databases, and standard Python APIs that expect a native Gregorian datetime object.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def get_english_date(self) -> datetime:
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `datetime`
+* **Description**: Native Python datetime object in UTC matching the current Bikram Sambat date.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+nd = NepaliDate("2081-07-15")
+ad_date = nd.get_english_date()
+
+print(type(ad_date)) # <class 'datetime.datetime'>
+print(ad_date.strftime("%Y-%m-%d")) # "2024-10-31"
+```
+
+---
+
+## Related
+
+* [`BStoAD()`](/docs/python/date-converter/bs-to-ad): String based date conversion.
+* [`date.set_english_date()`](/docs/python/methods/set-english-date): Update instance from datetime.

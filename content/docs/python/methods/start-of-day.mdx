@@ -1,0 +1,56 @@
+---
+title: date.start_of_day()
+description: Return a new NepaliDate instance set to the first moment of the current day at midnight.
+icon: Sunrise
+---
+
+The `start_of_day` method returns a new `NepaliDate` instance with time coordinates set to midnight at 00 hours, 00 minutes, 00 seconds, and 000 milliseconds. This is useful for date normalization and time neutral comparisons.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def start_of_day(self) -> NepaliDate:
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* **Description**: New date instance set to 00:00:00.000 UTC.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+date = NepaliDate()
+midnight = date.start_of_day()
+print(midnight.get_hours())   # 0
+print(midnight.get_minutes()) # 0
+```
+
+---
+
+## Related
+
+* [`date.end_of_day()`](/docs/python/methods/end-of-day): Set time to final millisecond of the day.
+* [`date.start_of_month()`](/docs/python/methods/start-of-month): Boundary for month start.

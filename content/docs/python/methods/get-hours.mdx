@@ -1,0 +1,55 @@
+---
+title: date.get_hours()
+description: Retrieve the hour component from zero to twenty three for the current date instance.
+icon: Clock
+---
+
+The `get_hours` method returns the hour of the day as an integer between 0 and 23 for the current `NepaliDate` instance. It reflects local time coordinates stored within the instance timestamp.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def get_hours(self) -> int:
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `int`
+* **Range**: `0` to `23`
+* **Description**: Hour integer representing time of day.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+now = NepaliDate()
+print(f"Current hour: {now.get_hours()}")
+```
+
+---
+
+## Related
+
+* [`date.get_minutes()`](/docs/python/methods/get-minutes): Retrieve the minute component.
+* [`date.get_seconds()`](/docs/python/methods/get-seconds): Retrieve the second component.

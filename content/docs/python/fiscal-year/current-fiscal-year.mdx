@@ -1,0 +1,59 @@
+---
+title: NepaliDate.current_fiscal_year()
+description: Method to retrieve the formatted fiscal year string for a given NepaliDate instance.
+icon: Hash
+---
+
+The `current_fiscal_year` method determines which official Nepalese fiscal year contains the current date instance. It returns a standardized fiscal year string such as 2081/82 based on whether the date falls before or after the 1 Shrawan fiscal transition boundary.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+@staticmethod
+def current_fiscal_year() -> int:
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `int`
+* **Description**: The starting four digit Bikram Sambat calendar year of the current fiscal year.
+* **Example**: Returns `2081` for fiscal year 2081/82 BS.
+
+---
+
+## Examples
+
+### Checking Active Fiscal Year
+
+```python
+from nepali_date_library import NepaliDate
+
+fy_start = NepaliDate.current_fiscal_year()
+fy_label = f"{fy_start}/{str(fy_start + 1)[-2:]}"
+print(f"Fiscal Year: {fy_label} BS") # e.g. "2081/82 BS"
+```
+
+---
+
+## Related
+
+* [`date.fiscal_quarter()`](/docs/python/fiscal-year/fiscal-quarter): Get the active fiscal trimester number.
+* [`date.fiscal_quarter_dates()`](/docs/python/fiscal-year/fiscal-quarter-dates): Get boundary dates of the active fiscal quarter.

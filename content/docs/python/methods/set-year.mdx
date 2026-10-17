@@ -1,0 +1,57 @@
+---
+title: date.set_year()
+description: Set the Bikram Sambat year on a NepaliDate instance within the supported calendar range.
+icon: Edit3
+---
+
+The `set_year` method updates the four digit Bikram Sambat year on the current `NepaliDate` instance and adjusts the timestamp accordingly. The target year must fall within the supported range between 1976 and 2100 BS.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def set_year(self, year: int) -> None:
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `year` | `int` | Yes | Target Bikram Sambat year between 1976 and 2100. |
+
+---
+
+## Return Value
+
+* **Type**: `None`
+* **Note**: Mutates the current instance in place.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+date = NepaliDate("2080-07-15")
+date.set_year(2081)
+print(date.format("YYYY-MM-DD")) # "2081-07-15"
+```
+
+---
+
+## Related
+
+* [`date.get_year()`](/docs/python/methods/get-year): Retrieve current year.
+* [`date.add_years()`](/docs/python/methods/add-years): Add or subtract years.

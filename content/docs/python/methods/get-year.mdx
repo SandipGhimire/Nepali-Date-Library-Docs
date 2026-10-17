@@ -1,0 +1,55 @@
+---
+title: date.get_year()
+description: Retrieve the four digit Bikram Sambat year number from a NepaliDate instance.
+icon: Calendar
+---
+
+The `get_year` method returns the full four digit Bikram Sambat year as an integer for the current `NepaliDate` instance. It returns the complete calendar year such as 2081 within the supported range of 1976 through 2100 BS.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def get_year(self) -> int:
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `int`
+* **Range**: `1976` to `2100`
+* **Description**: Four digit Bikram Sambat year integer.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+date = NepaliDate("2081-07-15")
+print(date.get_year()) # 2081
+```
+
+---
+
+## Related
+
+* [`date.set_year()`](/docs/python/methods/set-year): Mutate the year component.
+* [`date.get_month()`](/docs/python/methods/get-month): Retrieve the month component.

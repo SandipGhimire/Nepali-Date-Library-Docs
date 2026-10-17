@@ -1,0 +1,57 @@
+---
+title: date.end_of_week()
+description: Return a new NepaliDate instance set to the final day of the current week on Saturday.
+icon: Calendar
+---
+
+The `end_of_week` method produces a new `NepaliDate` instance representing the last day of the week containing the current date. In standard Nepali calendar practice, Saturday is regarded as the final day of the weekly cycle.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def end_of_week(self, start_of_week: int = 0) -> NepaliDate:
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Default | Description |
+| :--- | :--- | :---: | :---: | :--- |
+| `start_of_week` | `int` | No | `0` | Weekday index treated as week start. |
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* **Description**: New date instance set to Saturday (index 6).
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+date = NepaliDate("2081-07-15")
+week_end = date.end_of_week()
+print(week_end.get_day()) # 6 (Saturday)
+```
+
+---
+
+## Related
+
+* [`date.start_of_week()`](/docs/python/methods/start-of-week): First day of the week.
+* [`date.end_of_month()`](/docs/python/methods/end-of-month): Final day of the month.

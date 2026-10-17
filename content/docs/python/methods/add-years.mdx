@@ -1,0 +1,57 @@
+---
+title: date.add_years()
+description: Add or subtract years to a NepaliDate instance while preserving month and day values.
+icon: Plus
+---
+
+The `add_years` method adds or subtracts a specified number of years to the current `NepaliDate` instance. It recalculates the underlying timestamp while retaining the month and day coordinates, adjusting the day number if the target year has fewer days in that specific month.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def add_years(self, years: int) -> NepaliDate:
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `years` | `int` | Yes | Number of years to advance or rewind. |
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* **Description**: Returns `self` after mutation.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+date = NepaliDate("2075-01-01")
+date.add_years(5)
+print(date.format("YYYY-MM-DD")) # "2080-01-01"
+```
+
+---
+
+## Related
+
+* [`date.add_months()`](/docs/python/methods/add-months): Add or subtract months.
+* [`date.diff()`](/docs/python/methods/diff): Difference between two dates.

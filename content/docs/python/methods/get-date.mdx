@@ -1,0 +1,55 @@
+---
+title: date.get_date()
+description: Retrieve the numeric day of the month from a NepaliDate instance.
+icon: Calendar
+---
+
+The `get_date` method returns the day of the month as an integer from 1 to 32 for the current `NepaliDate` instance. Unlike Gregorian months which have at most 31 days, Bikram Sambat calendar months can extend up to 32 days depending on the year and month.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def get_date(self) -> int:
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `int`
+* **Range**: `1` to `32`
+* **Description**: Day of the month integer.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+date = NepaliDate("2081-07-15")
+print(date.get_date()) # 15
+```
+
+---
+
+## Related
+
+* [`date.set_date()`](/docs/python/methods/set-date): Mutate the day of the month.
+* [`date.get_day()`](/docs/python/methods/get-day): Retrieve the day of the week.

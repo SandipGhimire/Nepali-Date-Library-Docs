@@ -1,0 +1,73 @@
+---
+title: month_short_en
+description: Array containing three letter abbreviated English names for all twelve Bikram Sambat months.
+icon: Calendar
+---
+
+The `month_short_en` constant provides three letter abbreviated English labels for each of the twelve Bikram Sambat months. It follows the zero based index convention from index 0 for Bai up to index 11 for Cha, making it ideal for compact calendar widgets, mobile screens, and table headers.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import month_short_en
+```
+
+---
+
+## Value
+
+```python
+month_short_en = [
+    "Bai",
+    "Jes",
+    "Asa",
+    "Shr",
+    "Bhd",
+    "Asw",
+    "Kar",
+    "Man",
+    "Pou",
+    "Mag",
+    "Fal",
+    "Cha",
+]
+```
+
+---
+
+## Month Abbreviation Table
+
+| Index | Abbreviation | Full Name |
+| :---: | :--- | :--- |
+| `0` | `"Bai"` | Baisakh |
+| `1` | `"Jes"` | Jestha |
+| `2` | `"Asa"` | Asar |
+| `3` | `"Shr"` | Shrawan |
+| `4` | `"Bhd"` | Bhadra |
+| `5` | `"Asw"` | Aswin |
+| `6` | `"Kar"` | Kartik |
+| `7` | `"Man"` | Mangsir |
+| `8` | `"Pou"` | Poush |
+| `9` | `"Mag"` | Magh |
+| `10` | `"Fal"` | Falgun |
+| `11` | `"Cha"` | Chaitra |
+
+---
+
+## Example Usage
+
+```python
+from nepali_date_library import NepaliDate, month_short_en
+
+date = NepaliDate("2081-07-15")
+print(month_short_en[date.get_month()]) # "Kar"
+```
+
+---
+
+## Related
+
+* [`month_en`](/docs/python/constants/month-en): Full English month names.
+* [`month_short_np`](/docs/python/constants/month-short-np): Devanagari short month abbreviations.

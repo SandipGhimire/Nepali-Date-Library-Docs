@@ -1,0 +1,64 @@
+---
+title: NepaliDate.get_fiscal_quarter()
+description: Static method to determine the fiscal trimester number for any specified month index.
+icon: SearchCheck
+---
+
+The static `get_fiscal_quarter` method determines the fiscal trimester number corresponding to a given Bikram Sambat month index from 0 to 11. It allows quick lookups without needing to instantiate a full NepaliDate object, making it useful in financial aggregation pipelines and reporting utilities.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+@staticmethod
+def get_fiscal_quarter(
+    quarter: int,
+    fiscal_year: Optional[int] = None
+) -> Dict[str, NepaliDate]:
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `quarter` | `int` | Yes | Trimester index from `1` to `4`. |
+| `fiscal_year` | `Optional[int]` | No | Starting Bikram Sambat year of the fiscal period. Defaults to current fiscal year. |
+
+---
+
+## Return Value
+
+* **Type**: `Dict[str, NepaliDate]`
+* **Structure**: Dictionary with `"start"` and `"end"` keys holding boundary `NepaliDate` instances.
+
+---
+
+## Examples
+
+```python
+from nepali_date_library import NepaliDate
+
+# Get boundaries for Q2 of fiscal year 2081/82 BS
+q2_dates = NepaliDate.get_fiscal_quarter(quarter=2, fiscal_year=2081)
+
+print(f"Start: {q2_dates['start'].format('YYYY-MM-DD')}") # 1 Kartik
+print(f"End:   {q2_dates['end'].format('YYYY-MM-DD')}")   # Last day of Poush
+```
+
+---
+
+## Related
+
+* [`NepaliDate.get_fiscal_quarters()`](/docs/python/fiscal-year/get-fiscal-quarters): Retrieve all four quarters for a fiscal year.
+* [`date.fiscal_quarter_dates()`](/docs/python/fiscal-year/fiscal-quarter-dates): Instance method for current date.

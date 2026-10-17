@@ -1,0 +1,60 @@
+---
+title: date.diff()
+description: Calculate the chronological difference between two NepaliDate instances in specific time units.
+icon: GitCompare
+---
+
+The `diff` method calculates the elapsed time duration between the current `NepaliDate` instance and another date object. It can return the difference in days, months, years, hours, minutes, seconds, or milliseconds, making it suitable for calculating age, tenure, or interval durations.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def diff(self, date: NepaliDate, unit: str) -> int:
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `date` | `NepaliDate` | Yes | Target date instance to compare against. |
+| `unit` | `str` | Yes | Measurement unit: `"days"`, `"months"`, `"years"`, `"hours"`, `"minutes"`, `"seconds"`. |
+
+---
+
+## Return Value
+
+* **Type**: `int`
+* **Description**: Integer difference count in the specified unit.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+d1 = NepaliDate("2081-01-01")
+d2 = NepaliDate("2081-01-20")
+
+days_diff = d2.diff(d1, "days")
+print(f"Difference in days: {days_diff}") # 19
+```
+
+---
+
+## Related
+
+* [`date.is_before()`](/docs/python/methods/is-before): Check chronological order.
+* [`date.is_after()`](/docs/python/methods/is-after): Check chronological order.

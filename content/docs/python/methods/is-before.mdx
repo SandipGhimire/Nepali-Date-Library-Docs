@@ -1,0 +1,59 @@
+---
+title: date.is_before()
+description: Check whether the current date occurs chronologically before another specified date.
+icon: Clock
+---
+
+The `is_before` method evaluates whether the current `NepaliDate` instance occurs earlier in time than another provided date. It takes into account both date and time components down to millisecond accuracy.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def is_before(self, date: NepaliDate) -> bool:
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `date` | `NepaliDate` | Yes | Target date to compare against. |
+
+---
+
+## Return Value
+
+* **Type**: `bool`
+* **Description**: Returns `True` if `self` is chronologically earlier than `date`.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+d1 = NepaliDate("2081-01-01")
+d2 = NepaliDate("2081-01-15")
+
+print(d1.is_before(d2)) # True
+print(d2.is_before(d1)) # False
+```
+
+---
+
+## Related
+
+* [`date.is_after()`](/docs/python/methods/is-after): Check if later in time.
+* [`date.is_equal()`](/docs/python/methods/is-equal): Check calendar date equality.

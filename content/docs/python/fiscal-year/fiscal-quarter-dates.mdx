@@ -1,0 +1,64 @@
+---
+title: date.fiscal_quarter_dates()
+description: Method to retrieve exact start and end boundary dates for the active fiscal quarter.
+icon: CalendarRange
+---
+
+The `fiscal_quarter_dates` method computes the exact starting date and ending date for the fiscal quarter containing the current date instance. It returns an object containing boundary dates as new NepaliDate objects, which is helpful for quarterly financial reporting, audit periods, and tax filing windows.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def fiscal_quarter_dates(self) -> Dict[str, NepaliDate]:
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `Dict[str, NepaliDate]`
+* **Structure**:
+  * `"start"`: `NepaliDate` object positioned on the first day of the fiscal quarter at midnight.
+  * `"end"`: `NepaliDate` object positioned on the final day of the fiscal quarter.
+
+---
+
+## Examples
+
+### Generating Quarterly Accounting Windows
+
+```python
+from nepali_date_library import NepaliDate
+
+date = NepaliDate("2081-05-15") # Bhadra (Q1)
+quarter_info = date.fiscal_quarter_dates()
+
+start_date = quarter_info["start"]
+end_date = quarter_info["end"]
+
+print(f"Q1 starts: {start_date.format('YYYY-MM-DD')}") # "2081-04-01" (1 Shrawan)
+print(f"Q1 ends:   {end_date.format('YYYY-MM-DD')}")   # "2081-06-30" (End of Aswin)
+```
+
+---
+
+## Related
+
+* [`NepaliDate.get_fiscal_quarter()`](/docs/python/fiscal-year/get-fiscal-quarter): Look up boundaries for any quarter.
+* [`date.fiscal_quarter()`](/docs/python/fiscal-year/fiscal-quarter): Retrieve the active quarter index.

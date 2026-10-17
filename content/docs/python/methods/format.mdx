@@ -1,0 +1,66 @@
+---
+title: date.format()
+description: Format a NepaliDate instance into a custom string using token patterns for English and Nepali output.
+icon: Type
+---
+
+The `format` method transforms a `NepaliDate` instance into a formatted string according to a pattern of token specifiers. It supports tokens for year, month, day, weekday, hours, minutes, and seconds, with full support for localized English names as well as Devanagari script numerals and words.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def format(self, format_str: str) -> str:
+```
+
+---
+
+## Common Format Tokens
+
+| Token | Output Format | Example |
+| :--- | :--- | :--- |
+| `YYYY` | Four digit year | `2081` |
+| `YY` | Two digit year | `81` |
+| `MMMM` | Full month name | `Kartik` |
+| `MMM` | Short month name | `Kar` |
+| `MM` | Two digit month number | `07` |
+| `M` | One or two digit month number | `7` |
+| `DD` | Two digit day of month | `15` |
+| `D` | One or two digit day of month | `15` |
+| `dddd` | Full weekday name | `Friday` |
+| `ddd` | Short weekday name | `Fri` |
+| `HH` | Two digit 24-hour time | `14` |
+| `mm` | Two digit minute | `30` |
+| `ss` | Two digit second | `45` |
+
+---
+
+## Examples
+
+```python
+from nepali_date_library import NepaliDate
+
+date = NepaliDate("2081-07-15")
+
+# Standard ISO format
+print(date.format("YYYY-MM-DD")) # "2081-07-15"
+
+# Long English date
+print(date.format("dddd, MMMM DD, YYYY")) # "Friday, Kartik 15, 2081"
+```
+
+---
+
+## Related
+
+* [`date.clone()`](/docs/python/methods/clone): Duplicate a date instance.
+* [`NepaliDate.get_month_name()`](/docs/python/static/get-month-name): Static month name helper.

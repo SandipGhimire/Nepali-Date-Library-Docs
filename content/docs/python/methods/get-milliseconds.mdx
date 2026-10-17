@@ -1,0 +1,55 @@
+---
+title: date.get_milliseconds()
+description: Retrieve the millisecond component from zero to nine hundred ninety nine.
+icon: Clock
+---
+
+The `get_milliseconds` method returns the millisecond fraction of the current second as an integer from 0 to 999. It provides high resolution timing details for precision logging and event timestamping.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def get_milliseconds(self) -> int:
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `int`
+* **Range**: `0` to `999`
+* **Description**: Millisecond integer between 0 and 999.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+now = NepaliDate()
+print(f"Milliseconds: {now.get_milliseconds()}")
+```
+
+---
+
+## Related
+
+* [`date.get_time()`](/docs/python/methods/get-time): Retrieve epoch timestamp in milliseconds.
+* [`date.get_seconds()`](/docs/python/methods/get-seconds): Retrieve second component.

@@ -1,0 +1,57 @@
+---
+title: date.add_days()
+description: Add or subtract a specified number of days to a NepaliDate instance with automatic month and year rollover.
+icon: Plus
+---
+
+The `add_days` method modifies the current `NepaliDate` instance by adding or subtracting a given integer number of days. It automatically handles variable Bikram Sambat month day counts, transitions across month boundaries, and advances or decrements the year when needed.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def add_days(self, days: int) -> NepaliDate:
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `days` | `int` | Yes | Positive or negative number of days to add. |
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* **Description**: Returns `self` after mutating the internal coordinates.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+date = NepaliDate("2081-01-25")
+date.add_days(10)
+print(date.format("YYYY-MM-DD")) # Transitions into Jestha
+```
+
+---
+
+## Related
+
+* [`date.add_months()`](/docs/python/methods/add-months): Add or subtract months.
+* [`date.diff()`](/docs/python/methods/diff): Calculate day differences.

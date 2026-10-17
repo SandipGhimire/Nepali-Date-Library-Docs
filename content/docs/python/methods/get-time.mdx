@@ -1,0 +1,56 @@
+---
+title: date.get_time()
+description: Retrieve the numeric timestamp in milliseconds since the Unix epoch.
+icon: Clock
+---
+
+The `get_time` method returns the number of milliseconds elapsed since the Unix epoch of January 1, 1970 UTC. This integer value matches the return value of standard epoch timestamps and allows direct numerical comparison between date instances.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def get_time(self) -> int:
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `int`
+* **Description**: Milliseconds elapsed since January 1, 1970 00:00:00 UTC.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+d1 = NepaliDate("2081-01-01")
+d2 = NepaliDate("2081-01-02")
+
+print(d1.get_time() < d2.get_time()) # True
+```
+
+---
+
+## Related
+
+* [`date.get_english_date()`](/docs/python/methods/get-english-date): Retrieve Python datetime object.
+* [`date.diff()`](/docs/python/methods/diff): Calculate duration differences.

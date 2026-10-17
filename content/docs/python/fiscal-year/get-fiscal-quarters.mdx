@@ -1,0 +1,63 @@
+---
+title: NepaliDate.get_fiscal_quarters()
+description: Static utility returning all four fiscal trimesters with their constituent months and date ranges for a given year.
+icon: LayoutGrid
+---
+
+The static `get_fiscal_quarters` method returns a complete structural breakdown of all four fiscal trimesters for a specified Bikram Sambat year. Each quarter entry includes its trimester index, English and Nepali month names, and corresponding calendar boundary information.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+@staticmethod
+def get_fiscal_quarters(
+    fiscal_year: Optional[int] = None
+) -> Dict[str, Dict[str, NepaliDate]]:
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `fiscal_year` | `Optional[int]` | No | Four digit starting Bikram Sambat year. Defaults to current fiscal year. |
+
+---
+
+## Return Value
+
+* **Type**: `Dict[str, Dict[str, NepaliDate]]`
+* **Structure**: A dictionary with keys `"Q1"`, `"Q2"`, `"Q3"`, and `"Q4"`, each containing `"start"` and `"end"` `NepaliDate` objects.
+
+---
+
+## Examples
+
+```python
+from nepali_date_library import NepaliDate
+
+quarters = NepaliDate.get_fiscal_quarters(2081)
+
+for q_name, boundaries in quarters.items():
+    start_str = boundaries["start"].format("YYYY-MM-DD")
+    end_str = boundaries["end"].format("YYYY-MM-DD")
+    print(f"{q_name}: {start_str} to {end_str}")
+```
+
+---
+
+## Related
+
+* [`NepaliDate.get_fiscal_quarter()`](/docs/python/fiscal-year/get-fiscal-quarter): Query a single trimester boundary.
+* [`date.fiscal_quarter_dates()`](/docs/python/fiscal-year/fiscal-quarter-dates): Active quarter boundaries for an instance.

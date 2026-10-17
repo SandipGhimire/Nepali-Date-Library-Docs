@@ -1,0 +1,54 @@
+---
+title: date.is_valid_instance()
+description: Validate whether the current NepaliDate instance represents a legitimate calendar date within supported bounds.
+icon: CheckCircle
+---
+
+The `is_valid_instance` method checks whether the current `NepaliDate` instance contains valid calendar values and falls within the supported range of 1976 through 2100 BS. It verifies that year, month, and day coordinates correspond to an authentic historical date.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def is_valid_instance(self) -> bool:
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `bool`
+* **Description**: Returns `True` if the date is valid.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+date = NepaliDate("2081-07-15")
+print(date.is_valid_instance()) # True
+```
+
+---
+
+## Related
+
+* [`NepaliDate.is_valid()`](/docs/python/static/is-valid): Static validation method.
+* [`NepaliDate.minimum()`](/docs/python/static/minimum): Earliest supported date.

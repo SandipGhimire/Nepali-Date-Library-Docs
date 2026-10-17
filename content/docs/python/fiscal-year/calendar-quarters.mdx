@@ -1,0 +1,55 @@
+---
+title: Calendar Quarters
+description: Explanation of standard Bikram Sambat calendar quarters compared to government fiscal trimesters.
+icon: CalendarDays
+---
+
+Standard calendar quarters divide the Bikram Sambat calendar year into four equal three month periods starting from 1 Baisakh. This guide clarifies the structural difference between standard calendar quarters and Nepal government fiscal year trimesters, which commence three months later on 1 Shrawan.
+
+---
+
+## Calendar Quarters Breakdown
+
+Unlike the government fiscal calendar which begins in Shrawan, standard calendar quarters follow the natural calendar year starting from Baisakh:
+
+| Quarter | Months Included | Month Indices | Approximate Gregorian Window |
+| :---: | :--- | :---: | :--- |
+| **Q1** | Baisakh, Jestha, Asar | `0`, `1`, `2` | Mid April to Mid July |
+| **Q2** | Shrawan, Bhadra, Aswin | `3`, `4`, `5` | Mid July to Mid October |
+| **Q3** | Kartik, Mangsir, Poush | `6`, `7`, `8` | Mid October to Mid January |
+| **Q4** | Magh, Falgun, Chaitra | `9`, `10`, `11` | Mid January to Mid April |
+
+---
+
+## Related Methods in Python
+
+The library provides dedicated methods for working with standard calendar quarters:
+
+```python
+from nepali_date_library import NepaliDate
+
+date = NepaliDate("2081-01-15")
+
+# Calendar quarter number (1 to 4)
+print(date.current_quarter()) # 1
+
+# Start and end dates of the active calendar quarter
+c_dates = date.current_quarter_dates()
+print(f"Starts: {c_dates['start'].format('YYYY-MM-DD')}")
+print(f"Ends:   {c_dates['end'].format('YYYY-MM-DD')}")
+
+# Static lookup for a specific year and quarter
+q2_2081 = NepaliDate.get_quarter(quarter=2, year=2081)
+print(f"Q2 starts: {q2_2081['start'].format('YYYY-MM-DD')}")
+```
+
+---
+
+## Calendar vs Fiscal Quarters Comparison
+
+| Feature | Standard Calendar Quarter | Government Fiscal Trimester |
+| :--- | :--- | :--- |
+| **Year Start** | 1 Baisakh (Mid April) | 1 Shrawan (Mid July) |
+| **Q1 Months** | Baisakh, Jestha, Asar | Shrawan, Bhadra, Aswin |
+| **Methods** | `current_quarter()`, `get_quarter()` | `fiscal_quarter()`, `get_fiscal_quarter()` |
+| **Use Cases** | Public calendars, UI views, general scheduling | Taxes, government accounting, corporate audits |

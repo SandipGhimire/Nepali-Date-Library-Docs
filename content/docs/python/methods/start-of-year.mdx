@@ -1,0 +1,55 @@
+---
+title: date.start_of_year()
+description: Return a new NepaliDate instance set to the first day of the Bikram Sambat year on 1 Baisakh.
+icon: Calendar
+---
+
+The `start_of_year` method returns a new `NepaliDate` instance set to 1 Baisakh, the first day of the Bikram Sambat calendar year. This is useful for year to date financial tracking and annual summary reports.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def start_of_year(self) -> NepaliDate:
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `NepaliDate`
+* **Description**: New date instance positioned on 1 Baisakh of the current year.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+date = NepaliDate("2081-07-15")
+year_start = date.start_of_year()
+print(year_start.format("YYYY-MM-DD")) # "2081-01-01"
+```
+
+---
+
+## Related
+
+* [`date.end_of_year()`](/docs/python/methods/end-of-year): Final day of the year.
+* [`date.start_of_month()`](/docs/python/methods/start-of-month): First day of the month.

@@ -1,0 +1,54 @@
+---
+title: date.is_leap_year()
+description: Determine whether the current Bikram Sambat calendar year has three hundred sixty six or more days.
+icon: Calendar
+---
+
+The `is_leap_year` method checks whether the active Bikram Sambat year contains 366 or more days based on official solar calendar tables. Because Bikram Sambat year lengths depend on astronomical calculations rather than fixed leap year cycles, this method checks the actual cumulative day count for the year.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def is_leap_year(self) -> bool:
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `bool`
+* **Description**: Returns `True` if the year has 366 or more days.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+date = NepaliDate("2081-01-01")
+print(date.is_leap_year())
+```
+
+---
+
+## Related
+
+* [`date.days_in_month()`](/docs/python/methods/days-in-month): Total days in a month.
+* [`nepali_date_map`](/docs/python/constants/nepali-date-map): Calendar mapping table.

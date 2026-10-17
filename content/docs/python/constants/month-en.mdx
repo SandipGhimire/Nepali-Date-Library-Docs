@@ -1,0 +1,74 @@
+---
+title: month_en
+description: Array containing standard romanized English names of all twelve Bikram Sambat calendar months.
+icon: Calendar
+---
+
+The `month_en` constant is an immutable array containing the official romanized English names of the twelve Bikram Sambat months. The array is indexed starting from 0 for Baisakh up to index 11 for Chaitra, making it convenient for looking up month names corresponding to numeric month values returned by date methods.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import month_en
+```
+
+---
+
+## Value
+
+```python
+month_en = [
+    "Baisakh",
+    "Jestha",
+    "Asar",
+    "Shrawan",
+    "Bhadra",
+    "Aswin",
+    "Kartik",
+    "Mangsir",
+    "Poush",
+    "Magh",
+    "Falgun",
+    "Chaitra",
+]
+```
+
+---
+
+## Month Index Table
+
+| Index | English Name | Approximate Gregorian Window |
+| :---: | :--- | :--- |
+| `0` | `"Baisakh"` | Mid April to Mid May |
+| `1` | `"Jestha"` | Mid May to Mid June |
+| `2` | `"Asar"` | Mid June to Mid July |
+| `3` | `"Shrawan"` | Mid July to Mid August |
+| `4` | `"Bhadra"` | Mid August to Mid September |
+| `5` | `"Aswin"` | Mid September to Mid October |
+| `6` | `"Kartik"` | Mid October to Mid November |
+| `7` | `"Mangsir"` | Mid November to Mid December |
+| `8` | `"Poush"` | Mid December to Mid January |
+| `9` | `"Magh"` | Mid January to Mid February |
+| `10` | `"Falgun"` | Mid February to Mid March |
+| `11` | `"Chaitra"` | Mid March to Mid April |
+
+---
+
+## Example Usage
+
+```python
+from nepali_date_library import NepaliDate, month_en
+
+date = NepaliDate("2081-07-15")
+month_index = date.get_month()
+print(f"Month: {month_en[month_index]}") # "Kartik"
+```
+
+---
+
+## Related
+
+* [`month_short_en`](/docs/python/constants/month-short-en): Abbreviated three letter English month names.
+* [`month_np`](/docs/python/constants/month-np): Full Devanagari Nepali month names.

@@ -1,0 +1,55 @@
+---
+title: date.get_minutes()
+description: Retrieve the minute component from zero to fifty nine for the current date instance.
+icon: Clock
+---
+
+The `get_minutes` method returns the minute value as an integer from 0 to 59 for the current `NepaliDate` instance. It is derived from the underlying timestamp representing the recorded time of the date object.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def get_minutes(self) -> int:
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `int`
+* **Range**: `0` to `59`
+* **Description**: Minute integer between 0 and 59.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+now = NepaliDate()
+print(f"Current minute: {now.get_minutes()}")
+```
+
+---
+
+## Related
+
+* [`date.get_hours()`](/docs/python/methods/get-hours): Retrieve the hour component.
+* [`date.get_seconds()`](/docs/python/methods/get-seconds): Retrieve the second component.

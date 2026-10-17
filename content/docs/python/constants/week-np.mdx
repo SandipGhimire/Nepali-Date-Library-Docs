@@ -1,0 +1,63 @@
+---
+title: week_np
+description: Array containing full Devanagari Nepali names for all seven days of the week starting from Sunday.
+icon: Calendar
+---
+
+The `week_np` constant provides the full Devanagari Nepali names for the seven days of the week, beginning with Aaitabar at index 0 and concluding with Shanibar at index 6. It enables complete localization for calendar headings, date labels, and event scheduling in Nepali language applications.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import week_np
+```
+
+---
+
+## Value
+
+```python
+week_np = [
+    "आइतबार",
+    "सोमबार",
+    "मंगलबार",
+    "बुधबार",
+    "बिहिबार",
+    "शुक्रबार",
+    "शनिबार",
+]
+```
+
+---
+
+## Weekday Index Table
+
+| Index | Devanagari Name | Romanized | English |
+| :---: | :--- | :--- | :--- |
+| `0` | `आइतबार` | Aaitabar | Sunday |
+| `1` | `सोमबार` | Sombar | Monday |
+| `2` | `मंगलबार` | Mangalbar | Tuesday |
+| `3` | `बुधबार` | Budhabar | Wednesday |
+| `4` | `बिहिबार` | Bihibar | Thursday |
+| `5` | `शुक्रबार` | Sukrabar | Friday |
+| `6` | `शनिबार` | Shanibar | Saturday |
+
+---
+
+## Example Usage
+
+```python
+from nepali_date_library import NepaliDate, week_np
+
+date = NepaliDate("2081-07-15")
+print(week_np[date.get_day()]) # "शुक्रबार"
+```
+
+---
+
+## Related
+
+* [`week_short_np`](/docs/python/constants/week-short-np): Short Devanagari weekday abbreviations.
+* [`week_en`](/docs/python/constants/week-en): Full English weekday names.

@@ -1,0 +1,72 @@
+---
+title: NepaliDate.get_day_name()
+description: Static utility to retrieve the localized English or Nepali name for any day of the week index.
+icon: Calendar
+---
+
+The `get_day_name` static method converts a numeric weekday index from 0 for Sunday through 6 for Saturday into its localized name. It supports both English and Nepali Devanagari script output, allowing flexible localization across international and local application interfaces.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+@staticmethod
+def get_day_name(
+    day: int,
+    short: bool = False,
+    nepali: bool = False
+) -> str:
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Default | Description |
+| :--- | :--- | :---: | :---: | :--- |
+| `day` | `int` | Yes | - | Weekday index from `0` for Sunday to `6` for Saturday. |
+| `short` | `bool` | No | `False` | Return abbreviated name. |
+| `nepali` | `bool` | No | `False` | Return name in Devanagari Nepali script. |
+
+---
+
+## Return Value
+
+* **Type**: `str`
+* **Description**: Localized weekday name string.
+
+---
+
+## Examples
+
+```python
+from nepali_date_library import NepaliDate
+
+# English full name (5 is Friday)
+print(NepaliDate.get_day_name(5)) # "Friday"
+
+# English abbreviation
+print(NepaliDate.get_day_name(5, short=True)) # "Fri"
+
+# Devanagari full name
+print(NepaliDate.get_day_name(5, nepali=True)) # "शुक्रबार"
+
+# Devanagari abbreviation
+print(NepaliDate.get_day_name(5, short=True, nepali=True)) # "शु"
+```
+
+---
+
+## Related
+
+* [`NepaliDate.get_month_name()`](/docs/python/static/get-month-name): Retrieve localized month names.
+* [`week_en`](/docs/python/constants/week-en): Complete list of English weekday names.

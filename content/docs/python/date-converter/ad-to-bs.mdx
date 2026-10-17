@@ -1,0 +1,80 @@
+---
+title: ADtoBS()
+description: Pure helper function to convert Gregorian calendar date strings into Bikram Sambat date strings.
+icon: ArrowRight
+---
+
+The `ADtoBS` function performs direct mathematical conversion of a Gregorian date string into its corresponding Bikram Sambat date string. It accepts standard date formats and returns the converted Nepali date, handling month day variations and leap year calculations automatically without external dependencies.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import ADtoBS
+```
+
+---
+
+## Signature
+
+```python
+def ADtoBS(adDate: str) -> str:
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `adDate` | `str` | Yes | Gregorian date string formatted strictly as `YYYY-MM-DD`. |
+
+---
+
+## Return Value
+
+* **Type**: `str`
+* **Format**: `YYYY-MM-DD` representing the corresponding Bikram Sambat date.
+
+---
+
+## Exceptions
+
+| Error Message | Trigger Condition |
+| :--- | :--- |
+| `Invalid date format. Expected format: YYYY-MM-DD` | Raised if input does not strictly match the four digit year and two digit month day pattern. |
+| `Invalid date input '<adDate>'` | Raised if date components cannot be parsed into valid Gregorian dates. |
+| `Fail to convert AD to BS` | Raised if the date falls outside the supported historical range. |
+
+---
+
+## Examples
+
+### Basic Conversion
+
+```python
+from nepali_date_library import ADtoBS
+
+nepali_date = ADtoBS("2023-04-14")
+print(nepali_date) # "2080-01-01"
+```
+
+### Processing Data Records
+
+```python
+records = [
+    {"id": 1, "created_at": "2024-01-01"},
+    {"id": 2, "created_at": "2024-07-15"},
+]
+
+for item in records:
+    item["created_at_bs"] = ADtoBS(item["created_at"])
+```
+
+---
+
+## Related
+
+* [`BStoAD()`](/docs/python/date-converter/bs-to-ad): Reverse conversion from Bikram Sambat to Gregorian.
+* [`NepaliDate Class`](/docs/python/class/constructor): Full date manipulation and arithmetic object.

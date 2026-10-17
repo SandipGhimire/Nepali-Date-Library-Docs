@@ -1,0 +1,55 @@
+---
+title: date.get_month()
+description: Retrieve the zero based Bikram Sambat month index from zero for Baisakh to eleven for Chaitra.
+icon: Calendar
+---
+
+The `get_month` method returns the month of the year as an integer between 0 and 11 for the current `NepaliDate` instance. The library adheres to the zero based indexing standard where 0 represents Baisakh, 1 represents Jestha, and 11 represents Chaitra.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def get_month(self) -> int:
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `int`
+* **Range**: `0` to `11`
+* **Description**: Zero based month index from Baisakh (`0`) to Chaitra (`11`).
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+date = NepaliDate("2081-07-15") # Kartik
+print(date.get_month()) # 6 (Kartik is index 6)
+```
+
+---
+
+## Related
+
+* [`date.set_month()`](/docs/python/methods/set-month): Mutate the month component.
+* [`NepaliDate.get_month_name()`](/docs/python/static/get-month-name): Look up the month name.

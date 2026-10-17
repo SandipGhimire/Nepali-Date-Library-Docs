@@ -1,0 +1,63 @@
+---
+title: week_short_en
+description: Array containing abbreviated English weekday names ordered from Sunday through Saturday.
+icon: Calendar
+---
+
+The `week_short_en` constant contains short three letter English abbreviations for each day of the week, starting with Sun at index 0 and ending with Sat at index 6. These concise labels are widely used in monthly calendar headers, compact date selectors, and agenda views.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import week_short_en
+```
+
+---
+
+## Value
+
+```python
+week_short_en = [
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat",
+]
+```
+
+---
+
+## Weekday Abbreviation Table
+
+| Index | Abbreviation | Full Name |
+| :---: | :--- | :--- |
+| `0` | `"Sun"` | Sunday |
+| `1` | `"Mon"` | Monday |
+| `2` | `"Tue"` | Tuesday |
+| `3` | `"Wed"` | Wednesday |
+| `4` | `"Thu"` | Thursday |
+| `5` | `"Fri"` | Friday |
+| `6` | `"Sat"` | Saturday |
+
+---
+
+## Example Usage
+
+```python
+from nepali_date_library import NepaliDate, week_short_en
+
+date = NepaliDate("2081-07-15")
+print(week_short_en[date.get_day()]) # "Fri"
+```
+
+---
+
+## Related
+
+* [`week_en`](/docs/python/constants/week-en): Full English weekday names.
+* [`week_short_np`](/docs/python/constants/week-short-np): Devanagari short weekday abbreviations.

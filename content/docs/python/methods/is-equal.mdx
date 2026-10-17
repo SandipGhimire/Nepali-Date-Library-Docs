@@ -1,0 +1,58 @@
+---
+title: date.is_equal()
+description: Check whether two date instances share the exact same calendar date coordinates regardless of time.
+icon: Equal
+---
+
+The `is_equal` method checks whether the current `NepaliDate` instance shares the exact same Bikram Sambat year, month, and day coordinates as another date object, ignoring any differences in hours, minutes, seconds, or milliseconds.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def is_equal(self, date: NepaliDate) -> bool:
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `date` | `NepaliDate` | Yes | Date instance to compare coordinates with. |
+
+---
+
+## Return Value
+
+* **Type**: `bool`
+* **Description**: Returns `True` if year, month, and day are identical.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+d1 = NepaliDate("2081-07-15")
+d2 = NepaliDate("2081-07-15")
+
+print(d1.is_equal(d2)) # True
+```
+
+---
+
+## Related
+
+* [`date.is_same()`](/docs/python/methods/is-same): Compare with custom granularity.
+* [`date.is_before()`](/docs/python/methods/is-before): Check chronological order.

@@ -1,0 +1,55 @@
+---
+title: date.get_seconds()
+description: Retrieve the second component from zero to fifty nine for the current date instance.
+icon: Clock
+---
+
+The `get_seconds` method returns the second value as an integer from 0 to 59 for the current `NepaliDate` instance. It enables precise second level timing and formatting.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def get_seconds(self) -> int:
+```
+
+---
+
+## Parameters
+
+* None.
+
+---
+
+## Return Value
+
+* **Type**: `int`
+* **Range**: `0` to `59`
+* **Description**: Second integer between 0 and 59.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+now = NepaliDate()
+print(f"Current second: {now.get_seconds()}")
+```
+
+---
+
+## Related
+
+* [`date.get_minutes()`](/docs/python/methods/get-minutes): Retrieve the minute component.
+* [`date.get_milliseconds()`](/docs/python/methods/get-milliseconds): Retrieve milliseconds.

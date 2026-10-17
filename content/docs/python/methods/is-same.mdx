@@ -1,0 +1,63 @@
+---
+title: date.is_same()
+description: Check whether two dates match across a specified granularity such as year, month, or day.
+icon: Equal
+---
+
+The `is_same` method compares the current `NepaliDate` instance with another date at a specified level of granularity, such as year, month, day, hour, or minute. It returns true if both dates match within that specific unit, simplifying range checks and calendar filters.
+
+---
+
+## Import
+
+```python
+from nepali_date_library import NepaliDate
+```
+
+---
+
+## Signature
+
+```python
+def is_same(self, date: NepaliDate, unit: str) -> bool:
+```
+
+---
+
+## Parameters
+
+| Parameter | Type | Required | Description |
+| :--- | :--- | :---: | :--- |
+| `date` | `NepaliDate` | Yes | Date instance to compare with. |
+| `unit` | `str` | Yes | Granularity: `"year"`, `"month"`, `"date"`, `"day"`. |
+
+---
+
+## Return Value
+
+* **Type**: `bool`
+* **Description**: Returns `True` if the specified unit matches.
+
+---
+
+## Example
+
+```python
+from nepali_date_library import NepaliDate
+
+d1 = NepaliDate("2081-07-05")
+d2 = NepaliDate("2081-07-20")
+
+# Same month and year
+print(d1.is_same(d2, "month")) # True
+
+# Different day
+print(d1.is_same(d2, "date"))  # False
+```
+
+---
+
+## Related
+
+* [`date.is_equal()`](/docs/python/methods/is-equal): Compare full date equality.
+* [`date.diff()`](/docs/python/methods/diff): Quantitative difference.
