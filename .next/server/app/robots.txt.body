@@ -1,0 +1,28 @@
+User-Agent: *
+Allow: /
+Disallow: /api/search
+
+User-Agent: Googlebot
+User-Agent: Bingbot
+User-Agent: Applebot
+User-Agent: DuckDuckBot
+User-Agent: Baiduspider
+User-Agent: YandexBot
+User-Agent: GPTBot
+User-Agent: ChatGPT-User
+User-Agent: ClaudeBot
+User-Agent: Claude-Web
+User-Agent: anthropic-ai
+User-Agent: PerplexityBot
+User-Agent: Google-Extended
+User-Agent: Applebot-Extended
+User-Agent: cohere-ai
+User-Agent: CCBot
+User-Agent: Diffbot
+User-Agent: Bytespider
+User-Agent: FacebookBot
+User-Agent: Omgilibot
+Allow: /
+
+Host: https://nepali-pkg.date
+Sitemap: https://nepali-pkg.date/sitemap.xml

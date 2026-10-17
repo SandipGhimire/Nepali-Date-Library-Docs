@@ -1,0 +1,40 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/docs/layout,_N_T_/docs/[[...slug]]/layout,_N_T_/docs/[[...slug]]/page,_N_T_/docs/nodejs/methods/set"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/docs",
+    "/docs/$oc$slug/__PAGE__"
+  ],
+  "prefetchHints": {
+    "hints": 64,
+    "slots": {
+      "children": {
+        "hints": 32,
+        "slots": {
+          "children": {
+            "hints": 64,
+            "slots": {
+              "children": {
+                "hints": 160,
+                "slots": null
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/966fe5664d321b90e424723b799fc8695a949991066b442a630706cfc863a243/$/docs/nodejs/methods/set",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/docs/[[...slug]]/page"
+    },
+    "isFallback": false
+  }
+}
