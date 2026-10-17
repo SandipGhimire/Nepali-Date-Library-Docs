@@ -229,19 +229,7 @@ export function SidebarViewport({ className, ...props }: ScrollAreaProps) {
 }
 
 export function SidebarSeparator(props: ComponentProps<"p">) {
-  const depth = useFolderDepth();
-  return (
-    <p
-      {...props}
-      className={cn(
-        "inline-flex items-center gap-2 mb-1.5 px-2 mt-6 empty:mb-0",
-        depth === 0 && "first:mt-0",
-        props.className,
-      )}
-    >
-      {props.children}
-    </p>
-  );
+  return <p {...props} />;
 }
 
 export function SidebarItem({

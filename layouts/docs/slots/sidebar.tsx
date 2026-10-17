@@ -295,11 +295,12 @@ function SidebarSeparator({ className, style, children, ...props }: ComponentPro
   return (
     <Base.SidebarSeparator
       className={cn(
-        "inline-flex items-center gap-2 uppercase font-semibold text-[10.5px] tracking-wider text-fd-muted-foreground/70 px-2 mt-5 mb-1.5 empty:hidden [&_svg]:size-3.5 [&_svg]:shrink-0",
-        depth === 0 && "first:mt-2",
+        "inline-flex items-center gap-2 uppercase font-semibold text-[10.5px] tracking-wider text-fd-muted-foreground/70 px-2 empty:hidden [&_svg]:size-3.5 [&_svg]:shrink-0",
+        depth === 0 ? "mt-5 mb-1.5 first:mt-2" : "mt-3 mb-1 first:mt-1",
         className,
       )}
       style={{
+        paddingInlineStart: getItemOffset(depth),
         ...style,
       }}
       {...props}
