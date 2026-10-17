@@ -1,10 +1,10 @@
 ---
 title: Instance Properties
-description: Reference for public properties available on every NepaliDate instance.
+description: Reference for public instance properties available on every NepaliDate object including year, month, day, and underlying timestamp.
 icon: Braces
 ---
 
-Every `NepaliDate` instance exposes four public properties representing its Bikram Sambat coordinates and underlying Gregorian timestamp.
+Every `NepaliDate` instance provides direct read access to its core calendar coordinates through public properties. These include the four digit Bikram Sambat year, the month number indexed from 0 to 11, the day of the month from 1 to 32, and the underlying UTC timestamp stored as a native JavaScript Date object. These properties reflect the current state of the date instance after any modifications or arithmetic operations.
 
 ---
 

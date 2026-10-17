@@ -1,10 +1,10 @@
 ---
 title: date.addMonths()
-description: API reference for the date.addMonths() method.
+description: Add or subtract months to a NepaliDate instance while adjusting for variable month lengths.
 icon: CalendarPlus
 ---
 
-Adds or subtracts a specified number of months to the current `NepaliDate` instance. If the target month has fewer days than the current day of the month, the day is automatically clamped to the last valid day of that month.
+The `addMonths` method advances or rewinds the current `NepaliDate` instance by a specified number of months. If the current day of the month exceeds the total days available in the destination month, the method automatically clamps the day to the final valid day of that month to ensure calendar consistency.
 
 ---
 
