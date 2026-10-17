@@ -4,14 +4,8 @@ import { notFound } from "next/navigation";
 import { getMDXComponents } from "@/components/mdx";
 import type { Metadata } from "next";
 import { createRelativeLink } from "fumadocs-ui/mdx";
-import {
-  SITE_URL,
-  SITE_NAME,
-  getBreadcrumbSchema,
-  getTechArticleSchema,
-} from "@/lib/seo";
+import { SITE_URL, SITE_NAME, getBreadcrumbSchema, getTechArticleSchema } from "@/lib/seo";
 import { AdSenseBanner } from "@/components/ads/adsense-banner";
-import { ADSENSE_SLOTS } from "@/lib/adsense";
 
 import * as LucideIcons from "lucide-react";
 import { icons, type LucideIcon } from "lucide-react";
@@ -45,13 +39,11 @@ function PageTitleIcon({ slug, icon }: { slug?: string[]; icon?: string }) {
             ? "Code2"
             : "BookOpen");
 
-  const IconComp = (
-    (iconName in LucideIcons
-      ? (LucideIcons as unknown as Record<string, LucideIcon>)[iconName]
-      : null) ??
+  const IconComp = ((iconName in LucideIcons
+    ? (LucideIcons as unknown as Record<string, LucideIcon>)[iconName]
+    : null) ??
     (iconName in icons ? icons[iconName as keyof typeof icons] : null) ??
-    LucideIcons.BookOpen
-  ) as LucideIcon;
+    LucideIcons.BookOpen) as LucideIcon;
 
   return <IconComp className="size-6.5 sm:size-7.5 shrink-0 text-fd-primary" />;
 }
@@ -101,14 +93,8 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
   return (
     <DocsPage toc={page.data.toc} full={page.data.full}>
       {/* Schema.org Breadcrumbs & TechArticle Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(techArticleSchema) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(techArticleSchema) }} />
 
       <DocsTitle className="flex items-center gap-3">
         <PageTitleIcon slug={params.slug} icon={page.data.icon} />
@@ -121,10 +107,7 @@ export default async function Page(props: PageProps<"/docs/[[...slug]]">) {
             a: createRelativeLink(docsSource, page),
           })}
         />
-        <AdSenseBanner
-          slot={ADSENSE_SLOTS.docs}
-          className="mt-12 mb-4"
-        />
+        <AdSenseBanner className="mt-12 mb-4" />
       </DocsBody>
     </DocsPage>
   );

@@ -105,11 +105,10 @@ Copy the example environment file and configure optional keys:
 cp .env.example .env.local
 ```
 
-| Variable                        | Description                            | Default                   |
-| :------------------------------ | :------------------------------------- | :------------------------ |
-| `NEXT_PUBLIC_SITE_URL`          | Canonical site URL                     | `https://nepali-pkg.date` |
-| `NEXT_PUBLIC_ADSENSE_CLIENT_ID` | Google AdSense Publisher ID (optional) | `""`                      |
-| `NEXT_PUBLIC_ADSENSE_SLOT_*`    | Unit IDs for specific page slots       | `""`                      |
+| Variable               | Description                            | Default                   |
+| :--------------------- | :------------------------------------- | :------------------------ |
+| `NEXT_PUBLIC_SITE_URL` | Canonical site URL                     | `https://nepali-pkg.date` |
+| `ADSENSE_CLIENT_ID`    | Google AdSense Publisher ID (optional) | `""`                      |
 
 ### 3. Local Development
 

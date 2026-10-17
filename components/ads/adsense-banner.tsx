@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ADSENSE_CLIENT_ID } from "@/lib/adsense";
+import { useAdSense } from "./adsense-provider";
 
 interface AdSenseBannerProps {
   slot?: string;
@@ -21,27 +21,33 @@ export function AdSenseBanner({
   variant = "default",
 }: AdSenseBannerProps) {
   const adRef = useRef<HTMLModElement>(null);
-  const [adLoaded, setAdLoaded] = useState(false);
+  const [adPushed, setAdPushed] = useState(false);
   const isDev = process.env.NODE_ENV === "development";
-  const hasClientId = Boolean(ADSENSE_CLIENT_ID);
+
+  const { clientId, isEnabled, isLoaded } = useAdSense();
 
   const isSidebar = variant === "sidebar";
   const effectiveMinHeight =
     minHeight || (isSidebar ? "min-h-[85px] sm:min-h-[100px]" : "min-h-[90px] sm:min-h-[100px]");
 
   useEffect(() => {
-    if (!hasClientId || isDev) return;
+    if (!isEnabled || isDev || adPushed) return;
 
     try {
       // @ts-ignore
       const adsbygoogle = window.adsbygoogle || [];
       // @ts-ignore
       adsbygoogle.push({});
-      setAdLoaded(true);
+      setAdPushed(true);
     } catch {
       // Gracefully handle adblocker or duplicate push errors
     }
-  }, [hasClientId, isDev]);
+  }, [isEnabled, isDev, adPushed]);
+
+  // If ads are not enabled in production, render nothing (no empty placeholder boxes)
+  if (!isEnabled && !isDev && isLoaded) {
+    return null;
+  }
 
   return (
     <div
@@ -61,29 +67,25 @@ export function AdSenseBanner({
       </div>
 
       {/* Ad Container */}
-      <div
-        className={`flex items-center justify-center overflow-hidden rounded-md ${effectiveMinHeight}`}
-      >
-        {hasClientId && !isDev ? (
+      <div className={`flex items-center justify-center overflow-hidden rounded-md ${effectiveMinHeight}`}>
+        {isEnabled && !isDev ? (
           <ins
             ref={adRef}
             className="adsbygoogle"
             style={{ display: "block", width: "100%", textAlign: "center" }}
-            data-ad-client={ADSENSE_CLIENT_ID}
+            data-ad-client={clientId}
             data-ad-slot={slot || undefined}
             data-ad-format={format}
             data-full-width-responsive={responsive ? "true" : "false"}
           />
         ) : (
-          /* Clean preview placeholder in development or before Client ID is provided */
+          /* Clean preview placeholder in development */
           <div className="flex flex-col items-center justify-center py-2 px-2 text-center">
             <span className="text-[11px] font-mono font-medium text-fd-muted-foreground/70">
               {isSidebar ? "Sidebar Ad Unit" : "Google AdSense Unit"}
             </span>
             <span className="mt-0.5 text-[10px] text-fd-muted-foreground/50">
-              {hasClientId
-                ? "Preview Mode (Active in production)"
-                : "Set NEXT_PUBLIC_ADSENSE_CLIENT_ID"}
+              {isEnabled ? "Preview Mode (Active in production)" : "Configure ADSENSE_CLIENT_ID in server .env"}
             </span>
           </div>
         )}

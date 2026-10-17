@@ -20,7 +20,6 @@ import { useTreePath } from "@fumadocs/base-ui/contexts/tree";
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "../../../../components/ui/collapsible";
 import { useDocsLayout } from "../..";
 import { AdSenseBanner } from "../../../../components/ads/adsense-banner";
-import { ADSENSE_SLOTS } from "../../../../lib/adsense";
 
 export type TOCProviderProps = Base.TOCProviderProps;
 
@@ -79,7 +78,7 @@ export function TOC({ container, header, footer, style = "normal", list }: TOCPr
             <TOCItem key={item.url} item={item} />
           ))}
         </TOCItems>
-        <AdSenseBanner variant="sidebar" slot={ADSENSE_SLOTS.toc} className="mt-6 mb-2" />
+        <AdSenseBanner variant="sidebar" className="mt-6 mb-2" />
       </Base.TOCScrollArea>
       {footer}
     </div>

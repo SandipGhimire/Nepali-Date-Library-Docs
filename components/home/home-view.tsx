@@ -21,7 +21,6 @@ import { WovenBackground } from "@/components/home/woven-background";
 import { HeroVisual } from "@/components/home/hero-visual";
 import { Footer } from "@/components/home/footer";
 import { AdSenseBanner } from "@/components/ads/adsense-banner";
-import { ADSENSE_SLOTS } from "@/lib/adsense";
 
 const steps = [
   {
@@ -262,8 +261,8 @@ export function HomeView() {
 
             {/* Subtext */}
             <p className="mt-5 max-w-xl text-base sm:text-lg text-fd-muted-foreground leading-relaxed text-pretty">
-              A comprehensive multi-language ecosystem to convert, format, validate, and manipulate Nepali (Bikram Sambat)
-              dates with consistent APIs across TypeScript, Python, and PHP.
+              A comprehensive multi-language ecosystem to convert, format, validate, and manipulate Nepali (Bikram
+              Sambat) dates with consistent APIs across TypeScript, Python, and PHP.
             </p>
 
             {/* Action CTAs */}
@@ -437,30 +436,40 @@ export function HomeView() {
                   {" } "}
                   <span className="text-[#C470D7]">from</span>{" "}
                   <span className="text-[#55B987]">"nepali-date-library"</span>;{"\n\n"}
-
-                  <span className="text-[#77746E] italic">// 1. Current Nepali Date</span>{"\n"}
-                  <span className="text-[#C470D7]">const</span>{" "}
-                  <span className="text-[#6CB6FF]">date</span> ={" "}
+                  <span className="text-[#77746E] italic">// 1. Current Nepali Date</span>
+                  {"\n"}
+                  <span className="text-[#C470D7]">const</span> <span className="text-[#6CB6FF]">date</span> ={" "}
                   <span className="text-[#C470D7]">new</span>{" "}
                   <span className="text-[#E1804B] font-semibold">NepaliDate</span>();{"\n"}
-                  console.<span className="text-[#6CB6FF]">log</span>(date.<span className="text-[#6CB6FF]">format</span>(<span className="text-[#55B987]">"YYYY-MM-DD"</span>));{" "}
-                  <span className="text-[#77746E] italic">// e.g. 2081-06-29</span>{"\n\n"}
-
-                  <span className="text-[#77746E] italic">// 2. Conversion from Gregorian (AD)</span>{"\n"}
-                  <span className="text-[#C470D7]">const</span>{" "}
-                  <span className="text-[#6CB6FF]">bsDate</span> ={" "}
-                  <span className="text-[#E1804B] font-semibold">NepaliDate</span>.<span className="text-[#6CB6FF]">fromAD</span>(<span className="text-[#C470D7]">new</span> <span className="text-[#E1804B] font-semibold">Date</span>(<span className="text-[#55B987]">"2024-10-15"</span>));{"\n"}
-                  console.<span className="text-[#6CB6FF]">log</span>(bsDate.<span className="text-[#6CB6FF]">format</span>(<span className="text-[#55B987]">"DD MMMM YYYY"</span>));{" "}
-                  <span className="text-[#77746E] italic">// 29 Ashwin 2081</span>{"\n\n"}
-
-                  <span className="text-[#77746E] italic">// 3. Date Arithmetic & Manipulation</span>{"\n"}
-                  bsDate.<span className="text-[#6CB6FF]">addDays</span>(<span className="text-[#E8B65B]">30</span>);{"\n"}
-                  console.<span className="text-[#6CB6FF]">log</span>(<span className="text-[#55B987]">"Future date:"</span>, bsDate.<span className="text-[#6CB6FF]">format</span>(<span className="text-[#55B987]">"YYYY-MM-DD"</span>));{"\n\n"}
-
-                  <span className="text-[#77746E] italic">// 4. Fiscal Year Calculation</span>{"\n"}
-                  <span className="text-[#C470D7]">const</span>{" "}
-                  <span className="text-[#6CB6FF]">fiscalYear</span> = bsDate.<span className="text-[#6CB6FF]">getFiscalYear</span>();{"\n"}
-                  console.<span className="text-[#6CB6FF]">log</span>(<span className="text-[#55B987]">"Fiscal Year:"</span>, fiscalYear);{" "}
+                  console.<span className="text-[#6CB6FF]">log</span>(date.
+                  <span className="text-[#6CB6FF]">format</span>(<span className="text-[#55B987]">"YYYY-MM-DD"</span>));{" "}
+                  <span className="text-[#77746E] italic">// e.g. 2081-06-29</span>
+                  {"\n\n"}
+                  <span className="text-[#77746E] italic">// 2. Conversion from Gregorian (AD)</span>
+                  {"\n"}
+                  <span className="text-[#C470D7]">const</span> <span className="text-[#6CB6FF]">bsDate</span> ={" "}
+                  <span className="text-[#E1804B] font-semibold">NepaliDate</span>.
+                  <span className="text-[#6CB6FF]">fromAD</span>(<span className="text-[#C470D7]">new</span>{" "}
+                  <span className="text-[#E1804B] font-semibold">Date</span>(
+                  <span className="text-[#55B987]">"2024-10-15"</span>));{"\n"}
+                  console.<span className="text-[#6CB6FF]">log</span>(bsDate.
+                  <span className="text-[#6CB6FF]">format</span>(<span className="text-[#55B987]">"DD MMMM YYYY"</span>
+                  )); <span className="text-[#77746E] italic">// 29 Ashwin 2081</span>
+                  {"\n\n"}
+                  <span className="text-[#77746E] italic">// 3. Date Arithmetic & Manipulation</span>
+                  {"\n"}
+                  bsDate.<span className="text-[#6CB6FF]">addDays</span>(<span className="text-[#E8B65B]">30</span>);
+                  {"\n"}
+                  console.<span className="text-[#6CB6FF]">log</span>(
+                  <span className="text-[#55B987]">"Future date:"</span>, bsDate.
+                  <span className="text-[#6CB6FF]">format</span>(<span className="text-[#55B987]">"YYYY-MM-DD"</span>));
+                  {"\n\n"}
+                  <span className="text-[#77746E] italic">// 4. Fiscal Year Calculation</span>
+                  {"\n"}
+                  <span className="text-[#C470D7]">const</span> <span className="text-[#6CB6FF]">fiscalYear</span> =
+                  bsDate.<span className="text-[#6CB6FF]">getFiscalYear</span>();{"\n"}
+                  console.<span className="text-[#6CB6FF]">log</span>(
+                  <span className="text-[#55B987]">"Fiscal Year:"</span>, fiscalYear);{" "}
                   <span className="text-[#77746E] italic">// 2081/82</span>
                 </code>
               </pre>
@@ -471,29 +480,40 @@ export function HomeView() {
                 <code>
                   <span className="text-[#C470D7]">from</span> nepali_date_library{" "}
                   <span className="text-[#C470D7]">import</span>{" "}
-                  <span className="text-[#E1804B] font-semibold">NepaliDate</span>{"\n"}
-                  <span className="text-[#C470D7]">from</span> datetime{" "}
-                  <span className="text-[#C470D7]">import</span>{" "}
-                  <span className="text-[#E1804B] font-semibold">date</span>{"\n\n"}
-
-                  <span className="text-[#77746E] italic"># 1. Current Nepali Date</span>{"\n"}
+                  <span className="text-[#E1804B] font-semibold">NepaliDate</span>
+                  {"\n"}
+                  <span className="text-[#C470D7]">from</span> datetime <span className="text-[#C470D7]">import</span>{" "}
+                  <span className="text-[#E1804B] font-semibold">date</span>
+                  {"\n\n"}
+                  <span className="text-[#77746E] italic"># 1. Current Nepali Date</span>
+                  {"\n"}
                   <span className="text-[#6CB6FF]">today</span> ={" "}
                   <span className="text-[#E1804B] font-semibold">NepaliDate</span>(){"\n"}
-                  <span className="text-[#6CB6FF]">print</span>(today.<span className="text-[#6CB6FF]">format</span>(<span className="text-[#55B987]">"YYYY-MM-DD"</span>)){" "}
-                  <span className="text-[#77746E] italic"># e.g. 2081-06-29</span>{"\n\n"}
-
-                  <span className="text-[#77746E] italic"># 2. Conversion from Gregorian (AD)</span>{"\n"}
+                  <span className="text-[#6CB6FF]">print</span>(today.<span className="text-[#6CB6FF]">format</span>(
+                  <span className="text-[#55B987]">"YYYY-MM-DD"</span>)){" "}
+                  <span className="text-[#77746E] italic"># e.g. 2081-06-29</span>
+                  {"\n\n"}
+                  <span className="text-[#77746E] italic"># 2. Conversion from Gregorian (AD)</span>
+                  {"\n"}
                   <span className="text-[#6CB6FF]">bs_date</span> ={" "}
-                  <span className="text-[#E1804B] font-semibold">NepaliDate</span>.<span className="text-[#6CB6FF]">from_ad</span>(date(<span className="text-[#E8B65B]">2024</span>, <span className="text-[#E8B65B]">10</span>, <span className="text-[#E8B65B]">15</span>)){"\n"}
-                  <span className="text-[#6CB6FF]">print</span>(bs_date.<span className="text-[#6CB6FF]">format</span>(<span className="text-[#55B987]">"DD MMMM YYYY"</span>)){" "}
-                  <span className="text-[#77746E] italic"># 29 Ashwin 2081</span>{"\n\n"}
-
-                  <span className="text-[#77746E] italic"># 3. Date Arithmetic & Manipulation</span>{"\n"}
-                  bs_date.<span className="text-[#6CB6FF]">add_days</span>(<span className="text-[#E8B65B]">30</span>){"\n"}
-                  <span className="text-[#6CB6FF]">print</span>(<span className="text-[#55B987]">"Future date:"</span>, bs_date.<span className="text-[#6CB6FF]">format</span>(<span className="text-[#55B987]">"YYYY-MM-DD"</span>)){"\n\n"}
-
-                  <span className="text-[#77746E] italic"># 4. Fiscal Year Calculation</span>{"\n"}
-                  <span className="text-[#6CB6FF]">print</span>(<span className="text-[#55B987]">"Fiscal Year:"</span>, bs_date.<span className="text-[#6CB6FF]">get_fiscal_year</span>()){" "}
+                  <span className="text-[#E1804B] font-semibold">NepaliDate</span>.
+                  <span className="text-[#6CB6FF]">from_ad</span>(date(<span className="text-[#E8B65B]">2024</span>,{" "}
+                  <span className="text-[#E8B65B]">10</span>, <span className="text-[#E8B65B]">15</span>)){"\n"}
+                  <span className="text-[#6CB6FF]">print</span>(bs_date.<span className="text-[#6CB6FF]">format</span>(
+                  <span className="text-[#55B987]">"DD MMMM YYYY"</span>)){" "}
+                  <span className="text-[#77746E] italic"># 29 Ashwin 2081</span>
+                  {"\n\n"}
+                  <span className="text-[#77746E] italic"># 3. Date Arithmetic & Manipulation</span>
+                  {"\n"}
+                  bs_date.<span className="text-[#6CB6FF]">add_days</span>(<span className="text-[#E8B65B]">30</span>)
+                  {"\n"}
+                  <span className="text-[#6CB6FF]">print</span>(<span className="text-[#55B987]">"Future date:"</span>,
+                  bs_date.<span className="text-[#6CB6FF]">format</span>(
+                  <span className="text-[#55B987]">"YYYY-MM-DD"</span>)){"\n\n"}
+                  <span className="text-[#77746E] italic"># 4. Fiscal Year Calculation</span>
+                  {"\n"}
+                  <span className="text-[#6CB6FF]">print</span>(<span className="text-[#55B987]">"Fiscal Year:"</span>,
+                  bs_date.<span className="text-[#6CB6FF]">get_fiscal_year</span>()){" "}
                   <span className="text-[#77746E] italic"># 2081/82</span>
                 </code>
               </pre>
@@ -502,29 +522,40 @@ export function HomeView() {
             {activeTab === "php" && (
               <pre className="m-0 p-0">
                 <code>
-                  <span className="text-[#C470D7]">&lt;?php</span>{"\n"}
+                  <span className="text-[#C470D7]">&lt;?php</span>
+                  {"\n"}
                   <span className="text-[#C470D7]">use</span> NepaliDateLibrary\
                   <span className="text-[#E1804B] font-semibold">NepaliDate</span>;{"\n\n"}
-
-                  <span className="text-[#77746E] italic">// 1. Current Nepali Date</span>{"\n"}
-                  <span className="text-[#6CB6FF]">$date</span> ={" "}
-                  <span className="text-[#C470D7]">new</span>{" "}
+                  <span className="text-[#77746E] italic">// 1. Current Nepali Date</span>
+                  {"\n"}
+                  <span className="text-[#6CB6FF]">$date</span> = <span className="text-[#C470D7]">new</span>{" "}
                   <span className="text-[#E1804B] font-semibold">NepaliDate</span>();{"\n"}
-                  <span className="text-[#C470D7]">echo</span> $date-&gt;<span className="text-[#6CB6FF]">format</span>(<span className="text-[#55B987]">"YYYY-MM-DD"</span>) . PHP_EOL;{" "}
-                  <span className="text-[#77746E] italic">// e.g. 2081-06-29</span>{"\n\n"}
-
-                  <span className="text-[#77746E] italic">// 2. Conversion from Gregorian (AD)</span>{"\n"}
+                  <span className="text-[#C470D7]">echo</span> $date-&gt;<span className="text-[#6CB6FF]">format</span>(
+                  <span className="text-[#55B987]">"YYYY-MM-DD"</span>) . PHP_EOL;{" "}
+                  <span className="text-[#77746E] italic">// e.g. 2081-06-29</span>
+                  {"\n\n"}
+                  <span className="text-[#77746E] italic">// 2. Conversion from Gregorian (AD)</span>
+                  {"\n"}
                   <span className="text-[#6CB6FF]">$bsDate</span> ={" "}
-                  <span className="text-[#E1804B] font-semibold">NepaliDate</span>::<span className="text-[#6CB6FF]">fromAD</span>(<span className="text-[#C470D7]">new</span> <span className="text-[#E1804B] font-semibold">DateTime</span>(<span className="text-[#55B987]">"2024-10-15"</span>));{"\n"}
-                  <span className="text-[#C470D7]">echo</span> $bsDate-&gt;<span className="text-[#6CB6FF]">format</span>(<span className="text-[#55B987]">"DD MMMM YYYY"</span>) . PHP_EOL;{" "}
-                  <span className="text-[#77746E] italic">// 29 Ashwin 2081</span>{"\n\n"}
-
-                  <span className="text-[#77746E] italic">// 3. Date Arithmetic & Manipulation</span>{"\n"}
-                  $bsDate-&gt;<span className="text-[#6CB6FF]">addDays</span>(<span className="text-[#E8B65B]">30</span>);{"\n"}
-                  <span className="text-[#C470D7]">echo</span> <span className="text-[#55B987]">"Future date: "</span> . $bsDate-&gt;<span className="text-[#6CB6FF]">format</span>(<span className="text-[#55B987]">"YYYY-MM-DD"</span>);{"\n\n"}
-
-                  <span className="text-[#77746E] italic">// 4. Fiscal Year Calculation</span>{"\n"}
-                  <span className="text-[#C470D7]">echo</span> <span className="text-[#55B987]">"Fiscal Year: "</span> . $bsDate-&gt;<span className="text-[#6CB6FF]">getFiscalYear</span>();{" "}
+                  <span className="text-[#E1804B] font-semibold">NepaliDate</span>::
+                  <span className="text-[#6CB6FF]">fromAD</span>(<span className="text-[#C470D7]">new</span>{" "}
+                  <span className="text-[#E1804B] font-semibold">DateTime</span>(
+                  <span className="text-[#55B987]">"2024-10-15"</span>));{"\n"}
+                  <span className="text-[#C470D7]">echo</span> $bsDate-&gt;
+                  <span className="text-[#6CB6FF]">format</span>(<span className="text-[#55B987]">"DD MMMM YYYY"</span>)
+                  . PHP_EOL; <span className="text-[#77746E] italic">// 29 Ashwin 2081</span>
+                  {"\n\n"}
+                  <span className="text-[#77746E] italic">// 3. Date Arithmetic & Manipulation</span>
+                  {"\n"}
+                  $bsDate-&gt;<span className="text-[#6CB6FF]">addDays</span>(<span className="text-[#E8B65B]">30</span>
+                  );{"\n"}
+                  <span className="text-[#C470D7]">echo</span> <span className="text-[#55B987]">"Future date: "</span> .
+                  $bsDate-&gt;<span className="text-[#6CB6FF]">format</span>(
+                  <span className="text-[#55B987]">"YYYY-MM-DD"</span>);{"\n\n"}
+                  <span className="text-[#77746E] italic">// 4. Fiscal Year Calculation</span>
+                  {"\n"}
+                  <span className="text-[#C470D7]">echo</span> <span className="text-[#55B987]">"Fiscal Year: "</span> .
+                  $bsDate-&gt;<span className="text-[#6CB6FF]">getFiscalYear</span>();{" "}
                   <span className="text-[#77746E] italic">// 2081/82</span>
                 </code>
               </pre>
@@ -620,7 +651,9 @@ export function HomeView() {
               className="group rounded-xl border border-fd-border/80 bg-fd-card/70 backdrop-blur-md p-6 transition-all hover:border-fd-primary/50 hover:bg-fd-card/85 hover:shadow-lg"
             >
               <div className="flex items-center justify-between">
-                <span className="font-semibold text-fd-foreground group-hover:text-fd-primary">NodeJS / TypeScript</span>
+                <span className="font-semibold text-fd-foreground group-hover:text-fd-primary">
+                  NodeJS / TypeScript
+                </span>
                 <ChevronRight className="h-4 w-4 text-fd-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-fd-primary" />
               </div>
               <p className="mt-3 text-xs sm:text-sm text-fd-muted-foreground leading-relaxed">
@@ -659,7 +692,7 @@ export function HomeView() {
 
       {/* Sponsor / Ad Banner Section */}
       <section className="mx-auto w-full max-w-4xl px-6 py-4">
-        <AdSenseBanner slot={ADSENSE_SLOTS.home} />
+        <AdSenseBanner />
       </section>
 
       {/* Footer */}
@@ -667,4 +700,3 @@ export function HomeView() {
     </div>
   );
 }
-
