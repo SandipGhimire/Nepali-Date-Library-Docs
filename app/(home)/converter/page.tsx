@@ -2,16 +2,105 @@ import { WovenBackground } from "@/components/home/woven-background";
 import { Footer } from "@/components/home/footer";
 import { ConverterSuite } from "@/components/converter/converter-suite";
 import type { Metadata } from "next";
+import {
+  SITE_URL,
+  SITE_NAME,
+  getConverterWebAppSchema,
+  getFAQSchema,
+} from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Date Converter & Nepali Tools Suite",
+  title: "Nepali Date Converter - BS to AD & AD to BS Online | Bikram Sambat Calendar",
   description:
-    "Convert seamlessly between Bikram Sambat (BS) and Gregorian (AD) dates, calculate date differences, exact age, date arithmetic, and fiscal year quarters.",
+    "Free online Nepali Date Converter. Instant bidirectional Bikram Sambat (BS) to Gregorian (AD) conversion, Nepali age calculation, date difference, calendar arithmetic, and Nepal fiscal year quarters.",
+  keywords: [
+    "nepali date converter",
+    "bs to ad converter",
+    "ad to bs converter",
+    "bikram sambat converter",
+    "nepali miti converter",
+    "nepali date to english date converter",
+    "english date to nepali date converter",
+    "nepali calendar online",
+    "today nepali date",
+    "aajako nepali date",
+    "nepali age calculator",
+    "nepali date difference calculator",
+    "nepali fiscal year calculator",
+    "bikram sambat to gregorian converter",
+  ],
+  alternates: {
+    canonical: "/converter",
+  },
+  openGraph: {
+    type: "website",
+    title: "Nepali Date Converter - BS to AD & AD to BS Online | Bikram Sambat Calendar",
+    description:
+      "Free interactive online Nepali Date Converter. Instant BS to AD and AD to BS conversion, Nepali age calculation, date arithmetic, and Nepal fiscal quarters.",
+    url: `${SITE_URL}/converter`,
+    siteName: SITE_NAME,
+    images: [
+      {
+        url: `${SITE_URL}/Logo/Dark/Logo.png`,
+        width: 1200,
+        height: 630,
+        alt: "Nepali Date Converter & Bikram Sambat Tools Suite",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nepali Date Converter - BS to AD & AD to BS Online",
+    description:
+      "Fast, verified Bikram Sambat (BS) to Gregorian (AD) date converter, age calculator, and fiscal year suite.",
+    images: [`${SITE_URL}/Logo/Dark/Logo.png`],
+  },
 };
 
+const converterFAQs = [
+  {
+    question: "How do I convert Nepali Date (BS) to English Date (AD) online?",
+    answer:
+      "Select the 'Date Converter' tab above, choose 'BS to AD', pick or type the Bikram Sambat Year, Month, and Day, and the converter will instantly calculate the Gregorian (AD) date along with weekday, full month name, and Devanagari details.",
+  },
+  {
+    question: "Can I convert English Date (AD) to Nepali Date (BS)?",
+    answer:
+      "Yes. Select the 'AD to BS' toggle in the Date Converter tool, input any Gregorian date from 1919 to 2044 AD, and get the accurate Bikram Sambat date immediately.",
+  },
+  {
+    question: "How does the Nepali Age Calculator work?",
+    answer:
+      "The Age Calculator allows you to enter your date of birth in Bikram Sambat (BS). It calculates your precise age in years, months, and days based on the official Nepali calendar.",
+  },
+  {
+    question: "How is the Nepali Date Difference calculated?",
+    answer:
+      "The Date Difference tool measures the exact elapsed time between two Nepali dates, breaking the interval down into total days, weeks, months, and years, accounting for variable month days (29-32 days).",
+  },
+  {
+    question: "What is Nepal's Government Fiscal Year and its quarters?",
+    answer:
+      "The Government of Nepal's fiscal year runs from 1st Shrawan through the end of Ashadh. The Fiscal Year tab calculates the fiscal year (e.g. 2081/82) and provides dates for Q1 (Shrawan-Ashwin), Q2 (Kartik-Poush), Q3 (Magh-Chaitra), and Q4 (Baisakh-Ashadh).",
+  },
+];
+
 export default function ConverterPage() {
+  const webAppSchema = getConverterWebAppSchema();
+  const faqSchema = getFAQSchema(converterFAQs);
+
   return (
     <div className="flex min-h-screen flex-1 flex-col bg-fd-background text-fd-foreground selection:bg-fd-primary/20">
+      {/* Schema.org WebApplication & FAQ Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
       <main className="flex flex-1 flex-col w-full">
         {/* Top Header Banner with Woven Background Pattern */}
         <section className="relative isolate overflow-hidden border-b border-fd-border/70 text-center">

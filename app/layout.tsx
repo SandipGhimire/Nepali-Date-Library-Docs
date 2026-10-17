@@ -1,20 +1,119 @@
 import { RootProvider } from "@fumadocs/base-ui/provider/next";
 import type { ReactNode } from "react";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./global.css";
+import {
+  SITE_URL,
+  SITE_NAME,
+  DEFAULT_TITLE,
+  DEFAULT_DESCRIPTION,
+  SEO_KEYWORDS,
+  AUTHOR_INFO,
+  getWebSiteSchema,
+  getSoftwareApplicationSchema,
+} from "@/lib/seo";
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0c0d0e" },
+  ],
+  width: "device-width",
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
-    template: "%s | Nepali Date",
-    default: "Nepali Date - Bikram Sambat Library",
+    template: `%s | ${SITE_NAME}`,
+    default: DEFAULT_TITLE,
   },
-  description:
-    "A comprehensive, multi-language ecosystem for working with Nepali (Bikram Sambat) dates in NodeJS, Python, and PHP.",
+  description: DEFAULT_DESCRIPTION,
+  applicationName: SITE_NAME,
+  keywords: SEO_KEYWORDS,
+  authors: [{ name: AUTHOR_INFO.name, url: AUTHOR_INFO.url }],
+  creator: AUTHOR_INFO.name,
+  publisher: AUTHOR_INFO.name,
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  manifest: "/site.webmanifest",
+  icons: {
+    icon: [
+      { url: "/Logo/Dark/Icon.svg", type: "image/svg+xml" },
+      { url: "/Logo/Dark/Logo.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/Logo/Dark/Icon.svg", type: "image/svg+xml" }],
+  },
+  alternates: {
+    canonical: "./",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    images: [
+      {
+        url: `${SITE_URL}/Logo/Dark/Logo.png`,
+        width: 1200,
+        height: 630,
+        alt: "Nepali Date - Bikram Sambat Library & Converter",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    creator: AUTHOR_INFO.twitter,
+    images: [`${SITE_URL}/Logo/Dark/Logo.png`],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  category: "technology",
+  other: {
+    "ai-content-declaration": "documentation,educational",
+    "applicable-device": "pc,mobile",
+  },
 };
 
 export default function Layout({ children }: { children: ReactNode }) {
+  const websiteSchema = getWebSiteSchema();
+  const softwareSchema = getSoftwareApplicationSchema();
+
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="author" href={AUTHOR_INFO.url} />
+        {/* Machine-readable LLMs & AI indexing links */}
+        <link rel="help" href="/llms.txt" title="LLM Context Specification" />
+        <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Full AI Knowledge Context" />
+        {/* Global JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+        />
+      </head>
       <body className="flex flex-col min-h-screen">
         <RootProvider
           theme={{

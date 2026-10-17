@@ -1,0 +1,22 @@
+{
+  "name": "Nepali Date Library & Converter",
+  "short_name": "NepaliDate",
+  "description": "Universal multi-language library and online converter for Nepali Bikram Sambat (BS) dates.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0c0d0e",
+  "theme_color": "#E1804B",
+  "icons": [
+    {
+      "src": "/Logo/Dark/Icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/Logo/Dark/Logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

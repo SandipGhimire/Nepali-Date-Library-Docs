@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/generate-seo.mjs && next build",
+    "sitemap": "node scripts/generate-seo.mjs",
+    "generate:seo": "node scripts/generate-seo.mjs",
     "start": "next start",
     "postinstall": "node scripts/patch-tailwindcss.cjs",
     "format": "prettier --write .",
