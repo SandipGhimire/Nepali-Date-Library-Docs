@@ -33,8 +33,8 @@ Before proposing changes, please keep our core architectural principles in mind:
 2. **Standardized Cross-Language Semantics**:
    The API surface across Node.js, Python, and PHP is intentionally synchronized. Method names, formatting tokens (e.g. `YYYY-MM-DD`, `dddd`), fiscal year quarters, and edge case handling should match across all implementations.
 
-3. **Certified Range Accuracy (1976 – 2100 BS)**:
-   Any changes affecting date conversion or calendar math must pass the exhaustive ephemeris verification tests covering 1976/01/01 to 2100/12/31 BS.
+3. **Annual Calendar Verification & Range Coverage (1976 – 2100 BS)**:
+   Dates up to the current active calendar year are verified against official Government of Nepal publications (Nepal Panchanga Nirnayak Samiti). Every year around the month of **Ashwin (Ashoj)**, when the official government calendar is released for the upcoming year, the mapping tables are audited and updated with exact solar ingress corrections. Test suites must pass across all supported years (1976/01/01 to 2100/12/31 BS).
 
 4. **Deterministic Timezone Isolation**:
    Date arithmetic, weekday getters, and day start/end calculations must execute deterministically regardless of the host machine's local timezone.

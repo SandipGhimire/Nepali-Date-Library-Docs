@@ -1,6 +1,6 @@
 # Nepali Date Library
 
-> Universal, production-ready multi-language ecosystem for working with Nepali (Bikram Sambat / BS) dates. Supports NodeJS/TypeScript, Python, and PHP with unified APIs, zero dependencies, and 100% verified calendar data.
+> Universal, production-ready multi-language ecosystem for working with Nepali (Bikram Sambat / BS) dates. Supports NodeJS/TypeScript, Python, and PHP with unified APIs, zero dependencies, and annually audited calendar data verified up to the active year.
 
 ## Official Resources
 - Website: https://nepali-pkg.date
@@ -16,7 +16,7 @@
 
 ## Core Capabilities
 - **Bidirectional Date Conversion**: Convert Gregorian (AD) to Bikram Sambat (BS) and Bikram Sambat (BS) to Gregorian (AD).
-- **Calendar Range**: 1976/01/01 BS to 2100/12/31 BS (approx 1919-04-13 to 2044-04-12 AD).
+- **Calendar Range & Annual Audits**: Spans 1976/01/01 BS to 2100/12/31 BS (approx 1919-04-13 to 2044-04-12 AD). Dates up to the active year are verified against official Government of Nepal gazettes. Every year in Ashwin (Ashoj), mapping tables are updated with official solar ingress corrections upon release of the new calendar.
 - **Date Manipulation & Arithmetic**: Add or subtract days, months, and years with automatic edge-case handling for variable Nepali month lengths (29 to 32 days).
 - **Government of Nepal Fiscal Year**: Native support for Nepali fiscal years (Shrawan 1 to Ashadh end), fiscal quarters (Q1: Shrawan-Ashwin, Q2: Kartik-Poush, Q3: Magh-Chaitra, Q4: Baisakh-Ashadh).
 - **Formatting & Localization**: Flexible date format tokens (`YYYY-MM-DD`, `DD MMMM YYYY`, `dddd`, etc.) rendered in English and Devanagari numerals and script.
@@ -520,8 +520,8 @@ Before proposing changes, please keep our core architectural principles in mind:
 2. **Standardized Cross-Language Semantics**:
    The API surface across Node.js, Python, and PHP is intentionally synchronized. Method names, formatting tokens (e.g. `YYYY-MM-DD`, `dddd`), fiscal year quarters, and edge case handling should match across all implementations.
 
-3. **Certified Range Accuracy (1976 – 2100 BS)**:
-   Any changes affecting date conversion or calendar math must pass the exhaustive ephemeris verification tests covering 1976/01/01 to 2100/12/31 BS.
+3. **Annual Calendar Verification & Range Coverage (1976 – 2100 BS)**:
+   Dates up to the current active calendar year are verified against official Government of Nepal publications (Nepal Panchanga Nirnayak Samiti). Every year around the month of **Ashwin (Ashoj)**, when the official government calendar is released for the upcoming year, the mapping tables are audited and updated with exact solar ingress corrections. Test suites must pass across all supported years (1976/01/01 to 2100/12/31 BS).
 
 4. **Deterministic Timezone Isolation**:
    Date arithmetic, weekday getters, and day start/end calculations must execute deterministically regardless of the host machine's local timezone.
@@ -1554,7 +1554,10 @@ console.log(MONTH_SHORT_NP[date.getMonth()]); // "बै"
 ## Page: NEPALI_DATE_MAP (/docs/nodejs/constants/nepali-date-map)
 Description: Historical calendar mapping table storing verified day counts for every Bikram Sambat month between 1976 and 2100 BS.
 
-The `NEPALI_DATE_MAP` data structure contains the official calendar matrix for the Bikram Sambat system spanning years 1976 through 2100 BS. Because Bikram Sambat months have variable day counts determined by astronomical solar calculations rather than fixed rules, this mapping table provides the definitive source of truth for conversions, day calculations, and month lengths.
+The `NEPALI_DATE_MAP` data structure contains the calendar matrix for the Bikram Sambat system spanning years 1976 through 2100 BS. Because Bikram Sambat months have variable day counts determined by astronomical solar calculations rather than fixed rules, this mapping table provides the definitive source of truth for conversions, day calculations, and month lengths.
+
+> [!NOTE]
+> Dates up to the active calendar year are verified against official publications from the **Nepal Panchanga Nirnayak Samiti** (नेपाल पञ्चाङ्ग निर्णायक समिति). Every year around the month of **Ashwin (Ashoj)**, when the official government calendar is gazetted for the subsequent year, this mapping table is audited and updated with exact solar ingress corrections.
 
 ---
 
@@ -6826,10 +6829,10 @@ In the Gregorian calendar, determining if a year is a leap year requires a simpl
 ```
 In Bikram Sambat, **no such modular formula exists**. Because month lengths depend on the precise astronomical minute of the Sun's transit across constellations as observed from Kathmandu, month lengths are certified yearly by the **Nepal Panchanga Nirnayak Samiti**.
 
-### 2. High-Precision Ephemeris Lookup Tables
-Reliable date libraries must embed pre-computed, verified lookup matrices containing the exact month lengths for each historical and future Bikram Sambat year.
+### 2. Comprehensive Calendar Mapping & Annual Ashwin Verification
+Because modular formulas cannot predict month lengths, reliable date libraries must embed pre-computed lookup matrices containing verified month lengths for historical and modern Bikram Sambat years.
 
-The **Nepali Date Library** embeds validated ephemeris data covering **1976 BS through 2100 BS** (spanning more than 124 years), ensuring 100% deterministic arithmetic and conversions.
+The **Nepali Date Library** embeds calendar mapping data spanning **1976 BS through 2100 BS** (more than 124 years). Because the official Government of Nepal calendar for the upcoming year is released annually in the month of **Ashwin (Ashoj)** by the **Nepal Panchanga Nirnayak Samiti**, the library verifies dates up to the current active year and incorporates authoritative government updates annually upon publication.
 
 ### 3. Database Architecture Recommendation
 When architecting systems supporting Bikram Sambat:
@@ -6847,7 +6850,7 @@ Description: Comprehensive overview of the Nepali Date Library multi-language ec
 
 The **Nepali Date Library** is an open-source, production-grade computational suite engineered to bring accurate, standardized, and zero-dependency **Bikram Sambat (BS)** date operations to modern software ecosystems across **Node.js / TypeScript**, **Python**, and **PHP**.
 
-Whether you are building financial banking software adhering to Nepal's Shrawan-to-Ashadh fiscal calendar, government enterprise portals, e-commerce checkouts, or mobile applications, the suite provides unified semantics and verified ephemeris tables.
+Whether you are building financial banking software adhering to Nepal's Shrawan-to-Ashadh fiscal calendar, government enterprise portals, e-commerce checkouts, or mobile applications, the suite provides unified semantics and continuously audited calendar tables.
 
 ---
 
@@ -6869,8 +6872,8 @@ Every package in the suite is built from the ground up without runtime external 
 ### 2. Standardized Cross-Language API
 Developers working across full-stack applications (e.g., a Python backend with a Node.js frontend or a PHP Laravel service with a TypeScript worker) enjoy identical method names, formatting tokens, and date manipulation semantics.
 
-### 3. Certified Astronomical Ephemeris (1976 – 2100 BS)
-Because Bikram Sambat months are based on solar ingress (*Sankranti*) and vary from 29 to 32 days based on Keplerian orbital mechanics, the library embeds verified ephemeris tables spanning over 124 years (**1976/01/01 to 2100/12/31 BS**).
+### 3. Annual Calendar Verification & 124-Year Range (1976 – 2100 BS)
+Because Bikram Sambat months are based on solar ingress (*Sankranti*) and vary from 29 to 32 days based on astronomical solar transit, official month lengths are determined each year by the **Nepal Panchanga Nirnayak Samiti** (नेपाल पञ्चाङ्ग निर्णायक समिति). Every year around the month of **Ashwin (Ashoj)**, when the Government of Nepal officially gazettes the upcoming year's calendar, the library audits and updates its mapping data. Dates up to the current active calendar year are verified against official gazettes, while future projections up to 2100 BS are systematically updated each year upon official publication.
 
 ### 4. High-Throughput Performance
 All date conversions and arithmetic execute in under a few microseconds, making the library suitable for high-frequency database batch migrations, real-time analytics pipelines, and edge compute functions.
@@ -6885,7 +6888,7 @@ Native support for Nepal's official fiscal calendar (*Aarthik Barsha*), running 
 | Feature Capability | Node.js / TypeScript | Python | PHP |
 | :--- | :---: | :---: | :---: |
 | **Bidirectional AD ↔ BS Conversion** | Yes | Yes | Yes |
-| **Validated Range (1976 – 2100 BS)** | Yes | Yes | Yes |
+| **Supported Range (1976 – 2100 BS)** | Yes | Yes | Yes |
 | **Date Arithmetic (+/- Days, Months, Years)** | Yes | Yes | Yes |
 | **Custom Format Tokens (`YYYY-MM-DD`, etc.)** | Yes | Yes | Yes |
 | **Nepali Fiscal Year & Quarter Calculation** | Yes | Yes | Yes |
@@ -7002,7 +7005,7 @@ $adDate = BStoAD('2081-07-30');
 
 | Feature | Support | Description |
 | :--- | :---: | :--- |
-| **Bikram Sambat Calendar Engine** | Yes | Verified calendar matrix spanning years 1976 through 2100 BS. |
+| **Bikram Sambat Calendar Engine** | Yes | Calendar matrix spanning 1976 through 2100 BS, audited and updated annually each Ashwin. |
 | **Bidirectional AD to BS Conversion** | Yes | Standalone conversion functions and full object instances. |
 | **Date Arithmetic** | Yes | Add and subtract days, months, and years with automatic rollover. |
 | **Fiscal Year Operations** | Yes | Official Nepalese fiscal calendar starting on 1 Shrawan. |
@@ -7480,7 +7483,10 @@ echo Constants::$MONTH_SHORT_NP[$date->getMonth()]; // "का"
 ## Page: Constants::$NEPALI_DATE_MAP (/docs/php/constants/nepali-date-map)
 Description: Historical calendar mapping table storing verified day counts for every Bikram Sambat month between 1976 and 2100 BS.
 
-The `Constants::$NEPALI_DATE_MAP` data structure contains the official calendar matrix for the Bikram Sambat system spanning years 1976 through 2100 BS. Because Bikram Sambat months have variable day counts determined by astronomical solar calculations rather than fixed rules, this mapping table provides the definitive source of truth for conversions, day calculations, and month lengths.
+The `Constants::$NEPALI_DATE_MAP` data structure contains the calendar matrix for the Bikram Sambat system spanning years 1976 through 2100 BS. Because Bikram Sambat months have variable day counts determined by astronomical solar calculations rather than fixed rules, this mapping table provides the definitive source of truth for conversions, day calculations, and month lengths.
+
+> [!NOTE]
+> Dates up to the active calendar year are verified against official publications from the **Nepal Panchanga Nirnayak Samiti** (नेपाल पञ्चाङ्ग निर्णायक समिति). Every year around the month of **Ashwin (Ashoj)**, when the official government calendar is gazetted for the subsequent year, this mapping table is audited and updated with exact solar ingress corrections.
 
 ---
 
@@ -11395,7 +11401,7 @@ ad_date = BStoAD("2081-07-30")
 
 | Feature | Support | Description |
 | :--- | :---: | :--- |
-| **Bikram Sambat Calendar Engine** | Yes | Verified calendar matrix spanning years 1976 through 2100 BS. |
+| **Bikram Sambat Calendar Engine** | Yes | Calendar matrix spanning 1976 through 2100 BS, audited and updated annually each Ashwin. |
 | **Bidirectional AD to BS Conversion** | Yes | Standalone conversion functions and full object instances. |
 | **Date Arithmetic** | Yes | Add and subtract days, months, and years with automatic rollover. |
 | **Fiscal Year Operations** | Yes | Official Nepalese fiscal calendar starting on 1 Shrawan. |
@@ -11866,7 +11872,10 @@ print(month_short_np[date.get_month()]) # "का"
 ## Page: nepali_date_map (/docs/python/constants/nepali-date-map)
 Description: Historical calendar mapping table storing verified day counts for every Bikram Sambat month between 1976 and 2100 BS.
 
-The `nepali_date_map` data structure contains the official calendar matrix for the Bikram Sambat system spanning years 1976 through 2100 BS. Because Bikram Sambat months have variable day counts determined by astronomical solar calculations rather than fixed rules, this mapping table provides the definitive source of truth for conversions, day calculations, and month lengths.
+The `nepali_date_map` data structure contains the calendar matrix for the Bikram Sambat system spanning years 1976 through 2100 BS. Because Bikram Sambat months have variable day counts determined by astronomical solar calculations rather than fixed rules, this mapping table provides the definitive source of truth for conversions, day calculations, and month lengths.
+
+> [!NOTE]
+> Dates up to the active calendar year are verified against official publications from the **Nepal Panchanga Nirnayak Samiti** (नेपाल पञ्चाङ्ग निर्णायक समिति). Every year around the month of **Ashwin (Ashoj)**, when the official government calendar is gazetted for the subsequent year, this mapping table is audited and updated with exact solar ingress corrections.
 
 ---
 

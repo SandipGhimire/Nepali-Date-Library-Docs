@@ -65,10 +65,10 @@ const features = [
   },
   {
     icon: Zap,
-    title: "Verified Ephemeris (1976 – 2100 BS)",
+    title: "Annual Official Calendar Audits",
     description:
-      "Accurate solar calendar mapping from 1976 BS to 2100 BS. Built with verified month day counts, leap years, and official calendar logic.",
-    highlight: "1976 - 2100 BS",
+      "Verified up to the current active year. Each year in Ashwin (Ashoj), when the Nepal Government releases the official calendar, our mapping tables are updated with exact astronomical corrections.",
+    highlight: "Annual Verification",
     span: "lg:col-span-1",
   },
   {

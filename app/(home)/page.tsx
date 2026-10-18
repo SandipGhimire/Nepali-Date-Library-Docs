@@ -53,7 +53,7 @@ const homeFAQs = [
   {
     question: "What date range is supported by the Nepali Date Library?",
     answer:
-      "The library officially covers historical and future dates from 1976/01/01 BS to 2100/12/31 BS (approximately 1919 AD to 2044 AD) with 100% verified calendar month days and leap years.",
+      "The library supports dates from 1976/01/01 BS to 2100/12/31 BS (approximately 1919 AD to 2044 AD). Dates up to the active year are verified against official Government of Nepal publications. Each year in Ashwin (Ashoj), when the Nepal Government officially releases the upcoming calendar, our mapping tables are updated and verified with exact astronomical corrections.",
   },
   {
     question: "How does Nepal Government Fiscal Year (Aarthik Barsha) calculation work?",

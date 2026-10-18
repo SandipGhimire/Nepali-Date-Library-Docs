@@ -6,7 +6,7 @@ icon: LayoutDashboard
 
 The **Nepali Date Library** is an open-source, production-grade computational suite engineered to bring accurate, standardized, and zero-dependency **Bikram Sambat (BS)** date operations to modern software ecosystems across **Node.js / TypeScript**, **Python**, and **PHP**.
 
-Whether you are building financial banking software adhering to Nepal's Shrawan-to-Ashadh fiscal calendar, government enterprise portals, e-commerce checkouts, or mobile applications, the suite provides unified semantics and verified ephemeris tables.
+Whether you are building financial banking software adhering to Nepal's Shrawan-to-Ashadh fiscal calendar, government enterprise portals, e-commerce checkouts, or mobile applications, the suite provides unified semantics and continuously audited calendar tables.
 
 ---
 
@@ -28,8 +28,8 @@ Every package in the suite is built from the ground up without runtime external 
 ### 2. Standardized Cross-Language API
 Developers working across full-stack applications (e.g., a Python backend with a Node.js frontend or a PHP Laravel service with a TypeScript worker) enjoy identical method names, formatting tokens, and date manipulation semantics.
 
-### 3. Certified Astronomical Ephemeris (1976 – 2100 BS)
-Because Bikram Sambat months are based on solar ingress (*Sankranti*) and vary from 29 to 32 days based on Keplerian orbital mechanics, the library embeds verified ephemeris tables spanning over 124 years (**1976/01/01 to 2100/12/31 BS**).
+### 3. Annual Calendar Verification & 124-Year Range (1976 – 2100 BS)
+Because Bikram Sambat months are based on solar ingress (*Sankranti*) and vary from 29 to 32 days based on astronomical solar transit, official month lengths are determined each year by the **Nepal Panchanga Nirnayak Samiti** (नेपाल पञ्चाङ्ग निर्णायक समिति). Every year around the month of **Ashwin (Ashoj)**, when the Government of Nepal officially gazettes the upcoming year's calendar, the library audits and updates its mapping data. Dates up to the current active calendar year are verified against official gazettes, while future projections up to 2100 BS are systematically updated each year upon official publication.
 
 ### 4. High-Throughput Performance
 All date conversions and arithmetic execute in under a few microseconds, making the library suitable for high-frequency database batch migrations, real-time analytics pipelines, and edge compute functions.
@@ -44,7 +44,7 @@ Native support for Nepal's official fiscal calendar (*Aarthik Barsha*), running 
 | Feature Capability | Node.js / TypeScript | Python | PHP |
 | :--- | :---: | :---: | :---: |
 | **Bidirectional AD ↔ BS Conversion** | Yes | Yes | Yes |
-| **Validated Range (1976 – 2100 BS)** | Yes | Yes | Yes |
+| **Supported Range (1976 – 2100 BS)** | Yes | Yes | Yes |
 | **Date Arithmetic (+/- Days, Months, Years)** | Yes | Yes | Yes |
 | **Custom Format Tokens (`YYYY-MM-DD`, etc.)** | Yes | Yes | Yes |
 | **Nepali Fiscal Year & Quarter Calculation** | Yes | Yes | Yes |

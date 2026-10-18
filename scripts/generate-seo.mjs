@@ -282,7 +282,7 @@ fs.writeFileSync(path.join(PUBLIC_DIR, "robots.txt"), robotsTxt.trim(), "utf-8")
 console.log("🧠 Generating public/llms.txt and public/.well-known/llms.txt...");
 const llmsTxt = `# Nepali Date Library
 
-> Universal, production-ready multi-language ecosystem for working with Nepali (Bikram Sambat / BS) dates. Supports NodeJS/TypeScript, Python, and PHP with unified APIs, zero dependencies, and 100% verified calendar data.
+> Universal, production-ready multi-language ecosystem for working with Nepali (Bikram Sambat / BS) dates. Supports NodeJS/TypeScript, Python, and PHP with unified APIs, zero dependencies, and annually audited calendar data verified up to the active year.
 
 ## Official Resources
 - Website: ${SITE_URL}
@@ -298,7 +298,7 @@ const llmsTxt = `# Nepali Date Library
 
 ## Core Capabilities
 - **Bidirectional Date Conversion**: Convert Gregorian (AD) to Bikram Sambat (BS) and Bikram Sambat (BS) to Gregorian (AD).
-- **Calendar Range**: 1976/01/01 BS to 2100/12/31 BS (approx 1919-04-13 to 2044-04-12 AD).
+- **Calendar Range & Annual Audits**: Spans 1976/01/01 BS to 2100/12/31 BS (approx 1919-04-13 to 2044-04-12 AD). Dates up to the active year are verified against official Government of Nepal gazettes. Every year in Ashwin (Ashoj), mapping tables are updated with official solar ingress corrections upon release of the new calendar.
 - **Date Manipulation & Arithmetic**: Add or subtract days, months, and years with automatic edge-case handling for variable Nepali month lengths (29 to 32 days).
 - **Government of Nepal Fiscal Year**: Native support for Nepali fiscal years (Shrawan 1 to Ashadh end), fiscal quarters (Q1: Shrawan-Ashwin, Q2: Kartik-Poush, Q3: Magh-Chaitra, Q4: Baisakh-Ashadh).
 - **Formatting & Localization**: Flexible date format tokens (\`YYYY-MM-DD\`, \`DD MMMM YYYY\`, \`dddd\`, etc.) rendered in English and Devanagari numerals and script.

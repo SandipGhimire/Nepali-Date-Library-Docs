@@ -4,7 +4,10 @@ description: Historical calendar mapping table storing verified day counts for e
 icon: Database
 ---
 
-The `Constants::$NEPALI_DATE_MAP` data structure contains the official calendar matrix for the Bikram Sambat system spanning years 1976 through 2100 BS. Because Bikram Sambat months have variable day counts determined by astronomical solar calculations rather than fixed rules, this mapping table provides the definitive source of truth for conversions, day calculations, and month lengths.
+The `Constants::$NEPALI_DATE_MAP` data structure contains the calendar matrix for the Bikram Sambat system spanning years 1976 through 2100 BS. Because Bikram Sambat months have variable day counts determined by astronomical solar calculations rather than fixed rules, this mapping table provides the definitive source of truth for conversions, day calculations, and month lengths.
+
+> [!NOTE]
+> Dates up to the active calendar year are verified against official publications from the **Nepal Panchanga Nirnayak Samiti** (नेपाल पञ्चाङ्ग निर्णायक समिति). Every year around the month of **Ashwin (Ashoj)**, when the official government calendar is gazetted for the subsequent year, this mapping table is audited and updated with exact solar ingress corrections.
 
 ---
 

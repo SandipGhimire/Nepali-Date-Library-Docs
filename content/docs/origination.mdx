@@ -290,10 +290,10 @@ In the Gregorian calendar, determining if a year is a leap year requires a simpl
 ```
 In Bikram Sambat, **no such modular formula exists**. Because month lengths depend on the precise astronomical minute of the Sun's transit across constellations as observed from Kathmandu, month lengths are certified yearly by the **Nepal Panchanga Nirnayak Samiti**.
 
-### 2. High-Precision Ephemeris Lookup Tables
-Reliable date libraries must embed pre-computed, verified lookup matrices containing the exact month lengths for each historical and future Bikram Sambat year.
+### 2. Comprehensive Calendar Mapping & Annual Ashwin Verification
+Because modular formulas cannot predict month lengths, reliable date libraries must embed pre-computed lookup matrices containing verified month lengths for historical and modern Bikram Sambat years.
 
-The **Nepali Date Library** embeds validated ephemeris data covering **1976 BS through 2100 BS** (spanning more than 124 years), ensuring 100% deterministic arithmetic and conversions.
+The **Nepali Date Library** embeds calendar mapping data spanning **1976 BS through 2100 BS** (more than 124 years). Because the official Government of Nepal calendar for the upcoming year is released annually in the month of **Ashwin (Ashoj)** by the **Nepal Panchanga Nirnayak Samiti**, the library verifies dates up to the current active year and incorporates authoritative government updates annually upon publication.
 
 ### 3. Database Architecture Recommendation
 When architecting systems supporting Bikram Sambat:
