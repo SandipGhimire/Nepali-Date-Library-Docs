@@ -103,7 +103,6 @@ echo $bs->getFiscalYear(); // 2081/82
 - [Nepali Calendar (Patro)](https://nepali-pkg.date/calendar): Interactive Bikram Sambat monthly calendar with dual BS/AD dates.
 
 ## Complete Method Directory
-- [Nepali Date Library](https://nepali-pkg.date/docs): A comprehensive, multi-language library for working with Nepali (Bikram Sambat) dates.
 - [Contribution Guide](https://nepali-pkg.date/docs/contribution): Learn how to contribute to the Nepali Date Library ecosystem across Node.js, Python, PHP, and Documentation.
 - [Examples & Practical Recipes](https://nepali-pkg.date/docs/examples): Real-world patterns and cross-language code recipes for working with Nepali dates.
 - [Installation](https://nepali-pkg.date/docs/installation): Install Nepali Date Library in your project using your preferred package manager across Node.js, Python, or PHP.

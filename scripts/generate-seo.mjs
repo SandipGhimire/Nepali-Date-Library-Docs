@@ -128,6 +128,9 @@ for (const file of mdxFiles) {
   const frontmatter = parseFrontmatter(content);
   const url = fileToUrl(file.relativePath);
 
+  // Exclude redirecting route (/docs redirects to /docs/origination)
+  if (url === "/docs") continue;
+
   docPages.push({
     url,
     title: frontmatter.title || path.basename(file.relativePath, ".mdx"),
