@@ -1,0 +1,39 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(home)/layout,_N_T_/(home)/calendar/layout,_N_T_/(home)/calendar/page,_N_T_/calendar"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KGhvbWUp/calendar/__PAGE__"
+  ],
+  "prefetchHints": {
+    "hints": 64,
+    "slots": {
+      "children": {
+        "hints": 96,
+        "slots": {
+          "children": {
+            "hints": 96,
+            "slots": {
+              "children": {
+                "hints": 160,
+                "slots": null
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/059367fc75f06f78cf74e6377f97c80d29f1c3bc087cd0e54c860a79e9264c4f/$/calendar",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/(home)/calendar/page"
+    },
+    "isFallback": false
+  }
+}

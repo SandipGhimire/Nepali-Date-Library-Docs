@@ -1,0 +1,9 @@
+:HL["/_next/static/chunks/2yrkv_1nfhvdk.css","style"]
+:HL["/Logo/Dark/Logo.svg","image"]
+:HL["/Logo/Light/Logo.svg","image"]
+:HL["/Logo/Dark/Icon.svg","image"]
+:HL["/Logo/Light/Icon.svg","image"]
+3:[["children",{"s":"__PAGE__","h":160}]]
+2:[["children",{"s":"converter","h":96,"c":"$Q3"}]]
+1:[["children",{"s":"(home)","h":96,"c":"$Q2"}]]
+0:{"b":"wtrU15a3ye5gMbQRa6fIo","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
