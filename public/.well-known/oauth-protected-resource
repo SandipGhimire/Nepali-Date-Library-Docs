@@ -1,0 +1,11 @@
+{
+  "resource": "https://nepali-pkg.date",
+  "authorization_servers": [],
+  "scopes_supported": [
+    "public:read"
+  ],
+  "bearer_methods_supported": [
+    "header"
+  ],
+  "resource_documentation": "https://nepali-pkg.date/docs/overview"
+}

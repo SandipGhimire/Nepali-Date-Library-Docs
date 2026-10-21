@@ -1,0 +1,46 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://nepali-pkg.date/api",
+      "item": {
+        "href": "https://nepali-pkg.date"
+      },
+      "service-desc": {
+        "href": "https://nepali-pkg.date/.well-known/mcp/server-card.json",
+        "type": "application/json"
+      },
+      "service-doc": {
+        "href": "https://nepali-pkg.date/docs/overview",
+        "type": "text/html"
+      }
+    },
+    {
+      "anchor": "https://nepali-pkg.date/converter",
+      "item": {
+        "href": "https://nepali-pkg.date/converter"
+      },
+      "service-desc": {
+        "href": "https://nepali-pkg.date/.well-known/skills/index.json",
+        "type": "application/json"
+      },
+      "service-doc": {
+        "href": "https://nepali-pkg.date/docs/api-reference/conversion-utilities",
+        "type": "text/html"
+      }
+    },
+    {
+      "anchor": "https://nepali-pkg.date/calendar",
+      "item": {
+        "href": "https://nepali-pkg.date/calendar"
+      },
+      "service-desc": {
+        "href": "https://nepali-pkg.date/.well-known/mcp.json",
+        "type": "application/json"
+      },
+      "service-doc": {
+        "href": "https://nepali-pkg.date/docs/reference/nepali-calendar-system",
+        "type": "text/html"
+      }
+    }
+  ]
+}

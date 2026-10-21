@@ -1,0 +1,26 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/v1/server-card.schema.json",
+  "name": "date.nepali-pkg/nepali-date-mcp",
+  "version": "1.1.16",
+  "title": "Nepali Date Library & Calendar MCP Server",
+  "description": "Autonomous MCP server providing Bikram Sambat (BS) to Gregorian (AD) date conversions, Nepali calendar queries, fiscal year quarter lookups, and Devanagari date formatting.",
+  "websiteUrl": "https://nepali-pkg.date",
+  "repository": {
+    "url": "https://github.com/SandipGhimire/NepaliDate"
+  },
+  "transport": {
+    "type": "streamable-http",
+    "endpoint": "https://nepali-pkg.date/api/mcp"
+  },
+  "protocolVersion": "2025-11-25",
+  "capabilities": {
+    "resources": {},
+    "tools": {}
+  },
+  "_meta": {
+    "publisher": {
+      "name": "Sandip Ghimire",
+      "supportUrl": "https://github.com/SandipGhimire/NepaliDate/issues"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "version": "1.0",
+  "id": "nepali-date-library",
+  "title": "Nepali Date Library & Calendar",
+  "description": "Universal multi-language ecosystem for Bikram Sambat Nepali dates.",
+  "access": "open",
+  "endpoints": {
+    "site": "https://nepali-pkg.date",
+    "docs": "https://nepali-pkg.date/docs",
+    "converter": "https://nepali-pkg.date/converter",
+    "calendar": "https://nepali-pkg.date/calendar",
+    "search": "https://nepali-pkg.date/api/search",
+    "llms": "https://nepali-pkg.date/llms.txt"
+  }
+}

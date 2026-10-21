@@ -1,0 +1,18 @@
+{
+  "issuer": "https://nepali-pkg.date",
+  "authorization_endpoint": "https://nepali-pkg.date",
+  "token_endpoint": "https://nepali-pkg.date",
+  "response_types_supported": [
+    "none"
+  ],
+  "grant_types_supported": [
+    "none"
+  ],
+  "service_documentation": "https://nepali-pkg.date/docs",
+  "ui_locales_supported": [
+    "en",
+    "ne"
+  ],
+  "claims_supported": [],
+  "notes": "All Nepali Date Library resources are publicly accessible with no authentication required."
+}

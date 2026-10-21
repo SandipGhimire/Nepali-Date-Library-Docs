@@ -1,0 +1,17 @@
+{
+  "version": "1.0",
+  "name": "NepaliDateWebMCP",
+  "description": "Browser-accessible Model Context Protocol endpoints for client-side agents.",
+  "capabilities": {
+    "tools": [
+      {
+        "name": "convertDate",
+        "description": "Convert date between BS and AD"
+      },
+      {
+        "name": "getCalendar",
+        "description": "Get Bikram Sambat monthly calendar"
+      }
+    ]
+  }
+}

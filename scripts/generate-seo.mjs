@@ -1,7 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { createRequire } from "node:module";
 
+const require = createRequire(import.meta.url);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.resolve(__dirname, "..");
@@ -217,6 +219,7 @@ const robotsTxt = `# https://www.robotstxt.org/robotstxt.html
 # Nepali Date Library - Robots Configuration
 
 User-agent: *
+Content-Signal: search=yes, ai-train=yes, ai-input=yes
 Allow: /
 Disallow: /api/search
 
@@ -475,8 +478,89 @@ for (const doc of sortedDocPages) {
 
 fs.writeFileSync(path.join(PUBLIC_DIR, "llms-full.txt"), llmsFullTxt.trim(), "utf-8");
 
-// 5. Generate site.webmanifest
-console.log("📱 Generating public/site.webmanifest...");
+// 5. Generate Favicons and site.webmanifest
+console.log("📱 Generating Google-compliant favicons & site.webmanifest...");
+
+try {
+  let sharp;
+  try {
+    sharp = require("sharp");
+  } catch {
+    try {
+      const sharpPath = path.join(
+        ROOT_DIR,
+        "node_modules",
+        ".pnpm",
+        "sharp@0.35.5_@types+node@26.6.5",
+        "node_modules",
+        "sharp"
+      );
+      sharp = require(sharpPath);
+    } catch (e) {
+      console.warn("⚠️ Could not load sharp:", e.message);
+    }
+  }
+  if (sharp) {
+    const svgPath = path.join(PUBLIC_DIR, "Logo", "Dark", "Icon.svg");
+    if (fs.existsSync(svgPath)) {
+      const svg = fs.readFileSync(svgPath);
+
+      // 48x48 PNG (Google Search optimal)
+      await sharp(svg).resize(48, 48).png().toFile(path.join(PUBLIC_DIR, "favicon-48x48.png"));
+      // 96x96 PNG
+      await sharp(svg).resize(96, 96).png().toFile(path.join(PUBLIC_DIR, "favicon-96x96.png"));
+      // 180x180 PNG (Apple touch icon)
+      await sharp(svg).resize(180, 180).png().toFile(path.join(PUBLIC_DIR, "apple-touch-icon.png"));
+      // 192x192 PNG (PWA)
+      await sharp(svg).resize(192, 192).png().toFile(path.join(PUBLIC_DIR, "favicon-192x192.png"));
+      // 512x512 PNG (PWA large)
+      await sharp(svg).resize(512, 512).png().toFile(path.join(PUBLIC_DIR, "icon-512x512.png"));
+      // Copy SVG
+      fs.copyFileSync(svgPath, path.join(PUBLIC_DIR, "favicon.svg"));
+
+      // Generate multi-resolution ICO (16, 32, 48)
+      const sizes = [16, 32, 48];
+      const pngBuffers = [];
+      for (const size of sizes) {
+        const buf = await sharp(svg).resize(size, size).png().toBuffer();
+        pngBuffers.push({ size, buf });
+      }
+
+      const numImages = pngBuffers.length;
+      const headerLen = 6;
+      const dirEntryLen = 16;
+      let offset = headerLen + numImages * dirEntryLen;
+
+      const header = Buffer.alloc(headerLen);
+      header.writeUInt16LE(0, 0);
+      header.writeUInt16LE(1, 2);
+      header.writeUInt16LE(numImages, 4);
+
+      const entries = [];
+      for (const img of pngBuffers) {
+        const entry = Buffer.alloc(dirEntryLen);
+        entry.writeUInt8(img.size === 256 ? 0 : img.size, 0);
+        entry.writeUInt8(img.size === 256 ? 0 : img.size, 1);
+        entry.writeUInt8(0, 2);
+        entry.writeUInt8(0, 3);
+        entry.writeUInt16LE(1, 4);
+        entry.writeUInt16LE(32, 6);
+        entry.writeUInt32LE(img.buf.length, 8);
+        entry.writeUInt32LE(offset, 12);
+        offset += img.buf.length;
+        entries.push(entry);
+      }
+
+      const icoBuffer = Buffer.concat([header, ...entries, ...pngBuffers.map((p) => p.buf)]);
+      fs.writeFileSync(path.join(PUBLIC_DIR, "favicon.ico"), icoBuffer);
+      fs.writeFileSync(path.join(ROOT_DIR, "app", "favicon.ico"), icoBuffer);
+      console.log("✅ Google & Apple-compliant favicons created successfully!");
+    }
+  }
+} catch (err) {
+  console.warn("⚠️ Favicon generation notice:", err.message);
+}
+
 const manifest = {
   name: "Nepali Date Library & Converter",
   short_name: "NepaliDate",
@@ -488,13 +572,18 @@ const manifest = {
   theme_color: "#E1804B",
   icons: [
     {
-      src: "/Logo/Dark/Icon.svg",
+      src: "/favicon.svg",
       sizes: "any",
       type: "image/svg+xml",
       purpose: "any maskable",
     },
     {
-      src: "/Logo/Dark/Logo.png",
+      src: "/favicon-192x192.png",
+      sizes: "192x192",
+      type: "image/png",
+    },
+    {
+      src: "/icon-512x512.png",
       sizes: "512x512",
       type: "image/png",
     },
@@ -503,6 +592,343 @@ const manifest = {
 fs.writeFileSync(
   path.join(PUBLIC_DIR, "site.webmanifest"),
   JSON.stringify(manifest, null, 2),
+  "utf-8"
+);
+
+// 6. Generate Machine-Readable Agent Readiness Artifacts
+console.log("🤖 Generating Agent Readiness & Autonomous AI protocol files...");
+
+const wellKnownDir = path.join(PUBLIC_DIR, ".well-known");
+const mcpDir = path.join(wellKnownDir, "mcp");
+const skillsDir = path.join(wellKnownDir, "skills");
+const agentSkillsDir = path.join(wellKnownDir, "agent-skills");
+
+[wellKnownDir, mcpDir, skillsDir, agentSkillsDir].forEach((dir) => {
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+});
+
+// RFC 9727 API Catalog
+const apiCatalog = {
+  linkset: [
+    {
+      anchor: `${SITE_URL}/api`,
+      item: { href: SITE_URL },
+      "service-desc": {
+        href: `${SITE_URL}/.well-known/mcp/server-card.json`,
+        type: "application/json",
+      },
+      "service-doc": {
+        href: `${SITE_URL}/docs/overview`,
+        type: "text/html",
+      },
+    },
+    {
+      anchor: `${SITE_URL}/converter`,
+      item: { href: `${SITE_URL}/converter` },
+      "service-desc": {
+        href: `${SITE_URL}/.well-known/skills/index.json`,
+        type: "application/json",
+      },
+      "service-doc": {
+        href: `${SITE_URL}/docs/api-reference/conversion-utilities`,
+        type: "text/html",
+      },
+    },
+    {
+      anchor: `${SITE_URL}/calendar`,
+      item: { href: `${SITE_URL}/calendar` },
+      "service-desc": {
+        href: `${SITE_URL}/.well-known/mcp.json`,
+        type: "application/json",
+      },
+      "service-doc": {
+        href: `${SITE_URL}/docs/reference/nepali-calendar-system`,
+        type: "text/html",
+      },
+    },
+  ],
+};
+fs.writeFileSync(
+  path.join(wellKnownDir, "api-catalog"),
+  JSON.stringify(apiCatalog, null, 2),
+  "utf-8"
+);
+
+// MCP Server Card (SEP-2127)
+const mcpServerCard = {
+  $schema: "https://static.modelcontextprotocol.io/schemas/v1/server-card.schema.json",
+  name: "date.nepali-pkg/nepali-date-mcp",
+  version: "1.1.16",
+  title: "Nepali Date Library & Calendar MCP Server",
+  description:
+    "Autonomous MCP server providing Bikram Sambat (BS) to Gregorian (AD) date conversions, Nepali calendar queries, fiscal year quarter lookups, and Devanagari date formatting.",
+  websiteUrl: SITE_URL,
+  repository: {
+    url: "https://github.com/SandipGhimire/NepaliDate",
+  },
+  transport: {
+    type: "streamable-http",
+    endpoint: `${SITE_URL}/api/mcp`,
+  },
+  protocolVersion: "2025-11-25",
+  capabilities: {
+    resources: {},
+    tools: {},
+  },
+  _meta: {
+    publisher: {
+      name: "Sandip Ghimire",
+      supportUrl: "https://github.com/SandipGhimire/NepaliDate/issues",
+    },
+  },
+};
+fs.writeFileSync(
+  path.join(mcpDir, "server-card.json"),
+  JSON.stringify(mcpServerCard, null, 2),
+  "utf-8"
+);
+fs.writeFileSync(
+  path.join(wellKnownDir, "mcp.json"),
+  JSON.stringify(mcpServerCard, null, 2),
+  "utf-8"
+);
+
+// A2A Agent Card
+const agentCard = {
+  $schema: "https://agent2agent.info/schemas/v1/agent-card.json",
+  name: "NepaliDateAgent",
+  version: "1.1.16",
+  displayName: "Nepali Date & Patro AI Agent",
+  description:
+    "Specialized agent for Bikram Sambat date calculations, Gregorian-Bikram Sambat bidirectional conversions, Nepali calendar queries, and Nepali government fiscal accounting.",
+  homepage: SITE_URL,
+  provider: {
+    name: "Sandip Ghimire",
+    url: "https://github.com/SandipGhimire",
+  },
+  capabilities: {
+    conversational: true,
+    tools: true,
+    skills: [
+      "bs-to-ad-converter",
+      "ad-to-bs-converter",
+      "nepali-calendar-lookup",
+      "fiscal-year-calculator",
+    ],
+  },
+  protocols: ["a2a", "mcp"],
+  authentication: {
+    type: "none",
+  },
+  endpoints: {
+    catalog: `${SITE_URL}/.well-known/api-catalog`,
+    skills: `${SITE_URL}/.well-known/skills/index.json`,
+    mcp: `${SITE_URL}/.well-known/mcp/server-card.json`,
+    llms: `${SITE_URL}/llms.txt`,
+  },
+};
+fs.writeFileSync(
+  path.join(wellKnownDir, "agent-card.json"),
+  JSON.stringify(agentCard, null, 2),
+  "utf-8"
+);
+fs.writeFileSync(
+  path.join(wellKnownDir, "agent.json"),
+  JSON.stringify(agentCard, null, 2),
+  "utf-8"
+);
+
+// Agent Skills Index
+const skillsIndex = {
+  version: "1.0.0",
+  name: "nepali-date-skills",
+  description:
+    "Standard agent skills for Bikram Sambat calendar, date conversions, and fiscal accounting.",
+  skills: [
+    {
+      id: "bs-to-ad",
+      name: "Convert BS Date to AD Date",
+      description:
+        "Converts a Bikram Sambat (Nepali) date string (YYYY-MM-DD) into Gregorian (AD) equivalent.",
+      parameters: {
+        bsDate: {
+          type: "string",
+          description:
+            "Nepali date in YYYY-MM-DD format (1976-01-01 to 2100-12-31)",
+        },
+      },
+      documentation: `${SITE_URL}/docs/api-reference/conversion-utilities`,
+    },
+    {
+      id: "ad-to-bs",
+      name: "Convert AD Date to BS Date",
+      description:
+        "Converts a Gregorian (English/AD) date string into Bikram Sambat (BS) equivalent.",
+      parameters: {
+        adDate: {
+          type: "string",
+          description: "Gregorian date in YYYY-MM-DD format",
+        },
+      },
+      documentation: `${SITE_URL}/docs/api-reference/conversion-utilities`,
+    },
+    {
+      id: "nepali-calendar-days",
+      name: "Get Monthly Nepali Calendar Grid",
+      description:
+        "Returns 42-day calendar matrix for any Bikram Sambat year and month with Saturday and Sunday detection.",
+      parameters: {
+        year: { type: "number", description: "BS year (1976 - 2100)" },
+        month: {
+          type: "number",
+          description: "0-indexed BS month (0=Baisakh ... 11=Chaitra)",
+        },
+      },
+      documentation: `${SITE_URL}/calendar`,
+    },
+    {
+      id: "nepali-fiscal-year",
+      name: "Nepali Government Fiscal Year Calculator",
+      description:
+        "Calculates Nepali government fiscal year and current quarter (Q1 Shrawan-Ashoj, Q2 Kartik-Poush, Q3 Magh-Chaitra, Q4 Baisakh-Ashadh).",
+      documentation: `${SITE_URL}/docs/guides/fiscal-year-accounting`,
+    },
+  ],
+};
+fs.writeFileSync(
+  path.join(skillsDir, "index.json"),
+  JSON.stringify(skillsIndex, null, 2),
+  "utf-8"
+);
+fs.writeFileSync(
+  path.join(agentSkillsDir, "index.json"),
+  JSON.stringify(skillsIndex, null, 2),
+  "utf-8"
+);
+
+// Agent Auth Spec (Markdown & Machine-Readable)
+const authMd = `# Agent Authentication & Access Specification
+
+## Overview
+Nepali Date Library provides zero-friction, public, and open access for all autonomous AI agents, LLM assistants, search crawlers, and automated workflows.
+
+## Authentication Model
+- **Auth Type**: None (Public Open Access)
+- **API Keys**: Not required
+- **Bearer Tokens**: Not required
+- **OAuth Credentials**: Not required
+- **Rate Limits**: 60 requests/minute per IP (sufficient for real-time agent queries)
+- **License**: MIT Open Source
+
+## Machine-Readable Endpoints
+- Search Index: \`${SITE_URL}/api/search\`
+- LLM Knowledge Base: \`${SITE_URL}/llms.txt\`
+- Full AI Documentation: \`${SITE_URL}/llms-full.txt\`
+- MCP Server Card: \`${SITE_URL}/.well-known/mcp/server-card.json\`
+- Agent Skills Index: \`${SITE_URL}/.well-known/skills/index.json\`
+- A2A Agent Card: \`${SITE_URL}/.well-known/agent-card.json\`
+- API Catalog: \`${SITE_URL}/.well-known/api-catalog\`
+`;
+fs.writeFileSync(path.join(wellKnownDir, "auth.md"), authMd, "utf-8");
+fs.writeFileSync(path.join(PUBLIC_DIR, "auth.md"), authMd, "utf-8");
+
+// OAuth / OIDC Public Endpoints
+const oauthMetadata = {
+  issuer: SITE_URL,
+  authorization_endpoint: SITE_URL,
+  token_endpoint: SITE_URL,
+  response_types_supported: ["none"],
+  grant_types_supported: ["none"],
+  service_documentation: `${SITE_URL}/docs`,
+  ui_locales_supported: ["en", "ne"],
+  claims_supported: [],
+  notes:
+    "All Nepali Date Library resources are publicly accessible with no authentication required.",
+};
+fs.writeFileSync(
+  path.join(wellKnownDir, "oauth-authorization-server"),
+  JSON.stringify(oauthMetadata, null, 2),
+  "utf-8"
+);
+fs.writeFileSync(
+  path.join(wellKnownDir, "openid-configuration"),
+  JSON.stringify(oauthMetadata, null, 2),
+  "utf-8"
+);
+
+// OAuth Protected Resource (RFC 9728)
+const oauthProtectedResource = {
+  resource: SITE_URL,
+  authorization_servers: [],
+  scopes_supported: ["public:read"],
+  bearer_methods_supported: ["header"],
+  resource_documentation: `${SITE_URL}/docs/overview`,
+};
+fs.writeFileSync(
+  path.join(wellKnownDir, "oauth-protected-resource"),
+  JSON.stringify(oauthProtectedResource, null, 2),
+  "utf-8"
+);
+
+// Web Bot Auth (HTTP Message Signatures Directory)
+const botAuth = {
+  version: "1.0",
+  policy: "permissive",
+  description:
+    "Nepali Date Library welcomes all authenticated and autonomous AI web agents conforming to IETF HTTP message signatures.",
+  keys: [],
+};
+fs.writeFileSync(
+  path.join(wellKnownDir, "http-message-signatures-directory"),
+  JSON.stringify(botAuth, null, 2),
+  "utf-8"
+);
+
+// Agent Resource Descriptor (ARD)
+const ard = {
+  version: "1.0",
+  id: "nepali-date-library",
+  title: "Nepali Date Library & Calendar",
+  description:
+    "Universal multi-language ecosystem for Bikram Sambat Nepali dates.",
+  access: "open",
+  endpoints: {
+    site: SITE_URL,
+    docs: `${SITE_URL}/docs`,
+    converter: `${SITE_URL}/converter`,
+    calendar: `${SITE_URL}/calendar`,
+    search: `${SITE_URL}/api/search`,
+    llms: `${SITE_URL}/llms.txt`,
+  },
+};
+fs.writeFileSync(
+  path.join(wellKnownDir, "ard.json"),
+  JSON.stringify(ard, null, 2),
+  "utf-8"
+);
+
+// WebMCP
+const webmcp = {
+  version: "1.0",
+  name: "NepaliDateWebMCP",
+  description:
+    "Browser-accessible Model Context Protocol endpoints for client-side agents.",
+  capabilities: {
+    tools: [
+      {
+        name: "convertDate",
+        description: "Convert date between BS and AD",
+      },
+      {
+        name: "getCalendar",
+        description: "Get Bikram Sambat monthly calendar",
+      },
+    ],
+  },
+};
+fs.writeFileSync(
+  path.join(wellKnownDir, "webmcp.json"),
+  JSON.stringify(webmcp, null, 2),
   "utf-8"
 );
 

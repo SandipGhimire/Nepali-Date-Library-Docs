@@ -44,10 +44,16 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
   icons: {
     icon: [
-      { url: "/Logo/Dark/Icon.svg", type: "image/svg+xml" },
-      { url: "/Logo/Dark/Logo.png", sizes: "512x512", type: "image/png" },
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/favicon-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
     ],
-    apple: [{ url: "/Logo/Dark/Icon.svg", type: "image/svg+xml" }],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
   },
   alternates: {
     canonical: "./",
@@ -89,9 +95,16 @@ export const metadata: Metadata = {
     },
   },
   category: "technology",
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+    yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION || undefined,
+  },
   other: {
     "ai-content-declaration": "documentation,educational",
     "applicable-device": "pc,mobile",
+    "rating": "General",
+    "revisit-after": "1 days",
+    "Content-Signal": "search=yes, ai-train=yes, ai-input=yes",
     ...(ADSENSE_CLIENT_ID ? { "google-adsense-account": ADSENSE_CLIENT_ID } : {}),
   },
 };
@@ -103,9 +116,18 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Favicons explicitly optimized for Google Search Bot & Apple Touch */}
+        <link rel="icon" href="/favicon.ico" sizes="48x48" />
+        <link rel="icon" href="/favicon-48x48.png" type="image/png" sizes="48x48" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+
         {/* Machine-readable LLMs & AI indexing links */}
         <link rel="help" href="/llms.txt" title="LLM Context Specification" />
         <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Full AI Knowledge Context" />
+        <link rel="service-desc" type="application/linkset+json" href="/.well-known/api-catalog" title="RFC 9727 API Catalog" />
+        <link rel="mcp-server-card" type="application/json" href="/.well-known/mcp/server-card.json" title="MCP Server Card" />
+        <link rel="agent-card" type="application/json" href="/.well-known/agent-card.json" title="A2A Agent Card" />
       </head>
       <body className="flex flex-col min-h-screen">
         {/* Google AdSense Verification & Loader (Non-blocking afterInteractive prevents hydration conflicts) */}

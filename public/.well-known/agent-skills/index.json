@@ -1,0 +1,53 @@
+{
+  "version": "1.0.0",
+  "name": "nepali-date-skills",
+  "description": "Standard agent skills for Bikram Sambat calendar, date conversions, and fiscal accounting.",
+  "skills": [
+    {
+      "id": "bs-to-ad",
+      "name": "Convert BS Date to AD Date",
+      "description": "Converts a Bikram Sambat (Nepali) date string (YYYY-MM-DD) into Gregorian (AD) equivalent.",
+      "parameters": {
+        "bsDate": {
+          "type": "string",
+          "description": "Nepali date in YYYY-MM-DD format (1976-01-01 to 2100-12-31)"
+        }
+      },
+      "documentation": "https://nepali-pkg.date/docs/api-reference/conversion-utilities"
+    },
+    {
+      "id": "ad-to-bs",
+      "name": "Convert AD Date to BS Date",
+      "description": "Converts a Gregorian (English/AD) date string into Bikram Sambat (BS) equivalent.",
+      "parameters": {
+        "adDate": {
+          "type": "string",
+          "description": "Gregorian date in YYYY-MM-DD format"
+        }
+      },
+      "documentation": "https://nepali-pkg.date/docs/api-reference/conversion-utilities"
+    },
+    {
+      "id": "nepali-calendar-days",
+      "name": "Get Monthly Nepali Calendar Grid",
+      "description": "Returns 42-day calendar matrix for any Bikram Sambat year and month with Saturday and Sunday detection.",
+      "parameters": {
+        "year": {
+          "type": "number",
+          "description": "BS year (1976 - 2100)"
+        },
+        "month": {
+          "type": "number",
+          "description": "0-indexed BS month (0=Baisakh ... 11=Chaitra)"
+        }
+      },
+      "documentation": "https://nepali-pkg.date/calendar"
+    },
+    {
+      "id": "nepali-fiscal-year",
+      "name": "Nepali Government Fiscal Year Calculator",
+      "description": "Calculates Nepali government fiscal year and current quarter (Q1 Shrawan-Ashoj, Q2 Kartik-Poush, Q3 Magh-Chaitra, Q4 Baisakh-Ashadh).",
+      "documentation": "https://nepali-pkg.date/docs/guides/fiscal-year-accounting"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://agent2agent.info/schemas/v1/agent-card.json",
+  "name": "NepaliDateAgent",
+  "version": "1.1.16",
+  "displayName": "Nepali Date & Patro AI Agent",
+  "description": "Specialized agent for Bikram Sambat date calculations, Gregorian-Bikram Sambat bidirectional conversions, Nepali calendar queries, and Nepali government fiscal accounting.",
+  "homepage": "https://nepali-pkg.date",
+  "provider": {
+    "name": "Sandip Ghimire",
+    "url": "https://github.com/SandipGhimire"
+  },
+  "capabilities": {
+    "conversational": true,
+    "tools": true,
+    "skills": [
+      "bs-to-ad-converter",
+      "ad-to-bs-converter",
+      "nepali-calendar-lookup",
+      "fiscal-year-calculator"
+    ]
+  },
+  "protocols": [
+    "a2a",
+    "mcp"
+  ],
+  "authentication": {
+    "type": "none"
+  },
+  "endpoints": {
+    "catalog": "https://nepali-pkg.date/.well-known/api-catalog",
+    "skills": "https://nepali-pkg.date/.well-known/skills/index.json",
+    "mcp": "https://nepali-pkg.date/.well-known/mcp/server-card.json",
+    "llms": "https://nepali-pkg.date/llms.txt"
+  }
+}
