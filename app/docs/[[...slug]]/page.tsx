@@ -137,14 +137,29 @@ export async function generateMetadata(props: PageProps<"/docs/[[...slug]]">): P
   const pagePath = `/docs/${slugArray.join("/")}`;
   const canonicalUrl = `${SITE_URL}${pagePath}`;
 
-  const formattedTitle =
+  // Title will be interpolated into layout template: `%s | Nepali Date Library`
+  const pageTitle =
     langInfo.code !== "general"
-      ? `${page.data.title} (${langInfo.name}) - Nepali Date Library`
-      : `${page.data.title} - Nepali Date Documentation`;
+      ? `${page.data.title} (${langInfo.badge})`
+      : page.data.title;
 
-  const description =
-    page.data.description ||
-    `Official ${langInfo.name} API reference and documentation for ${page.data.title} in the Nepali Date Library.`;
+  const fullTitle = `${pageTitle} | ${SITE_NAME}`;
+
+  const baseDesc = page.data.description?.trim() || "";
+  let description = baseDesc;
+
+  if (langInfo.code !== "general") {
+    // Unique language-specific search snippet to prevent duplicate description warnings
+    description = `[${langInfo.badge}] ${baseDesc} Includes syntax, parameters, and code examples for ${langInfo.name}.`;
+    if (description.length > 160) {
+      description = `[${langInfo.badge}] ${baseDesc}`;
+      if (description.length > 155) {
+        description = description.slice(0, 152).trim() + "...";
+      }
+    }
+  } else if (!description) {
+    description = `Official guide for ${page.data.title} in the Nepali Date (Bikram Sambat) multi-language ecosystem.`;
+  }
 
   const keywords = [
     page.data.title.toLowerCase(),
@@ -168,15 +183,15 @@ export async function generateMetadata(props: PageProps<"/docs/[[...slug]]">): P
   ];
 
   return {
-    title: formattedTitle,
+    title: pageTitle,
     description,
     keywords,
     alternates: {
-      canonical: pagePath,
+      canonical: canonicalUrl,
     },
     openGraph: {
       type: "article",
-      title: formattedTitle,
+      title: fullTitle,
       description,
       url: canonicalUrl,
       siteName: SITE_NAME,
@@ -185,13 +200,13 @@ export async function generateMetadata(props: PageProps<"/docs/[[...slug]]">): P
           url: `${SITE_URL}/Logo/Dark/Logo.png`,
           width: 1200,
           height: 630,
-          alt: formattedTitle,
+          alt: fullTitle,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: formattedTitle,
+      title: fullTitle,
       description,
       images: [`${SITE_URL}/Logo/Dark/Logo.png`],
     },

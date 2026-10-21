@@ -11,7 +11,9 @@ import {
 } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Nepali Calendar (Bikram Sambat Patro) | Online BS & AD Calendar",
+  title: {
+    absolute: "Nepali Calendar (Patro) - Online Bikram Sambat & AD Calendar",
+  },
   description:
     "Free interactive online Nepali Calendar (Bikram Sambat / BS Patro). Clean monthly grid with dual Nepali and English dates, red Saturday & Sunday weekend highlights, and today date indicator.",
   keywords: [
@@ -33,11 +35,11 @@ export const metadata: Metadata = {
     "nepali calendar saturday holiday",
   ],
   alternates: {
-    canonical: "/calendar",
+    canonical: `${SITE_URL}/calendar`,
   },
   openGraph: {
     type: "website",
-    title: "Nepali Calendar (Bikram Sambat Patro) | Online BS & AD Calendar",
+    title: "Nepali Calendar (Patro) - Online Bikram Sambat & AD Calendar",
     description:
       "Interactive Bikram Sambat (BS) monthly calendar grid. Features dual Nepali & English dates, red weekend highlights for Saturday and Sunday, and instant date details.",
     url: `${SITE_URL}/calendar`,

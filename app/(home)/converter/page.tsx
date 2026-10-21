@@ -6,9 +6,11 @@ import type { Metadata } from "next";
 import { SITE_URL, SITE_NAME, getConverterWebAppSchema, getFAQSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Nepali Date Converter - BS to AD & AD to BS Online | Bikram Sambat Calendar",
+  title: {
+    absolute: "Nepali Date Converter - BS to AD & AD to BS Online",
+  },
   description:
-    "Free online Nepali Date Converter. Instant bidirectional Bikram Sambat (BS) to Gregorian (AD) conversion, Nepali age calculation, date difference, calendar arithmetic, and Nepal fiscal year quarters.",
+    "Free online Nepali Date Converter. Instant bidirectional Bikram Sambat (BS) to Gregorian (AD) conversion, Nepali age calculation, date difference, and fiscal quarters.",
   keywords: [
     "nepali date converter",
     "bs to ad converter",
@@ -26,11 +28,11 @@ export const metadata: Metadata = {
     "bikram sambat to gregorian converter",
   ],
   alternates: {
-    canonical: "/converter",
+    canonical: `${SITE_URL}/converter`,
   },
   openGraph: {
     type: "website",
-    title: "Nepali Date Converter - BS to AD & AD to BS Online | Bikram Sambat Calendar",
+    title: "Nepali Date Converter - BS to AD & AD to BS Online",
     description:
       "Free interactive online Nepali Date Converter. Instant BS to AD and AD to BS conversion, Nepali age calculation, date arithmetic, and Nepal fiscal quarters.",
     url: `${SITE_URL}/converter`,

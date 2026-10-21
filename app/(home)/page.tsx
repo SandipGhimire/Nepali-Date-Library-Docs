@@ -10,17 +10,19 @@ import {
 } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: DEFAULT_TITLE,
+  title: {
+    absolute: "Nepali Date - Bikram Sambat Library & Converter (BS to AD)",
+  },
   description: DEFAULT_DESCRIPTION,
   keywords: SEO_KEYWORDS,
   alternates: {
-    canonical: "/",
+    canonical: `${SITE_URL}/`,
   },
   openGraph: {
     type: "website",
-    title: DEFAULT_TITLE,
+    title: "Nepali Date - Bikram Sambat Library & Converter (BS to AD)",
     description: DEFAULT_DESCRIPTION,
-    url: SITE_URL,
+    url: `${SITE_URL}/`,
     siteName: SITE_NAME,
     images: [
       {

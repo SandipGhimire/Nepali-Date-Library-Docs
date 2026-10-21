@@ -131,10 +131,25 @@ for (const file of mdxFiles) {
   // Exclude redirecting route (/docs redirects to /docs/origination)
   if (url === "/docs") continue;
 
+  const firstSegment = file.relativePath.split("/")[0]?.toLowerCase();
+  let langLabel = "";
+  if (firstSegment === "nodejs") langLabel = "NodeJS / TypeScript";
+  else if (firstSegment === "python") langLabel = "Python";
+  else if (firstSegment === "php") langLabel = "PHP";
+
+  let title = frontmatter.title || path.basename(file.relativePath, ".mdx");
+  let description = frontmatter.description || "";
+
+  if (langLabel) {
+    const badge = firstSegment === "nodejs" ? "NodeJS" : firstSegment.toUpperCase();
+    title = `${title} (${badge})`;
+    description = `[${badge}] ${description} Official API reference and code examples for ${langLabel}.`;
+  }
+
   docPages.push({
     url,
-    title: frontmatter.title || path.basename(file.relativePath, ".mdx"),
-    description: frontmatter.description || "",
+    title,
+    description,
     lastmod: stats.mtime.toISOString().split("T")[0],
     fullPath: file.fullPath,
     content,
