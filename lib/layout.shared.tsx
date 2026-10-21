@@ -1,5 +1,5 @@
 import type { BaseLayoutProps, LayoutTab } from "@/layouts/shared";
-import { BookOpen, RefreshCw } from "lucide-react";
+import { BookOpen, RefreshCw, CalendarDays } from "lucide-react";
 import { HeaderGithubStar } from "@/components/github-star";
 import { NpmLogo, PackagistLogo, PypiLogo } from "@/components/icons/package-logos";
 
@@ -56,6 +56,12 @@ export function baseOptions(): BaseLayoutProps {
         icon: <RefreshCw className="size-4" />,
         text: "Converter",
         url: "/converter",
+        active: "nested-url",
+      },
+      {
+        icon: <CalendarDays className="size-4" />,
+        text: "Calendar",
+        url: "/calendar",
         active: "nested-url",
       },
       {

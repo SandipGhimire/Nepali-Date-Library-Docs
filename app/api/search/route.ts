@@ -35,6 +35,28 @@ const extraIndexes = [
       ],
     },
   },
+  {
+    title: "Nepali Calendar - Online Bikram Sambat (BS) Patro",
+    description:
+      "Free interactive online Nepali Calendar (Bikram Sambat / BS Patro). Clean monthly grid with dual Nepali and English dates, red Saturday & Sunday weekend highlights, and today date indicator.",
+    url: "/calendar",
+    id: "/calendar",
+    structuredData: {
+      headings: [
+        { id: "calendar", content: "Nepali Calendar (Bikram Sambat Patro)" },
+        { id: "monthly-grid", content: "Monthly Calendar Grid" },
+        { id: "weekend-highlights", content: "Saturday & Sunday Weekend Highlights" },
+        { id: "dual-dates", content: "Nepali & English Date Display" },
+      ],
+      contents: [
+        {
+          heading: undefined,
+          content:
+            "View official Nepali Calendar (Bikram Sambat Patro) online. Full monthly view with dual BS and AD dates, Saturday holidays in red, today's date in Devanagari, and Nepal government fiscal year info.",
+        },
+      ],
+    },
+  },
 ];
 
 export const { GET } = createSearchAPI("advanced", {

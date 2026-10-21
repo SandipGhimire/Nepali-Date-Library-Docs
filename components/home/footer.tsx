@@ -66,6 +66,11 @@ export function Footer({ className }: { className?: string }) {
                 </Link>
               </li>
               <li>
+                <Link href="/calendar" className="hover:text-fd-foreground text-fd-primary font-medium transition-colors">
+                  Nepali Calendar (Patro)
+                </Link>
+              </li>
+              <li>
                 <Link href="/docs/nodejs/fiscal-year" className="hover:text-fd-foreground transition-colors">
                   Fiscal Year & Quarters
                 </Link>

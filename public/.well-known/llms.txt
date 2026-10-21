@@ -5,6 +5,7 @@
 ## Official Resources
 - Website: https://nepali-pkg.date
 - Date Converter Suite: https://nepali-pkg.date/converter
+- Nepali Calendar (Patro): https://nepali-pkg.date/calendar
 - Full Documentation: https://nepali-pkg.date/docs
 - Complete AI Reference: https://nepali-pkg.date/llms-full.txt
 - GitHub Organization: https://github.com/SandipGhimire/Nepali-Date
@@ -99,6 +100,7 @@ echo $bs->getFiscalYear(); // 2081/82
 - [Python Documentation](https://nepali-pkg.date/docs/python): Pythonic API reference and datetime interoperability.
 - [PHP Documentation](https://nepali-pkg.date/docs/php): Composer package reference and DateTime compatibility.
 - [Online Converter](https://nepali-pkg.date/converter): Interactive web tools for instant conversions and age calculation.
+- [Nepali Calendar (Patro)](https://nepali-pkg.date/calendar): Interactive Bikram Sambat monthly calendar with dual BS/AD dates.
 
 ## Complete Method Directory
 - [Nepali Date Library](https://nepali-pkg.date/docs): A comprehensive, multi-language library for working with Nepali (Bikram Sambat) dates.

@@ -2,6 +2,7 @@ import { RootProvider } from "@fumadocs/base-ui/provider/next";
 import { ADSENSE_CLIENT_ID } from "@/lib/adsense";
 import type { ReactNode } from "react";
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import "./global.css";
 import {
   SITE_URL,
@@ -91,6 +92,7 @@ export const metadata: Metadata = {
   other: {
     "ai-content-declaration": "documentation,educational",
     "applicable-device": "pc,mobile",
+    ...(ADSENSE_CLIENT_ID ? { "google-adsense-account": ADSENSE_CLIENT_ID } : {}),
   },
 };
 
@@ -101,26 +103,33 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="author" href={AUTHOR_INFO.url} />
         {/* Machine-readable LLMs & AI indexing links */}
         <link rel="help" href="/llms.txt" title="LLM Context Specification" />
         <link rel="alternate" type="text/plain" href="/llms-full.txt" title="Full AI Knowledge Context" />
-        {/* Google AdSense Verification & Loader (Compile-time) */}
-        {ADSENSE_CLIENT_ID && (
-          <>
-            <meta name="google-adsense-account" content={ADSENSE_CLIENT_ID} />
-            <script
-              async
-              src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`}
-              crossOrigin="anonymous"
-            />
-          </>
-        )}
-        {/* Global JSON-LD Structured Data */}
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }} />
       </head>
       <body className="flex flex-col min-h-screen">
+        {/* Google AdSense Verification & Loader (Non-blocking afterInteractive prevents hydration conflicts) */}
+        {ADSENSE_CLIENT_ID && (
+          <Script
+            id="google-adsense"
+            strategy="afterInteractive"
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`}
+            crossOrigin="anonymous"
+          />
+        )}
+        {/* Global JSON-LD Structured Data */}
+        <script
+          id="schema-website"
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
+        <script
+          id="schema-software"
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+        />
         <RootProvider
           theme={{
             scriptProps: {

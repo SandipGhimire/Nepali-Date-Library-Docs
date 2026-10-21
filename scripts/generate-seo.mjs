@@ -72,7 +72,7 @@ function fileToUrl(relativePath) {
  * Calculates priority based on URL depth and importance
  */
 function getPriority(url) {
-  if (url === "/" || url === "/converter") return "1.0";
+  if (url === "/" || url === "/converter" || url === "/calendar") return "1.0";
   if (
     url === "/docs/origination" ||
     url === "/docs/overview" ||
@@ -108,7 +108,7 @@ function getPriority(url) {
  * Calculates change frequency
  */
 function getChangeFreq(url) {
-  if (url === "/" || url === "/converter") return "daily";
+  if (url === "/" || url === "/converter" || url === "/calendar") return "daily";
   if (url.startsWith("/docs/nodejs") || url.startsWith("/docs/python") || url.startsWith("/docs/php")) {
     return "weekly";
   }
@@ -163,6 +163,15 @@ const allPages = [
     title: "Nepali Date Converter - BS to AD & AD to BS Converter Online",
     description:
       "Instant bidirectional Bikram Sambat (BS) to Gregorian (AD) date converter, age calculator, date difference, and Nepal fiscal quarters inspector.",
+    lastmod: today,
+    priority: "1.0",
+    changefreq: "daily",
+  },
+  {
+    url: "/calendar",
+    title: "Nepali Calendar (Bikram Sambat Patro) | Online BS & AD Calendar",
+    description:
+      "Free interactive online Nepali Calendar (Bikram Sambat / BS Patro). Clean monthly grid with dual Nepali and English dates, red Saturday & Sunday weekend highlights, and today date indicator.",
     lastmod: today,
     priority: "1.0",
     changefreq: "daily",
@@ -287,6 +296,7 @@ const llmsTxt = `# Nepali Date Library
 ## Official Resources
 - Website: ${SITE_URL}
 - Date Converter Suite: ${SITE_URL}/converter
+- Nepali Calendar (Patro): ${SITE_URL}/calendar
 - Full Documentation: ${SITE_URL}/docs
 - Complete AI Reference: ${SITE_URL}/llms-full.txt
 - GitHub Organization: https://github.com/SandipGhimire/Nepali-Date
@@ -381,6 +391,7 @@ echo $bs->getFiscalYear(); // 2081/82
 - [Python Documentation](${SITE_URL}/docs/python): Pythonic API reference and datetime interoperability.
 - [PHP Documentation](${SITE_URL}/docs/php): Composer package reference and DateTime compatibility.
 - [Online Converter](${SITE_URL}/converter): Interactive web tools for instant conversions and age calculation.
+- [Nepali Calendar (Patro)](${SITE_URL}/calendar): Interactive Bikram Sambat monthly calendar with dual BS/AD dates.
 
 ## Complete Method Directory
 ${sortedDocPages

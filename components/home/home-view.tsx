@@ -16,6 +16,7 @@ import {
   ChevronRight,
   FileCode2,
   RefreshCw,
+  CalendarDays,
 } from "lucide-react";
 import { GithubStarButton } from "@/components/github-star";
 import { WovenBackground } from "@/components/home/woven-background";
@@ -291,6 +292,14 @@ export function HomeView() {
               >
                 <RefreshCw className="h-4 w-4" />
                 <span>Date Converter (BS ↔ AD)</span>
+              </Link>
+
+              <Link
+                href="/calendar"
+                className="inline-flex items-center justify-center gap-2 rounded-xl border border-fd-border bg-fd-card/80 px-5 py-3 text-sm font-semibold text-fd-foreground backdrop-blur-sm transition-all hover:bg-fd-accent hover:border-fd-border/80"
+              >
+                <CalendarDays className="h-4 w-4 text-fd-primary" />
+                <span>Nepali Calendar</span>
               </Link>
 
               <GithubStarButton className="px-5 py-3 text-sm" />

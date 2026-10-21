@@ -179,6 +179,36 @@ export function getConverterWebAppSchema() {
 }
 
 /**
+ * Generates JSON-LD schema for the interactive Nepali Calendar WebApp
+ */
+export function getCalendarWebAppSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Nepali Calendar - Online Bikram Sambat (BS) Patro",
+    url: `${SITE_URL}/calendar`,
+    description:
+      "Free interactive online Nepali Calendar (Bikram Sambat / BS Patro). View monthly calendar grid with English and Nepali dates, Saturday weekend holidays, and today highlights.",
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "All Web Browsers",
+    browserRequirements: "Requires JavaScript",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+    },
+    featureList: [
+      "Bikram Sambat (BS) Monthly Calendar Grid",
+      "Corresponding Gregorian (AD) Date Overlay",
+      "Saturday and Sunday Weekend Red Highlights",
+      "Today Date Indicator in Devanagari",
+      "Nepali Government Fiscal Year (Aarthik Barsha) Details",
+      "Quick Navigation across 1976 to 2100 BS",
+    ],
+  };
+}
+
+/**
  * FAQ Schema for high-ranking AI and search snippets
  */
 export function getFAQSchema(

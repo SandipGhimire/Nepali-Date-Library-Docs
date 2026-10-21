@@ -73,7 +73,9 @@ export default function HomePage() {
   return (
     <>
       <script
+        id="home-faq-schema"
         type="application/ld+json"
+        suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <HomeView />
