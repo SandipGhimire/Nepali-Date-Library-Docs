@@ -12,6 +12,9 @@ export function proxy(request: NextRequest) {
     !request.nextUrl.pathname.includes(".")
   ) {
     const url = request.nextUrl.clone();
+    // Next.js server runs internally on HTTP behind Cloudflare/reverse proxy
+    // Forcing 'http:' prevents TLS handshake failures on internal rewrite loopbacks
+    url.protocol = "http:";
     url.pathname = "/api/markdown-negotiate";
     url.searchParams.set("path", request.nextUrl.pathname);
     return NextResponse.rewrite(url);

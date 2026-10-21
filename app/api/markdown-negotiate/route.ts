@@ -86,6 +86,12 @@ Interactive Bikram Sambat monthly calendar covering 1976 BS to 2100 BS with Satu
           const raw = fs.readFileSync(/*turbopackIgnore: true*/ file, "utf-8");
           // Strip YAML frontmatter
           markdownContent = raw.replace(/^---[\s\S]*?---\n*/, "");
+          // Clean dense JSX wrappers so agents receive pure Markdown
+          markdownContent = markdownContent
+            .replace(/<Callout(?:\s+type="[^"]*")?>([\s\S]*?)<\/Callout>/g, "> $1")
+            .replace(/<\/?(?:Tabs|Tab|Cards|Card|Step|Steps|Accordion|Accordions)[^>]*>/g, "")
+            .replace(/\n{3,}/g, "\n\n")
+            .trim();
           break;
         }
       }
@@ -104,12 +110,16 @@ Interactive Bikram Sambat monthly calendar covering 1976 BS to 2100 BS with Satu
     markdownContent = "# Nepali Date Library\nUniversal multi-language library for Bikram Sambat Nepali dates.";
   }
 
+  // Calculate estimated tokens (~4 chars per token)
+  const tokenCount = Math.max(1, Math.ceil(markdownContent.length / 4));
+
   return new NextResponse(markdownContent, {
     status: 200,
     headers: {
       "Content-Type": "text/markdown; charset=utf-8",
       "Content-Signal": "search=yes, ai-train=yes, ai-input=yes",
       "Cache-Control": "public, max-age=3600, s-maxage=86400",
+      "x-markdown-tokens": String(tokenCount),
     },
   });
 }
